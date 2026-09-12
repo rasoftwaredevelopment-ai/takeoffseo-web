@@ -73,7 +73,7 @@ If Cloudflare proxy (orange cloud) is enabled, SSL mode should be **Full (strict
 | `/services/90-day-foundation` | 90-Day Foundation for local businesses (typical A$6,500, from A$4,500) |
 | `/services/ninety-day-foundation` | 301 → `/services/90-day-foundation` |
 | `/services/monthly-retainer` | Monthly retainer for local businesses (from A$2,000–2,500/mo) |
-| `/industries/pool-landscape` | First vertical: SEQ pool builders and landscapers |
+| `/industries/pool-landscape` | Pool & landscape in SEQ — Clarity path for outdoor trades |
 | `/about` | About TakeoffSEO \| Gold Coast, QLD |
 | `/contact` | Contact |
 

@@ -214,7 +214,7 @@ export const verticalTeaserCopy = {
 } as const;
 
 export const poolLandscapeCopy = {
-  eyebrow: "South East Queensland · Outdoor trades",
+  eyebrow: "Pool & landscape · SEQ",
   h1: "Google + AI visibility for SEQ pool builders and landscapers",
   lede:
     "Pool builders and landscapers in SEQ win more of the right jobs when they show up in Google and AI answers. Here’s how TakeoffSEO’s Clarity path works for outdoor trades: free Visibility Snapshot on your name, Audit for the fix map, Foundation or Retainer when you’re ready to build. Based on the Gold Coast. We work across South East Queensland.",
@@ -387,7 +387,7 @@ export const poolLandscapeFaqs: FaqItem[] = [
     id: "who-helps-seq-pool",
     question: "Who helps SEQ pool builders with this work?",
     answer:
-      "You want a partner who knows outdoor trades and local findability — or solid in-house capacity. TakeoffSEO runs the Clarity path for SEQ pool and landscape on this page. Start with a free Snapshot.",
+      "You want a partner who knows outdoor trades and local findability — or solid in-house capacity. TakeoffSEO’s Clarity path for SEQ pool builders and landscapers starts with a free Visibility Snapshot.",
   },
   {
     id: "seo-for-landscapers-seq",
@@ -406,12 +406,6 @@ export const poolLandscapeFaqs: FaqItem[] = [
     question: "When do I need a specialist instead of a generalist?",
     answer:
       "A generalist fits broad brand and ads. Choose SEO/GEO when the gap is getting found in Google and AI. Unsure which you need? Run a free Snapshot, then decide on Audit or hold.",
-  },
-  {
-    id: "only-pool-landscape",
-    question: "Do you only work with pool and landscape companies?",
-    answer:
-      "No. TakeoffSEO helps local businesses get found on Google and in AI search. This page goes deep on pool and landscape in SEQ — the same Clarity path we use across local businesses.",
   },
 ];
 
