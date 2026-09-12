@@ -121,6 +121,7 @@ export const homeCopy = {
   lede: [
     "Buyers already ask Google and AI who to hire.",
     "If you’re not in those answers, the next job goes to someone who is.",
+    "We get local businesses found — then you take off.",
   ].join(" "),
   whereJobsTitle: "Where jobs get decided",
   whereJobsBody:
@@ -133,16 +134,15 @@ export const homeCopy = {
     "Based on the Gold Coast. Across South East Queensland.",
   primaryCta: "Free Visibility Snapshot",
   takeoffCta: "Start your takeoff — free Snapshot",
+  foundCta: "Get found — free Snapshot",
   secondaryCta: `Talk to us · ${brand.phoneDisplay}`,
   contactAlt: `${brand.phoneDisplay} · ${brand.email}`,
   takeoffHook: "Get found. Then take off.",
   websiteSeoNote:
     "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
   closeTitle: "Clarity first. Takeoff next.",
-  closeBody: "See if buyers can find you.",
-  homeCloseTitle: "Ready for takeoff?",
-  homeCloseBody:
-    "See if buyers can find you. Free Visibility Snapshot — then the Audit and ninety-day build when you want the map and the work (priced in proposal).",
+  closeBody:
+    "Start with a free Visibility Snapshot. Audit and ninety-day work when you want the map and the build — priced in proposal.",
 } as const;
 
 export const homeDiagrams = {
@@ -157,7 +157,7 @@ export const homeDiagrams = {
     src: "/images/owner-lens/offer-path-diagram.png",
     title: "How we work",
     caption: "Start free. Pay when you want the full map or the build.",
-    alt: "Snapshot to Audit to Foundation path: Free Snapshot, then Audit (get the fix map, priced in proposal), 90-Day Foundation (fix site + Google profile), Monthly Retainer (keep it moving).",
+    alt: "Snapshot to Audit to Foundation path: Free Snapshot, then Audit (get the fix map, priced in proposal), 90-Day Foundation (fix site + Google profile), Monthly Retainer (keep it moving, scoped in proposal).",
   },
   snapshotDoor: {
     src: "/images/owner-lens/snapshot-door-diagram.png",
@@ -279,7 +279,7 @@ export const clarityPathSteps = [
   },
   {
     name: "Monthly Retainer",
-    line: "Keep it moving",
+    line: "Keep it moving (scoped in proposal)",
   },
 ] as const;
 
@@ -360,13 +360,13 @@ export const snapshotFaqs: FaqItem[] = [
     id: "whats-in-snapshot",
     question: "What is in the free Visibility Snapshot?",
     answer:
-      "Free check: 5–8 AI prompts on your name plus a thin Maps note. Full baseline and fix map are the Audit — quoted after Snapshot / in proposal.",
+      "Free check: 5–8 AI prompts on your name plus a thin Maps note. Full baseline and fix map are the paid Audit (priced in proposal).",
   },
   {
     id: "vs-paid-audit",
     question: "How is the Snapshot different from the paid audit?",
     answer:
-      "Snapshot is free and shows the gaps. Audit maps what to fix first — full baseline, prioritised plan, next step — quoted after Snapshot / in proposal.",
+      "Snapshot is free and shows the gaps. Audit maps what to fix first — full baseline, prioritised plan, next step (priced in proposal).",
   },
   {
     id: "how-long",
@@ -386,7 +386,7 @@ export const auditFaqs: FaqItem[] = [
   {
     id: "audit-cost",
     question: "What does the audit cost?",
-    answer: "Quoted in your proposal after we see scope.",
+    answer: "Priced in your proposal after we see scope.",
   },
   {
     id: "in-out-1500",
@@ -422,7 +422,7 @@ export const foundationFaqs: FaqItem[] = [
     id: "whats-included-4500-6500",
     question: "What is included in the 90-Day Foundation?",
     answer:
-      "The work on your website and Google profile: technical and on-page fixes, a clearer page structure, name-address-phone consistency, and pages that answer hire questions. Measurement at the end. Scoped after the Snapshot; quoted in the proposal.",
+      "The work on your website and Google profile: technical and on-page fixes, a clearer page structure, name-address-phone consistency, and pages that answer hire questions. Measurement at the end. Scoped after the Snapshot / in proposal.",
   },
   {
     id: "90-days-realistic",

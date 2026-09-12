@@ -33,10 +33,13 @@ export default function HomePage() {
             <p className="mt-6 text-lg leading-relaxed text-paper-200 sm:text-xl">
               {homeCopy.lede}
             </p>
-            <div className="mt-9">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
-                {homeCopy.takeoffCta}
+                {homeCopy.primaryCta}
               </ButtonLink>
+              <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+                {homeCopy.secondaryCta}
+              </a>
             </div>
           </div>
         </div>
@@ -90,10 +93,9 @@ export default function HomePage() {
         <CtaBand
           showDoor
           showLocation
-          showTalk
-          title={homeCopy.homeCloseTitle}
-          body={homeCopy.homeCloseBody}
-          primaryLabel={homeCopy.takeoffCta}
+          title={homeCopy.closeTitle}
+          body={homeCopy.closeBody}
+          primaryLabel={homeCopy.foundCta}
         />
       </div>
     </div>

@@ -12,7 +12,7 @@ export function ClarityPathDiagram() {
       <div
         className="stagger mt-4 grid gap-3 md:grid-cols-4 md:items-end"
         role="img"
-        aria-label="Snapshot to Audit to Foundation path: Free Snapshot — see if buyers can find you; Audit — get the fix map (priced in proposal); 90-Day Foundation — fix site + Google profile; Monthly Retainer — keep it moving"
+        aria-label="Snapshot to Audit to Foundation path: Free Snapshot — see if buyers can find you; Audit — get the fix map (priced in proposal); 90-Day Foundation — fix site + Google profile; Monthly Retainer — keep it moving (scoped in proposal)"
       >
         {clarityPathSteps.map((step, index) => (
           <div
