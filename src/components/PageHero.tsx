@@ -33,7 +33,7 @@ export function PageHero({
         </p>
       ) : null}
       <h1
-        className={`mt-4 font-serif text-display text-balance ${titleClass}`}
+        className={`mt-4 font-serif font-semibold text-display text-balance ${titleClass}`}
       >
         {title}
       </h1>

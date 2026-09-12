@@ -34,7 +34,22 @@ export function HeroVideo() {
 
     apply();
     motion.addEventListener("change", apply);
-    return () => motion.removeEventListener("change", apply);
+
+    const layer = video.parentElement;
+    const onScroll = () => {
+      if (!layer || motion.matches) {
+        if (layer) layer.style.transform = "";
+        return;
+      }
+      layer.style.transform = `translate3d(0, ${window.scrollY * 0.25}px, 0)`;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      motion.removeEventListener("change", apply);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (

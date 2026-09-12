@@ -24,7 +24,7 @@ export default function HomePage() {
         <div className="hero-copy">
           <div className="hero-stagger max-w-4xl">
             <p className="hero-punch">{homeCopy.eyebrow}</p>
-            <h1 id="visibility-heading" className="font-serif text-display">
+            <h1 id="visibility-heading" className="font-serif font-semibold text-display">
               {homeCopy.h1}
             </h1>
             <p className="hero-lede">{homeCopy.lede}</p>
@@ -65,7 +65,7 @@ export default function HomePage() {
 
       <section
         aria-labelledby="visibility-why-heading"
-        className="section-band section-band--ink"
+        className="section-band section-band--navy"
       >
         <div className="section-inner">
           <h2 id="visibility-why-heading" className="section-h2">
@@ -87,6 +87,22 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <figure className="photo-band">
+        <picture>
+          <source srcSet="/images/bands/night-city.webp" type="image/webp" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/bands/night-city.jpg"
+            alt=""
+            className="photo-band__image"
+          />
+        </picture>
+        <div className="photo-band__scrim" aria-hidden />
+        <figcaption className="photo-band__copy">
+          <p>{homeCopy.locationLine}</p>
+        </figcaption>
+      </figure>
 
       <section
         aria-labelledby="how-takeoff-heading"

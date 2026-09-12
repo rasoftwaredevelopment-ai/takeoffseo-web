@@ -39,12 +39,12 @@ const config: Config = {
       },
       fontSize: {
         display: [
-          "clamp(2.85rem, 8vw, 6.15rem)",
-          { lineHeight: "0.98", letterSpacing: "-0.04em" },
+          "clamp(2.2rem, 6.4vw, 4.375rem)",
+          { lineHeight: "0.98", letterSpacing: "-0.05em", fontWeight: "600" },
         ],
       },
       maxWidth: {
-        site: "80rem",
+        site: "100rem",
       },
       boxShadow: {
         card: "0 1px 0 rgba(18,16,12,0.06), 0 18px 40px -20px rgba(11,26,43,0.28)",
