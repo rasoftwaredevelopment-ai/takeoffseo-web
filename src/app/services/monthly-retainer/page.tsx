@@ -16,17 +16,6 @@ export default function MonthlyRetainerPage() {
       offer={offer}
       title={retainerPage.title}
       lede={retainerPage.lede}
-      extras={
-        <section className="card mt-12 p-6 sm:p-8">
-          <h2 className="font-serif text-2xl text-navy sm:text-3xl">
-            Diagnosis, implementation, measurement
-          </h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-ink-muted">
-            We sell agreed work and clear reporting — not ranking or lead
-            promises.
-          </p>
-        </section>
-      }
       includes={[
         "Agreed priority Google and AI work each month.",
         "Clear priorities drawn from the Audit or Foundation.",

@@ -353,61 +353,61 @@ export const poolLandscapeFaqs: FaqItem[] = [
     id: "pool-found-on-google",
     question: "How do pool builders get found on Google?",
     answer:
-      "Service and area pages, a coherent Google Business Profile and service area, and a crawlable site. Start with a Snapshot, then the Audit.",
+      "Get found for the pool work buyers search — clear service pages, a strong Google Business Profile / service-area setup, and a site Google can read. Start with a free Visibility Snapshot on your name. Audit when you want the fix map.",
   },
   {
     id: "landscape-enquiry-search",
     question: "How do landscapers win enquiry from search?",
     answer:
-      "Site structure, local consistency, and pages that answer what buyers ask. A Snapshot is the gap check — we do not promise a lead volume.",
+      "Win more landscaping enquiry from search by matching how buyers look: service-area clarity, local consistency, and pages that answer what they ask. Snapshot shows the gaps. Audit maps what to fix first.",
   },
   {
     id: "what-is-ai-visibility",
     question: "What is AI visibility?",
     answer:
-      "Whether AI mentions or recommends you for hire-intent questions. We track mention, cite, or none — we do not invent AI rankings.",
+      "AI visibility is whether tools like ChatGPT, Gemini, Perplexity, and Google AI Overviews mention you when someone asks who to hire. We check mention / cite / none against real buyer prompts — then build the pages and signals that help you show up.",
   },
   {
     id: "why-invisible-in-ai",
     question: "Why would a trade be invisible in AI answers?",
     answer:
-      "Thin presence, unclear local signals, or pages that do not give a clear answer. A Snapshot shows today’s gap. We do not guarantee a future mention.",
+      "Most invisible trades have thin sites, unclear service-area signals, or pages that don’t answer hire questions. A free Snapshot on your name shows where you stand today. Audit maps the fix list.",
   },
   {
     id: "seo-vs-ads",
     question: "How is this different from ads?",
     answer:
-      "Ads work while the campaign runs. SEO and GEO are lasting findability. Our path is Snapshot → Audit → Foundation or Retainer. Ads only if scoped separately.",
+      "Ads buy attention while the campaign runs. SEO and GEO build lasting findability in Google and AI answers. Our path: Snapshot → Audit → Foundation or Retainer. Ads only if you want that scoped separately.",
   },
   {
     id: "who-helps-seq-pool",
     question: "Who helps SEQ pool builders with this work?",
     answer:
-      "A specialist or in-house capacity. Our first vertical is SEQ pool and landscape; other local businesses when it is a fit. Start with a free Snapshot.",
+      "You want a partner who knows outdoor trades and local findability — or solid in-house capacity. TakeoffSEO’s first vertical is SEQ pool and landscape. Other local businesses when it’s a fit. Start with a free Snapshot.",
   },
   {
     id: "seo-for-landscapers-seq",
     question: "What should landscapers in SEQ look for in SEO?",
     answer:
-      "Diagnose, implement, measure, and plain reporting. Not “best agency” claims or ranking promises.",
+      "Look for diagnose → implement → measure, a clear fix map, and plain reporting. That’s our path: Snapshot shows the gaps, Audit maps what to fix first, Foundation builds it in 90 days.",
   },
   {
     id: "geo-outdoor-trades-qld",
     question: "What does GEO mean for outdoor trades in Queensland?",
     answer:
-      "AI-answer visibility for hire-intent plus Google SEO: service clarity, local signals, and extractable answers. No fake citation badges.",
+      "GEO for outdoor trades means showing up in AI answers for hire-intent prompts, alongside Google SEO — clear services, local signals, and extractable answers on money pages so the right jobs can find you.",
   },
   {
     id: "agency-vs-generalist",
     question: "When do I need a specialist instead of a generalist?",
     answer:
-      "A generalist fits broad brand and ads work. SEO and GEO fit when findability is the gap. Unsure? Start with a Snapshot.",
+      "A generalist fits broad brand and ads. Choose SEO/GEO when the gap is getting found in Google and AI. Unsure which you need? Run a free Snapshot, then decide on Audit or hold.",
   },
   {
     id: "only-pool-landscape",
     question: "Do you only work with pool and landscape companies?",
     answer:
-      "No. Pool and landscape is the first marketing vertical. Delivery is local SEO and GEO where it is a fit.",
+      "No. Pool and landscape is our first vertical — the depth lives on this page. Delivery is local SEO and GEO where it’s a fit. Other local businesses when it’s a fit.",
   },
 ];
 
