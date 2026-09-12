@@ -102,6 +102,9 @@ body {
 .hero-stagger > *:nth-child(5) {
   animation-delay: 0.36s;
 }
+.hero-stagger > *:nth-child(6) {
+  animation-delay: 0.44s;
+}
 
 .reveal {
   opacity: 0;

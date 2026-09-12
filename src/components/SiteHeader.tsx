@@ -43,7 +43,7 @@ export function SiteHeader() {
             </svg>
           </span>
           <span className="font-serif text-xl tracking-tight text-navy">
-            {brand.name}
+            Takeoff<span className="text-copper">SEO</span>
           </span>
         </Link>
 
@@ -73,7 +73,7 @@ export function SiteHeader() {
                   </span>
                 </button>
                 <div
-                  className={`absolute left-0 top-full z-50 min-w-64 pt-2 ${
+                  className={`absolute left-0 top-full z-50 min-w-72 pt-2 ${
                     menuOpen === item.label
                       ? "block"
                       : "hidden group-hover:block group-focus-within:block"
@@ -109,7 +109,7 @@ export function SiteHeader() {
           >
             {brand.phoneDisplay}
           </a>
-          <ButtonLink href={routes.contact}>Free Snapshot</ButtonLink>
+          <ButtonLink href={routes.freeCheck}>Free check</ButtonLink>
         </nav>
 
         <button
@@ -162,11 +162,11 @@ export function SiteHeader() {
               {brand.phoneDisplay}
             </a>
             <ButtonLink
-              href={routes.contact}
+              href={routes.freeCheck}
               className="mt-1"
               onClick={() => setOpen(false)}
             >
-              Get a free Visibility Snapshot
+              Get your free check
             </ButtonLink>
           </div>
         </nav>

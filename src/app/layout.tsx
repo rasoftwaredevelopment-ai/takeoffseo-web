@@ -25,7 +25,7 @@ const serif = IBM_Plex_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${brand.name} | ${brand.h1}`,
+    default: `${brand.name} | ${brand.h1} ${brand.h1Sub}`,
     template: `%s | ${brand.name}`,
   },
   description: brand.tagline,
@@ -39,12 +39,12 @@ export const metadata: Metadata = {
     locale: "en_AU",
     url: siteUrl,
     siteName: brand.name,
-    title: `${brand.name} | ${brand.h1}`,
+    title: `${brand.name} | ${brand.h1} ${brand.h1Sub}`,
     description: brand.tagline,
   },
   twitter: {
     card: "summary",
-    title: `${brand.name} | ${brand.h1}`,
+    title: `${brand.name} | ${brand.h1} ${brand.h1Sub}`,
     description: brand.tagline,
   },
   robots: {

@@ -4,13 +4,19 @@ import { absoluteUrl, routes } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     routes.home,
-    routes.snapshot,
-    routes.audit,
-    routes.foundation,
-    routes.retainer,
+    routes.freeCheck,
+    routes.pricing,
+    routes.tuneUp,
+    routes.fixUp,
+    routes.newWebsite,
+    routes.monthly,
+    routes.howItWorks,
+    routes.whoItsFor,
     routes.about,
+    routes.faq,
     routes.contact,
-    routes.poolLandscape,
+    routes.privacy,
+    routes.terms,
   ];
 
   return paths.map((path) => ({

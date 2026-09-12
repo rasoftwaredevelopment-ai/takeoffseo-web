@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TakeoffSEO Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1a2b'/%3E%3Cpath d='M8 22 L22 8 M14 8 h8 v8' stroke='%23c9843a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{--paper:#fffdf8;--paper-2:#f6f0e4;--paper-3:#efe6d6;--ink:#0b1a2b;--ink-2:#3d3830;--ink-3:#6b645a;--line:#e6dcc9;--line-2:#d2c4ae;--accent:#9a5f2c;--accent-2:#c9843a;--accent-soft:#f8ecdc;--ok:#1a6a48;--ok-soft:#e6f2ea;--warn:#b7791f;--warn-soft:#fdf3dc;--bad:#a83a2a;--bad-soft:#fbe7e3;--serif:"IBM Plex Serif",Georgia,serif;--sans:"IBM Plex Sans",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);font-size:15px;line-height:1.5;color:var(--ink);background:var(--paper-2)}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;margin:0 0 .4em;line-height:1.2}
+h1{font-size:1.7rem}h2{font-size:1.25rem}h3{font-size:1.05rem}
+p{margin:0 0 .8em}
+.app{display:grid;min-height:100vh;grid-template-columns:1fr}
+@media(min-width:900px){.app{grid-template-columns:230px 1fr}}
+.side{background:var(--ink);color:#e8dcc8;padding:18px 14px;display:none;flex-direction:column;gap:4px}
+@media(min-width:900px){.side{display:flex;position:sticky;top:0;height:100vh}}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--serif);font-weight:600;font-size:1.15rem;text-decoration:none;padding:6px 8px 18px}
+.brand svg{width:26px;height:26px}
+.side a.nav{color:#e8dcc8;text-decoration:none;padding:9px 12px;border-radius:8px;font-weight:500;display:flex;justify-content:space-between;align-items:center}
+.side a.nav:hover{background:#16324c;color:#fff}
+.side a.nav.active{background:#16324c;color:#fff}
+.side .cnt{background:#c9843a;color:#fff;font-size:.72rem;font-weight:600;border-radius:999px;padding:1px 8px}
+.side .cnt.red{background:var(--bad)}
+.side .foot{margin-top:auto;font-size:.78rem;color:#9a8f7c;padding:12px 8px 0;border-top:1px solid #1c2c3f}
+.topbar{background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;position:sticky;top:0;z-index:20}
+@media(min-width:900px){.topbar{display:none}}
+.topbar select{background:#16324c;color:#fff;border:1px solid #3a4a5c;border-radius:8px;padding:8px 10px;font:inherit}
+.app>div{min-width:0}
+main{padding:20px 16px 60px;max-width:1240px;width:100%;min-width:0}
+@media(min-width:900px){main{padding:28px 32px 80px}}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:20px}
+.head p{color:var(--ink-3);margin:0}
+.banner{background:var(--warn-soft);border:1px solid #ecd9a8;border-radius:10px;padding:10px 14px;font-size:.9rem;margin-bottom:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{margin-top:0}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.kpi .v{font-family:var(--serif);font-size:1.7rem;font-weight:600;line-height:1.1}
+.kpi .l{font-size:.8rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+.kpi .s{font-size:.85rem;color:var(--ink-2);margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:8px;border:1.5px solid transparent;background:var(--accent);color:#fff;font:inherit;font-weight:600;font-size:.9rem;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:#7f4c20}
+.btn.sec{background:#fff;color:var(--ink);border-color:var(--line-2)}
+.btn.sec:hover{border-color:var(--ink);background:#fff}
+.btn.sm{padding:6px 10px;font-size:.82rem}
+.btn.ghost{background:transparent;color:var(--accent);border-color:transparent;padding-left:4px;padding-right:4px}
+.btn.danger{background:var(--bad)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sp{justify-content:space-between}
+input,select,textarea{width:100%;padding:9px 11px;border:1.5px solid var(--line-2);border-radius:8px;font:inherit;font-size:.95rem;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent-2);outline-offset:1px}
+textarea{min-height:90px;resize:vertical}
+label{display:block;font-size:.82rem;font-weight:600;margin-bottom:4px;color:var(--ink-2)}
+.f{margin-bottom:12px}
+.f2{display:grid;gap:12px}
+@media(min-width:600px){.f2{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper-2);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)}
+tr:last-child td{border-bottom:none}
+tr.click{cursor:pointer}tr.click:hover td{background:#fdfaf3}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--paper-3);color:var(--ink-2);white-space:nowrap}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}.tag.warn{background:var(--warn-soft);color:var(--warn)}.tag.bad{background:var(--bad-soft);color:var(--bad)}.tag.acc{background:var(--accent-soft);color:var(--accent)}.tag.sample{background:#e9eef5;color:#3b5878}
+.muted{color:var(--ink-3)}.small{font-size:.85rem}
+.empty{color:var(--ink-3);padding:18px;text-align:center;border:1.5px dashed var(--line-2);border-radius:10px;background:transparent}
+/* kanban */
+.kan{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);gap:12px;overflow-x:auto;padding-bottom:12px}
+.col{background:var(--paper-3);border-radius:12px;padding:10px;min-height:300px}
+.col h4{margin:4px 6px 10px;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);display:flex;justify-content:space-between}
+.col.over{outline:2px dashed var(--accent-2)}
+.kcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;cursor:grab;font-size:.9rem}
+.kcard:active{cursor:grabbing}
+.kcard b{display:block;font-weight:600}
+.kcard .m{color:var(--ink-3);font-size:.8rem;margin-top:3px;display:flex;justify-content:space-between;gap:6px}
+.kcard.late{border-color:var(--bad)}
+/* checklist */
+.chk{list-style:none;padding:0;margin:0}
+.chk li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
+.chk li:last-child{border-bottom:none}
+.chk input{width:18px;height:18px;margin-top:3px;flex:none;accent-color:var(--accent)}
+.chk .done{text-decoration:line-through;color:var(--ink-3)}
+.bar{height:8px;background:var(--paper-3);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent-2)}
+.timeline{list-style:none;padding:0;margin:0;border-left:2px solid var(--line-2)}
+.timeline li{padding:0 0 12px 16px;position:relative;font-size:.9rem}
+.timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent-2);border:2px solid var(--paper-2)}
+.timeline .t{color:var(--ink-3);font-size:.78rem}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto}
+.tabs button{background:none;border:none;padding:10px 14px;font:inherit;font-weight:600;color:var(--ink-3);border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+.tabs button.on{color:var(--ink);border-color:var(--accent)}
+pre.email{white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;font-family:var(--sans);font-size:.92rem;margin:0 0 10px}
+.alert{border-radius:10px;padding:10px 14px;font-size:.9rem;margin-bottom:8px;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.alert.bad{background:var(--bad-soft);color:var(--bad)}.alert.warn{background:var(--warn-soft);color:#7a5210}
+.alert a{color:inherit;font-weight:600}
+dialog{border:none;border-radius:14px;padding:0;max-width:560px;width:calc(100% - 32px);box-shadow:0 30px 80px -30px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(11,26,43,.5)}
+dialog .in{padding:22px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none;z-index:99}
+.toast.show{opacity:1}
+.hint{font-size:.82rem;color:var(--ink-3);margin-top:4px}
+.stage-select{max-width:220px}
+.back{font-size:.85rem;color:var(--ink-3);text-decoration:none;display:inline-block;margin-bottom:8px}
+.back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div>
+    <div class="topbar">
+      <a class="brand" href="#/dashboard" style="padding:0"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#16324c"/><path d="M8 22 L22 8 M14 8 h8 v8" stroke="#c9843a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Admin</a>
+      <select id="mobileNav" aria-label="Go to"></select>
+    </div>
+    <main id="main"></main>
+  </div>
+</div>
+<dialog id="dlg"><div class="in" id="dlgIn"></div></dialog>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------------- constants ---------------- */
+const STAGES = [
+  ['new','New lead'],['check','Check sent'],['follow','Following up'],['booked','Booked'],['active','Active'],['delivered','Delivered'],['monthly','Monthly'],['dormant','Dormant'],['lost','Lost']
+];
+const STAGE_NAME = Object.fromEntries(STAGES);
+const PKG = {
+  tune:{name:'Profile Tune-Up',price:490,hours:6,buffer:3,pay:'full',items:[
+    'Baseline captured: profile screenshot, categories, review count, Insights (calls, clicks, directions, last 28 days)',
+    'Primary category set to the most profitable job; secondary categories added for every other service',
+    'Every service added with a one-sentence description in customer words',
+    'Service area set to where they actually work; address hidden if service-area business',
+    'Hours set, including known public holidays',
+    'Business description written (750 chars max), no keyword stuffing',
+    'Phone, website, quote/booking links checked and matching the site exactly',
+    '10+ real photos named and uploaded; logo and cover set; stock or irrelevant photos removed',
+    '5–8 common questions asked and answered from the owner account',
+    'Duplicate listings searched; flagged for removal or merged; ticket recorded',
+    'Name, address, phone identical on 10 directories (Apple Maps, Bing, Yellow Pages, True Local, Yelp, Hotfrog, Localsearch, Facebook, industry directory, +1)',
+    'Review-request link created and text template written in client voice; sent with how-to',
+    'Tracking: Insights baseline saved; GA4 call-click event if site exists',
+    'Quality check (SOP-16) on the profile, read as a customer',
+    'Handover note written (what changed, keep doing, what next)',
+    '20-minute handover call done'
+  ]},
+  fix:{name:'Website Fix-Up',price:1900,hours:20,buffer:5,pay:'half',items:[
+    'Everything in Profile Tune-Up (run that checklist too)',
+    'Baseline: Search Console clicks/impressions (3 months), GA4 enquiries, page list, PageSpeed mobile score, phone screenshots',
+    'Competitor look: 2–3 businesses appearing where client doesn\'t; two lines each',
+    'The 20 searches that matter written and grouped by service',
+    'One-page plan sent (T-plan) and signed off by client before any change',
+    'Technical fixes done and logged: mobile layout, image compression, broken links, unreachable pages, thin/duplicate pages, HTTPS, titles/descriptions, one H1 per page',
+    'Service page 1 written, approved by client',
+    'Service page 2 written, approved',
+    'Service page 3 written, approved',
+    'Service page 4 written, approved',
+    'Service page 5 written, approved',
+    'Area page 1 written (real suburbs, real jobs), approved',
+    'Area page 2 written, approved',
+    'Homepage: first line says what and where; services linked; phone visible on a phone without scrolling',
+    'Tap-to-call on every page; short form tested end to end',
+    'Tracking: GA4 events for call clicks, form submits, quote clicks; Search Console verified; data arriving',
+    'Google profile matched to the site: service names, areas, links to right pages',
+    'Quality check (SOP-16) on every page, on a phone',
+    'Before-and-after report written and sent (T9) with what-next note',
+    '30-minute handover call done'
+  ]},
+  site:{name:'New Website',price:3900,hours:40,buffer:10,pay:'half',items:[
+    'Everything in Profile Tune-Up (run that checklist too)',
+    'Baseline: old URLs exported, Search Console data, pages with traffic (or note "no site")',
+    'Jobs conversation done (30–45 min) and recorded in the questions sheet',
+    'The 20 searches that matter written and grouped',
+    'Site plan (one page): every page, purpose, title, content; platform and hosting cost stated; signed off',
+    'Domain and hosting in client\'s name, client\'s card; DNS access confirmed',
+    'Build shell: theme, one accent colour, logo/colours, readable fonts, header phone, footer ABN and areas',
+    'Pages written and built (up to 8), each approved by client (two rounds included)',
+    'Photos chosen, cropped, compressed, named, alt text written',
+    'Forms tested end to end: submits, emails client, thank-you shows',
+    'Tracking: GA4 with call/form/quote events; Search Console verified',
+    'Redirects: every old URL mapped and tested; no 404s for anything with traffic',
+    'Launch checklist: HTTPS, mobile, speed, titles/descriptions, sitemap, robots, favicon, 404 page, privacy page with ABN',
+    'Google profile linked to new pages; services and areas matched',
+    'Quality check (SOP-16) on every page, on a phone, on the live domain',
+    '20-minute how-to-edit video recorded and sent',
+    'Launch report sent (T9); final invoice on go-live',
+    '30-day fix window task set'
+  ]},
+  monthly:{name:'Monthly Plan',price:690,hours:4,buffer:0,pay:'monthly',items:[]}
+};
+const MONTHLY_ITEMS = {
+  steady:['Last month\'s numbers reviewed; two lines written','This month\'s list sent (T11) and agreed','1 page written or improved, approved','Profile: 2 posts, new photos, questions answered, hours checked','Every new review replied to (drafted/approved)','3 of 10 directories spot-checked','Search Console errors, broken links, speed checked; small fixes done','Friday updates sent each week','One-page report sent (T12)'],
+  growth:['Last month\'s numbers reviewed; two lines written','This month\'s list sent (T11) and agreed','Page 1 written or improved, approved','Page 2 written or improved, approved','Page 3 written or improved, approved','Profiles (up to 3): 2 posts each, photos, Q&A, hours','Every new review replied to','3 of 10 directories spot-checked','Search Console, links, speed checked; fixes done','Competitor watch: who moved on the 20 searches and why','Friday updates sent each week','One-page report sent (T12)','30-minute call held']
+};
+const MONTHLY_PRICE = {steady:690, growth:1190};
+const MONTHLY_HOURS = {steady:4, growth:8};
+const SOURCES = ['Website: free check','Website: package form','Website: contact','Own Google profile','Referral: client','Referral: partner','Local group','Outreach','Phone','In person','Other'];
+const GBP_GAPS = ['Only one category','Services not listed or incomplete','Service area wrong or missing','Hours missing or wrong','No/weak description','Fewer than 10 photos or stock photos','No Q&A','Fewer than 10 reviews','No recent reviews (90 days)','Reviews not replied to','Duplicate listing found','Name or phone doesn\'t match website','Website link missing or wrong'];
+
+const TEMPLATES = [
+ {id:'T1',name:'Auto-reply (instant)',subject:'Got your free check request, {first}',body:`Thanks {first}. I've got your details for {business}.\n\nI'll search for you the way a customer would, on Google, Google Maps and one AI tool, and email you one page within two business days: where you show up, what's missing, and the three things I'd fix first.\n\nNo call needed. If I have a question first, I'll email.\n\nAlex\nTakeoffSEO · 0497 878 930`},
+ {id:'T3',name:'7-day follow-up',subject:'Re: Your free check: {business}',body:`Hi {first}, did the check make sense? Anything in it you'd like me to explain? Alex`},
+ {id:'T4',name:'30-day nudge',subject:'Re: Your free check: {business}',body:`Hi {first},\n\nOne thing I noticed since: [specific useful observation].\n\nIf you'd like the {rec} done, it's {recprice} and the full list of what's included is at takeoffseo.com/{recslug}. If not, no worries at all.\n\nAlex`},
+ {id:'T5',name:'Quarterly check-in',subject:'Still here',body:`Hi {first}, still here if you ever want that {rec} done. Prices are the same and on the site. No pressure. Alex`},
+ {id:'T6',name:'Booking confirmation + invoice',subject:'{pkg} for {business}: agreement, invoice and finish date',body:`Hi {first},\n\nThanks for booking the {pkg}. Here's everything in one place.\n\nWhat you get: the full list at takeoffseo.com/{pkgslug}. That list is the job. When it's all ticked, it's done.\nPrice: {price} plus GST. {payterms}.\nFinish date: {finish}. If I miss it for reasons on my side, the second half isn't due until the list is done. If I'm waiting on access or photos from you, the date moves by the same amount and I'll tell you.\nAgreement: attached, one page.\nInvoice: attached, due in 7 days.\n\nOnce it's paid I'll send what I need from you, and we start.\n\nAlex\nTakeoffSEO · 0497 878 930`},
+ {id:'T7',name:'Onboarding (payment received)',subject:'Payment received. Here\'s what I need to start on {business}',body:`Hi {first},\n\nThanks, payment's in. Finish date is {finish}. Here's what I need, in order of urgency:\n\n1. Google Business Profile access. Add hello@takeoffseo.com as a Manager. Takes two minutes. If you've never claimed your profile, tell me and we'll do it on a 10-minute call.\n2. Website login (an editor account for hello@takeoffseo.com, rather than your own password).\n3. Analytics: add me as a user if you have Google Analytics. If not, I'll set it up.\n4. Photos: real ones of jobs, team, vehicles, premises. Phone photos are fine.\n5. Ten questions about your work (attached). Rough answers are perfect.\n\nOnce I've got these, I start. You'll get a short email every Friday saying what got done.\n\nAlex`},
+ {id:'T8',name:'Friday update',subject:'{business}: this week',body:`Hi {first},\n\nDone this week: {done}\nNext week: {next}\nNeed from you: nothing\nFinish date: {finish}, on track\n\nAlex`},
+ {id:'T9',name:'Delivered + report',subject:'{business}: done. Report attached',body:`Hi {first},\n\nEvery item on the list is done. The one-page report is attached: what we set out to do, what got done, what's changed so far, and what I'd do next.\n\nFinal invoice attached, due in 7 days.\n\nI've booked our handover for [time]. If that doesn't suit, pick another: [booking link].\n\nThanks for trusting me with it.\n\nAlex`},
+ {id:'T10',name:'Review, permission, referral ask',subject:'Three small favours (all optional)',body:`Hi {first},\n\nGlad the {pkg} went well. Three small things, only if you're happy to:\n\n1. A Google review. It's how I get found, same as you. Two lines about what got done is perfect: [review link]\n2. Your name on my site. Just "{business}, {pkg}, [month]". No quotes, no numbers. Reply yes or no.\n3. Anyone you know who's invisible on Google? I'd be glad to do their free check.\n\nWhatever you do or don't do, thanks again.\n\nAlex`},
+ {id:'T11',name:'Monthly list (1st)',subject:'{business}: this month\'s list',body:`Hi {first},\n\nLast month in two lines: [what moved, what didn't].\n\nThis month I'll do:\n1. [page]\n2. [profile updates]\n3. [item based on last month's numbers]\n\nReply "yes" or change anything. If I don't hear back in three days I'll get started. Invoice attached.\n\nAlex`},
+ {id:'T13',name:'What next (14 days after delivery)',subject:'{business}: what next, if anything',body:`Hi {first},\n\nTwo weeks on from the {pkg}. Three options, no wrong answer:\n\n1. Keep going monthly. Steady $690 or Growth $1,190 a month, month to month: takeoffseo.com/monthly\n2. Do it yourself. Keep doing the three things in the handover note.\n3. Nothing for now. Come back whenever.\n\nMy honest view for {business}: [one sentence].\n\nAlex`},
+ {id:'T14',name:'Late invoice (day 10)',subject:'Re: Invoice [number]',body:`Hi {first}, just checking this one didn't get lost: invoice [number] for [amount] was due [date]. Attached again. If anything about the work isn't right, tell me first and we'll sort that. Alex`},
+ {id:'T15',name:'Not a fit',subject:'Re: your free check request',body:`Hi {first},\n\nThanks for getting in touch. I'm going to be straight: [reason]. I'd be taking your money for something I'm not the best person for.\n\nIf your situation changes, the free check is always there.\n\nAlex`}
+];
+
+/* ---------------- state ---------------- */
+const KEY='takeoffseo-admin-v1';
+let S;
+function defaults(){return {settings:{capacity:25,owner:'Alexander Nott',email:'hello@takeoffseo.com',phone:'0497 878 930'},contacts:[],tasks:[],activities:[],jobs:[],checks:[],seq:1}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.contacts)return s;}catch(e){}const d=defaults();seed(d);return d;}
+function save(){localStorage.setItem(KEY,JSON.stringify(S))}
+function uid(){return 'id'+(S.seq++)}
+const today=()=>new Date().toISOString().slice(0,10);
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)}
+function addBiz(d,n){let x=new Date(d),c=0;while(c<n){x.setDate(x.getDate()+1);if(x.getDay()!==0&&x.getDay()!==6)c++;}return x.toISOString().slice(0,10)}
+function bizDaysBetween(a,b){let x=new Date(a),c=0;while(x.toISOString().slice(0,10)<b){x.setDate(x.getDate()+1);if(x.getDay()!==0&&x.getDay()!==6)c++;}return c}
+function daysBetween(a,b){return Math.round((new Date(b)-new Date(a))/86400000)}
+function fmtD(d){if(!d)return '—';const x=new Date(d);return x.toLocaleDateString('en-AU',{day:'numeric',month:'short'})}
+function money(n){return '$'+Number(n).toLocaleString('en-AU')}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function first(c){return (c.name||'there').split(' ')[0]}
+const monthKey=(d)=>d.slice(0,7);
+
+/* ---------------- core actions (the automations) ---------------- */
+function act(cid,text,type='note'){S.activities.push({id:uid(),cid,at:new Date().toISOString(),type,text})}
+function task(cid,title,due,type='task'){S.tasks.push({id:uid(),cid,title,due,type,done:false})}
+function setStage(c,stage,why){if(c.stage===stage)return;c.stage=stage;c.stageAt=today();act(c.id,`Stage → ${STAGE_NAME[stage]}${why?' · '+why:''}`,'stage')}
+function contact(id){return S.contacts.find(c=>c.id===id)}
+
+function newLead(data,opts={}){
+  const c={id:uid(),name:data.name||'',email:data.email||'',phone:data.phone||'',business:data.business||'',website:data.website||'',area:data.area||'',jobs:data.jobs||'',source:data.source||'Website: free check',stage:'new',createdAt:today(),stageAt:today(),rec:'',sample:!!opts.sample,notes:''};
+  S.contacts.push(c);
+  act(c.id,`Lead created · source: ${c.source}`,'system');
+  if(c.source.startsWith('Website')){act(c.id,'Auto-reply T1 sent by system','email')}
+  task(c.id,'Free check due',addBiz(c.createdAt,2),'check');
+  if(data.pkg){ act(c.id,`Booked ${PKG[data.pkg].name} from website form`,'system'); bookPackage(c,data.pkg,data.plan||'steady',{silent:true}); }
+  save();return c;
+}
+function markCheckSent(c){
+  setStage(c,'check','free check emailed (T2)');
+  act(c.id,'Free check email T2 sent','email');
+  S.tasks.filter(t=>t.cid===c.id&&t.type==='check'&&!t.done).forEach(t=>{t.done=true;t.doneAt=today()});
+  task(c.id,'Follow up: did the check make sense? (T3)',addDays(today(),7),'follow');
+  save();
+}
+function completeTask(t){
+  t.done=true;t.doneAt=today();const c=contact(t.cid);if(!c){save();return}
+  if(t.type==='follow'){setStage(c,'follow','7-day follow-up sent');act(c.id,'Follow-up T3 sent','email');task(c.id,'30-day nudge (T4)',addDays(today(),30),'nudge')}
+  else if(t.type==='nudge'){setStage(c,'dormant','no reply after 30-day nudge');act(c.id,'Nudge T4 sent','email');task(c.id,'Quarterly check-in (T5)',addDays(today(),90),'quarter')}
+  else if(t.type==='quarter'){act(c.id,'Quarterly check-in T5 sent','email');task(c.id,'Quarterly check-in (T5)',addDays(today(),90),'quarter')}
+  else if(t.type==='check'){ /* handled by builder */ }
+  else if(t.type==='review'){act(c.id,'Review/permission/referral ask T10 sent','email')}
+  else if(t.type==='whatnext'){act(c.id,'What-next T13 sent','email');if(c.stage==='delivered')setStage(c,'dormant','no next step after 14 days')}
+  else{act(c.id,`Task done: ${t.title}`,'task')}
+  save();
+}
+function finishDateFor(pkg){
+  const committed=hoursCommitted();
+  const weeks=Math.max(0,Math.ceil((committed+PKG[pkg].hours)/Math.max(1,S.settings.capacity))-1);
+  let d=addBiz(today(),5); d=addDays(d,weeks*7); d=addBiz(d,PKG[pkg].buffer);
+  const x=new Date(d);while(x.getDay()!==5)x.setDate(x.getDate()+1);return x.toISOString().slice(0,10);
+}
+function bookPackage(c,pkg,plan,opts={}){
+  const j={id:uid(),cid:c.id,pkg,plan:pkg==='monthly'?plan:null,status:'booked',createdAt:today(),finish:pkg==='monthly'?null:finishDateFor(pkg),items:PKG[pkg].items.map(t=>({t,done:false})),invoices:[],fridays:[],cycles:[]};
+  const price=pkg==='monthly'?MONTHLY_PRICE[plan]:PKG[pkg].price;
+  if(pkg==='monthly'){j.invoices.push({id:uid(),label:`${plan==='growth'?'Growth':'Steady'} · ${monthKey(today())}`,amount:price,sent:today(),due:addDays(today(),7),paid:null})}
+  else if(PKG[pkg].pay==='full'){j.invoices.push({id:uid(),label:'In full',amount:price,sent:today(),due:addDays(today(),7),paid:null})}
+  else{j.invoices.push({id:uid(),label:'Deposit (50%)',amount:price/2,sent:today(),due:addDays(today(),7),paid:null});j.invoices.push({id:uid(),label:pkg==='site'?'Final (at go-live)':'Final (list done)',amount:price/2,sent:null,due:null,paid:null})}
+  S.jobs.push(j);
+  setStage(c,'booked',`${PKG[pkg].name} booked`);
+  act(c.id,`Booking confirmation T6 + agreement + invoice sent · ${PKG[pkg].name}${j.finish?' · finish '+fmtD(j.finish):''}`,'email');
+  S.tasks.filter(t=>t.cid===c.id&&!t.done&&['check','follow','nudge','quarter'].includes(t.type)).forEach(t=>{t.done=true;t.doneAt=today()});
+  task(c.id,`Chase deposit if unpaid: ${PKG[pkg].name}`,addBiz(today(),5),'task');
+  if(!opts.silent)save();
+  return j;
+}
+function markInvoicePaid(j,inv){
+  inv.paid=today();const c=contact(j.cid);
+  act(c.id,`Invoice paid: ${inv.label} ${money(inv.amount)}`,'money');
+  if(j.status==='booked'){j.status='active';j.startedAt=today();setStage(c,j.pkg==='monthly'?'monthly':'active','payment received');act(c.id,'Onboarding email T7 sent','email');task(c.id,'Onboarding: access, photos, questions received',addBiz(today(),5),'task');S.tasks.filter(t=>t.cid===c.id&&!t.done&&t.title.startsWith('Chase deposit')).forEach(t=>{t.done=true;t.doneAt=today()});if(j.pkg==='monthly')ensureCycle(j)}
+  save();
+}
+function toggleItem(j,i){
+  j.items[i].done=!j.items[i].done;
+  if(j.items.length&&j.items.every(x=>x.done)&&!j.allDoneAt){j.allDoneAt=today();const c=contact(j.cid);act(c.id,'Every item ticked. Tasks created: report, final invoice','system');task(c.id,`Send report + T9 · ${PKG[j.pkg].name}`,addBiz(today(),2),'report');if(j.invoices[1]){j.invoices[1].sent=today();j.invoices[1].due=addDays(today(),7);act(c.id,`Final invoice sent ${money(j.invoices[1].amount)}`,'money')}}
+  save();
+}
+function markDelivered(j){
+  j.status='delivered';j.deliveredAt=today();const c=contact(j.cid);
+  setStage(c,'delivered','report sent');act(c.id,'Report + T9 sent','email');
+  S.tasks.filter(t=>t.cid===c.id&&!t.done&&t.type==='report').forEach(t=>{t.done=true;t.doneAt=today()});
+  task(c.id,'Ask for review, permission, referral (T10)',addDays(today(),7),'review');
+  task(c.id,'What next: monthly, yourself, nothing (T13)',addDays(today(),14),'whatnext');
+  if(j.pkg==='site')task(c.id,'Close 30-day fix window; check in',addDays(today(),30),'task');
+  save();
+}
+function ensureCycle(j){
+  const m=monthKey(today());
+  if(!j.cycles.find(cy=>cy.month===m)){j.cycles.push({month:m,items:MONTHLY_ITEMS[j.plan].map(t=>({t,done:false})),numbers:{},reportSent:null});
+    const c=contact(j.cid);act(c.id,`Monthly cycle ${m} created by system`,'system');
+    if(!S.tasks.find(t=>t.cid===j.cid&&t.title.includes(`month's list`)&&t.due.startsWith(m)))task(j.cid,`Send this month's list (T11) · ${m}`,addBiz(m+'-01',1),'task');
+    if(!j.invoices.find(i=>i.label.endsWith(m)))j.invoices.push({id:uid(),label:`${j.plan==='growth'?'Growth':'Steady'} · ${m}`,amount:MONTHLY_PRICE[j.plan],sent:today(),due:addDays(today(),7),paid:null});
+  }
+}
+function giveNotice(j){j.status='notice';j.noticeAt=today();const c=contact(j.cid);act(c.id,'Notice given. Finish the month properly, then handover (SOP-12)','system');task(c.id,'Handover note + remove access (SOP-12)',addDays(today(),30),'task');setStage(c,'dormant','monthly plan ended');save()}
+
+function hoursCommitted(){
+  let h=0;S.jobs.forEach(j=>{if(j.status==='active'||j.status==='booked'){if(j.pkg==='monthly')h+=MONTHLY_HOURS[j.plan];else{const left=j.items.filter(i=>!i.done).length/Math.max(1,j.items.length);h+=PKG[j.pkg].hours*left}}});return Math.round(h)}
+function runAutomations(){
+  S.jobs.filter(j=>j.pkg==='monthly'&&j.status==='active').forEach(ensureCycle);
+  save();
+}
+
+/* ---------------- sample data ---------------- */
+function seed(d){
+  S=d;
+  const t=today();
+  const mk=(o,daysAgo)=>{const c=newLead(o,{sample:true});c.createdAt=addDays(t,-daysAgo);c.stageAt=c.createdAt;S.tasks.filter(x=>x.cid===c.id).forEach(x=>x.due=addBiz(c.createdAt,2));return c};
+  const a=mk({name:'Sam Sample',business:'Sample Plumbing Co',email:'sam@example.com',phone:'0400 000 001',area:'Burleigh Heads',jobs:'Hot water replacements, not blocked drains',website:'https://example.com',source:'Website: free check'},1);
+  const b=mk({name:'Priya Placeholder',business:'Placeholder Physio',email:'priya@example.com',phone:'0400 000 002',area:'Robina',jobs:'Sports injuries, more new patients',website:'https://example.org',source:'Referral: partner'},4);
+  markCheckSent(b);b.rec='fix';S.tasks.filter(x=>x.cid===b.id&&x.type==='follow').forEach(x=>x.due=addDays(t,3));
+  const c=mk({name:'Dee Demo',business:'Demo Pools & Landscapes',email:'dee@example.com',phone:'0400 000 003',area:'Helensvale',jobs:'Concrete pool builds',website:'',source:'Own Google profile'},12);
+  markCheckSent(c);c.rec='site';
+  const j1=bookPackage(c,'site','steady');markInvoicePaid(j1,j1.invoices[0]);j1.finish=addDays(t,24);j1.items.slice(0,7).forEach(i=>i.done=true);
+  const e=mk({name:'Eli Example',business:'Example Electrical',email:'eli@example.com',phone:'0400 000 004',area:'Southport',jobs:'Switchboard upgrades',website:'https://example.net',source:'Outreach'},30);
+  markCheckSent(e);e.rec='tune';const j2=bookPackage(e,'tune');markInvoicePaid(j2,j2.invoices[0]);j2.finish=addDays(t,2);j2.items.slice(0,9).forEach(i=>i.done=true);
+  const f=mk({name:'Fay Fictional',business:'Fictional Pest Control',email:'fay@example.com',phone:'0400 000 005',area:'Logan',jobs:'Termite inspections',website:'https://example.com.au',source:'Referral: client'},70);
+  markCheckSent(f);f.rec='fix';const j3=bookPackage(f,'fix');markInvoicePaid(j3,j3.invoices[0]);j3.items.forEach(i=>i.done=true);j3.allDoneAt=addDays(t,-20);j3.invoices[1].sent=addDays(t,-20);j3.invoices[1].due=addDays(t,-13);markDelivered(j3);j3.deliveredAt=addDays(t,-20);
+  const j4=bookPackage(f,'monthly','steady');markInvoicePaid(j4,j4.invoices[0]);f.stage='monthly';
+  S.tasks.filter(x=>x.cid===f.id&&!x.done&&(x.type==='review'||x.type==='whatnext')).forEach(x=>{x.done=true});
+  const g=mk({name:'Gus Generic',business:'Generic Air Con',email:'gus@example.com',phone:'',area:'Ipswich',jobs:'Ducted installs',website:'https://example.com',source:'Local group'},45);
+  markCheckSent(g);g.rec='tune';completeTask(S.tasks.find(x=>x.cid===g.id&&x.type==='follow'));S.tasks.filter(x=>x.cid===g.id&&x.type==='nudge').forEach(x=>x.due=addDays(t,-2));
+  save();
+}
+
+/* ---------------- render helpers ---------------- */
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+function go(h){location.hash=h}
+function openDlg(html){document.getElementById('dlgIn').innerHTML=html;document.getElementById('dlg').showModal()}
+function closeDlg(){document.getElementById('dlg').close()}
+function stageTag(s){const cls={new:'bad',check:'acc',follow:'warn',booked:'acc',active:'ok',delivered:'ok',monthly:'ok',dormant:'',lost:''}[s]||'';return `<span class="tag ${cls}">${STAGE_NAME[s]}</span>`}
+function alerts(){
+  const t=today(),out=[];
+  S.contacts.filter(c=>c.stage==='new'&&bizDaysBetween(c.createdAt,t)>=2).forEach(c=>out.push(['bad',`Free check for <a href="#/contact/${c.id}">${esc(c.business)}</a> is past 2 business days`]));
+  S.tasks.filter(x=>!x.done&&x.due<t).forEach(x=>{const c=contact(x.cid);out.push(['warn',`Overdue: ${esc(x.title)} · <a href="#/contact/${x.cid}">${esc(c?c.business:'')}</a>`])});
+  S.jobs.filter(j=>j.status==='active'&&j.finish).forEach(j=>{const pct=j.items.filter(i=>i.done).length/j.items.length;if(daysBetween(t,j.finish)<=5&&pct<.8)out.push(['bad',`Finish date ${fmtD(j.finish)} at risk: <a href="#/job/${j.id}">${esc(contact(j.cid).business)} ${PKG[j.pkg].name}</a> is ${Math.round(pct*100)}% done (SOP-19: say so now)`])});
+  S.jobs.forEach(j=>j.invoices.filter(i=>i.sent&&!i.paid&&i.due&&daysBetween(i.due,t)>=3).forEach(i=>out.push(['warn',`Invoice ${daysBetween(i.due,t)} days overdue: ${esc(contact(j.cid).business)} ${i.label} ${money(i.amount)} · <a href="#/job/${j.id}">send T14</a>`])));
+  return out;
+}
+
+/* ---------------- views ---------------- */
+const VIEWS={
+ dashboard(){
+  const t=today(),m=monthKey(t);
+  const leads=S.contacts.filter(c=>monthKey(c.createdAt)===m);
+  const checks=S.checks.filter(k=>k.sentAt);const onTime=checks.filter(k=>{const c=contact(k.cid);return c&&bizDaysBetween(c.createdAt,k.sentAt)<=2}).length;
+  const checked=S.contacts.filter(c=>!['new','lost'].includes(c.stage)).length;const booked=S.contacts.filter(c=>S.jobs.some(j=>j.cid===c.id)).length;
+  let rev=0;S.jobs.forEach(j=>j.invoices.forEach(i=>{if(i.paid&&monthKey(i.paid)===m)rev+=i.amount}));
+  const hrs=hoursCommitted();
+  const due=S.tasks.filter(x=>!x.done&&x.due<=t).sort((a,b)=>a.due<b.due?-1:1);
+  const isFri=new Date().getDay()===5;
+  const fridays=S.jobs.filter(j=>j.status==='active');
+  const al=alerts();
+  return `<div class="head"><div><h1>Friday at a glance</h1><p>${new Date().toLocaleDateString('en-AU',{weekday:'long',day:'numeric',month:'long'})} · ${S.settings.owner}</p></div><div class="row"><button class="btn sec" onclick="simulateForm()">Simulate website form</button><a class="btn" href="#/new">+ New lead</a></div></div>
+  ${al.length?al.map(a=>`<div class="alert ${a[0]}"><span>${a[1]}</span></div>`).join(''):'<div class="alert" style="background:var(--ok-soft);color:var(--ok)">Nothing overdue. Nothing at risk.</div>'}
+  <div class="grid g5" style="margin:18px 0">
+    <div class="kpi"><div class="v">${leads.length}</div><div class="l">Leads this month</div><div class="s">${Object.entries(leads.reduce((a,c)=>(a[c.source]=(a[c.source]||0)+1,a),{})).map(([k,v])=>`${v} ${k.replace('Website: ','web/')}`).join(' · ')||'—'}</div></div>
+    <div class="kpi"><div class="v">${checks.length?Math.round(onTime/checks.length*100)+'%':'—'}</div><div class="l">Checks sent in 2 days</div><div class="s">${checks.length} sent from the builder</div></div>
+    <div class="kpi"><div class="v">${checked?Math.round(booked/checked*100)+'%':'—'}</div><div class="l">Check → booked</div><div class="s">${booked} of ${checked} checked leads booked</div></div>
+    <div class="kpi"><div class="v">${money(rev)}</div><div class="l">Paid this month</div><div class="s">${S.jobs.filter(j=>j.pkg==='monthly'&&j.status==='active').length} monthly clients</div></div>
+    <div class="kpi"><div class="v" style="color:${hrs>S.settings.capacity?'var(--bad)':'inherit'}">${hrs}h</div><div class="l">Committed vs ${S.settings.capacity}h/wk</div><div class="bar" style="margin-top:8px"><i style="width:${Math.min(100,hrs/S.settings.capacity*100)}%;background:${hrs>S.settings.capacity?'var(--bad)':'var(--accent-2)'}"></i></div></div>
+  </div>
+  <div class="grid g2">
+    <div class="card"><div class="row sp"><h3>Tasks due today or earlier (${due.length})</h3><a class="small" href="#/tasks">All tasks</a></div>
+      ${due.length?`<ul class="chk">${due.slice(0,10).map(x=>{const c=contact(x.cid);return `<li><input type="checkbox" onchange="doTask('${x.id}')"><div><div>${esc(x.title)}</div><div class="small muted">${c?`<a href="#/contact/${c.id}">${esc(c.business)}</a> · `:''}due ${fmtD(x.due)}${x.due<t?' <span class="tag bad">late</span>':''}</div></div></li>`}).join('')}</ul>`:'<div class="empty">Nothing due. Go do your own marketing (SOP-18).</div>'}
+    </div>
+    <div class="card"><h3>Friday updates ${isFri?'<span class="tag warn">today</span>':'<span class="tag">next Friday</span>'}</h3>
+      ${fridays.length?`<table><tr><th>Client</th><th>Job</th><th>Done</th><th>Finish</th><th></th></tr>${fridays.map(j=>{const c=contact(j.cid);const pct=j.pkg==='monthly'?null:Math.round(j.items.filter(i=>i.done).length/j.items.length*100);const sentThisWeek=j.fridays.some(d=>daysBetween(d,t)<7);return `<tr><td><a href="#/contact/${c.id}">${esc(c.business)}</a></td><td>${PKG[j.pkg].name}${j.plan?' · '+j.plan:''}</td><td>${pct===null?'—':pct+'%'}</td><td>${fmtD(j.finish)}</td><td>${sentThisWeek?'<span class="tag ok">sent</span>':`<button class="btn sm sec" onclick="fridayUpdate('${j.id}')">Write T8</button>`}</td></tr>`}).join('')}</table>`:'<div class="empty">No active jobs.</div>'}
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px"><div class="row sp"><h3>Pipeline</h3><a class="small" href="#/pipeline">Open board</a></div><div class="row" style="gap:8px">${STAGES.map(([k,n])=>`<span class="tag ${k==='new'&&S.contacts.some(c=>c.stage==='new')?'bad':''}">${n}: ${S.contacts.filter(c=>c.stage===k).length}</span>`).join('')}</div></div>`;
+ },
+ pipeline(){
+  const t=today();
+  return `<div class="head"><div><h1>Pipeline</h1><p>Drag a card to move it. Stage changes create the next task automatically.</p></div><div class="row"><button class="btn sec" onclick="simulateForm()">Simulate website form</button><a class="btn" href="#/new">+ New lead</a></div></div>
+  <div class="kan">${STAGES.map(([k,n])=>{const cs=S.contacts.filter(c=>c.stage===k);return `<div class="col" data-stage="${k}" ondragover="dragOver(event)" ondragleave="this.classList.remove('over')" ondrop="drop(event,'${k}')"><h4><span>${n}</span><span>${cs.length}</span></h4>${cs.map(c=>{const nt=S.tasks.filter(x=>x.cid===c.id&&!x.done).sort((a,b)=>a.due<b.due?-1:1)[0];const late=k==='new'&&bizDaysBetween(c.createdAt,t)>=2;return `<div class="kcard ${late?'late':''}" draggable="true" ondragstart="drag(event,'${c.id}')" onclick="go('#/contact/${c.id}')"><b>${esc(c.business)}${c.sample?' <span class="tag sample">sample</span>':''}</b><span class="small muted">${esc(c.name)} · ${esc(c.area)}</span><div class="m"><span>${c.rec?PKG[c.rec].name:esc(c.source.replace('Website: ','web/'))}</span><span>${daysBetween(c.stageAt,t)}d</span></div>${nt?`<div class="m"><span>${esc(nt.title.slice(0,34))}${nt.title.length>34?'…':''}</span><span class="${nt.due<t?'tag bad':''}">${fmtD(nt.due)}</span></div>`:''}</div>`}).join('')}</div>`}).join('')}</div>`;
+ },
+ contacts(){
+  const q=(window.__q||'').toLowerCase();
+  const cs=S.contacts.filter(c=>!q||[c.business,c.name,c.email,c.area,c.source].join(' ').toLowerCase().includes(q)).sort((a,b)=>a.createdAt<b.createdAt?1:-1);
+  return `<div class="head"><div><h1>Contacts</h1><p>${S.contacts.length} total</p></div><div class="row"><input placeholder="Search" value="${esc(window.__q||'')}" oninput="window.__q=this.value;render()" style="width:220px"><a class="btn" href="#/new">+ New lead</a></div></div>
+  <table><tr><th>Business</th><th>Contact</th><th>Area</th><th>Source</th><th>Stage</th><th>Created</th></tr>${cs.map(c=>`<tr class="click" onclick="go('#/contact/${c.id}')"><td><b>${esc(c.business)}</b>${c.sample?' <span class="tag sample">sample</span>':''}</td><td>${esc(c.name)}<br><span class="small muted">${esc(c.email)}</span></td><td>${esc(c.area)}</td><td class="small">${esc(c.source)}</td><td>${stageTag(c.stage)}</td><td class="small">${fmtD(c.createdAt)}</td></tr>`).join('')||'<tr><td colspan=6 class="empty">No contacts.</td></tr>'}</table>`;
+ },
+ contact(id){
+  const c=contact(id);if(!c)return '<div class="empty">Not found.</div>';
+  const tasks=S.tasks.filter(x=>x.cid===id).sort((a,b)=>(a.done-b.done)||(a.due<b.due?-1:1));
+  const acts=S.activities.filter(a=>a.cid===id).slice().reverse();
+  const jobs=S.jobs.filter(j=>j.cid===id);const chk=S.checks.find(k=>k.cid===id);
+  return `<a class="back" href="#/pipeline">← Pipeline</a>
+  <div class="head"><div><h1>${esc(c.business)} ${c.sample?'<span class="tag sample">sample</span>':''}</h1><p>${esc(c.name)} · ${esc(c.email)} · ${esc(c.phone||'no phone')} · ${esc(c.area)} · ${esc(c.source)}</p></div>
+    <div class="row"><select class="stage-select" onchange="manualStage('${id}',this.value)">${STAGES.map(([k,n])=>`<option value="${k}" ${c.stage===k?'selected':''}>${n}</option>`).join('')}</select></div></div>
+  <div class="row" style="margin-bottom:16px">
+    <a class="btn" href="#/check/${id}">${chk?.sentAt?'View free check':'Do the free check'}</a>
+    <button class="btn sec" onclick="bookDlg('${id}')">Book a package</button>
+    <button class="btn sec" onclick="noteDlg('${id}')">Log call / note</button>
+    <a class="btn sec" href="#/templates/${id}">Templates for ${esc(first(c))}</a>
+    <button class="btn sec" onclick="lostDlg('${id}')">Mark lost / not a fit</button>
+  </div>
+  <div class="grid g2">
+    <div>
+      <div class="card" style="margin-bottom:14px"><h3>Details</h3>
+        <div class="f2"><div class="f"><label>Wants more of</label><div>${esc(c.jobs)||'—'}</div></div><div class="f"><label>Website</label><div>${c.website?`<a href="${esc(c.website)}" target="_blank" rel="noopener">${esc(c.website)}</a>`:'none'}</div></div>
+        <div class="f"><label>Recommended</label><select onchange="contact('${id}').rec=this.value;save();toast('Saved')"><option value="">—</option>${Object.entries(PKG).map(([k,p])=>`<option value="${k}" ${c.rec===k?'selected':''}>${p.name}</option>`).join('')}</select></div>
+        <div class="f"><label>In stage since</label><div>${fmtD(c.stageAt)} (${daysBetween(c.stageAt,today())} days)</div></div></div>
+        <div class="f"><label>Notes</label><textarea onchange="contact('${id}').notes=this.value;save();toast('Saved')">${esc(c.notes)}</textarea></div>
+      </div>
+      <div class="card" style="margin-bottom:14px"><div class="row sp"><h3>Jobs</h3></div>
+        ${jobs.length?jobs.map(j=>{const pct=j.pkg==='monthly'?null:Math.round(j.items.filter(i=>i.done).length/j.items.length*100);return `<div class="row sp" style="padding:8px 0;border-bottom:1px solid var(--line)"><div><a href="#/job/${j.id}"><b>${PKG[j.pkg].name}${j.plan?' · '+j.plan:''}</b></a><div class="small muted">${j.status} · ${j.finish?'finish '+fmtD(j.finish):'month to month'}</div></div>${pct===null?'':`<div style="width:120px"><div class="bar"><i style="width:${pct}%"></i></div><div class="small muted">${pct}%</div></div>`}</div>`}).join(''):'<div class="empty">No jobs yet.</div>'}
+      </div>
+      <div class="card"><div class="row sp"><h3>Tasks</h3><button class="btn sm sec" onclick="taskDlg('${id}')">+ Task</button></div>
+        <ul class="chk">${tasks.map(x=>`<li><input type="checkbox" ${x.done?'checked disabled':''} onchange="doTask('${x.id}')"><div class="${x.done?'done':''}">${esc(x.title)}<div class="small muted">${x.done?'done '+fmtD(x.doneAt):'due '+fmtD(x.due)+(x.due<today()?' <span class="tag bad">late</span>':'')}</div></div></li>`).join('')||'<li class="muted">None.</li>'}</ul>
+      </div>
+    </div>
+    <div class="card"><h3>Timeline</h3><ul class="timeline">${acts.map(a=>`<li><div class="t">${new Date(a.at).toLocaleDateString('en-AU',{day:'numeric',month:'short'})} · ${a.type}</div>${esc(a.text)}</li>`).join('')}</ul></div>
+  </div>`;
+ },
+ new(){
+  return `<a class="back" href="#/pipeline">← Pipeline</a><div class="head"><div><h1>New lead</h1><p>For phone, in-person or outreach leads. Website forms create these automatically.</p></div></div>
+  <div class="card" style="max-width:720px"><form onsubmit="return createLead(event)">
+   <div class="f2"><div class="f"><label>Business</label><input name="business" required></div><div class="f"><label>Contact name</label><input name="name" required></div>
+   <div class="f"><label>Email</label><input name="email" type="email"></div><div class="f"><label>Phone</label><input name="phone"></div>
+   <div class="f"><label>Main suburb / area</label><input name="area"></div><div class="f"><label>Website</label><input name="website" placeholder="https://"></div></div>
+   <div class="f"><label>What jobs do they want more of?</label><textarea name="jobs"></textarea></div>
+   <div class="f2"><div class="f"><label>Source</label><select name="source">${SOURCES.map(s=>`<option>${s}</option>`).join('')}</select></div><div class="f"><label>Booked a package already?</label><select name="pkg"><option value="">No, free check first</option>${Object.entries(PKG).map(([k,p])=>`<option value="${k}">${p.name}</option>`).join('')}</select></div></div>
+   <button class="btn">Create lead</button> <span class="hint">Creates the "Free check due" task for ${fmtD(addBiz(today(),2))}.</span></form></div>`;
+ },
+ check(cid){
+  const c=contact(cid);if(!c)return '';
+  let k=S.checks.find(x=>x.cid===cid);
+  if(!k){k={id:uid(),cid,searches:[{q:'',g:'',m:''},{q:'',g:'',m:''},{q:'',g:'',m:''},{q:'',g:'',m:''},{q:'',g:'',m:''}],ai:{tool:'ChatGPT',q:'',r:'',named:''},gaps:[],site:'',fixes:['','',''],rec:c.rec||'',recWhy:'',sentAt:null};S.checks.push(k);save()}
+  const G=['Top results','Map pack','Both','Not in top results'],M=['1st','2nd–3rd','4th–10th','Not found'];
+  return `<a class="back" href="#/contact/${cid}">← ${esc(c.business)}</a><div class="head"><div><h1>Free check: ${esc(c.business)}</h1><p>SOP-02 · time box 30–40 min · due ${fmtD(addBiz(c.createdAt,2))} ${k.sentAt?`· <span class="tag ok">sent ${fmtD(k.sentAt)}</span>`:''}</p></div></div>
+  <div class="grid g2">
+   <div>
+    <div class="card" style="margin-bottom:14px"><h3>1. Five searches a customer would type</h3><p class="small muted">Two service+suburb, one "near me", one broad, one question. They want: <em>${esc(c.jobs)||'—'}</em> in ${esc(c.area)||'—'}.</p>
+     ${k.searches.map((s,i)=>`<div class="f2" style="margin-bottom:8px"><div><input placeholder="Search ${i+1}" value="${esc(s.q)}" oninput="chk('${k.id}').searches[${i}].q=this.value;save()"></div><div class="row" style="gap:6px"><select onchange="chk('${k.id}').searches[${i}].g=this.value;save()" style="flex:1"><option value="">Google…</option>${G.map(o=>`<option ${s.g===o?'selected':''}>${o}</option>`).join('')}</select><select onchange="chk('${k.id}').searches[${i}].m=this.value;save()" style="flex:1"><option value="">Maps…</option>${M.map(o=>`<option ${s.m===o?'selected':''}>${o}</option>`).join('')}</select></div></div>`).join('')}
+    </div>
+    <div class="card" style="margin-bottom:14px"><h3>2. One AI tool</h3>
+     <div class="f2"><div class="f"><label>Tool</label><select onchange="chk('${k.id}').ai.tool=this.value;save()">${['ChatGPT','Gemini','Google AI Overview'].map(o=>`<option ${k.ai.tool===o?'selected':''}>${o}</option>`).join('')}</select></div><div class="f"><label>Result</label><select onchange="chk('${k.id}').ai.r=this.value;save()"><option value="">…</option>${['Named','Mentioned','Not named'].map(o=>`<option ${k.ai.r===o?'selected':''}>${o}</option>`).join('')}</select></div></div>
+     <div class="f"><label>Question asked</label><input value="${esc(k.ai.q)}" placeholder="Who's a good plumber in Burleigh Heads?" oninput="chk('${k.id}').ai.q=this.value;save()"></div>
+     <div class="f"><label>Who it named instead</label><input value="${esc(k.ai.named)}" oninput="chk('${k.id}').ai.named=this.value;save()"></div>
+    </div>
+    <div class="card" style="margin-bottom:14px"><h3>3. Google profile gaps</h3><ul class="chk">${GBP_GAPS.map(g=>`<li><input type="checkbox" ${k.gaps.includes(g)?'checked':''} onchange="toggleGap('${k.id}','${esc(g).replace(/'/g,"\\'")}')"><div>${esc(g)}</div></li>`).join('')}</ul></div>
+    <div class="card" style="margin-bottom:14px"><h3>4. Website, three minutes</h3><textarea placeholder="Loads slowly on a phone. Homepage doesn't say where you work. Phone number isn't tappable." oninput="chk('${k.id}').site=this.value;save()">${esc(k.site)}</textarea></div>
+   </div>
+   <div>
+    <div class="card" style="margin-bottom:14px"><h3>5. The three things I'd fix first</h3><p class="small muted">Each: what's wrong, what it costs them, what fixing it does. No jargon.</p>
+     ${k.fixes.map((f,i)=>`<div class="f"><textarea placeholder="Fix ${i+1}" oninput="chk('${k.id}').fixes[${i}]=this.value;save()">${esc(f)}</textarea></div>`).join('')}
+    </div>
+    <div class="card" style="margin-bottom:14px"><h3>6. What I'd do</h3>
+     <div class="f"><select onchange="chk('${k.id}').rec=this.value;contact('${cid}').rec=this.value;save()"><option value="">Choose…</option>${Object.entries(PKG).map(([kk,p])=>`<option value="${kk}" ${k.rec===kk?'selected':''}>${p.name} · ${money(p.price)}${kk==='monthly'?'/mo':''}</option>`).join('')}<option value="none" ${k.rec==='none'?'selected':''}>You're in good shape, do nothing</option></select></div>
+     <div class="f"><input placeholder="One sentence why. If two fit, recommend the cheaper." value="${esc(k.recWhy)}" oninput="chk('${k.id}').recWhy=this.value;save()"></div>
+    </div>
+    <div class="card"><div class="row sp"><h3>Email (T2)</h3><div class="row"><button class="btn sm sec" onclick="copyText('emailOut')">Copy</button>${k.sentAt?'':`<button class="btn sm" onclick="sendCheck('${k.id}')">Mark sent</button>`}</div></div>
+     <pre class="email" id="emailOut">${esc(checkEmail(c,k))}</pre>
+     <p class="hint">Marking sent moves the lead to "Check sent" and sets the 7-day follow-up for ${fmtD(addDays(today(),7))}.</p></div>
+   </div>
+  </div>`;
+ },
+ jobs(){
+  const js=S.jobs.slice().sort((a,b)=>(a.status==='delivered')-(b.status==='delivered'));
+  return `<div class="head"><div><h1>Jobs</h1><p>Every job is a checklist. When it's all ticked, it's done.</p></div></div>
+  <table><tr><th>Client</th><th>Package</th><th>Status</th><th>Progress</th><th>Finish</th><th>Invoices</th></tr>${js.map(j=>{const c=contact(j.cid);const d=j.items.filter(i=>i.done).length;const pct=j.items.length?Math.round(d/j.items.length*100):null;const inv=j.invoices.map(i=>`<span class="tag ${i.paid?'ok':(i.sent?(i.due<today()?'bad':'warn'):'')}">${i.paid?'paid':(i.sent?'sent':'not yet')} ${money(i.amount)}</span>`).join(' ');return `<tr class="click" onclick="go('#/job/${j.id}')"><td><b>${esc(c.business)}</b></td><td>${PKG[j.pkg].name}${j.plan?' · '+j.plan:''}</td><td><span class="tag ${j.status==='active'?'ok':j.status==='booked'?'warn':''}">${j.status}</span></td><td>${pct===null?'—':`<div class="bar" style="width:120px"><i style="width:${pct}%"></i></div><span class="small muted">${d}/${j.items.length}</span>`}</td><td>${fmtD(j.finish)}${j.finish&&j.status==='active'&&j.finish<today()?' <span class="tag bad">late</span>':''}</td><td>${inv}</td></tr>`}).join('')||'<tr><td colspan=6 class="empty">No jobs.</td></tr>'}</table>`;
+ },
+ job(id){
+  const j=S.jobs.find(x=>x.id===id);if(!j)return '';const c=contact(j.cid);
+  if(j.pkg==='monthly')return VIEWS.monthlyJob(j,c);
+  const d=j.items.filter(i=>i.done).length,pct=Math.round(d/j.items.length*100);
+  return `<a class="back" href="#/contact/${c.id}">← ${esc(c.business)}</a><div class="head"><div><h1>${PKG[j.pkg].name} · ${esc(c.business)}</h1><p>${money(PKG[j.pkg].price)} plus GST · <span class="tag ${j.status==='active'?'ok':''}">${j.status}</span> · booked ${fmtD(j.createdAt)}</p></div>
+   <div class="row"><label style="margin:0">Finish date</label><input type="date" value="${j.finish}" style="width:auto" onchange="changeFinish('${id}',this.value)"><button class="btn sec" onclick="fridayUpdate('${id}')">Friday update</button>${j.status==='active'&&pct===100?`<button class="btn" onclick="markDelivered(S.jobs.find(x=>x.id==='${id}'));render();toast('Delivered. Review and what-next tasks set.')">Mark delivered</button>`:''}</div></div>
+  ${j.status==='booked'?`<div class="alert warn"><span>Not started. Deposit unpaid. Don't start work before the money is in (SOP-04).</span></div>`:''}
+  <div class="grid g2" style="grid-template-columns:1.4fr 1fr">
+   <div class="card"><div class="row sp"><h3>The list</h3><span class="small muted">${d} of ${j.items.length} · ${pct}%</span></div><div class="bar" style="margin-bottom:12px"><i style="width:${pct}%"></i></div>
+    <ul class="chk">${j.items.map((it,i)=>`<li><input type="checkbox" ${it.done?'checked':''} ${j.status==='booked'?'disabled':''} onchange="toggleItem(S.jobs.find(x=>x.id==='${id}'),${i});render()"><div class="${it.done?'done':''}">${esc(it.t)}</div></li>`).join('')}</ul></div>
+   <div>
+    <div class="card" style="margin-bottom:14px"><h3>Invoices</h3>${j.invoices.map(inv=>`<div class="row sp" style="padding:8px 0;border-bottom:1px solid var(--line)"><div><b>${inv.label}</b> ${money(inv.amount)}<div class="small muted">${inv.paid?'paid '+fmtD(inv.paid):inv.sent?'sent '+fmtD(inv.sent)+', due '+fmtD(inv.due)+(inv.due<today()?' <span class="tag bad">overdue</span>':''):'not sent yet (sent when the list is done)'}</div></div>${!inv.paid&&inv.sent?`<button class="btn sm" onclick="markInvoicePaid(S.jobs.find(x=>x.id==='${id}'),S.jobs.find(x=>x.id==='${id}').invoices.find(i=>i.id==='${inv.id}'));render();toast('Paid')">Mark paid</button>`:''}</div>`).join('')}</div>
+    <div class="card" style="margin-bottom:14px"><h3>Friday updates</h3>${j.fridays.length?`<div class="row">${j.fridays.map(f=>`<span class="tag ok">${fmtD(f)}</span>`).join('')}</div>`:'<p class="small muted">None yet.</p>'}</div>
+    <div class="card"><h3>Hours</h3><p class="small">Planned ${PKG[j.pkg].hours}h · about ${Math.round(PKG[j.pkg].hours*(1-d/j.items.length))}h left · buffer ${PKG[j.pkg].buffer} business days (SOP-15)</p></div>
+   </div>
+  </div>`;
+ },
+ monthly(){
+  const js=S.jobs.filter(j=>j.pkg==='monthly'&&j.status!=='delivered');
+  return `<div class="head"><div><h1>Monthly clients</h1><p>The 1st: send the list. Last business day: send the report. Fridays in between.</p></div></div>
+  ${js.length?`<table><tr><th>Client</th><th>Plan</th><th>This month</th><th>Report</th><th>Invoice</th><th>Since</th></tr>${js.map(j=>{const c=contact(j.cid);const cy=j.cycles.find(x=>x.month===monthKey(today()));const d=cy?cy.items.filter(i=>i.done).length:0;const n=cy?cy.items.length:0;const inv=j.invoices.find(i=>i.label.endsWith(monthKey(today())));return `<tr class="click" onclick="go('#/job/${j.id}')"><td><b>${esc(c.business)}</b></td><td>${j.plan} ${money(MONTHLY_PRICE[j.plan])}/mo</td><td>${n?`<div class="bar" style="width:120px"><i style="width:${d/n*100}%"></i></div><span class="small muted">${d}/${n}</span>`:'—'}</td><td>${cy?.reportSent?'<span class="tag ok">sent</span>':'<span class="tag">not yet</span>'}</td><td>${inv?`<span class="tag ${inv.paid?'ok':'warn'}">${inv.paid?'paid':'unpaid'}</span>`:'—'}</td><td>${fmtD(j.startedAt||j.createdAt)}${j.status==='notice'?' <span class="tag warn">notice</span>':''}</td></tr>`}).join('')}</table>`:'<div class="empty">No monthly clients yet. They usually come from the what-next email (T13) after a Fix-Up or New Website.</div>'}`;
+ },
+ monthlyJob(j,c){
+  ensureCycle(j);const m=monthKey(today());const cy=j.cycles.find(x=>x.month===m);const d=cy.items.filter(i=>i.done).length;
+  const N=cy.numbers;const f=(k,l)=>`<div class="f"><label>${l}</label><div class="row" style="gap:6px"><input type="number" placeholder="this month" value="${N[k]??''}" oninput="cyNum('${j.id}','${k}',this.value)"><input type="number" placeholder="last month" value="${N[k+'_prev']??''}" oninput="cyNum('${j.id}','${k}_prev',this.value)"></div></div>`;
+  return `<a class="back" href="#/monthly">← Monthly</a><div class="head"><div><h1>${esc(c.business)} · Monthly ${j.plan}</h1><p>${money(MONTHLY_PRICE[j.plan])}/mo plus GST · ${MONTHLY_HOURS[j.plan]}h a month · since ${fmtD(j.startedAt||j.createdAt)} ${j.status==='notice'?'· <span class="tag warn">notice given</span>':''}</p></div><div class="row"><button class="btn sec" onclick="fridayUpdate('${j.id}')">Friday update</button>${j.status==='active'?`<button class="btn sec" onclick="if(confirm('Client has given notice?')){giveNotice(S.jobs.find(x=>x.id==='${j.id}'));render()}">Notice given</button>`:''}</div></div>
+  <div class="grid g2">
+   <div class="card"><div class="row sp"><h3>${m} list</h3><span class="small muted">${d}/${cy.items.length}</span></div><ul class="chk">${cy.items.map((it,i)=>`<li><input type="checkbox" ${it.done?'checked':''} onchange="S.jobs.find(x=>x.id==='${j.id}').cycles.find(x=>x.month==='${m}').items[${i}].done=this.checked;save();render()"><div class="${it.done?'done':''}">${esc(it.t)}</div></li>`).join('')}</ul>
+    <h3 style="margin-top:18px">Invoices</h3>${j.invoices.slice().reverse().map(inv=>`<div class="row sp" style="padding:6px 0;border-bottom:1px solid var(--line)"><div>${inv.label} · ${money(inv.amount)} <span class="small muted">${inv.paid?'paid '+fmtD(inv.paid):'due '+fmtD(inv.due)}</span></div>${inv.paid?'':`<button class="btn sm" onclick="markInvoicePaid(S.jobs.find(x=>x.id==='${j.id}'),S.jobs.find(x=>x.id==='${j.id}').invoices.find(i=>i.id==='${inv.id}'));render()">Mark paid</button>`}</div>`).join('')}
+   </div>
+   <div class="card"><h3>Report (T12)</h3><p class="small muted">Numbers an owner cares about. Each with last month beside it.</p>
+    ${f('calls','Calls from Google profile')}${f('enq','Website enquiries')}${f('dir','Direction requests')}${f('vis','Appeared for X of 20 searches')}${f('rev','New reviews')}
+    <div class="f"><label>The main thing this month (one sentence)</label><input value="${esc(N.main||'')}" oninput="cyNum('${j.id}','main',this.value)"></div>
+    <div class="f"><label>What I did</label><textarea oninput="cyNum('${j.id}','did',this.value)">${esc(N.did||cy.items.filter(i=>i.done).map(i=>i.t).join('\n'))}</textarea></div>
+    <div class="f"><label>Next month</label><textarea oninput="cyNum('${j.id}','next',this.value)">${esc(N.next||'')}</textarea></div>
+    <div class="row sp"><h3 style="margin:0">Email</h3><div class="row"><button class="btn sm sec" onclick="copyText('repOut')">Copy</button>${cy.reportSent?`<span class="tag ok">sent ${fmtD(cy.reportSent)}</span>`:`<button class="btn sm" onclick="sendReport('${j.id}')">Mark sent</button>`}</div></div>
+    <pre class="email" id="repOut" style="margin-top:10px">${esc(monthlyReport(c,j,cy))}</pre>
+   </div>
+  </div>`;
+ },
+ tasks(){
+  const t=today();const ts=S.tasks.filter(x=>!x.done).sort((a,b)=>a.due<b.due?-1:1);
+  return `<div class="head"><div><h1>Tasks</h1><p>${ts.length} open · ${ts.filter(x=>x.due<t).length} late</p></div></div>
+  <div class="card"><ul class="chk">${ts.map(x=>{const c=contact(x.cid);return `<li><input type="checkbox" onchange="doTask('${x.id}')"><div>${esc(x.title)}<div class="small muted">${c?`<a href="#/contact/${c.id}">${esc(c.business)}</a> · `:''}due ${fmtD(x.due)} ${x.due<t?'<span class="tag bad">late</span>':x.due===t?'<span class="tag warn">today</span>':''}</div></div></li>`}).join('')||'<li class="muted">Nothing open.</li>'}</ul></div>`;
+ },
+ templates(cid){
+  const c=cid?contact(cid):null;const sel=window.__tpl||TEMPLATES[0].id;const tp=TEMPLATES.find(x=>x.id===sel);
+  return `<div class="head"><div><h1>Templates</h1><p>Plain text. Signed Alex. Read out loud before sending. Full set in <code>sops/07-templates.md</code>.</p></div>
+   <div class="row"><select onchange="go('#/templates/'+this.value)"><option value="">Preview for…</option>${S.contacts.map(x=>`<option value="${x.id}" ${cid===x.id?'selected':''}>${esc(x.business)}</option>`).join('')}</select></div></div>
+  <div class="grid g2" style="grid-template-columns:260px 1fr">
+   <div class="card" style="padding:8px">${TEMPLATES.map(x=>`<button class="btn ghost" style="display:block;width:100%;text-align:left;color:${x.id===sel?'var(--ink)':'var(--accent)'};font-weight:${x.id===sel?600:500}" onclick="window.__tpl='${x.id}';render()">${x.id} · ${x.name}</button>`).join('')}</div>
+   <div class="card"><div class="row sp"><h3>${tp.id} · ${tp.name}</h3><div class="row"><button class="btn sm sec" onclick="copyText('tplOut')">Copy</button>${c?`<a class="btn sm" href="mailto:${esc(c.email)}?subject=${encodeURIComponent(fill(tp.subject,c))}&body=${encodeURIComponent(fill(tp.body,c))}">Open in email</a>`:''}</div></div>
+    <p class="small"><b>Subject:</b> ${esc(fill(tp.subject,c))}</p><pre class="email" id="tplOut">${esc(fill(tp.body,c))}</pre>${c?'':'<p class="hint">Pick a contact above to fill in the names.</p>'}</div>
+  </div>`;
+ },
+ playbook(){
+  const sops=[['SOP-01','Lead handling','01-sales-and-funnel.md'],['SOP-02','Free Local Search Check','01-sales-and-funnel.md'],['SOP-03','Follow-up and nurture','01-sales-and-funnel.md'],['SOP-04','Booking a package','01-sales-and-funnel.md'],['SOP-05','Client onboarding','02-onboarding-and-delivery.md'],['SOP-06','Profile Tune-Up delivery','02-onboarding-and-delivery.md'],['SOP-07','Website Fix-Up delivery','02-onboarding-and-delivery.md'],['SOP-08','New Website delivery','02-onboarding-and-delivery.md'],['SOP-09','Monthly Plan cycle','02-onboarding-and-delivery.md'],['SOP-10','Friday update','03-communication-and-reporting.md'],['SOP-11','Reports','03-communication-and-reporting.md'],['SOP-12','Handover and offboarding','03-communication-and-reporting.md'],['SOP-13','Invoicing, payments, late payment, refunds','04-money.md'],['SOP-14','Reviews, referrals and permission','03-communication-and-reporting.md'],['SOP-15','Capacity and finish dates','05-operations.md'],['SOP-16','Quality check before anything goes live','05-operations.md'],['SOP-17','Tools, access and security','05-operations.md'],['SOP-18','Marketing TakeoffSEO itself','06-own-marketing.md'],['SOP-19','When things go wrong','05-operations.md'],['SOP-20','Weekly and monthly business review','05-operations.md']];
+  const tab=window.__pb||'sops';
+  return `<div class="head"><div><h1>Playbook</h1><p>The SOPs, and the checklists this app uses. Change the SOP first, then the checklist.</p></div></div>
+  <div class="tabs">${[['sops','SOPs'],['tune','Tune-Up list'],['fix','Fix-Up list'],['site','New Website list'],['steady','Monthly Steady'],['growth','Monthly Growth'],['qa','QA (SOP-16)']].map(([k,n])=>`<button class="${tab===k?'on':''}" onclick="window.__pb='${k}';render()">${n}</button>`).join('')}</div>
+  ${tab==='sops'?`<div class="card"><table><tr><th>#</th><th>Procedure</th><th>File</th></tr>${sops.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td><td><a href="/docs-placeholder/${s[2]}" target="_blank">${s[2]}</a></td></tr>`).join('')}</table><p class="hint" style="margin-top:10px">Also: <a href="/docs-placeholder/README.md" target="_blank">README</a> · <a href="/docs-placeholder/07-templates.md" target="_blank">07-templates.md</a> · <a href="../FUNNEL.md" target="_blank">FUNNEL.md</a></p></div>`:
+   tab==='qa'?`<div class="card"><h3>Ten-minute quality check, on a phone</h3><ol>${['Read it out loud. Anything you stumble on gets rewritten.','Does the first line say what and where?','Every fact right: name spelled as the client spells it, phone, suburbs, hours, prices, ABN?','Banned words gone? (unlock, elevate, leverage, cutting-edge, dominate, synergy, holistic, best-in-class, guaranteed, page one, "we pride ourselves")','Any claim you can\'t back? Remove.','Phone taps to call. Form submits and arrives. Links go where they say.','Photos real, fast, alt text.','Title and description set and unique.','Looks right on a phone: no tiny text, no sideways scroll, thumb-reachable button.','No "lorem", "TODO", "[placeholder]" or template default left.'].map(x=>`<li>${x}</li>`).join('')}</ol></div>`:
+   `<div class="card"><h3>${tab in PKG?PKG[tab].name:'Monthly '+tab} checklist (${(tab in PKG?PKG[tab].items:MONTHLY_ITEMS[tab]).length} items)</h3><ol>${(tab in PKG?PKG[tab].items:MONTHLY_ITEMS[tab]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div>`}`;
+ },
+ settings(){
+  const sc=S.contacts.filter(c=>c.sample).length;
+  return `<div class="head"><div><h1>Settings</h1><p>Saved in this browser. Export monthly to the business drive (SOP-17).</p></div></div>
+  <div class="grid g2">
+   <div class="card"><h3>Capacity and business</h3>
+    <div class="f"><label>Billable hours a week (SOP-15)</label><input type="number" value="${S.settings.capacity}" onchange="S.settings.capacity=+this.value;save();toast('Saved')"></div>
+    <div class="f"><label>Owner</label><input value="${esc(S.settings.owner)}" onchange="S.settings.owner=this.value;save()"></div>
+    <div class="f2"><div class="f"><label>Email</label><input value="${esc(S.settings.email)}" onchange="S.settings.email=this.value;save()"></div><div class="f"><label>Phone</label><input value="${esc(S.settings.phone)}" onchange="S.settings.phone=this.value;save()"></div></div>
+    <h3 style="margin-top:16px">Prices and hours (from the website)</h3>
+    <table>${Object.entries(PKG).filter(([k])=>k!=='monthly').map(([k,p])=>`<tr><td>${p.name}</td><td>${money(p.price)}</td><td>${p.hours}h · +${p.buffer} days buffer</td></tr>`).join('')}<tr><td>Monthly Steady / Growth</td><td>$690 / $1,190</td><td>4h / 8h a month</td></tr><tr><td>Extra work</td><td>$150/hr</td><td>quoted first</td></tr></table>
+    <p class="hint">Prices live in the SOPs and the website. Change them there first; this preview mirrors them.</p></div>
+   <div class="card"><h3>Data</h3>
+    <div class="row" style="margin-bottom:12px"><button class="btn sec" onclick="exportJSON()">Export JSON</button><label class="btn sec" style="margin:0">Import JSON<input type="file" accept="application/json" style="display:none" onchange="importJSON(this)"></label></div>
+    <p class="small">${sc} sample contact${sc===1?'':'s'} loaded so you can click around. Their names are obviously made up. Clear them when you start using this for real.</p>
+    <div class="row"><button class="btn danger" ${sc?'':'disabled'} onclick="if(confirm('Remove all sample data?')){clearSample();render();toast('Sample data cleared')}">Clear sample data</button><button class="btn sec" onclick="if(confirm('Reset everything and reload the samples?')){localStorage.removeItem('${KEY}');location.reload()}">Reset to samples</button></div>
+    <h3 style="margin-top:20px">What this is</h3><p class="small">A working preview of the TakeoffSEO admin described in <a href="../FUNNEL.md" target="_blank">FUNNEL.md</a>. In Stage 2 the same screens become <code>/admin</code> on the real site with a database, so website forms land here automatically and the emails send themselves. Until then it works offline in this browser.</p></div>
+  </div>`;
+ }
+};
+
+/* ---------------- text generators ---------------- */
+function chk(id){return S.checks.find(x=>x.id===id)}
+function toggleGap(id,g){const k=chk(id);const i=k.gaps.indexOf(g);if(i>=0)k.gaps.splice(i,1);else k.gaps.push(g);save()}
+function checkEmail(c,k){
+  const s=k.searches.filter(x=>x.q).map(x=>`"${x.q}" — Google: ${x.g||'?'} · Maps: ${x.m||'?'}`).join('\n');
+  const rec=k.rec==='none'?`Honestly, you're in good shape. Keep asking for reviews and I'd leave it for now.`:k.rec?`${PKG[k.rec].name}, ${money(k.rec==='monthly'?690:PKG[k.rec].price)}${k.rec==='monthly'?' a month':''} plus GST. ${k.recWhy||''}\nDetails and the full list of work: takeoffseo.com/${slug(k.rec)}`:'[recommendation]';
+  return `Subject: Your free check: ${c.business}\n\nHi ${first(c)},\n\nHere's where ${c.business} stands today. I searched the way a customer would.\n\nWHERE YOU SHOW UP NOW\n${s||'[five searches]'}\n${k.ai.q?`${k.ai.tool} asked "${k.ai.q}": ${k.ai.r||'?'}.${k.ai.named?' It named: '+k.ai.named+'.':''}`:''}\n\nYOUR GOOGLE PROFILE\n${k.gaps.length?k.gaps.map(g=>'- '+g).join('\n'):'- Looks complete. Good.'}\n${k.site?`\nYOUR WEBSITE\n${k.site}\n`:''}\nTHE THREE THINGS I'D FIX FIRST\n${k.fixes.map((f,i)=>`${i+1}. ${f||'[fix]'}`).join('\n')}\n\nWHAT I'D DO\n${rec}\n\nAnything unclear, reply and ask. Happy to explain any of it.\n\nAlex\nTakeoffSEO · 0497 878 930`;
+}
+function slug(k){return {tune:'tune-up',fix:'fix-up',site:'new-website',monthly:'monthly'}[k]||''}
+function fill(t,c){
+  const j=c?S.jobs.filter(x=>x.cid===c.id).slice(-1)[0]:null;const pkg=j?PKG[j.pkg]:null;const price=j?(j.pkg==='monthly'?MONTHLY_PRICE[j.plan]:pkg.price):0;
+  const map={first:c?first(c):'[first name]',business:c?c.business:'[business]',pkg:pkg?pkg.name:'[package]',pkgslug:j?slug(j.pkg):'[package]',price:j?money(price):'[price]',payterms:pkg?(pkg.pay==='full'?'Paid before I start':pkg.pay==='half'?`${money(price/2)} to start, ${money(price/2)} when the list is done`:'Billed at the start of each month'):'[terms]',finish:j&&j.finish?fmtD(j.finish):'[finish date]',rec:c&&c.rec?PKG[c.rec].name:'[package]',recprice:c&&c.rec?money(c.rec==='monthly'?690:PKG[c.rec].price):'[price]',recslug:c&&c.rec?slug(c.rec):'[package]',done:'[items]',next:'[items]'};
+  return t.replace(/\{(\w+)\}/g,(m,k)=>map[k]??m);
+}
+function monthlyReport(c,j,cy){
+  const N=cy.numbers;const l=(k,label)=>`${label}: ${N[k]??'—'} (last month ${N[k+'_prev']??'—'})`;
+  return `Subject: ${c.business}: ${cy.month} report\n\nHi ${first(c)},\n\nThe main thing this month: ${N.main||'[one sentence]'}.\n\n${l('calls','Calls from your Google profile')}\n${l('enq','Website enquiries')}\n${l('dir','Direction requests')}\nAppeared for ${N.vis??'—'} of the 20 searches that matter (last month ${N.vis_prev??'—'})\n${l('rev','New reviews')}\n\nWhat I did:\n${(N.did||cy.items.filter(i=>i.done).map(i=>i.t).join('\n')||'[list]').split('\n').map(x=>'- '+x).join('\n')}\n\nNext month:\n${(N.next||'[list]').split('\n').map(x=>'- '+x).join('\n')}\n\nNeed from you: nothing\n${j.plan==='growth'?'\nCall booked for [time].\n':''}\nAlex`;
+}
+
+/* ---------------- handlers ---------------- */
+function render(){
+  const h=location.hash.replace(/^#\/?/,'')||'dashboard';const [view,arg]=h.split('/');
+  runAutomations();
+  const fn=VIEWS[view]||VIEWS.dashboard;
+  document.getElementById('main').innerHTML=fn(arg);
+  const t=today();const late=S.tasks.filter(x=>!x.done&&x.due<t).length;const newLeads=S.contacts.filter(c=>c.stage==='new').length;
+  const nav=[['dashboard','Dashboard',alerts().length,'red'],['pipeline','Pipeline',newLeads,''],['contacts','Contacts'],['tasks','Tasks',late,'red'],['jobs','Jobs',S.jobs.filter(j=>j.status==='active'&&j.pkg!=='monthly').length,''],['monthly','Monthly',S.jobs.filter(j=>j.pkg==='monthly'&&j.status==='active').length,''],['templates','Templates'],['playbook','Playbook'],['settings','Settings']];
+  document.getElementById('side').innerHTML=`<a class="brand" href="#/dashboard"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#16324c"/><path d="M8 22 L22 8 M14 8 h8 v8" stroke="#c9843a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Takeoff<span style="color:#c9843a">SEO</span>&nbsp;<span style="font-family:var(--sans);font-weight:500;font-size:.8rem;color:#9a8f7c">admin</span></a>${nav.map(n=>`<a class="nav ${view===n[0]||(view==='contact'&&n[0]==='contacts')||(view==='check'&&n[0]==='contacts')||(view==='job'&&n[0]==='jobs')||(view==='new'&&n[0]==='pipeline')?'active':''}" href="#/${n[0]}">${n[1]}${n[2]?`<span class="cnt ${n[3]}">${n[2]}</span>`:''}</a>`).join('')}<div class="foot">${esc(S.settings.owner)}<br>${esc(S.settings.email)}<br>Preview · saves in this browser</div>`;
+  const mn=document.getElementById('mobileNav');mn.innerHTML=nav.map(n=>`<option value="${n[0]}" ${view===n[0]?'selected':''}>${n[1]}${n[2]?' ('+n[2]+')':''}</option>`).join('');
+  window.scrollTo(0,0);
+}
+S = load();
+document.getElementById('mobileNav').addEventListener('change',e=>go('#/'+e.target.value));
+window.addEventListener('hashchange',render);
+function doTask(id){const t=S.tasks.find(x=>x.id===id);if(!t||t.done)return;completeTask(t);render();toast('Done')}
+function manualStage(cid,stage){const c=contact(cid);setStage(c,stage,'moved by hand');save();render()}
+function createLead(e){e.preventDefault();const f=new FormData(e.target);const d=Object.fromEntries(f.entries());const c=newLead(d);toast('Lead created');go('#/contact/'+c.id);return false}
+function simulateForm(){
+  const picks=[{name:'Jordan Test',business:'Test Roofing (sample)',email:'jordan@example.com',phone:'0400 000 099',area:'Coomera',jobs:'Roof restorations',website:'https://example.com',source:'Website: free check'},{name:'Casey Trial',business:'Trial Dental (sample)',email:'casey@example.com',phone:'',area:'Broadbeach',jobs:'New patients for check-ups',website:'https://example.org',source:'Website: package form',pkg:'tune'}];
+  const p=picks[Math.floor(Math.random()*picks.length)];const c=newLead(p,{sample:true});render();toast(`Website form → lead created, T1 auto-reply logged, task set for ${fmtD(addBiz(today(),2))}`);
+}
+function sendCheck(id){const k=chk(id);const c=contact(k.cid);if(!k.fixes.some(f=>f)||!k.rec){if(!confirm('The fixes or recommendation are empty. Send anyway?'))return}k.sentAt=today();c.rec=k.rec==='none'?'':k.rec;markCheckSent(c);render();toast('Marked sent. Follow-up task set for +7 days.')}
+function cyNum(jid,k,v){const j=S.jobs.find(x=>x.id===jid);const cy=j.cycles.find(x=>x.month===monthKey(today()));cy.numbers[k]=v;save();const c=contact(j.cid);const el=document.getElementById('repOut');if(el)el.textContent=monthlyReport(c,j,cy)}
+function sendReport(jid){const j=S.jobs.find(x=>x.id===jid);const cy=j.cycles.find(x=>x.month===monthKey(today()));cy.reportSent=today();cy.items.forEach(i=>{if(i.t.includes('report sent'))i.done=true});act(j.cid,`Monthly report T12 sent · ${cy.month}`,'email');save();render();toast('Report marked sent')}
+function changeFinish(jid,v){const j=S.jobs.find(x=>x.id===jid);const old=j.finish;j.finish=v;act(j.cid,`Finish date moved ${fmtD(old)} → ${fmtD(v)}. Tell the client in the Friday update (SOP-19).`,'system');save();render();toast('Finish date changed. Tell the client.')}
+function fridayUpdate(jid){const j=S.jobs.find(x=>x.id===jid);const c=contact(j.cid);const done=j.pkg==='monthly'?(j.cycles.slice(-1)[0]?.items.filter(i=>i.done).map(i=>i.t).slice(-3).join('; ')||'[items]'):j.items.filter(i=>i.done).map(i=>i.t).slice(-3).join('; ')||'[items]';const next=j.pkg==='monthly'?(j.cycles.slice(-1)[0]?.items.filter(i=>!i.done).map(i=>i.t).slice(0,2).join('; ')||'[items]'):j.items.filter(i=>!i.done).map(i=>i.t).slice(0,2).join('; ')||'[items]';
+  const body=`Subject: ${c.business}: this week\n\nHi ${first(c)},\n\nDone this week: ${done}\nNext week: ${next}\nNeed from you: nothing\nFinish date: ${j.finish?fmtD(j.finish)+', on track':'month to month'}\n\nAlex`;
+  openDlg(`<h3>Friday update (T8) · ${esc(c.business)}</h3><pre class="email" id="friOut">${esc(body)}</pre><p class="hint">Four lines. If the finish date is at risk, say it here, not the week it's due.</p><div class="row sp"><button class="btn sec" onclick="closeDlg()">Close</button><div class="row"><button class="btn sec" onclick="copyText('friOut')">Copy</button><button class="btn" onclick="S.jobs.find(x=>x.id==='${jid}').fridays.push(today());act('${c.id}','Friday update T8 sent','email');save();closeDlg();render();toast('Logged')">Mark sent</button></div></div>`)}
+function bookDlg(cid){const c=contact(cid);openDlg(`<h3>Book a package · ${esc(c.business)}</h3><p class="small muted">Creates the job and checklist, the invoice(s), and a finish date from your capacity (SOP-15). Logs the T6 email.</p><div class="f"><label>Package</label><select id="bkPkg" onchange="document.getElementById('bkPlan').style.display=this.value==='monthly'?'block':'none'">${Object.entries(PKG).map(([k,p])=>`<option value="${k}" ${c.rec===k?'selected':''}>${p.name} · ${k==='monthly'?'$690 / $1,190 a month':money(p.price)} · finish ~${k==='monthly'?'month to month':fmtD(finishDateFor(k))}</option>`).join('')}</select></div><div class="f" id="bkPlan" style="display:${c.rec==='monthly'?'block':'none'}"><label>Plan</label><select id="bkPlanV"><option value="steady">Steady $690</option><option value="growth">Growth $1,190</option></select></div><div class="row sp"><button class="btn sec" onclick="closeDlg()">Cancel</button><button class="btn" onclick="const j=bookPackage(contact('${cid}'),document.getElementById('bkPkg').value,document.getElementById('bkPlanV').value);closeDlg();go('#/job/'+j.id);toast('Booked. T6 + invoice logged.')">Book</button></div>`)}
+function noteDlg(cid){openDlg(`<h3>Log call or note</h3><div class="f"><textarea id="noteTxt" placeholder="Called. Wants to start after school holidays. Check back 14 Oct."></textarea></div><div class="f"><label>Set a follow-up task? <span class="muted">(optional)</span></label><input type="date" id="noteDue"></div><div class="row sp"><button class="btn sec" onclick="closeDlg()">Cancel</button><button class="btn" onclick="const t=document.getElementById('noteTxt').value.trim();if(t){act('${cid}',t,'note');}const d=document.getElementById('noteDue').value;if(d)task('${cid}','Follow up: '+(t.slice(0,40)||'as agreed'),d,'task');save();closeDlg();render();toast('Logged')">Save</button></div>`)}
+function taskDlg(cid){openDlg(`<h3>New task</h3><div class="f"><label>What</label><input id="tkT"></div><div class="f"><label>Due</label><input type="date" id="tkD" value="${addBiz(today(),1)}"></div><div class="row sp"><button class="btn sec" onclick="closeDlg()">Cancel</button><button class="btn" onclick="const t=document.getElementById('tkT').value.trim();if(!t)return;task('${cid}',t,document.getElementById('tkD').value,'task');save();closeDlg();render()">Add</button></div>`)}
+function lostDlg(cid){openDlg(`<h3>Mark lost / not a fit</h3><div class="f"><label>Reason (honest, one line)</label><select id="lostR"><option>Not a fit: online shop / national</option><option>Not a fit: wants ads or social</option><option>Outside area</option><option>Chose someone else</option><option>Price</option><option>No reply after three touches</option><option>Other</option></select></div><p class="small muted">Sends T15 if not a fit. Thank them. Never argue.</p><div class="row sp"><button class="btn sec" onclick="closeDlg()">Cancel</button><button class="btn danger" onclick="const c=contact('${cid}');c.lostReason=document.getElementById('lostR').value;setStage(c,'lost',c.lostReason);if(c.lostReason.startsWith('Not a fit'))act(c.id,'Not-a-fit email T15 sent','email');S.tasks.filter(t=>t.cid===c.id&&!t.done).forEach(t=>{t.done=true;t.doneAt=today()});save();closeDlg();render()">Mark lost</button></div>`)}
+function drag(e,id){e.dataTransfer.setData('text',id)}
+function dragOver(e){e.preventDefault();e.currentTarget.classList.add('over')}
+function drop(e,stage){e.preventDefault();e.currentTarget.classList.remove('over');const id=e.dataTransfer.getData('text');const c=contact(id);if(!c)return;if(stage==='booked'&&!S.jobs.some(j=>j.cid===id)){bookDlg(id);return}if(stage==='lost'){lostDlg(id);return}setStage(c,stage,'dragged on the board');if(stage==='check'&&!S.tasks.some(t=>t.cid===id&&!t.done&&t.type==='follow'))task(id,'Follow up: did the check make sense? (T3)',addDays(today(),7),'follow');save();render()}
+function copyText(id){const el=document.getElementById(id);navigator.clipboard?.writeText(el.textContent).then(()=>toast('Copied'),()=>toast('Select and copy manually'))}
+function exportJSON(){const a=document.createElement('a');a.href='data:application/json,'+encodeURIComponent(JSON.stringify(S,null,2));a.download=`takeoffseo-admin-${today()}.json`;a.click()}
+function importJSON(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const s=JSON.parse(r.result);if(!s.contacts)throw 0;S=s;save();render();toast('Imported')}catch(e){toast('That file didn\'t look right')}};r.readAsText(f)}
+function clearSample(){const ids=new Set(S.contacts.filter(c=>c.sample).map(c=>c.id));S.contacts=S.contacts.filter(c=>!ids.has(c.id));S.tasks=S.tasks.filter(t=>!ids.has(t.cid));S.activities=S.activities.filter(a=>!ids.has(a.cid));S.jobs=S.jobs.filter(j=>!ids.has(j.cid));S.checks=S.checks.filter(k=>!ids.has(k.cid));save()}
+render();
+</script>
+</body>
+</html>

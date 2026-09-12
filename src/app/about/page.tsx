@@ -1,99 +1,93 @@
 import type { Metadata } from "next";
 import { CtaBand } from "@/components/CtaBand";
-import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
-import { breadcrumbJsonLd } from "@/lib/schema";
-import { aboutCopy, brand, homeCopy, offers, routes } from "@/lib/site";
+import { brand, routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "About TakeoffSEO | Gold Coast, QLD" },
-  description: aboutCopy.lede,
+  title: "About Alexander Nott",
+  description:
+    "I'm Alexander Nott. TakeoffSEO is me. I help local businesses get to the top of Google without paying for ads.",
   alternates: { canonical: routes.about },
 };
 
 export default function AboutPage() {
   return (
     <div>
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: routes.home },
-          { name: "About", path: routes.about },
-        ])}
-      />
       <PageBand>
         <PageHero
-          eyebrow={`${brand.locationLabel} · ${brand.areaServed}`}
-          title={aboutCopy.title}
-          lede={aboutCopy.lede}
           tone="dark"
+          eyebrow="About"
+          title="I'm Alexander Nott. TakeoffSEO is me."
+          lede="Based on the Gold Coast. Working with local businesses anywhere in Australia, online. I help you get to the top of Google without paying for ads. When you hire TakeoffSEO, I'm the one who answers the phone and the one who does the work."
         />
       </PageBand>
-
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
-        <div className="grid gap-8 lg:grid-cols-3">
-          <article className="space-y-6 leading-relaxed text-ink-muted lg:col-span-2">
-            <p>{aboutCopy.founderLine}</p>
-            <p>{aboutCopy.path}</p>
-            <p>{aboutCopy.marketing}</p>
-            <p>{aboutCopy.websiteSeo}</p>
-            <p>
-              Hours are {brand.hours.toLowerCase()}. Call{" "}
-              <a
-                className="font-medium text-navy underline"
-                href={`tel:${brand.phoneTel}`}
-              >
-                {brand.phoneDisplay}
-              </a>{" "}
-              or email{" "}
-              <a
-                className="font-medium text-navy underline"
-                href={`mailto:${brand.email}`}
-              >
-                {brand.email}
-              </a>
-              . ABN {brand.abn} until the number is set.
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <div
+            className="flex aspect-[4/5] max-w-sm items-center justify-center rounded-sm border border-dashed border-line bg-paper-200 text-xs uppercase tracking-widest text-ink-soft"
+            aria-hidden
+          >
+            [ FOUNDER PHOTO ]
+          </div>
+          <div>
+            <h2 className="font-serif text-3xl text-navy sm:text-4xl">
+              Why I run it this way
+            </h2>
+            <p className="mt-3 leading-relaxed text-ink-muted">
+              Most SEO agencies work like this: a salesperson wins you over, an
+              account manager keeps you calm, and someone you never meet does
+              the work. Prices are hidden because they&apos;re set per client.
+              Reports are long because they need to look like a lot happened.
             </p>
-          </article>
-          <aside className="card h-fit p-6">
-            <h2 className="font-serif text-2xl text-navy">At a glance</h2>
-            <dl className="mt-4 space-y-3 text-sm">
-              <div>
-                <dt className="text-ink-soft">Founder</dt>
-                <dd className="font-medium text-navy">{brand.founder}</dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Based</dt>
-                <dd className="font-medium text-navy">{brand.locationLabel}</dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Area served</dt>
-                <dd className="font-medium text-navy">{brand.areaServed}</dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Hours</dt>
-                <dd className="font-medium text-navy">{brand.hours}</dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Delivery</dt>
-                <dd className="font-medium text-navy">{aboutCopy.delivery}</dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Marketing</dt>
-                <dd className="font-medium text-navy">
-                  Industry pages, starting with pool & landscape
-                </dd>
-              </div>
-            </dl>
-          </aside>
+            <p className="mt-3 leading-relaxed text-ink-muted">
+              I don&apos;t think that&apos;s a good deal for an owner who just
+              wants the phone to ring more often with the right jobs.
+            </p>
+            <p className="mt-3 leading-relaxed text-ink-muted">
+              So I run TakeoffSEO the other way. Every price is on the site.
+              Every package is a checklist you can tick off. You talk to me, I
+              do the work, and the report fits on one page.
+            </p>
+            <h2 className="mt-10 font-serif text-3xl text-navy">What I focus on</h2>
+            <p className="mt-3 leading-relaxed text-ink-muted">
+              One thing: getting local businesses to the top of Google and
+              Google Maps — without paying for ads. That means your Google
+              profile, your website, and your reviews. AI answers are included
+              in the same work; they are not the headline. I don&apos;t do ads,
+              social media, logos or &quot;full-service marketing&quot;. When
+              you need those, I&apos;ll say so.
+            </p>
+            <h2 className="mt-10 font-serif text-3xl text-navy">Proof</h2>
+            <p className="mt-3 leading-relaxed text-ink-muted">
+              Work is founder-led and TakeoffSEO is a young business. I&apos;ll
+              add client names and what we did for them here as clients give
+              permission. I won&apos;t make anything up in the meantime.
+            </p>
+            <div className="mt-8 rounded-sm border border-line bg-paper-50 p-5 text-sm">
+              <p>
+                <strong>{brand.founder}</strong>
+                <br />
+                Founder, TakeoffSEO
+                <br />
+                Gold Coast, Queensland
+                <br />
+                <a href={`tel:${brand.phoneTel}`}>{brand.phoneDisplay}</a>
+                {" · "}
+                <a href={`mailto:${brand.email}`}>{brand.email}</a>
+                <br />
+                <span className="text-ink-soft">ABN {brand.abn}</span>
+              </p>
+            </div>
+          </div>
         </div>
-
         <CtaBand
-          title={homeCopy.closeTitle}
-          body={homeCopy.closeBody}
-          primaryLabel={homeCopy.primaryCta}
-          secondaryHref={offers.audit.href}
-          secondaryLabel={homeCopy.secondaryCta}
+          title="See if we're a fit. It costs nothing."
+          body="Start with the free check, or just say hello."
+          primaryHref={routes.freeCheck}
+          primaryLabel="Get your free check"
+          secondaryHref={routes.contact}
+          secondaryLabel="Or just say hello"
         />
       </div>
     </div>
