@@ -37,32 +37,39 @@ export function SiteHeader() {
             "children" in item ? (
               <div
                 key={item.label}
-                className="relative"
+                className="group relative"
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
                 <button
                   type="button"
-                  className="text-sm font-medium text-navy"
+                  className="inline-flex items-center gap-1 py-2 text-sm font-medium text-navy"
                   aria-expanded={servicesOpen}
+                  aria-haspopup="true"
                   onClick={() => setServicesOpen((value) => !value)}
                 >
                   {item.label}
+                  <span aria-hidden className="text-[10px] text-ink-soft">
+                    ▾
+                  </span>
                 </button>
                 <div
-                  className={`absolute left-0 top-full z-30 min-w-64 border border-line bg-paper-50 py-2 shadow-card ${
-                    servicesOpen ? "block" : "hidden"
+                  className={`absolute left-0 top-full z-50 min-w-64 pt-2 ${
+                    servicesOpen ? "block" : "hidden group-hover:block group-focus-within:block"
                   }`}
                 >
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="block px-4 py-2 text-sm text-ink hover:bg-paper-200"
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
+                  <div className="border border-line bg-paper-50 py-2 shadow-card">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className="block px-4 py-2.5 text-sm text-ink hover:bg-paper-200"
+                        onClick={() => setServicesOpen(false)}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (
