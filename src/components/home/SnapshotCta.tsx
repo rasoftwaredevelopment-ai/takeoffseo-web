@@ -10,6 +10,7 @@ type SnapshotCtaProps = {
   photo?: PhotoKey;
   video?: string;
   poster?: string;
+  size?: "full" | "chapter" | "cta";
 };
 
 export function SnapshotCta({
@@ -18,6 +19,7 @@ export function SnapshotCta({
   photo,
   video,
   poster,
+  size = "chapter",
 }: SnapshotCtaProps) {
   return (
     <CinematicBand
@@ -28,7 +30,8 @@ export function SnapshotCta({
       photoAlt="SEQ outdoor living — the work a Snapshot is written against"
       video={video}
       poster={poster}
-      size="cta"
+      size={size}
+      overlay={video ? "default" : "heavy"}
     >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <ButtonLink href={routes.snapshot} variant="inverseSolid">

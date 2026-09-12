@@ -26,6 +26,13 @@ STILLS (Unsplash License unless noted)
 - house-pool     Unsplash photo-1613490493576-7fde63acd811
 - coastal-pool   Pexels photo 261327 (Pexels License)
 - lawn-work      Pexels photo 1453499 (Pexels License)
+- pool-night     Unsplash photo-1757439402268 (Dominik / @pajorstudio). Graded locally.
+- house-dusk     Unsplash photo-1757356657991 (Michael Brown / @vettexan). Graded locally.
+- resort-dusk    Pexels photo 258154 (Pexels License). Graded locally.
+- coast-villa    Pexels photo 1732414 (Pexels License). Graded locally.
+- lodge-pool     Pexels photo 32870 (Pexels License). Graded locally.
+
+Homepage chapters use dusk/night stills and graded water — not the bright listing, garden-path, or lawn-work frames.
 
 Google, Google Maps, ChatGPT, Gemini, Perplexity, and AI Overviews are nominative platform marks only.
 No founder headshot is claimed. Workspace / desk photos are contextual, not portraits of Alexander Nott.

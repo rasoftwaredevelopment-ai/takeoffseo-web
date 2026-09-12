@@ -37,18 +37,18 @@ export const education = {
       kicker: "Google Maps",
       title: "The map pack is where local jobs start.",
       body: "A Google Business Profile that matches the yard — name, categories, service area, photos — is how you appear when someone is ready to call. If the listing is thin or the area is wrong, Maps has no reason to put you in front of the next job.",
-      image: "pool-backyard",
+      image: "pool-night",
       imageAlt:
-        "Queensland backyard pool and palms — the local jobs the map pack is for",
+        "A finished pool at night — the local jobs the map pack is for",
     },
     {
       id: "ai",
       kicker: "AI answers",
       title: "People now ask who to hire. The model needs something to cite.",
       body: "ChatGPT, Gemini, Perplexity, and Google AI Overviews answer hire questions from pages they can trust and extract. Clear services, local signals, and answers written for the job — not a separate “AI hack.” If you are not mentioned, you are not on the shortlist.",
-      image: "outdoor-living",
+      image: "house-pool",
       imageAlt:
-        "Australian outdoor-living house at dusk — the work AI answers should name",
+        "Luxury pool and house — the work AI answers should name",
     },
   ],
 } as const;
@@ -63,25 +63,25 @@ export const howTakeoff = {
       numeral: "01",
       title: "Invisible",
       body: "The listing is thin. The pages describe the company, not the job. AI answers skip you on the hire prompts buyers actually ask.",
-      image: "pool-dusk",
-      imageAlt: "A finished pool and garden that still have to be found online",
+      image: "resort-dusk",
+      imageAlt: "A finished pool after dark — the work that still has to be found",
     },
     {
       id: "found",
       numeral: "02",
       title: "Found",
       body: "Google Search, Maps, and AI answers can name you for the work you want. The site, the profile, and the local signals finally agree.",
-      image: "coastal-pool",
-      imageAlt: "Coastal pool and deck — found for the work buyers want",
+      image: "house-dusk",
+      imageAlt: "A modern house and pool at dusk — found for the work buyers want",
     },
     {
       id: "takeoff",
       numeral: "03",
       title: "Takeoff",
       body: "The right jobs can find you. We diagnose, implement on your site and listing, and report what changed against the starting point.",
-      image: "house-pool",
-      imageAlt: "Luxury pool and house — the work, found",
-      video: "/media/motion-coast.mp4",
+      image: "lodge-pool",
+      imageAlt: "Still water reflecting the house — the work, found",
+      video: "/media/hero.mp4",
     },
   ],
 } as const;
@@ -121,6 +121,7 @@ export const snapshotDoor = {
 export const aboutTeaser = {
   eyebrow: "Who this is",
   title: "Alexander Nott. Gold Coast. SEQ.",
+  photo: "coast-villa" as const,
   body: "Alexander founded TakeoffSEO to do Google and AI visibility for SEQ outdoor trades first — pool builders and landscapers — because that is where the hire starts on a map, a search, or an AI answer. Other local service businesses are taken case by case. We say if it is a fit.",
   points: [
     { label: "Founder", value: brand.founder },
@@ -136,7 +137,7 @@ export const snapshotCtas = [
     id: "after-hero",
     title: "See how you appear today.",
     body: "The Snapshot is free, written, and specific to your name. Phone or enquire — we confirm timing by appointment.",
-    photo: "coastal-pool" as const,
+    photo: "lodge-pool" as const,
   },
   {
     id: "after-education",
@@ -148,7 +149,8 @@ export const snapshotCtas = [
     id: "final",
     title: "Get a Free Visibility Snapshot.",
     body: `Call ${brand.phoneDisplay} or write to ${brand.email}. South East Queensland. By appointment.`,
-    photo: "pool-dusk" as const,
+    photo: "pool-night" as const,
+    video: "/media/hero.mp4",
   },
 ] as const;
 
@@ -231,12 +233,47 @@ export const homeFaqs = [
     answer:
       "Alexander Nott founded TakeoffSEO on the Gold Coast. The practice is built around Google and AI visibility for local businesses, with a marketing focus on SEQ pool and landscape companies and delivery open case by case.",
   },
+    {
+      id: "how-enquire",
+      question: "How do I enquire?",
+      answer: `Call ${brand.phoneDisplay}, email ${brand.email}, or use the contact form. Ask for a Free Visibility Snapshot. Hours are by appointment.`,
+    },
+  ];
+
+export const faqChapters = [
   {
-    id: "how-enquire",
-    question: "How do I enquire?",
-    answer: `Call ${brand.phoneDisplay}, email ${brand.email}, or use the contact form. Ask for a Free Visibility Snapshot. Hours are by appointment.`,
+    id: "faq-visibility",
+    kicker: "Questions",
+    title: "What visibility actually means.",
+    video: "/media/motion-pool.mp4",
+    photo: undefined,
+    ids: ["what-is-visibility", "why-maps", "what-is-ai-visibility"],
   },
-];
+  {
+    id: "faq-who",
+    kicker: "Who this is for",
+    title: "SEQ outdoor trades first. Others case by case.",
+    video: undefined,
+    photo: "outdoor-living" as const,
+    ids: ["who-for", "only-pool-landscape", "who-alexander", "where-work"],
+  },
+  {
+    id: "faq-snapshot",
+    kicker: "The Snapshot",
+    title: "What you get. What happens next.",
+    video: undefined,
+    photo: "lodge-pool" as const,
+    ids: ["whats-in-snapshot", "how-long", "after-snapshot", "how-enquire"],
+  },
+  {
+    id: "faq-straight",
+    kicker: "Straight answers",
+    title: "No ranking promises. No ads pitch.",
+    video: undefined,
+    photo: "resort-dusk" as const,
+    ids: ["no-guarantees", "vs-ads", "website-first"],
+  },
+] as const;
 
 export const media = {
   heroVideo: "/media/hero.mp4",
@@ -295,6 +332,26 @@ export const media = {
     "lawn-work": {
       src: "/media/lawn-work.webp",
       src800: "/media/lawn-work-800.webp",
+    },
+    "pool-night": {
+      src: "/media/pool-night.webp",
+      src800: "/media/pool-night-800.webp",
+    },
+    "house-dusk": {
+      src: "/media/house-dusk.webp",
+      src800: "/media/house-dusk-800.webp",
+    },
+    "resort-dusk": {
+      src: "/media/resort-dusk.webp",
+      src800: "/media/resort-dusk-800.webp",
+    },
+    "coast-villa": {
+      src: "/media/coast-villa.webp",
+      src800: "/media/coast-villa-800.webp",
+    },
+    "lodge-pool": {
+      src: "/media/lodge-pool.webp",
+      src800: "/media/lodge-pool-800.webp",
     },
   },
 } as const;

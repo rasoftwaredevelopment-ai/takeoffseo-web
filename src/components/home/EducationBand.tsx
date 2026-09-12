@@ -9,8 +9,8 @@ export function EducationBand() {
         kicker={education.eyebrow}
         title={education.title}
         body={education.lede}
-        photo="garden-path"
-        photoAlt="Formal garden path — the ground local visibility is built on"
+        photo="outdoor-living"
+        photoAlt="Australian outdoor-living house at dusk — the ground local visibility is built on"
       />
       {education.surfaces.map((surface) => (
         <CinematicBand

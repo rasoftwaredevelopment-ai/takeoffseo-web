@@ -4,14 +4,14 @@ import { brand, nav, routes } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="mt-0 border-t border-navy/20 bg-navy text-paper-200">
-      <div className="mx-auto grid max-w-site gap-10 px-4 py-20 sm:px-6 md:grid-cols-4 lg:py-24">
+      <div className="mx-auto grid max-w-site gap-12 px-4 py-24 sm:px-6 md:grid-cols-4 lg:py-32">
         <div className="md:col-span-2">
-          <p className="font-serif text-4xl text-paper-50">{brand.name}</p>
-          <p className="mt-4 max-w-md text-sm leading-relaxed">
+          <p className="font-serif text-display text-paper-50">{brand.name}</p>
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-paper-100">
             Google, Maps, and AI visibility for SEQ pool builders and
             landscapers. Other local service businesses considered case by case.
           </p>
-          <p className="mt-4 text-sm">
+          <p className="mt-5 text-base text-paper-200">
             Gold Coast based · South East Queensland · By appointment
           </p>
         </div>
@@ -19,7 +19,7 @@ export function SiteFooter() {
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-paper-300">
             Site
           </p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <ul className="mt-4 space-y-3 text-base">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="hover:text-paper-50">
@@ -33,7 +33,7 @@ export function SiteFooter() {
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-paper-300">
             Contact
           </p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <ul className="mt-4 space-y-3 text-base">
             <li>
               <a href={`tel:${brand.phoneTel}`} className="hover:text-paper-50">
                 {brand.phoneDisplay}

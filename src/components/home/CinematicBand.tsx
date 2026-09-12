@@ -17,12 +17,13 @@ type CinematicBandProps = {
   size?: "full" | "chapter" | "cta";
   children?: ReactNode;
   priority?: boolean;
+  overlay?: "default" | "heavy";
 };
 
 const minHeights = {
   full: "min-h-[100svh]",
-  chapter: "min-h-[88svh]",
-  cta: "min-h-[72svh]",
+  chapter: "min-h-[92svh]",
+  cta: "min-h-[88svh]",
 } as const;
 
 export function CinematicBand({
@@ -38,6 +39,7 @@ export function CinematicBand({
   size = "chapter",
   children,
   priority = false,
+  overlay = "heavy",
 }: CinematicBandProps) {
   const TitleTag = titleAs;
 
@@ -61,7 +63,11 @@ export function CinematicBand({
           className="absolute inset-0 h-full w-full"
         />
       ) : null}
-      <div className="chapter-scrim absolute inset-0" />
+      <div
+        className={`absolute inset-0 ${
+          overlay === "heavy" ? "chapter-scrim-heavy" : "chapter-scrim"
+        }`}
+      />
 
       <div
         className={`relative z-10 mx-auto flex ${minHeights[size]} max-w-site flex-col justify-end px-4 py-20 sm:px-6 sm:py-24 lg:py-28`}

@@ -7,7 +7,7 @@ import { HowTakeoffHelps } from "@/components/home/HowTakeoffHelps";
 import { SnapshotCta } from "@/components/home/SnapshotCta";
 import { SnapshotDoor } from "@/components/home/SnapshotDoor";
 import { JsonLd } from "@/components/JsonLd";
-import { homeCopy, homeFaqs, snapshotCtas } from "@/lib/home";
+import { homeCopy, homeFaqs, media, snapshotCtas } from "@/lib/home";
 import { faqJsonLd } from "@/lib/schema";
 import { brand, routes } from "@/lib/site";
 
@@ -32,6 +32,7 @@ export default function HomePage() {
         title={snapshotCtas[1].title}
         body={snapshotCtas[1].body}
         video={snapshotCtas[1].video}
+        poster={media.heroPoster}
       />
       <HowTakeoffHelps />
       <SnapshotDoor />
@@ -41,6 +42,9 @@ export default function HomePage() {
         title={snapshotCtas[2].title}
         body={snapshotCtas[2].body}
         photo={snapshotCtas[2].photo}
+        video={"video" in snapshotCtas[2] ? snapshotCtas[2].video : undefined}
+        poster={media.heroPoster}
+        size="full"
       />
     </div>
   );

@@ -109,25 +109,37 @@ export function SiteHeader() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="border-t border-line bg-paper-50 px-4 py-4 text-navy motion-safe:animate-[rise_0.35s_ease] lg:hidden"
+          className={`border-t px-4 py-5 motion-safe:animate-[rise_0.35s_ease] lg:hidden ${
+            homeChrome
+              ? "border-white/10 bg-navy text-paper-50"
+              : "border-line bg-paper-50 text-navy"
+          }`}
           aria-label="Mobile"
         >
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-base font-medium text-navy"
+                className={`font-serif text-2xl ${
+                  homeChrome ? "text-paper-50" : "text-navy"
+                }`}
                 onClick={() => setOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <a href={`tel:${brand.phoneTel}`} className="pt-2 text-navy">
+            <a
+              href={`tel:${brand.phoneTel}`}
+              className={`pt-2 text-base ${
+                homeChrome ? "text-paper-200" : "text-navy"
+              }`}
+            >
               {brand.phoneDisplay}
             </a>
             <ButtonLink
               href={routes.snapshot}
+              variant={homeChrome ? "inverseSolid" : "primary"}
               className="mt-1"
               onClick={() => setOpen(false)}
             >
