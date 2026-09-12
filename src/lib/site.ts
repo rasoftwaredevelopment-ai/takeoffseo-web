@@ -240,23 +240,45 @@ export const seqSituations = [
   },
 ] as const;
 
+export const clarityPathSteps = [
+  {
+    name: "Free Snapshot",
+    line: "See if buyers can find you",
+  },
+  {
+    name: "Audit",
+    line: "Get the fix map — after Snapshot, priced in proposal",
+  },
+  {
+    name: "90-Day Foundation",
+    line: "Fix site + Google profile",
+  },
+  {
+    name: "Monthly Retainer",
+    line: "Keep it moving",
+  },
+] as const;
+
+export const clarityPathCaption =
+  "Start free. Paid work quoted after Snapshot — case by case." as const;
+
 export const howWeWorkSteps = [
   {
-    name: "See the gaps",
-    line: "A free Snapshot on your name in search, Maps, and AI answers.",
+    name: "Audit",
+    line: "Map the baseline on your website and Google Business Profile.",
   },
   {
-    name: "Fix the site and profile",
-    line: "Agreed work happens on your website and Google Business Profile.",
+    name: "Implement",
+    line: "Fix the agreed work on your site and listing — not a page we host.",
   },
   {
-    name: "Show what moved",
-    line: "We compare the starting point with what we can observe later.",
+    name: "Measure",
+    line: "Show what moved versus the starting point.",
   },
 ] as const;
 
 export const howWeWorkCaption =
-  "Work happens on your website and Google Business Profile — not a page we host." as const;
+  "Audit, implement, and measure on your website and Google Business Profile." as const;
 
 export const whereJobsCaption =
   "If you’re missing in these, the enquiry often never hits your site." as const;

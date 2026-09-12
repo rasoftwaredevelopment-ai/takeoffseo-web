@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ClarityPathDiagram } from "@/components/ClarityPathDiagram";
 import { SampleSnapshot } from "@/components/SampleSnapshot";
 import { ServicePage } from "@/components/ServicePage";
 import { offers, snapshotFaqs, snapshotPage } from "@/lib/site";
@@ -37,7 +38,21 @@ export default function VisibilitySnapshotPage() {
           body: "Want the full baseline and fix map? That’s the Visibility Audit.",
         },
       ]}
-      extras={<SampleSnapshot />}
+      extras={
+        <>
+          <section className="mt-12">
+            <h2 className="font-serif text-3xl text-navy sm:text-4xl">
+              How we work
+            </h2>
+            <p className="mt-3 max-w-3xl text-ink-muted">
+              The Snapshot is the start. Further work is quoted after, if you
+              want it.
+            </p>
+            <ClarityPathDiagram />
+          </section>
+          <SampleSnapshot />
+        </>
+      }
       faqs={snapshotFaqs}
     />
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CtaBand } from "@/components/CtaBand";
+import { ClarityPathDiagram } from "@/components/ClarityPathDiagram";
 import { HowWeWorkDiagram } from "@/components/HowWeWorkDiagram";
 import { Reveal } from "@/components/Reveal";
 import { SampleSnapshot } from "@/components/SampleSnapshot";
@@ -81,9 +82,8 @@ export default function HomePage() {
               {homeCopy.takeoffHelp}
             </p>
           </Reveal>
-          <div className="mt-10">
-            <HowWeWorkDiagram />
-          </div>
+          <ClarityPathDiagram />
+          <HowWeWorkDiagram />
           <SampleSnapshot />
           <div className="mt-8">
             <ButtonLink href={routes.snapshotEnquire}>
