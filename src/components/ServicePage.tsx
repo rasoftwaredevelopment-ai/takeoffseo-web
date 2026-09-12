@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { ButtonLink } from "@/components/ButtonLink";
 import { CtaBand } from "@/components/CtaBand";
+import { EnquiryForm } from "@/components/EnquiryForm";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
@@ -11,7 +13,7 @@ import {
   serviceJsonLd,
 } from "@/lib/schema";
 import type { FaqItem, Offer } from "@/lib/site";
-import { offers, routes } from "@/lib/site";
+import { brand, offers, routes } from "@/lib/site";
 
 type ServicePageProps = {
   offer: Offer;
@@ -20,7 +22,6 @@ type ServicePageProps = {
   includes: string[];
   process: { title: string; body: string }[];
   faqs: FaqItem[];
-  price?: string;
   extras?: ReactNode;
 };
 
@@ -31,9 +32,10 @@ export function ServicePage({
   includes,
   process,
   faqs,
-  price,
   extras,
 }: ServicePageProps) {
+  const isSnapshot = offer.id === "snapshot";
+
   return (
     <div>
       <JsonLd
@@ -46,22 +48,48 @@ export function ServicePage({
             name: offer.name,
             description: offer.summary,
             path: offer.href,
-            price,
           }),
           faqJsonLd(faqs),
         ]}
       />
       <PageBand>
-        <PageHero eyebrow={offer.eyebrow} title={title} lede={lede} tone="dark">
-          <p className="mt-6 text-2xl font-semibold text-copper">
-            {offer.priceLabel}
-            {offer.priceNote ? (
-              <span className="ml-2 text-base font-normal text-paper-200">
-                {offer.priceNote}
-              </span>
-            ) : null}
-          </p>
-        </PageHero>
+        {isSnapshot ? (
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start">
+            <PageHero eyebrow={offer.eyebrow} title={title} lede={lede} tone="dark">
+              <p className="mt-6 text-2xl font-semibold text-copper">
+                {offer.priceLabel}
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href="#enquire" variant="inverseSolid">
+                  Enquire for a Snapshot
+                </ButtonLink>
+                <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+                  Call {brand.phoneDisplay}
+                </a>
+              </div>
+            </PageHero>
+            <EnquiryForm intent="snapshot" id="enquire" />
+          </div>
+        ) : (
+          <PageHero eyebrow={offer.eyebrow} title={title} lede={lede} tone="dark">
+            <p className="mt-6 text-2xl font-semibold text-copper">
+              {offer.priceLabel}
+              {offer.priceNote ? (
+                <span className="ml-2 text-base font-normal text-paper-200">
+                  {offer.priceNote}
+                </span>
+              ) : null}
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
+                Get a free Snapshot
+              </ButtonLink>
+              <ButtonLink href={routes.contactEnquire} variant="inverse">
+                Enquire
+              </ButtonLink>
+            </div>
+          </PageHero>
+        )}
       </PageBand>
 
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
@@ -124,12 +152,8 @@ export function ServicePage({
         <CtaBand
           title={`Enquire about the ${offer.name}`}
           body="Send the website and Google Business Profile. We confirm scope and timing by appointment."
-          secondaryHref={
-            offer.id === "snapshot" ? offers.audit.href : undefined
-          }
-          secondaryLabel={
-            offer.id === "snapshot" ? "See the A$1,500 audit" : undefined
-          }
+          secondaryHref={isSnapshot ? offers.audit.href : routes.contactEnquire}
+          secondaryLabel={isSnapshot ? "See the Visibility Audit" : "Contact"}
         />
       </div>
     </div>

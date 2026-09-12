@@ -1,4 +1,4 @@
-import { offerOrder, offers } from "@/lib/site";
+import { offerOrder, offers, routes } from "@/lib/site";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Reveal } from "@/components/Reveal";
 
@@ -9,7 +9,7 @@ type OfferPathProps = {
 
 export function OfferPath({
   heading = "The offer path",
-  lede = "Snapshot shows the gaps. Audit maps what to fix first.",
+  lede = "Free Snapshot, then the Audit fix map.",
 }: OfferPathProps) {
   return (
     <section aria-labelledby="offer-path-heading">
@@ -32,7 +32,7 @@ export function OfferPath({
             <Reveal
               as="li"
               key={offer.id}
-              delayMs={index * 80}
+              delayMs={index * 40}
               className="card-hover flex flex-col p-6"
             >
               <p className="font-serif text-4xl leading-none text-copper">
@@ -54,11 +54,11 @@ export function OfferPath({
                 {offer.summary}
               </p>
               <ButtonLink
-                href={offer.href}
+                href={id === "snapshot" ? routes.snapshotEnquire : offer.href}
                 variant={id === "snapshot" ? "primary" : "secondary"}
                 className="mt-6 w-full"
               >
-                {offer.name}
+                {id === "snapshot" ? "Enquire" : `${offer.name} — enquire`}
               </ButtonLink>
             </Reveal>
           );

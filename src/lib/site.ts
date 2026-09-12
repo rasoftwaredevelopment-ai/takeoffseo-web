@@ -16,7 +16,6 @@ export const brand = {
   phoneTel: "+61497878930",
   email: "hello@takeoffseo.com",
   hours: "By appointment",
-  abn: "[ABN if any]",
   areaServed: "South East Queensland",
   locationLabel: "Gold Coast, QLD",
   icpPrimary: "Local businesses",
@@ -33,6 +32,8 @@ export const routes = {
   retainer: "/services/monthly-retainer",
   about: "/about",
   contact: "/contact",
+  snapshotEnquire: "/services/visibility-snapshot#enquire",
+  contactEnquire: "/contact#enquire",
   industries: "/industries/pool-landscape",
   poolLandscape: "/industries/pool-landscape",
 } as const;
@@ -63,15 +64,17 @@ export const offers: Record<OfferId, Offer> = {
     href: routes.snapshot,
     eyebrow: "Start here",
     priceLabel: "Free",
-    summary: "Snapshot shows the gaps.",
+    summary:
+      "A short gap check on your name in AI answers and Maps — before you spend on the Audit.",
     outcome: "A gap check before you spend on the Audit.",
   },
   audit: {
     id: "audit",
     name: "Visibility Audit",
     href: routes.audit,
-    eyebrow: "Paid diagnostic",
-    priceLabel: "A$1,500",
+    eyebrow: "Diagnostic",
+    priceLabel: "Get the fix map",
+    priceNote: "Enquire",
     summary: "Audit maps what to fix first.",
     outcome: "Full Google + AI baseline and a clear priority list.",
   },
@@ -80,8 +83,8 @@ export const offers: Record<OfferId, Offer> = {
     name: "90-Day Foundation",
     href: routes.foundation,
     eyebrow: "Implementation",
-    priceLabel: "Typical A$6,500",
-    priceNote: "From A$4,500 for simpler sites",
+    priceLabel: "Fix site + Google profile",
+    priceNote: "Enquire",
     summary:
       "Foundation: fixed 90-day Clarity build so the right local jobs find you.",
     outcome: "Diagnose, implement, and show what moved.",
@@ -91,7 +94,8 @@ export const offers: Record<OfferId, Offer> = {
     name: "Monthly retainer",
     href: routes.retainer,
     eyebrow: "Ongoing",
-    priceLabel: "From A$2,000–2,500/mo",
+    priceLabel: "Keep it moving",
+    priceNote: "Enquire",
     summary:
       "Keep Google and AI visibility moving with clear priorities and plain reporting.",
     outcome: "Steady monthly work aimed at the jobs you want.",
@@ -138,7 +142,7 @@ export const homeCopy = {
   locationLine:
     "Based on the Gold Coast. We work with local businesses across South East Queensland.",
   primaryCta: "Get a free Visibility Snapshot",
-  secondaryCta: "Book a Visibility Audit — A$1,500",
+  secondaryCta: "Get the fix map",
   websiteSeoNote:
     "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
   closeTitle: "Want to see the gaps?",
@@ -154,7 +158,7 @@ export const whatYouGet = [
 ] as const;
 
 export const howWeWork = [
-  "Snapshot shows the gaps.",
+  "Start with a free Snapshot on your name.",
   "Audit maps what to fix first.",
   "We diagnose, implement, and show what moved.",
 ] as const;
@@ -203,7 +207,7 @@ export const aboutCopy = {
 
 export const contactCopy = {
   title: "Contact",
-  lede: "Talk to TakeoffSEO about getting found for the work you want — on Google and in AI search. Most conversations start with a free Visibility Snapshot. The Visibility Audit (A$1,500) is next when you want the full fix map.",
+  lede: "Talk to TakeoffSEO about getting found for the work you want — on Google and in AI search. Most conversations start with a free Visibility Snapshot. The Visibility Audit is next when you want the full fix map.",
   locationLine:
     "Based on the Gold Coast. Service-area across South East Queensland. Hours by appointment.",
 } as const;
@@ -222,22 +226,22 @@ export const poolLandscapeCopy = {
 
 export const snapshotPage = {
   title: "Free Visibility Snapshot for local businesses",
-  lede: "Snapshot shows the gaps. We check your business name across key buyer prompts in AI search and a quick Google Maps note — enough to know if jobs are going elsewhere. Want the full baseline and fix map? That’s the Visibility Audit.",
+  lede: "We check your business name across key buyer prompts in AI search and a quick Google Maps note — enough to know if jobs are going elsewhere. Want the full baseline and fix map? That’s the Visibility Audit.",
 } as const;
 
 export const auditPage = {
   title: "Visibility Audit for local businesses",
-  lede: "Audit maps what to fix first. Fixed A$1,500. Full Google + AI baseline and prioritised plan — before Foundation or Retainer. Start with free Snapshot if you only need the gap check.",
+  lede: "Get the fix map. Full Google + AI baseline and a prioritised plan — before Foundation or Retainer. Start with a free Snapshot if you only need the gap check.",
 } as const;
 
 export const foundationPage = {
   title: "90-Day Foundation for local businesses",
-  lede: "Foundation: fixed 90-day Clarity build so the right local jobs find you. Diagnose, implement on site and GBP, show what moved. Typically A$6,500; from A$4,500 for simpler sites.",
+  lede: "Fix your site and Google profile. A fixed 90-day Clarity build so the right local jobs find you — diagnose, implement on site and GBP, then show what moved.",
 } as const;
 
 export const retainerPage = {
   title: "Monthly retainer for local businesses",
-  lede: "Keep Google and AI visibility moving month to month. From A$2,000–2,500 — clear priorities, plain reporting, work aimed at the jobs you want.",
+  lede: "Keep it moving. Monthly Google and AI visibility work — clear priorities, plain reporting, aimed at the jobs you want.",
 } as const;
 
 export const snapshotFaqs: FaqItem[] = [
@@ -245,13 +249,13 @@ export const snapshotFaqs: FaqItem[] = [
     id: "whats-in-snapshot",
     question: "What is in the free Visibility Snapshot?",
     answer:
-      "Snapshot shows the gaps: 5–8 AI prompts on your name plus a thin Maps note. Full baseline and fix map are the paid Audit.",
+      "5–8 AI prompts on your name plus a thin Maps note. Full baseline and fix map are the paid Audit.",
   },
   {
     id: "vs-paid-audit",
     question: "How is the Snapshot different from the paid audit?",
     answer:
-      "Snapshot shows the gaps. Audit maps what to fix first — full baseline, prioritised plan, next step (A$1,500).",
+      "The Snapshot is the gap check. The Audit maps what to fix first — full baseline, prioritised plan, and a clear next step.",
   },
   {
     id: "how-long",
@@ -270,12 +274,12 @@ export const auditFaqs: FaqItem[] = [
   },
   {
     id: "audit-cost",
-    question: "What does the audit cost?",
-    answer: "A$1,500 fixed. Diagnosis and fix map.",
+    question: "How do I book the Visibility Audit?",
+    answer: "Enquire. We confirm scope and timing, then deliver the diagnosis and fix map.",
   },
   {
-    id: "in-out-1500",
-    question: "What is in and out of the A$1,500?",
+    id: "in-out-audit",
+    question: "What is in and out of the Audit?",
     answer:
       "In: baseline, priorities, and next step. Out: live rebuilds, ongoing content, and ads. Free gap check is the Snapshot.",
   },
@@ -303,10 +307,10 @@ export const foundationFaqs: FaqItem[] = [
     answer: "Find gaps, fix agreed priorities, report what changed.",
   },
   {
-    id: "whats-included-4500-6500",
-    question: "What is included between A$4,500 and A$6,500?",
+    id: "whats-included-foundation",
+    question: "What is included in the 90-Day Foundation?",
     answer:
-      "Tech and on-page, IA, NAP and GBP, answer-ready pages, and measurement. Typically A$6,500; from A$4,500.",
+      "Tech and on-page, information architecture, NAP and GBP, answer-ready pages, and measurement — scoped when you enquire.",
   },
   {
     id: "90-days-realistic",
@@ -318,7 +322,7 @@ export const foundationFaqs: FaqItem[] = [
     id: "vs-retainer",
     question: "How is the Foundation different from a retainer?",
     answer:
-      "Foundation is a fixed sprint. Retainer is ongoing from A$2,000–2,500/mo.",
+      "Foundation is a fixed sprint. Retainer is ongoing monthly work to keep it moving.",
   },
 ];
 
@@ -330,8 +334,8 @@ export const retainerFaqs: FaqItem[] = [
   },
   {
     id: "retainer-cost-au",
-    question: "What does the retainer cost in Australia?",
-    answer: "From A$2,000–2,500/mo scoped to the site.",
+    question: "How is the retainer scoped?",
+    answer: "Enquire — we scope the monthly block to the site. Terms sit in the proposal.",
   },
   {
     id: "google-and-ai",

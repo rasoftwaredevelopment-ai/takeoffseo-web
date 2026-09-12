@@ -66,7 +66,6 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {brand.name}. Gold Coast based.
           </p>
-          <p>ABN {brand.abn}</p>
           <p>South East Queensland · By appointment</p>
         </div>
       </div>

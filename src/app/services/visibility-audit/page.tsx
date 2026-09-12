@@ -16,7 +16,6 @@ export default function VisibilityAuditPage() {
       offer={offer}
       title={auditPage.title}
       lede={auditPage.lede}
-      price="1500"
       includes={[
         "Full Google + AI baseline.",
         "Service-area review.",

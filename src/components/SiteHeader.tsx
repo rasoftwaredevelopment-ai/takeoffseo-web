@@ -109,7 +109,7 @@ export function SiteHeader() {
           >
             {brand.phoneDisplay}
           </a>
-          <ButtonLink href={routes.contact}>Free Snapshot</ButtonLink>
+          <ButtonLink href={routes.snapshotEnquire}>Free Snapshot</ButtonLink>
         </nav>
 
         <button
@@ -162,7 +162,7 @@ export function SiteHeader() {
               {brand.phoneDisplay}
             </a>
             <ButtonLink
-              href={routes.contact}
+              href={routes.snapshotEnquire}
               className="mt-1"
               onClick={() => setOpen(false)}
             >

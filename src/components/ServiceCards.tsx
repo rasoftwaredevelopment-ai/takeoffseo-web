@@ -23,7 +23,7 @@ export function ServiceCards() {
           <Reveal
             as="article"
             key={surface.title}
-            delayMs={index * 80}
+            delayMs={index * 40}
             className="card-hover p-7"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">

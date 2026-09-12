@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ContactForm } from "@/components/ContactForm";
+import { EnquiryForm } from "@/components/EnquiryForm";
 import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
@@ -27,7 +27,16 @@ export default function ContactPage() {
           title={contactCopy.title}
           lede={`${contactCopy.lede} ${contactCopy.locationLine}`}
           tone="dark"
-        />
+        >
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href={`tel:${brand.phoneTel}`} className="btn-inverse-solid">
+              Call {brand.phoneDisplay}
+            </a>
+            <a href={`mailto:${brand.email}`} className="btn-inverse">
+              {brand.email}
+            </a>
+          </div>
+        </PageHero>
       </PageBand>
 
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
@@ -65,13 +74,9 @@ export default function ContactPage() {
                 <dt className="text-ink-soft">Area served</dt>
                 <dd className="font-medium text-navy">{brand.areaServed}</dd>
               </div>
-              <div>
-                <dt className="text-ink-soft">ABN</dt>
-                <dd className="font-medium text-navy">{brand.abn}</dd>
-              </div>
             </dl>
           </aside>
-          <ContactForm />
+          <EnquiryForm intent="contact" id="enquire" />
         </div>
       </div>
     </div>

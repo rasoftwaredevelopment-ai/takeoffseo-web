@@ -69,9 +69,6 @@ export function serviceJsonLd(input: {
   name: string;
   description: string;
   path: string;
-  price?: string;
-  priceCurrency?: string;
-  priceSpecification?: Record<string, unknown>;
 }) {
   return {
     "@context": "https://schema.org",
@@ -87,11 +84,6 @@ export function serviceJsonLd(input: {
     offers: {
       "@type": "Offer",
       url: absoluteUrl(input.path),
-      priceCurrency: input.priceCurrency ?? "AUD",
-      ...(input.price ? { price: input.price } : {}),
-      ...(input.priceSpecification
-        ? { priceSpecification: input.priceSpecification }
-        : {}),
     },
   };
 }

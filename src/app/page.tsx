@@ -31,7 +31,7 @@ export default function HomePage() {
               {homeCopy.locationLine}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={routes.contact} variant="inverseSolid">
+              <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
                 {homeCopy.primaryCta}
               </ButtonLink>
               <ButtonLink href={offers.audit.href} variant="inverse">
@@ -54,21 +54,21 @@ export default function HomePage() {
               <li>
                 <span className="font-serif text-xl text-paper-50">02</span>
                 <span className="mt-1 block font-semibold text-paper-50">
-                  Audit, A$1,500.
+                  Audit — get the fix map.
                 </span>
                 Audit maps what to fix first.
               </li>
               <li>
                 <span className="font-serif text-xl text-paper-50">03</span>
                 <span className="mt-1 block font-semibold text-paper-50">
-                  90-Day Foundation, typical A$6,500.
+                  90-Day Foundation — fix site + Google profile.
                 </span>
-                {offers.foundation.summary} {offers.foundation.priceNote}.
+                {offers.foundation.summary}
               </li>
               <li>
                 <span className="font-serif text-xl text-paper-50">04</span>
                 <span className="mt-1 block font-semibold text-paper-50">
-                  Retainer, from A$2,000–2,500/mo.
+                  Retainer — keep it moving.
                 </span>
                 {offers.retainer.summary}
               </li>
@@ -80,7 +80,7 @@ export default function HomePage() {
       <div className="mx-auto max-w-site px-4 py-16 sm:px-6 sm:py-20">
         <OfferPath
           heading="The offer path"
-          lede="Snapshot shows the gaps. Audit maps what to fix first. Then Foundation or Retainer when you’re ready to build."
+          lede="Free Snapshot, then the Audit fix map, then Foundation or Retainer when you’re ready to build."
         />
         <p className="mt-6 max-w-3xl text-ink-muted">{homeCopy.websiteSeoNote}</p>
         <WhatYouGet />

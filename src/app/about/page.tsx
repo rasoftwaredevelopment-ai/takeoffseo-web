@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ButtonLink } from "@/components/ButtonLink";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
@@ -27,7 +28,16 @@ export default function AboutPage() {
           title={aboutCopy.title}
           lede={aboutCopy.lede}
           tone="dark"
-        />
+        >
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
+              {homeCopy.primaryCta}
+            </ButtonLink>
+            <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+              Call {brand.phoneDisplay}
+            </a>
+          </div>
+        </PageHero>
       </PageBand>
 
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
@@ -52,7 +62,7 @@ export default function AboutPage() {
               >
                 {brand.email}
               </a>
-              . ABN {brand.abn} until the number is set.
+              .
             </p>
           </article>
           <aside className="card h-fit p-6">

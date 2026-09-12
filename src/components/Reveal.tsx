@@ -38,10 +38,14 @@ export function Reveal({
           observer.disconnect();
         }
       },
-      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.01, rootMargin: "64px 0px 20% 0px" },
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    const failSafe = window.setTimeout(() => setVisible(true), 280);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(failSafe);
+    };
   }, []);
 
   const style: CSSProperties | undefined = delayMs

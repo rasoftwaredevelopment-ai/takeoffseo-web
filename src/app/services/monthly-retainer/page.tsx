@@ -24,8 +24,8 @@ export default function MonthlyRetainerPage() {
       ]}
       process={[
         {
-          title: "Confirm the monthly figure",
-          body: "From A$2,000–2,500 depending on the site. Terms sit in the proposal.",
+          title: "Confirm the monthly scope",
+          body: "We scope the monthly block to the site. Terms sit in the proposal.",
         },
         {
           title: "Work the priorities",

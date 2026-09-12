@@ -23,7 +23,7 @@ export function ProcessFrame() {
           <Reveal
             as="li"
             key={step.title}
-            delayMs={index * 110}
+            delayMs={index * 40}
             className="process-step card-hover relative overflow-hidden p-7"
           >
             <p className="font-serif text-5xl leading-none text-copper/80">

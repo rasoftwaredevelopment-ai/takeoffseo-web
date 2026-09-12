@@ -16,7 +16,6 @@ export default function VisibilitySnapshotPage() {
       offer={offer}
       title={snapshotPage.title}
       lede={snapshotPage.lede}
-      price="0"
       includes={[
         "5–8 AI prompts on your business name.",
         "A thin Google Maps note.",

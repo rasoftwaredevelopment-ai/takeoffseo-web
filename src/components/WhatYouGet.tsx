@@ -32,7 +32,7 @@ export function WhatYouGet() {
         </Reveal>
         <Reveal
           as="article"
-          delayMs={90}
+          delayMs={40}
           className="rounded-sm border border-line bg-paper-50 p-7 sm:p-8"
         >
           <h3 className="font-serif text-3xl text-navy">How we work</h3>

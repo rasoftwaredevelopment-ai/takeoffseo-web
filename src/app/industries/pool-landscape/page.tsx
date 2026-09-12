@@ -42,7 +42,7 @@ export default function PoolLandscapePage() {
           tone="dark"
         >
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={routes.contact} variant="inverseSolid">
+            <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
               {homeCopy.primaryCta}
             </ButtonLink>
             <ButtonLink href={offers.audit.href} variant="inverse">
@@ -58,7 +58,7 @@ export default function PoolLandscapePage() {
             Same Clarity path, written for this trade
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-            Snapshot shows the gaps. Audit maps what to fix first. Then
+            Free Snapshot on your name, then the Audit fix map. Then
             Foundation or Retainer when you’re ready to build.
           </p>
         </section>
@@ -66,7 +66,7 @@ export default function PoolLandscapePage() {
         <div className="mt-12">
           <OfferPath
             heading="Snapshot to retainer"
-            lede="Snapshot shows the gaps. Audit maps what to fix first."
+            lede="Free Snapshot, then the Audit fix map, then Foundation or Retainer."
           />
         </div>
 
