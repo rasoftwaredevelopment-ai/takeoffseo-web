@@ -152,7 +152,7 @@ export function SiteHeader() {
               className="mt-1"
               onClick={() => setOpen(false)}
             >
-              Book a Visibility Snapshot
+              Get a free Visibility Snapshot
             </ButtonLink>
           </div>
         </nav>

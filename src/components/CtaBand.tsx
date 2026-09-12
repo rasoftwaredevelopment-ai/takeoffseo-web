@@ -14,7 +14,7 @@ export function CtaBand({
   title,
   body,
   primaryHref = routes.contact,
-  primaryLabel = "Book a Visibility Snapshot",
+  primaryLabel = "Get a free Visibility Snapshot",
   secondaryHref,
   secondaryLabel,
 }: CtaBandProps) {

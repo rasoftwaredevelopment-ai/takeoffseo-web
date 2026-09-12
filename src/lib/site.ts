@@ -10,7 +10,7 @@ export const brand = {
   domain: "takeoffseo.com",
   h1: "Google + AI visibility for local businesses",
   tagline:
-    "Google and AI visibility for local businesses — published prices, no ranking guarantees. First vertical: SEQ pool builders and landscapers.",
+    "Get found for the work you want on Google and AI search. Free Visibility Snapshot. Gold Coast · SEQ.",
   founder: "Alexander Nott",
   phoneDisplay: "0497 878 930",
   phoneTel: "+61497878930",
@@ -63,9 +63,8 @@ export const offers: Record<OfferId, Offer> = {
     href: routes.snapshot,
     eyebrow: "Start here",
     priceLabel: "Free",
-    summary:
-      "A short, no-obligation look at how your business appears in Google and AI-style answers — so you know whether a paid audit is worth it.",
-    outcome: "A written snapshot and a clear recommendation on the next step.",
+    summary: "Snapshot shows the gaps.",
+    outcome: "A gap check before you spend on the Audit.",
   },
   audit: {
     id: "audit",
@@ -73,9 +72,8 @@ export const offers: Record<OfferId, Offer> = {
     href: routes.audit,
     eyebrow: "Paid diagnostic",
     priceLabel: "A$1,500",
-    summary:
-      "A baseline of current Google and AI visibility, a prioritised fix pack, and one recommended next step. No implementation.",
-    outcome: "Baseline + prioritised fix pack + next step.",
+    summary: "Audit maps what to fix first.",
+    outcome: "Full Google + AI baseline and a clear priority list.",
   },
   foundation: {
     id: "foundation",
@@ -83,10 +81,10 @@ export const offers: Record<OfferId, Offer> = {
     href: routes.foundation,
     eyebrow: "Implementation",
     priceLabel: "Typical A$6,500",
-    priceNote: "From A$4,500, scoped to the starting point",
+    priceNote: "From A$4,500 for simpler sites",
     summary:
-      "Ninety days to implement the priority work, measure what changed, and leave a foundation you can keep or hand to a retainer.",
-    outcome: "Audit, implement, and measure over 90 days.",
+      "Foundation: fixed 90-day Clarity build so the right local jobs find you.",
+    outcome: "Diagnose, implement, and show what moved.",
   },
   retainer: {
     id: "retainer",
@@ -95,8 +93,8 @@ export const offers: Record<OfferId, Offer> = {
     eyebrow: "Ongoing",
     priceLabel: "From A$2,000–2,500/mo",
     summary:
-      "Ongoing Google and AI visibility work for businesses that already have a foundation and want steady iteration — without ranking guarantees.",
-    outcome: "Monthly work, reporting, and a clear backlog.",
+      "Keep Google and AI visibility moving with clear priorities and plain reporting.",
+    outcome: "Steady monthly work aimed at the jobs you want.",
   },
 };
 
@@ -129,38 +127,51 @@ export const nav = [
 ] as const;
 
 export const homeCopy = {
-  eyebrow: `${brand.locationLabel} · Local businesses`,
+  eyebrow: "Gold Coast · South East Queensland",
   h1: brand.h1,
-  lede:
-    "Buyers already ask Google and AI who to hire. If your business is invisible in those answers, the enquiry goes to someone else. Start with a free Visibility Snapshot — a short, honest look at how you appear today — then book the paid Visibility Audit when the gap is clear enough to spend on.",
+  lede: [
+    "Buyers already ask Google and AI who to hire.",
+    "If you’re not in those answers, the job goes elsewhere.",
+    "TakeoffSEO gets local businesses found for the work they want — on Google and in AI search.",
+    "Then we implement the fixes and show what moved.",
+  ].join(" "),
+  locationLine:
+    "Based on the Gold Coast. We work with local businesses across South East Queensland.",
+  primaryCta: "Get a free Visibility Snapshot",
+  secondaryCta: "Book a Visibility Audit — A$1,500",
+  websiteSeoNote:
+    "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
+  closeTitle: "Want to see the gaps?",
+  closeBody:
+    "Get the free Snapshot. Ready for the fix map? Book the Audit.",
 } as const;
 
-export const willItems = [
-  "Diagnose Google and AI visibility in plain language.",
-  "Prioritise the work most likely to move enquiries.",
-  "Report what we did and what we measured.",
-  "Keep the Snapshot a free teaser — not a fake full audit.",
+export const whatYouGet = [
+  "Presence gaps called out clearly",
+  "A fix map you can act on",
+  "Fixed 90-day deliverables on Foundation",
+  "Plain reporting on what we did and what changed",
 ] as const;
 
-export const wontItems = [
-  "Guarantee rankings, citations, or leads.",
-  "Invent case studies, awards, or “#1” claims.",
-  "Build suburb doorway spam.",
-  "Race cheapest-mill pricing.",
+export const howWeWork = [
+  "Snapshot shows the gaps.",
+  "Audit maps what to fix first.",
+  "We diagnose, implement, and show what moved.",
+  "Pool & landscape first. Other local businesses when it’s a fit.",
 ] as const;
 
 export const processSteps = [
   {
     title: "Audit",
-    body: "A documented baseline of how you appear in Google and AI-style answers — on your site and Google Business Profile.",
+    body: "Map the baseline on your website and Google Business Profile.",
   },
   {
     title: "Implement",
-    body: "The priority work, done on your assets. We do not park you on a hosted AI page we own.",
+    body: "Fix the agreed priorities on your site and listing — not a hosted page we own.",
   },
   {
     title: "Measure",
-    body: "What changed versus the starting baseline. A progress report — not a ranking guarantee.",
+    body: "Show what moved versus the starting point.",
   },
 ] as const;
 
@@ -175,22 +186,53 @@ export const workSurfaces = [
   },
   {
     title: "AI answers",
-    body: "The same fundamentals help models cite you. We do not sell a separate “AI hack” or a hosted answer page.",
+    body: "Whether models mention you for hire-intent questions. We track mention, cite, or none.",
   },
 ] as const;
 
 export const aboutCopy = {
   title: "About TakeoffSEO",
-  lede: `Delivery is general SEO and GEO for local businesses. Marketing is vertical-targeted, starting with pool builders and landscapers in ${brand.areaServed}. Founded by ${brand.founder} on the Gold Coast. We will not invent proof to look bigger than we are.`,
-  honesty:
-    "We would rather say we do not have a named case study yet than write one that did not happen. No awards wall. No rankings graphic. No “#1” line.",
+  lede: "TakeoffSEO helps local businesses get found on Google and in AI answers. We’re based on the Gold Coast and work across South East Queensland.",
+  founderLine: `Founder: ${brand.founder}.`,
+  path: "Path: free Visibility Snapshot → Visibility Audit → Foundation or Retainer.",
+  marketing:
+    "Marketing leads with pool and landscape in SEQ. Delivery is local SEO and GEO where it’s a fit.",
+  websiteSeo:
+    "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
+} as const;
+
+export const contactCopy = {
+  title: "Contact",
+  lede: "Talk to TakeoffSEO about getting found for the work you want — on Google and in AI search. Most conversations start with a free Visibility Snapshot. The Visibility Audit (A$1,500) is next when you want the full fix map.",
+  locationLine:
+    "Based on the Gold Coast. Service-area across South East Queensland. Hours by appointment.",
 } as const;
 
 export const poolLandscapeCopy = {
-  eyebrow: `First vertical · ${brand.areaServed}`,
+  eyebrow: "First vertical · South East Queensland",
   h1: "Google + AI visibility for SEQ pool builders and landscapers",
   lede:
-    "When someone in South East Queensland wants a pool or a landscape job, they ask Google and, increasingly, an AI assistant. If your company is not in those answers, the enquiry goes to a competitor who is. This is TakeoffSEO’s first published vertical — the same Snapshot-to-Audit path as the rest of the site, written for outdoor-living trades. No ranking promises. No invented case studies.",
+    "Built for SEQ pool builders and landscapers winning work through Google and AI answers. Free Snapshot on your name. Audit for the fix map. Foundation or Retainer when you’re ready to build. Gold Coast based · outdoor trades across SEQ. Pool & landscape first. Other local businesses when it’s a fit.",
+} as const;
+
+export const snapshotPage = {
+  title: "Free Visibility Snapshot for local businesses",
+  lede: "Snapshot shows the gaps. We check your business name across key buyer prompts in AI search and a quick Google Maps note — enough to know if jobs are going elsewhere. Want the full baseline and fix map? That’s the Visibility Audit.",
+} as const;
+
+export const auditPage = {
+  title: "Visibility Audit for local businesses",
+  lede: "Audit maps what to fix first. Fixed A$1,500. Full Google + AI baseline and prioritised plan — before Foundation or Retainer. Start with the free Snapshot if you only need the gap check.",
+} as const;
+
+export const foundationPage = {
+  title: "90-Day Foundation for local businesses",
+  lede: "Foundation: fixed 90-day Clarity build so the right local jobs find you. We diagnose the gaps, implement the priority fixes on your site and Google profile, then show what moved. Typically A$6,500; from A$4,500 for simpler sites.",
+} as const;
+
+export const retainerPage = {
+  title: "Monthly retainer for local businesses",
+  lede: "Keep Google and AI visibility moving month to month. From A$2,000–2,500 — clear priorities, plain reporting, work aimed at the jobs you want.",
 } as const;
 
 export const snapshotFaqs: FaqItem[] = [
@@ -198,19 +240,19 @@ export const snapshotFaqs: FaqItem[] = [
     id: "whats-in-snapshot",
     question: "What is in the free Visibility Snapshot?",
     answer:
-      "A short written look at how your business currently appears in Google Search and Maps, plus a plain-English note on whether AI-style answers are likely to mention you. It is a screening snapshot, not a full audit: enough to see the obvious gaps and decide if a paid Visibility Audit is the right next step.",
+      "Snapshot shows the gaps: 5–8 AI prompts on your name plus a thin Maps note. The full baseline and fix map are the paid Audit.",
   },
   {
     id: "vs-paid-audit",
     question: "How is the Snapshot different from the paid audit?",
     answer:
-      "The Snapshot is free, brief, and directional. The Visibility Audit (A$1,500) is a paid diagnostic: a documented baseline, a prioritised fix pack, and one recommended next step. The Snapshot does not include a fix pack or implementation.",
+      "Snapshot shows the gaps. Audit maps what to fix first — full baseline, prioritised plan, and next step (A$1,500).",
   },
   {
     id: "how-long",
     question: "How long does the Snapshot take?",
     answer:
-      "Most Snapshots are returned within a few business days once we have your website, Google Business Profile, and service area. Bookings are by appointment — we will confirm timing when you enquire.",
+      "About 30–45 minutes on our side. Turnaround is confirmed when we take your details.",
   },
 ];
 
@@ -219,31 +261,29 @@ export const auditFaqs: FaqItem[] = [
     id: "what-includes",
     question: "What does the Visibility Audit include?",
     answer:
-      "Three things only: a baseline of your current Google and AI visibility, a prioritised fix pack (what to change first, and why), and a recommended next step. It does not include implementation, ongoing management, or a programme of work.",
+      "A full Google + AI baseline, a service-area review, and a prioritised fix list.",
   },
   {
     id: "audit-cost",
     question: "What does the audit cost?",
-    answer:
-      "A$1,500 (AUD), fixed. That fee covers the diagnostic described above. Implementation is scoped separately if you choose the 90-Day Foundation or a retainer.",
+    answer: "A$1,500 fixed. That is the diagnosis and the fix map.",
   },
   {
     id: "in-out-1500",
     question: "What is in and out of the A$1,500?",
     answer:
-      "In: research, a written baseline, a prioritised fix pack, and a recommended next step, delivered in a call or written pack. Out: making the changes, content production, ads management, reputation campaigns, and any ongoing monthly work.",
+      "In: baseline, priorities, and next step. Out: live rebuilds, ongoing content, and ads. The free gap check is the Snapshot.",
   },
   {
     id: "audit-before-retainer",
     question: "Do I need an audit before a retainer?",
     answer:
-      "Usually yes. A retainer without a baseline tends to become busy work. The audit gives both of us a shared list of priorities. If you already have a recent, comparable diagnostic, we can review it and say whether we can start from there.",
+      "Yes — the Audit sets priorities. Many people start with the Snapshot, then the Audit.",
   },
   {
     id: "audit-timeline",
     question: "How long does the audit take?",
-    answer:
-      "Typically one to two weeks from a complete brief (website, Google Business Profile access or screenshots, service area, and who you compete with). We confirm dates when we book — hours are by appointment.",
+    answer: "Confirmed at kickoff. You leave with a written priorities pack.",
   },
 ];
 
@@ -251,32 +291,30 @@ export const foundationFaqs: FaqItem[] = [
   {
     id: "what-is-90-day",
     question: "What is the 90-Day Foundation?",
-    answer:
-      "A fixed-term implementation engagement. We take the audit priorities (or an equivalent brief), do the work that most affects Google and AI visibility, and measure what changed over about 90 days. Typical fee is A$6,500, from A$4,500 depending on starting point.",
+    answer: "A fixed 90-day Clarity build for local business sites.",
   },
   {
     id: "audit-implement-measure",
     question: "How do audit, implement, and measure fit together?",
-    answer:
-      "The audit sets the baseline and the priority list. The Foundation implements the agreed items and records what was done. Measurement compares the starting baseline with what we can observe at the end of the 90 days — listings, site health, and how you appear in search and AI-style answers. It is a progress report, not a ranking guarantee.",
+    answer: "Find the gaps, fix the agreed priorities, and report what changed.",
   },
   {
     id: "whats-included-4500-6500",
     question: "What is included between A$4,500 and A$6,500?",
     answer:
-      "The typical engagement is A$6,500. Leaner scopes start from A$4,500 when the starting point is already tidy (for example a recent audit and a site that needs fewer technical fixes). The quote states pages, listings, and content in scope before we start. Work outside that quote is not assumed.",
+      "Tech and on-page work, information architecture, NAP and Google Business Profile, answer-ready pages, and measurement. Typically A$6,500; from A$4,500 for simpler sites.",
   },
   {
     id: "90-days-realistic",
     question: "Is 90 days a realistic window?",
     answer:
-      "Ninety days is enough to fix the foundations and see early movement — listings, on-site issues, and the first pieces of useful content. It is not enough to “finish SEO”. Search and AI answers move on their own timelines. We say so up front.",
+      "Many sites move in 90 days; some need foundation first. You get the agreed work and clear measurement — not page-one promises.",
   },
   {
     id: "vs-retainer",
     question: "How is the Foundation different from a retainer?",
     answer:
-      "The Foundation is a 90-day project with a start and an end. A retainer is ongoing monthly work after the foundations are in place. Some clients stop after the Foundation and run things in-house; others continue. Neither includes ranking guarantees.",
+      "Foundation is a fixed sprint. Retainer is ongoing from A$2,000–2,500 a month.",
   },
 ];
 
@@ -284,95 +322,92 @@ export const retainerFaqs: FaqItem[] = [
   {
     id: "monthly-what",
     question: "What happens on a monthly retainer?",
-    answer:
-      "A agreed block of work each month: technical and listing upkeep, content or page improvements, and a short report on what was done and what we recommend next. The backlog comes from the audit or Foundation, then from what we observe in Search Console and on the site.",
+    answer: "Agreed priority Google + AI work, plus a plain report.",
   },
   {
     id: "retainer-cost-au",
     question: "What does the retainer cost in Australia?",
-    answer:
-      "From A$2,000–2,500 per month (AUD), depending on the size of the site and how much content or listing work is in play. We confirm the monthly figure before you start. There is no long lock-in advertised here — terms are in the proposal.",
+    answer: "From A$2,000–2,500 a month, scoped to the site.",
   },
   {
     id: "google-and-ai",
     question: "Do you work on both Google and AI visibility?",
-    answer:
-      "Yes. The same fundamentals help both: a clear Google Business Profile, pages that answer real local-service questions, and content other sites and models can cite. We do not sell a separate “AI hack” product.",
+    answer: "Both. Ads only if scoped separately.",
   },
   {
     id: "no-guarantees",
     question: "Do you guarantee rankings or AI mentions?",
     answer:
-      "No. Nobody honest can guarantee a Google ranking, a Maps pack position, or a mention in an AI answer. We do the work that improves your odds and we report what we can observe. If a proposal promises positions, it is not from us.",
+      "We sell diagnosis, implementation, and measurement — not ranking or lead promises. Agreed work. Clear reporting.",
   },
   {
     id: "vs-in-house",
     question: "How is this different from hiring in-house?",
     answer:
-      "An in-house hire is a salary plus tools and management time. A retainer is a specialist block of hours aimed at Google and AI visibility for a local service business. We are a fit when you want that work done without standing up a marketing seat. We are not a fit if you need a full-time marketer on ads, social, and sales ops.",
+      "Go in-house if you have the capacity. We are a focused Google + AI partner. Unsure? Start with a Snapshot or Audit.",
   },
 ];
 
 export const poolLandscapeFaqs: FaqItem[] = [
   {
-    id: "pl-who-for",
-    question: "Who is this page for?",
+    id: "pool-found-on-google",
+    question: "How do pool builders get found on Google?",
     answer:
-      "Pool builders and landscapers trading in South East Queensland who want Google and AI visibility treated as operations, not a ranking promise. Other outdoor-living trades can enquire — we will say if the work is a fit.",
+      "Service and area pages, a coherent Google Business Profile and service area, and a crawlable site. Start with a Snapshot, then the Audit.",
   },
   {
-    id: "pl-vs-general",
-    question: "How is this different from the general local-business offer?",
+    id: "landscape-enquiry-search",
+    question: "How do landscapers win enquiry from search?",
     answer:
-      "Delivery is the same SEO and GEO work. This page is the first vertical-targeted marketing page — the language and FAQ are written for pool and landscape companies. Snapshot, Audit, Foundation, and retainer prices do not change.",
+      "Site structure, local consistency, and pages that answer what buyers ask. A Snapshot is the gap check — we do not promise a lead volume.",
   },
   {
-    id: "pl-snapshot",
-    question: "What does the Snapshot look like for a pool or landscape company?",
+    id: "what-is-ai-visibility",
+    question: "What is AI visibility?",
     answer:
-      "The same free teaser as the rest of the site: a short written look at how you appear in Google and AI-style answers, and whether a paid audit is the useful next step. It is not a full audit. We will not dress it up as a case study.",
+      "Whether AI mentions or recommends you for hire-intent questions. We track mention, cite, or none — we do not invent AI rankings.",
   },
   {
-    id: "pl-google-maps",
-    question: "Do you work on Google Business Profile and Maps?",
+    id: "why-invisible-in-ai",
+    question: "Why would a trade be invisible in AI answers?",
     answer:
-      "Yes. For local outdoor-living trades, Maps and the Business Profile are usually part of how jobs start. We work on your listing and your site — we do not replace them with a hosted page we own.",
+      "Thin presence, unclear local signals, or pages that do not give a clear answer. A Snapshot shows today’s gap. We do not guarantee a future mention.",
   },
   {
-    id: "pl-ai-answers",
-    question: "What about ChatGPT and other AI answers?",
+    id: "seo-vs-ads",
+    question: "How is this different from ads?",
     answer:
-      "The same fundamentals help: a clear Business Profile, pages that answer real pool and landscape jobs, and content other sites and models can cite. We do not sell a separate AI-hack product or guarantee a mention.",
+      "Ads work while the campaign runs. SEO and GEO are lasting findability. Our path is Snapshot → Audit → Foundation or Retainer. Ads only if scoped separately.",
   },
   {
-    id: "pl-area",
-    question: "What area do you cover?",
+    id: "who-helps-seq-pool",
+    question: "Who helps SEQ pool builders with this work?",
     answer:
-      "South East Queensland. We do not publish a suburb-by-suburb doorway list. If you trade outside SEQ, ask — we will say whether it is in scope.",
+      "A specialist or in-house capacity. Our first vertical is SEQ pool and landscape; other local businesses when it is a fit. Start with a free Snapshot.",
   },
   {
-    id: "pl-guarantees",
-    question: "Do you guarantee more pool or landscape jobs?",
+    id: "seo-for-landscapers-seq",
+    question: "What should landscapers in SEQ look for in SEO?",
     answer:
-      "No. We do not guarantee rankings, AI citations, or leads. Anyone who does is selling certainty they cannot deliver.",
+      "Diagnose, implement, measure, and plain reporting. Not “best agency” claims or ranking promises.",
   },
   {
-    id: "pl-prices",
-    question: "What does the work cost?",
+    id: "geo-outdoor-trades-qld",
+    question: "What does GEO mean for outdoor trades in Queensland?",
     answer:
-      "Visibility Snapshot is free. Visibility Audit is A$1,500. 90-Day Foundation is typically A$6,500, from A$4,500. Monthly retainer is from A$2,000–2,500. Those figures are the same as the rest of the site.",
+      "AI-answer visibility for hire-intent plus Google SEO: service clarity, local signals, and extractable answers. No fake citation badges.",
   },
   {
-    id: "pl-doorway",
-    question: "Will you build a page for every suburb we service?",
+    id: "agency-vs-generalist",
+    question: "When do I need a specialist instead of a generalist?",
     answer:
-      "No. We do not build suburb doorway spam. If a location page has a real reason to exist, that is a scoping conversation — not a default deliverable.",
+      "A generalist fits broad brand and ads work. SEO and GEO fit when findability is the gap. Unsure? Start with a Snapshot.",
   },
   {
-    id: "pl-next-step",
-    question: "What is the first step?",
+    id: "only-pool-landscape",
+    question: "Do you only work with pool and landscape companies?",
     answer:
-      "Book a free Visibility Snapshot. If the gap is clear, the next paid step is the A$1,500 Visibility Audit. Implementation is a separate Foundation or retainer — it is not bundled into the audit.",
+      "No. Pool and landscape is the first marketing vertical. Delivery is local SEO and GEO where it is a fit.",
   },
 ];
 

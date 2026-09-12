@@ -1,4 +1,4 @@
-import { brand, routes } from "@/lib/site";
+import { routes } from "@/lib/site";
 import { ButtonLink } from "@/components/ButtonLink";
 
 export function VerticalTeaser() {
@@ -16,12 +16,11 @@ export function VerticalTeaser() {
             id="vertical-heading"
             className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
           >
-            Pool builders and landscapers in {brand.areaServed}
+            Built for SEQ trades winning work through Google and AI answers
           </h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-paper-200">
-            The first published industry page. Other local businesses are
-            considered case by case — we will not invent a vertical for every
-            trade.
+            Starting with pool and landscape. Other local businesses when it’s a
+            fit.
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">

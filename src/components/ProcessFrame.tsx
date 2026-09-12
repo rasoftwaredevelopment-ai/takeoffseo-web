@@ -14,8 +14,7 @@ export function ProcessFrame() {
           Audit, implement, measure
         </h2>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-          The work happens on your website and Google Business Profile — not a
-          hosted AI page we own.
+          On your website and Google Business Profile.
         </p>
       </div>
       <ol className="stagger mt-10 grid gap-4 lg:grid-cols-3">

@@ -8,7 +8,7 @@ import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
 import {
-  brand,
+  homeCopy,
   offers,
   poolLandscapeCopy,
   poolLandscapeFaqs,
@@ -43,10 +43,10 @@ export default function PoolLandscapePage() {
         >
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href={routes.contact} variant="inverseSolid">
-              Book a free Visibility Snapshot
+              {homeCopy.primaryCta}
             </ButtonLink>
             <ButtonLink href={offers.audit.href} variant="inverse">
-              See the A$1,500 audit
+              {homeCopy.secondaryCta}
             </ButtonLink>
           </div>
         </PageHero>
@@ -55,30 +55,28 @@ export default function PoolLandscapePage() {
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
         <section className="max-w-3xl">
           <h2 className="font-serif text-4xl leading-tight text-navy sm:text-5xl">
-            Same offer path, written for this trade
+            Same path, written for this trade
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-            Delivery is the same Google and AI visibility work as the rest of{" "}
-            {brand.name}. This page exists because marketing is
-            vertical-targeted, starting here. Other local businesses stay on the
-            general offer and are considered case by case.
+            Pool and landscape first. Other local businesses when it’s a fit.
           </p>
         </section>
 
         <div className="mt-12">
           <OfferPath
             heading="Snapshot to retainer"
-            lede="The path does not change for pool and landscape companies. Start free. Pay for the audit when the gap is clear."
+            lede="Snapshot shows the gaps. Audit maps what to fix first."
           />
         </div>
 
         <FaqList items={poolLandscapeFaqs} title="Pool and landscape questions" />
 
         <CtaBand
-          title="Start with a Snapshot"
-          body="Send the website and Google Business Profile. We will come back with a short written look and whether the A$1,500 audit is the useful next step."
+          title={homeCopy.closeTitle}
+          body={homeCopy.closeBody}
+          primaryLabel={homeCopy.primaryCta}
           secondaryHref={offers.audit.href}
-          secondaryLabel="See the A$1,500 audit"
+          secondaryLabel={homeCopy.secondaryCta}
         />
       </div>
     </div>

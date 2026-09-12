@@ -8,12 +8,11 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <p className="font-serif text-3xl text-paper-50">{brand.name}</p>
           <p className="mt-4 max-w-md text-sm leading-relaxed">
-            Google and AI visibility for local businesses. First vertical: pool
-            builders and landscapers across {brand.areaServed}. Other local
-            service businesses considered case by case.
+            Google and AI visibility for local businesses. Pool and landscape
+            first. Other local businesses when it’s a fit.
           </p>
           <p className="mt-4 text-sm">
-            Service area only — no street address published.
+            Gold Coast based · South East Queensland · By appointment
           </p>
         </div>
         <div>
@@ -66,10 +65,10 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-site flex-col gap-2 px-4 py-5 text-xs text-paper-300 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p>
-            © {new Date().getFullYear()} {brand.name}. {brand.locationLabel}.
+            © {new Date().getFullYear()} {brand.name}. Gold Coast based.
           </p>
           <p>ABN {brand.abn}</p>
-          <p>No ranking or AI-mention guarantees.</p>
+          <p>South East Queensland · By appointment</p>
         </div>
       </div>
     </footer>

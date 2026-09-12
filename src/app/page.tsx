@@ -5,7 +5,7 @@ import { OfferPath } from "@/components/OfferPath";
 import { ProcessFrame } from "@/components/ProcessFrame";
 import { ServiceCards } from "@/components/ServiceCards";
 import { VerticalTeaser } from "@/components/VerticalTeaser";
-import { WillWont } from "@/components/WillWont";
+import { WhatYouGet } from "@/components/WhatYouGet";
 import { brand, homeCopy, offers, routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,12 +27,15 @@ export default function HomePage() {
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-paper-200 sm:text-xl">
               {homeCopy.lede}
             </p>
+            <p className="mt-4 max-w-2xl text-base text-paper-300">
+              {homeCopy.locationLine}
+            </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href={routes.contact} variant="inverseSolid">
-                Book a free Visibility Snapshot
+                {homeCopy.primaryCta}
               </ButtonLink>
               <ButtonLink href={offers.audit.href} variant="inverse">
-                See the A$1,500 audit
+                {homeCopy.secondaryCta}
               </ButtonLink>
             </div>
           </div>
@@ -46,28 +49,28 @@ export default function HomePage() {
                 <span className="mt-1 block font-semibold text-paper-50">
                   Snapshot, free.
                 </span>
-                A short look at how you appear today.
+                Snapshot shows the gaps.
               </li>
               <li>
                 <span className="font-serif text-xl text-paper-50">02</span>
                 <span className="mt-1 block font-semibold text-paper-50">
                   Audit, A$1,500.
                 </span>
-                Baseline, prioritised fix pack, next step.
+                Audit maps what to fix first.
               </li>
               <li>
                 <span className="font-serif text-xl text-paper-50">03</span>
                 <span className="mt-1 block font-semibold text-paper-50">
                   90-Day Foundation, typical A$6,500.
                 </span>
-                From A$4,500. Implement and measure.
+                Fixed 90-day Clarity build. From A$4,500 for simpler sites.
               </li>
               <li>
                 <span className="font-serif text-xl text-paper-50">04</span>
                 <span className="mt-1 block font-semibold text-paper-50">
                   Retainer, from A$2,000–2,500/mo.
                 </span>
-                Ongoing work after the foundation.
+                Keep Google and AI visibility moving.
               </li>
             </ol>
           </aside>
@@ -75,16 +78,21 @@ export default function HomePage() {
       </section>
 
       <div className="mx-auto max-w-site px-4 py-16 sm:px-6 sm:py-20">
-        <OfferPath />
-        <WillWont />
+        <OfferPath
+          heading="The offer path"
+          lede="Snapshot shows the gaps. Audit maps what to fix first. Then Foundation or Retainer when you’re ready to build."
+        />
+        <p className="mt-6 max-w-3xl text-ink-muted">{homeCopy.websiteSeoNote}</p>
+        <WhatYouGet />
         <ProcessFrame />
         <ServiceCards />
         <VerticalTeaser />
         <CtaBand
-          title="Request a Visibility Snapshot"
-          body="Send the website and Google Business Profile. We will come back with a short written look and whether an audit is the useful next step."
+          title={homeCopy.closeTitle}
+          body={homeCopy.closeBody}
+          primaryLabel={homeCopy.primaryCta}
           secondaryHref={offers.audit.href}
-          secondaryLabel="See the A$1,500 audit"
+          secondaryLabel={homeCopy.secondaryCta}
         />
       </div>
     </div>

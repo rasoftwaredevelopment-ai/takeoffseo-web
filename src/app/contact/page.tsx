@@ -4,11 +4,11 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
 import { breadcrumbJsonLd } from "@/lib/schema";
-import { brand, routes } from "@/lib/site";
+import { brand, contactCopy, routes } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact ${brand.name} in ${brand.locationLabel}. Phone ${brand.phoneDisplay}, email ${brand.email}. Hours ${brand.hours}. Service area: ${brand.areaServed}.`,
+  description: contactCopy.lede,
   alternates: { canonical: routes.contact },
 };
 
@@ -24,8 +24,8 @@ export default function ContactPage() {
       <PageBand>
         <PageHero
           eyebrow="By appointment"
-          title="Contact"
-          lede={`Tell us the website and where you trade. We will reply on ${brand.email} or ${brand.phoneDisplay}. Hours are ${brand.hours.toLowerCase()}. Service area is ${brand.areaServed} — we do not publish a street address.`}
+          title={contactCopy.title}
+          lede={`${contactCopy.lede} ${contactCopy.locationLine}`}
           tone="dark"
         />
       </PageBand>
