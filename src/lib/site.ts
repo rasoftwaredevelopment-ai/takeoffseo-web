@@ -413,7 +413,7 @@ export const poolLandscapeFaqs: FaqItem[] = [
     id: "only-pool-landscape",
     question: "Do you only work with pool and landscape companies?",
     answer:
-      "Pool and landscape is our first vertical — the depth lives on this page. Delivery is local SEO and GEO where it’s a fit. Other local businesses when it’s a fit.",
+      "No. Pool and landscape is our first vertical — the depth lives on this page. Delivery is local SEO and GEO where it’s a fit. Other local businesses when it’s a fit.",
   },
 ];
 
