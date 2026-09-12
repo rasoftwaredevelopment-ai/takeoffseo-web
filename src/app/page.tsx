@@ -55,7 +55,16 @@ export default function HomePage() {
             {homeCopy.visibilityTitle}
           </h2>
           <p className="section-lede">{homeCopy.visibilityBody}</p>
-          <div className="mt-10">
+          <div className="chapter-list">
+            {homeCopy.visibilityChapters.map((chapter) => (
+              <article key={chapter.title} className="chapter-row">
+                <h3 className="chapter-h3">{chapter.title}</h3>
+                <p>{chapter.body}</p>
+              </article>
+            ))}
+          </div>
+          <p className="section-close">{homeCopy.visibilityClose}</p>
+          <div className="mt-8">
             <ButtonLink href={routes.snapshotEnquire}>
               {homeCopy.primaryCta}
             </ButtonLink>
@@ -115,11 +124,14 @@ export default function HomePage() {
           </h2>
           <p className="section-lede">{homeCopy.takeoffHelp}</p>
           <h3 className="chapter-h3 mt-12">{homeCopy.workTitle}</h3>
-          <ul className="work-list">
-            {homeCopy.work.map((item) => (
-              <li key={item}>{item}</li>
+          <div className="chapter-list">
+            {homeCopy.workChapters.map((chapter) => (
+              <article key={chapter.title} className="chapter-row">
+                <h3 className="chapter-h3">{chapter.title}</h3>
+                <p>{chapter.body}</p>
+              </article>
             ))}
-          </ul>
+          </div>
           <div className="mt-10">
             <ButtonLink href={routes.snapshotEnquire}>
               {homeCopy.primaryCta}

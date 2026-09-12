@@ -123,7 +123,23 @@ export const homeCopy = {
     "Your customers are already searching. They’re asking Google, checking Maps, and using AI tools to decide who to call. If you’re not showing up there, the next job goes to someone who is. Based on the Gold Coast. Across South East Queensland.",
   visibilityTitle: "Your customers are searching. Are they finding you?",
   visibilityBody:
-    "SEO still starts with Google — but it no longer ends there. Locals look you up across Google search (blue links), Google Maps (near me / local pack), and AI answers (AI Overviews, ChatGPT, Gemini, Perplexity). Useful SEO is the right pages, content that answers the job, technical foundations, and local signals. No guesswork checklist. No vanity rankings as proof. Clearer visibility so the right jobs find you.",
+    "SEO still starts with Google — but it no longer ends there. Locals look you up in more than one place before they call.",
+  visibilityChapters: [
+    {
+      title: "Google search",
+      body: "Blue links for the jobs people type — the right pages, content that answers the job, and technical foundations a crawler can read.",
+    },
+    {
+      title: "Google Maps",
+      body: "Near me / local pack. A listing that matches the business: name, area, categories, and the details buyers check before they call.",
+    },
+    {
+      title: "AI answers",
+      body: "AI Overviews, ChatGPT, Gemini, Perplexity — whether those tools mention you for hire-intent questions.",
+    },
+  ],
+  visibilityClose:
+    "Useful SEO is those surfaces working together, plus local signals. No guesswork checklist. No vanity rankings as proof. Clearer visibility so the right jobs find you.",
   platformsLabel: "Where buyers search",
   whyTitle: "Why search visibility still decides who gets the call",
   whyChapters: [
@@ -157,6 +173,28 @@ export const homeCopy = {
     "Align the site and Google Business Profile.",
     "Make the business clear for Google and AI.",
     "Measure what changed.",
+  ],
+  workChapters: [
+    {
+      title: "Searches",
+      body: "Find the searches and asks buyers actually use.",
+    },
+    {
+      title: "Pages",
+      body: "Match the right pages to those jobs.",
+    },
+    {
+      title: "Profile",
+      body: "Align the site and Google Business Profile.",
+    },
+    {
+      title: "Clarity",
+      body: "Make the business clear for Google and AI.",
+    },
+    {
+      title: "Measure",
+      body: "Show what changed.",
+    },
   ],
   locationLine: "Based on the Gold Coast. Across South East Queensland.",
   primaryCta: "Free Visibility Snapshot",

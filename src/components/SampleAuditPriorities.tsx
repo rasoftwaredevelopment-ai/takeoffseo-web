@@ -3,36 +3,30 @@ import { homeCopy, routes, sampleAudit } from "@/lib/site";
 
 export function SampleAuditPriorities() {
   return (
-    <section className="card mt-12 overflow-hidden">
-      <div className="border-b border-line bg-paper-200/60 px-5 py-3 sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">
-          {sampleAudit.label}
-        </p>
+    <section className="artefact" aria-labelledby="sample-audit-heading">
+      <p className="section-eyebrow">{sampleAudit.label}</p>
+      <h3 id="sample-audit-heading" className="chapter-h3 mt-3">
+        Sample Audit fix map
+      </h3>
+      <p className="mt-2 text-base leading-relaxed text-ink-muted">
+        {sampleAudit.intro}
+      </p>
+      <div className="chapter-list">
+        {sampleAudit.priorities.map((row) => (
+          <article key={row.item} className="chapter-row">
+            <h3 className="chapter-h3">{row.band}</h3>
+            <p>{row.item}</p>
+          </article>
+        ))}
+        <article className="chapter-row">
+          <h3 className="chapter-h3">Next</h3>
+          <p>{sampleAudit.nextStep}</p>
+        </article>
       </div>
-      <div className="p-5 sm:p-6">
-        <h3 className="font-serif text-2xl text-navy">Sample Audit fix map</h3>
-        <p className="mt-2 text-sm text-ink-muted">{sampleAudit.intro}</p>
-        <ol className="mt-5 space-y-3">
-          {sampleAudit.priorities.map((row) => (
-            <li key={row.item} className="flex gap-3">
-              <span className="font-serif text-xl text-copper" aria-hidden>
-                ·
-              </span>
-              <span>
-                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft">
-                  {row.band}
-                </span>
-                <span className="mt-1 block text-ink">{row.item}</span>
-              </span>
-            </li>
-          ))}
-        </ol>
-        <p className="mt-5 text-sm font-medium text-navy">{sampleAudit.nextStep}</p>
-        <div className="mt-6">
-          <ButtonLink href={routes.snapshotEnquire}>
-            {homeCopy.primaryCta}
-          </ButtonLink>
-        </div>
+      <div className="mt-8">
+        <ButtonLink href={routes.snapshotEnquire}>
+          {homeCopy.primaryCta}
+        </ButtonLink>
       </div>
     </section>
   );
