@@ -155,7 +155,7 @@ export const homeDiagrams = {
   },
   howTakeoff: {
     src: "/images/owner-lens/offer-path-diagram.png",
-    title: "How Takeoff helps",
+    title: "How we work",
     caption: "Start free. Pay when you want the full map or the build.",
     alt: "Snapshot to Audit to Foundation path: Free Snapshot, then Audit (get the fix map, priced in proposal), 90-Day Foundation (fix site + Google profile), Monthly Retainer (keep it moving).",
   },
