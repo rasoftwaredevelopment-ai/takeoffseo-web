@@ -1,15 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ButtonLink } from "@/components/ButtonLink";
 import { brand, nav, routes } from "@/lib/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/80 bg-paper-100/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-40 border-b bg-paper-100/95 backdrop-blur transition-shadow duration-300 ${
+        scrolled
+          ? "border-line shadow-[0_8px_24px_-16px_rgba(11,26,43,0.45)]"
+          : "border-line/80"
+      }`}
+    >
       <div className="mx-auto flex max-w-site items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link href={routes.home} className="flex items-center gap-2.5">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-sm bg-navy text-paper-50">
@@ -32,21 +47,25 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
           {nav.map((item) =>
             "children" in item ? (
               <div
                 key={item.label}
                 className="group relative"
-                onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
+                onMouseEnter={() => setMenuOpen(item.label)}
+                onMouseLeave={() => setMenuOpen(null)}
               >
                 <button
                   type="button"
                   className="inline-flex items-center gap-1 py-2 text-sm font-medium text-navy"
-                  aria-expanded={servicesOpen}
+                  aria-expanded={menuOpen === item.label}
                   aria-haspopup="true"
-                  onClick={() => setServicesOpen((value) => !value)}
+                  onClick={() =>
+                    setMenuOpen((value) =>
+                      value === item.label ? null : item.label,
+                    )
+                  }
                 >
                   {item.label}
                   <span aria-hidden className="text-[10px] text-ink-soft">
@@ -55,7 +74,9 @@ export function SiteHeader() {
                 </button>
                 <div
                   className={`absolute left-0 top-full z-50 min-w-64 pt-2 ${
-                    servicesOpen ? "block" : "hidden group-hover:block group-focus-within:block"
+                    menuOpen === item.label
+                      ? "block"
+                      : "hidden group-hover:block group-focus-within:block"
                   }`}
                 >
                   <div className="border border-line bg-paper-50 py-2 shadow-card">
@@ -64,7 +85,7 @@ export function SiteHeader() {
                         key={child.href}
                         href={child.href}
                         className="block px-4 py-2.5 text-sm text-ink hover:bg-paper-200"
-                        onClick={() => setServicesOpen(false)}
+                        onClick={() => setMenuOpen(null)}
                       >
                         {child.label}
                       </Link>
@@ -88,12 +109,7 @@ export function SiteHeader() {
           >
             {brand.phoneDisplay}
           </a>
-          <Link
-            href={routes.contact}
-            className="rounded-sm bg-forest px-4 py-2 text-sm font-semibold text-paper-50 hover:bg-forest-600"
-          >
-            Free Snapshot
-          </Link>
+          <ButtonLink href={routes.contact}>Free Snapshot</ButtonLink>
         </nav>
 
         <button
@@ -110,7 +126,7 @@ export function SiteHeader() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="border-t border-line bg-paper-50 px-4 py-4 lg:hidden"
+          className="border-t border-line bg-paper-50 px-4 py-4 motion-safe:animate-[rise_0.35s_ease] lg:hidden"
           aria-label="Mobile"
         >
           <div className="flex flex-col gap-3">
@@ -145,13 +161,13 @@ export function SiteHeader() {
             <a href={`tel:${brand.phoneTel}`} className="pt-2 text-navy">
               {brand.phoneDisplay}
             </a>
-            <Link
+            <ButtonLink
               href={routes.contact}
-              className="mt-1 inline-flex items-center justify-center rounded-sm bg-forest px-4 py-3 text-sm font-semibold text-paper-50"
+              className="mt-1"
               onClick={() => setOpen(false)}
             >
-              Book a Visibility Snapshot
-            </Link>
+              Get a free Visibility Snapshot
+            </ButtonLink>
           </div>
         </nav>
       ) : null}

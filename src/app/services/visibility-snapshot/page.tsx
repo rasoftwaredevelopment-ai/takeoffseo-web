@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { ServicePage } from "@/components/ServicePage";
-import { brand, offers, snapshotFaqs } from "@/lib/site";
+import { offers, snapshotFaqs, snapshotPage } from "@/lib/site";
 
 const offer = offers.snapshot;
 
 export const metadata: Metadata = {
-  title: "Free Visibility Snapshot",
-  description: offer.summary,
+  title: snapshotPage.title,
+  description: snapshotPage.lede,
   alternates: { canonical: offer.href },
 };
 
@@ -14,27 +14,27 @@ export default function VisibilitySnapshotPage() {
   return (
     <ServicePage
       offer={offer}
-      title="Free Visibility Snapshot"
-      lede={`A short, no-obligation look at how a ${brand.areaServed} pool, landscape, or local service business appears in Google and AI-style answers. Enough to decide whether the A$1,500 audit is worth it — not a substitute for one.`}
+      title={snapshotPage.title}
+      lede={snapshotPage.lede}
       price="0"
       includes={[
-        "A written snapshot of how you appear in Google Search and Maps today.",
-        "A plain-English note on whether AI-style answers are likely to mention you.",
-        "A recommendation: stop here, book the Visibility Audit, or wait.",
-        "What this is not: a full baseline, a prioritised fix pack, or implementation.",
+        "5–8 AI prompts on your business name.",
+        "A thin Google Maps note.",
+        "A clear read on whether jobs are going elsewhere.",
+        "What this is not: the full baseline or the fix map. That is the Audit.",
       ]}
       process={[
         {
           title: "Send the basics",
-          body: "Website, Google Business Profile, and the work you want found for. Hours are by appointment.",
+          body: "Website, Google Business Profile, and the work you want found for.",
         },
         {
-          title: "We look, then write",
-          body: "A short review, not a deep diagnostic. Most Snapshots come back within a few business days.",
+          title: "We check the gaps",
+          body: "About 30–45 minutes on our side. Turnaround confirmed when we take details.",
         },
         {
           title: "You decide",
-          body: "If the gaps are clear and you want a baseline plus a prioritised fix pack, that is the paid audit.",
+          body: "Want the full baseline and fix map? That’s the Visibility Audit.",
         },
       ]}
       faqs={snapshotFaqs}

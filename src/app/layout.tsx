@@ -17,7 +17,7 @@ const sans = IBM_Plex_Sans({
 
 const serif = IBM_Plex_Serif({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-serif",
   display: "swap",
 });

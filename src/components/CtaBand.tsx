@@ -1,37 +1,41 @@
-import Link from "next/link";
 import { brand, routes } from "@/lib/site";
+import { ButtonLink } from "@/components/ButtonLink";
 
 type CtaBandProps = {
   title: string;
   body: string;
   primaryHref?: string;
   primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
 };
 
 export function CtaBand({
   title,
   body,
   primaryHref = routes.contact,
-  primaryLabel = "Book a Visibility Snapshot",
+  primaryLabel = "Get a free Visibility Snapshot",
+  secondaryHref,
+  secondaryLabel,
 }: CtaBandProps) {
   return (
-    <section className="mt-20 rounded-sm bg-navy px-6 py-10 text-paper-50 sm:px-10">
-      <div className="mx-auto max-w-3xl">
-        <h2 className="font-serif text-3xl sm:text-4xl">{title}</h2>
-        <p className="mt-4 text-paper-200 leading-relaxed">{body}</p>
+    <section className="mt-20 rounded-sm bg-navy px-6 py-12 text-paper-50 sm:px-10">
+      <div className="max-w-3xl">
+        <h2 className="font-serif text-4xl leading-tight sm:text-5xl">{title}</h2>
+        <p className="mt-5 text-lg leading-relaxed text-paper-200">{body}</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Link
-            href={primaryHref}
-            className="inline-flex items-center justify-center rounded-sm bg-forest px-5 py-3 text-sm font-semibold text-paper-50 hover:bg-forest-600"
-          >
+          <ButtonLink href={primaryHref} variant="inverseSolid">
             {primaryLabel}
-          </Link>
-          <a
-            href={`tel:${brand.phoneTel}`}
-            className="inline-flex items-center justify-center rounded-sm border border-white/20 px-5 py-3 text-sm font-semibold text-paper-50 hover:bg-white/5"
-          >
-            Call {brand.phoneDisplay}
-          </a>
+          </ButtonLink>
+          {secondaryHref && secondaryLabel ? (
+            <ButtonLink href={secondaryHref} variant="inverse">
+              {secondaryLabel}
+            </ButtonLink>
+          ) : (
+            <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+              Call {brand.phoneDisplay}
+            </a>
+          )}
         </div>
       </div>
     </section>
