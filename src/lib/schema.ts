@@ -2,6 +2,7 @@ import { absoluteUrl, brand, siteUrl } from "@/lib/site";
 
 export const organizationId = `${siteUrl}#organization`;
 
+/** Organization JSON-LD omits ABN, taxID, and any identifier until a real number exists. */
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",

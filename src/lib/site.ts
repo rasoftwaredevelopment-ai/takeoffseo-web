@@ -284,9 +284,9 @@ export const whereJobsCaption =
   "If you’re missing in these, the enquiry often never hits your site." as const;
 
 export const sampleSnapshot = {
-  label: "Example only · not a real client",
-  business: "Coastal Pools SEQ",
-  note: "Fictional trade name for illustration. Mention / cite / none only — not a ranking score.",
+  label: "Example / sample · not a real client",
+  business: "Example Pool Co",
+  note: "Illustrative only. Mention / cite / none — not a ranking score and not a testimonial.",
   readout: "Invisible where buyers decide.",
   maps: "Weak — listing exists, categories are thin, service area is unclear.",
   prompts: [
@@ -297,9 +297,9 @@ export const sampleSnapshot = {
 } as const;
 
 export const sampleAudit = {
-  label: "Example priorities · fictional · not a case study",
+  label: "Example / sample · fictional fix map · not a case study",
   intro:
-    "A sample fix map so you can see the shape of an Audit. Not a real client and not a testimonial.",
+    "A sample fix map so you can see the shape of an Audit. Not a real client, review, or testimonial.",
   nextStep: "Recommended next step: 90-Day Foundation, or hold if the site is not ready.",
   priorities: [
     { band: "Do first", item: "Service-area pages that match how buyers search." },

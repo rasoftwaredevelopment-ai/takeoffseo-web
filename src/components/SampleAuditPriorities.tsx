@@ -1,8 +1,9 @@
-import { sampleAudit } from "@/lib/site";
+import { ButtonLink } from "@/components/ButtonLink";
+import { homeCopy, routes, sampleAudit } from "@/lib/site";
 
 export function SampleAuditPriorities() {
   return (
-    <aside className="card mt-12 overflow-hidden">
+    <section className="card mt-12 overflow-hidden">
       <div className="border-b border-line bg-paper-200/60 px-5 py-3 sm:px-6">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">
           {sampleAudit.label}
@@ -27,7 +28,12 @@ export function SampleAuditPriorities() {
           ))}
         </ol>
         <p className="mt-5 text-sm font-medium text-navy">{sampleAudit.nextStep}</p>
+        <div className="mt-6">
+          <ButtonLink href={routes.snapshotEnquire}>
+            {homeCopy.primaryCta}
+          </ButtonLink>
+        </div>
       </div>
-    </aside>
+    </section>
   );
 }

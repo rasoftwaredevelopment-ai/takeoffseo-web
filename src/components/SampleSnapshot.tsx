@@ -3,7 +3,7 @@ import { homeCopy, routes, sampleSnapshot } from "@/lib/site";
 
 export function SampleSnapshot() {
   return (
-    <aside className="card mt-12 overflow-hidden">
+    <section className="card mt-12 overflow-hidden">
       <div className="border-b border-line bg-paper-200/60 px-5 py-3 sm:px-6">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">
           {sampleSnapshot.label}
@@ -16,7 +16,7 @@ export function SampleSnapshot() {
         <p className="mt-2 text-sm text-ink-muted">{sampleSnapshot.note}</p>
         <table className="mt-5 w-full text-left text-sm">
           <caption className="sr-only">
-            Example Snapshot readout for a fictional pool company
+            Example Snapshot readout for Example Pool Co — illustrative only
           </caption>
           <thead>
             <tr className="border-b border-line text-ink-soft">
@@ -46,6 +46,6 @@ export function SampleSnapshot() {
           </ButtonLink>
         </div>
       </div>
-    </aside>
+    </section>
   );
 }
