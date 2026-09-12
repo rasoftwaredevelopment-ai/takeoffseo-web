@@ -15,19 +15,19 @@ export function HowWeWorkDiagram() {
           Profile
         </title>
         <path
-          d="M40 132 C 200 132, 280 100, 400 76 S 620 32, 760 28"
+          d="M36 148 C 210 148, 290 108, 410 78 S 630 28, 768 18"
           fill="none"
-          stroke="#C9BBA6"
-          strokeWidth="2"
+          stroke="#C9843A"
+          strokeWidth="2.2"
         />
-        <path d="M40 140 H760" fill="none" stroke="#E7DCC9" strokeWidth="1" />
+        <path d="M36 152 H768" fill="none" stroke="#E8DCC8" strokeWidth="1" />
         {howWeWorkSteps.map((step, index) => {
           const x = 64 + index * 248;
           const y = 116 - index * 28;
           return (
             <g key={step.name}>
               <circle cx={x} cy={y} r="10" fill="#0B1A2B" />
-              <circle cx={x} cy={y} r="4" fill="#C17A3A" />
+              <circle cx={x} cy={y} r="4" fill="#C9843A" />
               <text
                 x={x + 20}
                 y={y - 6}

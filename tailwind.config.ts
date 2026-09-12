@@ -6,14 +6,14 @@ const config: Config = {
     extend: {
       colors: {
         paper: {
-          DEFAULT: "#F4EDE2",
+          DEFAULT: "#F7F1E8",
           50: "#FFFDF8",
-          100: "#F4EDE2",
-          200: "#E7DCC9",
+          100: "#F7F1E8",
+          200: "#E8DCC8",
           300: "#D2C4AE",
         },
         ink: {
-          DEFAULT: "#12100C",
+          DEFAULT: "#141210",
           muted: "#3D3830",
           soft: "#6A6358",
         },
@@ -23,15 +23,15 @@ const config: Config = {
           800: "#071320",
         },
         forest: {
-          DEFAULT: "#165C3F",
-          600: "#1E7350",
+          DEFAULT: "#1A6A48",
+          600: "#228056",
           800: "#0E3A28",
         },
         copper: {
-          DEFAULT: "#C17A3A",
+          DEFAULT: "#C9843A",
           600: "#9A5F2C",
         },
-        line: "#C9BBA6",
+        line: "#D0C3AE",
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],

@@ -29,7 +29,7 @@ export function CtaBand({
           caption={homeDiagrams.snapshotDoor.caption}
         />
       ) : null}
-      <div className="rounded-sm bg-navy px-6 py-12 text-paper-50 sm:px-10">
+      <div className="hero-grid overflow-hidden rounded-sm bg-navy px-6 py-12 text-paper-50 sm:px-10">
         <div className="max-w-3xl">
           <h2
             id="snapshot-close-heading"

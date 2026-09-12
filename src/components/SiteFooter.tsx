@@ -3,7 +3,7 @@ import { brand, offers, routes } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-0 border-t border-navy/20 bg-navy text-paper-200">
+    <footer className="hero-grid mt-0 border-t border-navy/20 bg-navy text-paper-200">
       <div className="mx-auto grid max-w-site gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
           <p className="font-serif text-3xl text-paper-50">{brand.name}</p>

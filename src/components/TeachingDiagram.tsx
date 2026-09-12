@@ -19,7 +19,11 @@ export function TeachingDiagram({
   return (
     <figure className="mt-10">
       <p className="font-serif text-2xl text-navy sm:text-3xl">{title}</p>
-      <div className="mt-4 overflow-hidden rounded-sm border border-line bg-paper-50 shadow-card">
+      <div className="relative mt-4 overflow-hidden rounded-sm border border-line bg-paper-50 shadow-card">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-copper to-transparent"
+        />
         <Image
           src={src}
           alt={alt}

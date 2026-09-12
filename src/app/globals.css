@@ -11,17 +11,19 @@ html {
 }
 
 body {
-  background: #f4ede2;
-  color: #12100c;
+  background:
+    radial-gradient(90% 42% at 50% -8%, #fffdf8 0%, transparent 58%),
+    #f7f1e8;
+  color: #141210;
 }
 
 ::selection {
-  background: #165c3f;
+  background: #1a6a48;
   color: #fffdf8;
 }
 
 :focus-visible {
-  outline: 2px solid #165c3f;
+  outline: 2px solid #1a6a48;
   outline-offset: 3px;
 }
 
@@ -41,26 +43,42 @@ body {
 }
 
 .hairline {
-  background: linear-gradient(90deg, transparent, #c9bba6, transparent);
+  background: linear-gradient(90deg, transparent, #c9843a, transparent);
   height: 1px;
 }
 
 .hero-grid {
+  position: relative;
+  isolation: isolate;
   background-image:
-    linear-gradient(180deg, transparent 42%, rgba(193, 122, 58, 0.16) 100%),
-    linear-gradient(180deg, rgba(11, 26, 43, 0.2), transparent 48%),
-    linear-gradient(90deg, rgba(255, 253, 248, 0.04) 1px, transparent 1px),
-    linear-gradient(rgba(255, 253, 248, 0.04) 1px, transparent 1px);
-  background-size: auto, auto, 72px 72px, 72px 72px;
+    radial-gradient(120% 56% at 50% 118%, rgba(201, 132, 58, 0.3), transparent 54%),
+    linear-gradient(180deg, transparent 46%, rgba(255, 253, 248, 0.07) 100%),
+    linear-gradient(180deg, rgba(11, 26, 43, 0.16), transparent 52%),
+    linear-gradient(90deg, rgba(255, 253, 248, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(255, 253, 248, 0.045) 1px, transparent 1px);
+  background-size: auto, auto, auto, 72px 72px, 72px 72px;
+}
+
+.hero-grid::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: auto 8% -1px;
+  height: 3.5rem;
+  background: radial-gradient(
+    80% 100% at 50% 100%,
+    rgba(255, 253, 248, 0.14),
+    transparent 72%
+  );
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-sm px-5 py-3 text-sm font-semibold transition-colors duration-200;
+    @apply inline-flex items-center justify-center rounded-sm px-5 py-3 text-sm font-semibold transition-[color,background-color,box-shadow,transform] duration-200 ease-punch motion-safe:hover:-translate-y-0.5;
   }
 
   .btn-primary {
-    @apply btn bg-forest text-paper-50 hover:bg-forest-600;
+    @apply btn bg-forest text-paper-50 hover:bg-forest-600 motion-safe:hover:shadow-lift;
   }
 
   .btn-secondary {
@@ -106,10 +124,10 @@ body {
 
 .reveal {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(14px);
   transition:
-    opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.25s ease,
     border-color 0.25s ease;
 }
@@ -125,13 +143,13 @@ body {
 
 @keyframes step-highlight {
   0% {
-    box-shadow: 0 0 0 0 rgba(22, 92, 63, 0);
+    box-shadow: 0 0 0 0 rgba(26, 106, 72, 0);
   }
   40% {
-    box-shadow: 0 0 0 5px rgba(22, 92, 63, 0.16);
+    box-shadow: 0 0 0 5px rgba(26, 106, 72, 0.16);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(22, 92, 63, 0);
+    box-shadow: 0 0 0 0 rgba(26, 106, 72, 0);
   }
 }
 
@@ -155,7 +173,7 @@ body {
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -181,7 +199,8 @@ body {
     transition: none;
   }
 
-  .card-hover {
+  .card-hover,
+  .btn {
     transform: none !important;
   }
 }
