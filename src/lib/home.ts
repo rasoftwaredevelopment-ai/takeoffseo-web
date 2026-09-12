@@ -28,26 +28,27 @@ export const education = {
       kicker: "Google Search",
       title: "The page has to answer the job they typed.",
       body: "Pool builders and landscapers get hired for specific work in a specific area. Google can only show you when the site makes that obvious: the service, the place, the proof that you do this. Thin brochure copy is why good yards stay invisible.",
-      image: "laptop-search",
+      image: "modern-house",
       imageAlt:
-        "Hands typing a search on a laptop — how local hire questions start",
+        "Australian house at dusk — the job and the place buyers type into Google",
     },
     {
       id: "maps",
       kicker: "Google Maps",
       title: "The map pack is where local jobs start.",
       body: "A Google Business Profile that matches the yard — name, categories, service area, photos — is how you appear when someone is ready to call. If the listing is thin or the area is wrong, Maps has no reason to put you in front of the next job.",
-      image: "phone-search",
+      image: "pool-backyard",
       imageAlt:
-        "Phone home screen showing Google Maps among the apps people actually open",
+        "Queensland backyard pool and palms — the local jobs the map pack is for",
     },
     {
       id: "ai",
       kicker: "AI answers",
       title: "People now ask who to hire. The model needs something to cite.",
       body: "ChatGPT, Gemini, Perplexity, and Google AI Overviews answer hire questions from pages they can trust and extract. Clear services, local signals, and answers written for the job — not a separate “AI hack.” If you are not mentioned, you are not on the shortlist.",
-      image: "desk-work",
-      imageAlt: "Planning notes beside a laptop — how hire answers get built",
+      image: "outdoor-living",
+      imageAlt:
+        "Australian outdoor-living house at dusk — the work AI answers should name",
     },
   ],
 } as const;
@@ -70,17 +71,17 @@ export const howTakeoff = {
       numeral: "02",
       title: "Found",
       body: "Google Search, Maps, and AI answers can name you for the work you want. The site, the profile, and the local signals finally agree.",
-      image: "pool-backyard",
-      imageAlt:
-        "Queensland backyard pool and palms — the jobs SEQ buyers search for",
+      image: "coastal-pool",
+      imageAlt: "Coastal pool and deck — found for the work buyers want",
     },
     {
       id: "takeoff",
       numeral: "03",
       title: "Takeoff",
       body: "The right jobs can find you. We diagnose, implement on your site and listing, and report what changed against the starting point.",
-      image: "outdoor-living",
-      imageAlt: "Australian outdoor-living house at dusk — the work, found",
+      image: "house-pool",
+      imageAlt: "Luxury pool and house — the work, found",
+      video: "/media/motion-coast.mp4",
     },
   ],
 } as const;
@@ -135,21 +136,19 @@ export const snapshotCtas = [
     id: "after-hero",
     title: "See how you appear today.",
     body: "The Snapshot is free, written, and specific to your name. Phone or enquire — we confirm timing by appointment.",
+    photo: "coastal-pool" as const,
   },
   {
     id: "after-education",
     title: "Missing in one of those three? Start here.",
     body: "A Visibility Snapshot shows the gaps in Search, Maps, and AI answers before you spend on a deeper diagnostic.",
-  },
-  {
-    id: "after-about",
-    title: "Ready to see the gaps?",
-    body: "Send the website and Google Business Profile. We come back with a short written look.",
+    video: "/media/motion-pool.mp4",
   },
   {
     id: "final",
     title: "Get a Free Visibility Snapshot.",
     body: `Call ${brand.phoneDisplay} or write to ${brand.email}. South East Queensland. By appointment.`,
+    photo: "pool-dusk" as const,
   },
 ] as const;
 

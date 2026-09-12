@@ -57,19 +57,24 @@ main {
   padding-top: 4.35rem;
 }
 
+body:has(.home-page) {
+  background: #071320;
+}
+
 body:has(.home-page) main {
   padding-top: 0;
 }
 
-.hero-scrim {
+.hero-scrim,
+.chapter-scrim {
   background:
     linear-gradient(
       180deg,
-      rgba(7, 19, 32, 0.28) 0%,
-      rgba(7, 19, 32, 0.42) 42%,
-      rgba(7, 19, 32, 0.82) 100%
+      rgba(7, 19, 32, 0.22) 0%,
+      rgba(7, 19, 32, 0.38) 38%,
+      rgba(7, 19, 32, 0.78) 100%
     ),
-    linear-gradient(90deg, rgba(7, 19, 32, 0.5), transparent 58%);
+    linear-gradient(90deg, rgba(7, 19, 32, 0.48), transparent 62%);
 }
 
 .parallax-inner {

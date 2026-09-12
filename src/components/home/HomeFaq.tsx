@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { homeFaqs } from "@/lib/home";
+import { CinematicBand } from "@/components/home/CinematicBand";
+import { homeFaqs, media } from "@/lib/home";
 
 export function HomeFaq() {
   useEffect(() => {
@@ -27,44 +28,38 @@ export function HomeFaq() {
   }, []);
 
   return (
-    <section className="bg-paper-50" aria-labelledby="faq-heading">
-      <div className="mx-auto max-w-site px-4 py-20 sm:px-6 sm:py-28">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
-          Questions
-        </p>
-        <h2
-          id="faq-heading"
-          className="mt-4 max-w-3xl font-serif text-4xl leading-tight text-navy sm:text-5xl"
-        >
-          Straight answers before you enquire.
-        </h2>
-        <div className="mt-12 divide-y divide-line border-y border-line">
-          {homeFaqs.map((item) => (
-            <details
-              key={item.id}
-              id={item.id}
-              className="group scroll-mt-28 py-6"
-            >
-              <summary className="cursor-pointer list-none marker:content-none [&::-webkit-details-marker]:hidden">
-                <span className="flex items-start justify-between gap-6">
-                  <span className="text-lg font-medium leading-snug text-navy sm:text-xl">
-                    {item.question}
-                  </span>
-                  <span
-                    aria-hidden
-                    className="mt-1 text-ink-soft transition motion-safe:group-open:rotate-45"
-                  >
-                    +
-                  </span>
+    <CinematicBand
+      kicker="Questions"
+      title="Straight answers before you enquire."
+      video={media.motionCoast}
+      size="full"
+    >
+      <div className="divide-y divide-white/15 border-y border-white/15">
+        {homeFaqs.map((item) => (
+          <details
+            key={item.id}
+            id={item.id}
+            className="group scroll-mt-28 py-6"
+          >
+            <summary className="cursor-pointer list-none marker:content-none [&::-webkit-details-marker]:hidden">
+              <span className="flex items-start justify-between gap-6">
+                <span className="font-serif text-2xl leading-snug text-paper-50 sm:text-3xl">
+                  {item.question}
                 </span>
-              </summary>
-              <p className="mt-4 max-w-3xl leading-relaxed text-ink-muted">
-                {item.answer}
-              </p>
-            </details>
-          ))}
-        </div>
+                <span
+                  aria-hidden
+                  className="mt-2 text-paper-300 transition motion-safe:group-open:rotate-45"
+                >
+                  +
+                </span>
+              </span>
+            </summary>
+            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-paper-200">
+              {item.answer}
+            </p>
+          </details>
+        ))}
       </div>
-    </section>
+    </CinematicBand>
   );
 }

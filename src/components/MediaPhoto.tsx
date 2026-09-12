@@ -18,7 +18,7 @@ export function MediaPhoto({
   const asset = media.photos[photo];
 
   return (
-    <picture className={className}>
+    <picture className={`block h-full w-full ${className}`.trim()}>
       <source media="(max-width: 768px)" srcSet={asset.src800} type="image/webp" />
       <source srcSet={asset.src} type="image/webp" />
       <img

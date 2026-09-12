@@ -4,9 +4,9 @@ import { brand, nav, routes } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="mt-0 border-t border-navy/20 bg-navy text-paper-200">
-      <div className="mx-auto grid max-w-site gap-10 px-4 py-16 sm:px-6 md:grid-cols-4">
+      <div className="mx-auto grid max-w-site gap-10 px-4 py-20 sm:px-6 md:grid-cols-4 lg:py-24">
         <div className="md:col-span-2">
-          <p className="font-serif text-3xl text-paper-50">{brand.name}</p>
+          <p className="font-serif text-4xl text-paper-50">{brand.name}</p>
           <p className="mt-4 max-w-md text-sm leading-relaxed">
             Google, Maps, and AI visibility for SEQ pool builders and
             landscapers. Other local service businesses considered case by case.

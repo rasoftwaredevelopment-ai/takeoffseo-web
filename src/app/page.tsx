@@ -25,25 +25,22 @@ export default function HomePage() {
       <SnapshotCta
         title={snapshotCtas[0].title}
         body={snapshotCtas[0].body}
+        photo={snapshotCtas[0].photo}
       />
       <EducationBand />
       <SnapshotCta
         title={snapshotCtas[1].title}
         body={snapshotCtas[1].body}
-        tone="forest"
+        video={snapshotCtas[1].video}
       />
       <HowTakeoffHelps />
       <SnapshotDoor />
       <AboutTeaser />
+      <HomeFaq />
       <SnapshotCta
         title={snapshotCtas[2].title}
         body={snapshotCtas[2].body}
-      />
-      <HomeFaq />
-      <SnapshotCta
-        title={snapshotCtas[3].title}
-        body={snapshotCtas[3].body}
-        tone="forest"
+        photo={snapshotCtas[2].photo}
       />
     </div>
   );

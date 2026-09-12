@@ -1,43 +1,43 @@
 import { ButtonLink } from "@/components/ButtonLink";
+import { CinematicBand } from "@/components/home/CinematicBand";
 import { homeCopy } from "@/lib/home";
+import type { PhotoKey } from "@/lib/home";
 import { brand, routes } from "@/lib/site";
 
 type SnapshotCtaProps = {
   title: string;
   body: string;
-  tone?: "dark" | "forest";
+  photo?: PhotoKey;
+  video?: string;
+  poster?: string;
 };
 
 export function SnapshotCta({
   title,
   body,
-  tone = "dark",
+  photo,
+  video,
+  poster,
 }: SnapshotCtaProps) {
-  const band = tone === "forest" ? "bg-forest-800" : "bg-navy";
-
   return (
-    <section className={`${band} text-paper-50`}>
-      <div className="mx-auto flex max-w-site flex-col gap-8 px-4 py-16 sm:px-6 sm:py-20 lg:flex-row lg:items-end lg:justify-between lg:py-24">
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
-            Free Visibility Snapshot
-          </p>
-          <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
-            {title}
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-paper-200">
-            {body}
-          </p>
-        </div>
-        <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-          <ButtonLink href={routes.snapshot} variant="inverseSolid">
-            {homeCopy.primaryCta}
-          </ButtonLink>
-          <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
-            {homeCopy.phoneCta}
-          </a>
-        </div>
+    <CinematicBand
+      kicker="Free Visibility Snapshot"
+      title={title}
+      body={body}
+      photo={photo}
+      photoAlt="SEQ outdoor living — the work a Snapshot is written against"
+      video={video}
+      poster={poster}
+      size="cta"
+    >
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <ButtonLink href={routes.snapshot} variant="inverseSolid">
+          {homeCopy.primaryCta}
+        </ButtonLink>
+        <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+          {homeCopy.phoneCta}
+        </a>
       </div>
-    </section>
+    </CinematicBand>
   );
 }
