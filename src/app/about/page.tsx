@@ -4,12 +4,13 @@ import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
+import { SampleAuditPriorities } from "@/components/SampleAuditPriorities";
 import { SampleSnapshot } from "@/components/SampleSnapshot";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import { aboutCopy, brand, homeCopy, routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "About TakeoffSEO | Gold Coast, QLD" },
+  title: { absolute: aboutCopy.pageTitle },
   description: aboutCopy.lede,
   alternates: { canonical: routes.about },
 };
@@ -35,7 +36,7 @@ export default function AboutPage() {
               {homeCopy.primaryCta}
             </ButtonLink>
             <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
-              {homeCopy.secondaryCta}
+              {brand.phoneDisplay}
             </a>
           </div>
         </PageHero>
@@ -44,14 +45,11 @@ export default function AboutPage() {
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
         <div className="grid gap-8 lg:grid-cols-3">
           <article className="space-y-6 leading-relaxed text-ink-muted lg:col-span-2">
-            <p>{aboutCopy.founderLine}</p>
-            <p>{aboutCopy.whyLocal}</p>
-            <p>{aboutCopy.howWeWork}</p>
+            <p>{aboutCopy.howIWork}</p>
+            <p>{aboutCopy.whyThis}</p>
             <p>{aboutCopy.proof}</p>
-            <p>{aboutCopy.marketing}</p>
-            <p>{aboutCopy.websiteSeo}</p>
             <p>
-              Hours are {brand.hours.toLowerCase()}. Call{" "}
+              Call{" "}
               <a
                 className="font-medium text-navy underline"
                 href={`tel:${brand.phoneTel}`}
@@ -65,7 +63,7 @@ export default function AboutPage() {
               >
                 {brand.email}
               </a>
-              .
+              . Hours are {brand.hours.toLowerCase()}.
             </p>
           </article>
           <aside className="card h-fit p-6">
@@ -82,7 +80,8 @@ export default function AboutPage() {
                 <path d="M8 16.5h8" stroke="currentColor" strokeWidth="1.6" />
               </svg>
             </div>
-            <h2 className="font-serif text-2xl text-navy">At a glance</h2>
+            <h2 className="font-serif text-2xl text-navy">Who I am</h2>
+            <p className="mt-2 text-sm text-ink-muted">{aboutCopy.photoNote}</p>
             <dl className="mt-4 space-y-3 text-sm">
               <div>
                 <dt className="text-ink-soft">Founder</dt>
@@ -109,6 +108,7 @@ export default function AboutPage() {
         </div>
 
         <SampleSnapshot />
+        <SampleAuditPriorities />
 
         <CtaBand />
       </div>

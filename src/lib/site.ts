@@ -109,6 +109,7 @@ export const offerOrder: OfferId[] = [
 ];
 
 export const nav = [
+  { label: "Home", href: routes.home },
   { label: "About", href: routes.about },
   { label: "Free Snapshot", href: routes.snapshot },
   { label: "Contact", href: routes.contact },
@@ -120,24 +121,47 @@ export const homeCopy = {
   lede: [
     "Buyers already ask Google and AI who to hire.",
     "If you’re not in those answers, the next job goes to someone who is.",
-    "We get local businesses found — then you take off.",
   ].join(" "),
+  whereJobsTitle: "Where jobs get decided",
+  whereJobsBody:
+    "Google search · Google Maps · AI answers (ChatGPT, Gemini, Perplexity, AI Overviews).",
+  howEyebrow: "Clarity first. Takeoff next.",
+  howTitle: "How Takeoff helps",
+  takeoffHelp:
+    "We show you the gaps, then help you get found — so more of the right jobs find you. Start with a free Visibility Snapshot on your business name. Everything else is case by case after that.",
   locationLine:
-    "Based on the Gold Coast. We work with local businesses across South East Queensland.",
+    "Based on the Gold Coast. Across South East Queensland.",
   primaryCta: "Free Visibility Snapshot",
   secondaryCta: `Talk to us · ${brand.phoneDisplay}`,
+  contactAlt: `${brand.phoneDisplay} · ${brand.email}`,
   takeoffHook: "Get found. Then take off.",
   websiteSeoNote:
     "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
   closeTitle: "Clarity first. Takeoff next.",
-  closeBody:
-    "Start with a free Visibility Snapshot. See if buyers can find you — then we quote further work in a proposal if you want it.",
-  seoPlain:
-    "Google + AI visibility is whether local buyers can find you when they ask who to hire — in Search, on Maps, and in AI answers.",
-  takeoffHelp:
-    "TakeoffSEO starts with a free Snapshot on your name. Invisible to found to takeoff: we show where you stand, then work on your site and Google profile if you want the next step — quoted after the Snapshot.",
-  whoTeaser:
-    `${brand.founder} — Gold Coast, working with local businesses across South East Queensland.`,
+  closeBody: "See if buyers can find you.",
+} as const;
+
+export const homeDiagrams = {
+  whereJobs: {
+    src: "/images/owner-lens/where-buyers-look.png",
+    title: "Where jobs get decided",
+    caption:
+      "If you’re missing here, the enquiry often never hits your site.",
+    alt: "Where jobs get decided: Google Search versus Google Maps versus AI answers (ChatGPT, Gemini, Perplexity).",
+  },
+  howTakeoff: {
+    src: "/images/owner-lens/offer-path-diagram.png",
+    title: "How Takeoff helps",
+    caption:
+      "Start free. Paid work is quoted after your Snapshot — case by case.",
+    alt: "How Takeoff helps: free Visibility Snapshot first, then Audit, 90-Day Foundation, or Monthly Retainer quoted after Snapshot — case by case. Not a public buy-now ladder.",
+  },
+  snapshotDoor: {
+    src: "/images/owner-lens/snapshot-door-diagram.png",
+    title: "Free Visibility Snapshot",
+    caption: "See if buyers can find you. Everything else after, case by case.",
+    alt: "Free Visibility Snapshot door: business name checked against buyer prompts in AI search, a Google Maps note, and Visible, Weak, or Missing labels.",
+  },
 } as const;
 
 export const afterSnapshot = {
@@ -175,35 +199,32 @@ export const processSteps = [
 
 export const workSurfaces = [
   {
-    title: "Google Search",
+    title: "Google search",
     body: "Pages that answer the jobs people actually type — so the site can be found and understood.",
   },
   {
-    title: "Maps and Business Profile",
+    title: "Google Maps",
     body: "A listing that matches the business: name, area, categories, and the details buyers check before they call.",
   },
   {
     title: "AI answers",
-    body: "Whether models mention you for hire-intent questions. We track mention, cite, or none.",
+    body: "ChatGPT, Gemini, Perplexity, AI Overviews — whether models mention you for hire-intent questions.",
   },
 ] as const;
 
 export const aboutCopy = {
   title: "About TakeoffSEO",
-  lede: "TakeoffSEO helps local businesses get found on Google and in AI answers. We’re based on the Gold Coast and work across South East Queensland.",
-  founderLine: `${brand.founder} runs TakeoffSEO as a solo practice — you talk to the person who does the work.`,
-  whyLocal:
-    "Local jobs are decided in search, Maps, and AI answers before anyone calls. A Gold Coast practice that works SEQ can see the same buyer path you do, without a national-agency layer.",
-  howWeWork:
-    "How we work: start with a free Snapshot to see if buyers can find you. Further work — a written fix map or ninety days on your site and Google profile — is quoted in a proposal, case by case.",
+  pageTitle: "About TakeoffSEO | Gold Coast, QLD",
+  lede: `I’m ${brand.founder} — founder of TakeoffSEO, based on the Gold Coast. I help local businesses across South East Queensland get found for the work they want on Google and in AI search.`,
+  howIWork:
+    "How I work: Clarity first. Takeoff next. Free Visibility Snapshot to see the gaps. Anything further — Audit, ninety-day fixes, monthly work — is discussed after, case by case, and priced in proposal. No public price list. No fake rankings.",
+  whyThis:
+    "Why this: Jobs get decided in search and AI before the phone rings. I keep the work practical: your pages, your Google profile, your buyer questions.",
   proof:
-    "This site does not invent reviews or case studies. The Snapshot and Audit samples on the site are labelled examples only, so you can see the shape of the work before you enquire.",
-  path: "Most conversations start with a free Visibility Snapshot.",
-  marketing:
-    "We publish industry pages where we go deeper — starting with pool and landscape in SEQ — so buyers in those trades see how the path applies to them.",
+    "Honest proof: Sample Snapshot and sample Audit priorities on the site — marked example only, not client results.",
+  photoNote: "Brand mark until a founder photo is supplied.",
+  hoursCta: `Free Visibility Snapshot · Contact ${brand.phoneDisplay} · ${brand.email} · ${brand.hours}`,
   delivery: "Local SEO and GEO for local businesses.",
-  websiteSeo:
-    "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
 } as const;
 
 export const contactCopy = {
@@ -260,7 +281,7 @@ export const clarityPathSteps = [
 ] as const;
 
 export const clarityPathCaption =
-  "Start free. Paid work quoted after Snapshot — case by case." as const;
+  "Start free. Paid work is quoted after your Snapshot — case by case." as const;
 
 export const howWeWorkSteps = [
   {
@@ -284,8 +305,8 @@ export const whereJobsCaption =
   "If you’re missing in these, the enquiry often never hits your site." as const;
 
 export const sampleSnapshot = {
-  label: "Example / sample · not a real client",
-  business: "Example Pool Co",
+  label: "Example only · not a real client",
+  business: "Coastal Pools SEQ",
   note: "Illustrative only. Mention / cite / none — not a ranking score and not a testimonial.",
   readout: "Invisible where buyers decide.",
   maps: "Weak — listing exists, categories are thin, service area is unclear.",

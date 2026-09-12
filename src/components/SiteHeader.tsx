@@ -88,13 +88,6 @@ export function SiteHeader() {
           aria-label="Mobile"
         >
           <div className="flex flex-col gap-3">
-            <Link
-              href={routes.home}
-              className="text-base font-medium text-navy"
-              onClick={() => setOpen(false)}
-            >
-              Home
-            </Link>
             {nav.map((item) => (
               <Link
                 key={item.href}

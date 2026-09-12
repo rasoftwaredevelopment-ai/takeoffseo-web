@@ -1,18 +1,16 @@
-import { ButtonLink } from "@/components/ButtonLink";
 import {
   clarityPathCaption,
   clarityPathSteps,
-  homeCopy,
-  routes,
 } from "@/lib/site";
 
 export function ClarityPathDiagram() {
   return (
     <figure className="mt-10">
+      <h3 className="font-serif text-2xl text-navy">How we work</h3>
       <div
-        className="grid gap-3 md:grid-cols-4"
+        className="mt-4 grid gap-3 md:grid-cols-4"
         role="img"
-        aria-label="Snapshot to Audit to Foundation path: free Snapshot, then Audit, Foundation, or Retainer quoted after Snapshot"
+        aria-label="How Takeoff helps: free Visibility Snapshot first, then Audit, Foundation, or Retainer quoted after Snapshot — case by case"
       >
         {clarityPathSteps.map((step, index) => (
           <div key={step.name} className="card relative p-5">
@@ -34,11 +32,6 @@ export function ClarityPathDiagram() {
       <figcaption className="mt-4 text-sm leading-relaxed text-ink-muted">
         {clarityPathCaption}
       </figcaption>
-      <div className="mt-6">
-        <ButtonLink href={routes.snapshotEnquire}>
-          {homeCopy.primaryCta}
-        </ButtonLink>
-      </div>
     </figure>
   );
 }

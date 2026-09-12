@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CtaBand } from "@/components/CtaBand";
-import { ClarityPathDiagram } from "@/components/ClarityPathDiagram";
-import { HowWeWorkDiagram } from "@/components/HowWeWorkDiagram";
 import { Reveal } from "@/components/Reveal";
 import { SampleSnapshot } from "@/components/SampleSnapshot";
-import { WhereJobsDecided } from "@/components/WhereJobsDecided";
-import { brand, homeCopy, routes } from "@/lib/site";
+import { TeachingDiagram } from "@/components/TeachingDiagram";
+import { brand, homeCopy, homeDiagrams, routes } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: `${brand.name} | ${brand.h1}` },
@@ -18,106 +15,79 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div>
-      <section className="hero-grid bg-navy text-paper-50">
+      <section
+        aria-labelledby="visibility-heading"
+        className="hero-grid bg-navy text-paper-50"
+      >
         <div className="mx-auto max-w-site px-4 py-16 sm:px-6 sm:py-24">
           <div className="hero-stagger max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
               {homeCopy.eyebrow}
             </p>
-            <h1 className="mt-5 font-serif text-display">{homeCopy.h1}</h1>
+            <h1
+              id="visibility-heading"
+              className="mt-5 font-serif text-display"
+            >
+              {homeCopy.h1}
+            </h1>
             <p className="mt-6 text-lg leading-relaxed text-paper-200 sm:text-xl">
               {homeCopy.lede}
             </p>
-            <p className="mt-4 text-base text-paper-300">
-              {homeCopy.locationLine}
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9">
               <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
                 {homeCopy.primaryCta}
               </ButtonLink>
-              <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
-                {homeCopy.secondaryCta}
-              </a>
             </div>
           </div>
         </div>
       </section>
 
       <div className="mx-auto max-w-site px-4 py-16 sm:px-6 sm:py-20">
-        <section aria-labelledby="what-visibility-heading">
+        <section aria-labelledby="visibility-heading">
           <Reveal className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
-              What this is
-            </p>
-            <h2
-              id="what-visibility-heading"
-              className="mt-3 font-serif text-4xl leading-tight text-navy sm:text-5xl"
-            >
-              What Google + AI visibility is
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-              {homeCopy.seoPlain}
+            <p className="text-lg leading-relaxed text-ink-muted">
+              {homeCopy.whereJobsBody}
             </p>
           </Reveal>
-          <WhereJobsDecided />
-          <div className="mt-8">
-            <ButtonLink href={routes.snapshotEnquire}>
-              {homeCopy.primaryCta}
-            </ButtonLink>
-          </div>
+          <TeachingDiagram
+            src={homeDiagrams.whereJobs.src}
+            alt={homeDiagrams.whereJobs.alt}
+            title={homeDiagrams.whereJobs.title}
+            caption={homeDiagrams.whereJobs.caption}
+            priority
+          />
         </section>
 
         <section aria-labelledby="how-takeoff-heading" className="mt-20">
           <Reveal className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
-              How we work
+              {homeCopy.howEyebrow}
             </p>
             <h2
               id="how-takeoff-heading"
               className="mt-3 font-serif text-4xl leading-tight text-navy sm:text-5xl"
             >
-              How Takeoff helps businesses take off
+              {homeCopy.howTitle}
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-ink-muted">
               {homeCopy.takeoffHelp}
             </p>
           </Reveal>
-          <ClarityPathDiagram />
-          <HowWeWorkDiagram />
-          <SampleSnapshot />
+          <TeachingDiagram
+            src={homeDiagrams.howTakeoff.src}
+            alt={homeDiagrams.howTakeoff.alt}
+            title={homeDiagrams.howTakeoff.title}
+            caption={homeDiagrams.howTakeoff.caption}
+          />
           <div className="mt-8">
             <ButtonLink href={routes.snapshotEnquire}>
               {homeCopy.primaryCta}
             </ButtonLink>
           </div>
+          <SampleSnapshot showCta={false} />
         </section>
 
-        <section aria-labelledby="who-heading" className="mt-20">
-          <Reveal className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
-              Who I am
-            </p>
-            <h2
-              id="who-heading"
-              className="mt-3 font-serif text-4xl leading-tight text-navy sm:text-5xl"
-            >
-              {brand.founder}
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-              {homeCopy.whoTeaser}
-            </p>
-            <p className="mt-6">
-              <Link
-                href={routes.about}
-                className="font-medium text-navy underline underline-offset-4"
-              >
-                About TakeoffSEO
-              </Link>
-            </p>
-          </Reveal>
-        </section>
-
-        <CtaBand />
+        <CtaBand showDoor showLocation />
       </div>
     </div>
   );

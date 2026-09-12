@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { ButtonLink } from "@/components/ButtonLink";
 import { ClarityPathDiagram } from "@/components/ClarityPathDiagram";
 import { SampleSnapshot } from "@/components/SampleSnapshot";
 import { ServicePage } from "@/components/ServicePage";
-import { offers, snapshotFaqs, snapshotPage } from "@/lib/site";
+import { homeCopy, offers, routes, snapshotFaqs, snapshotPage } from "@/lib/site";
 
 const offer = offers.snapshot;
 
@@ -49,6 +50,11 @@ export default function VisibilitySnapshotPage() {
               want it.
             </p>
             <ClarityPathDiagram />
+            <div className="mt-8">
+              <ButtonLink href={routes.snapshotEnquire}>
+                {homeCopy.primaryCta}
+              </ButtonLink>
+            </div>
           </section>
           <SampleSnapshot />
         </>
