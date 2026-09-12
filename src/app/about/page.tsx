@@ -77,7 +77,7 @@ export default function AboutPage() {
               <div>
                 <dt className="text-ink-soft">Delivery</dt>
                 <dd className="font-medium text-navy">
-                  Local SEO and GEO where it’s a fit
+                  Local SEO and GEO for local businesses
                 </dd>
               </div>
               <div>
