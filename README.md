@@ -67,7 +67,7 @@ If Cloudflare proxy (orange cloud) is enabled, SSL mode should be **Full (strict
 
 | Path | Page |
 | --- | --- |
-| `/` | Home — offer-led local businesses (Google + AI) |
+| `/` | Home — Google + AI visibility, then How Takeoff helps, then Free Snapshot |
 | `/services/visibility-snapshot` | Visibility Snapshot for local businesses (free) |
 | `/services/visibility-audit` | Visibility Audit for local businesses — get the fix map |
 | `/services/90-day-foundation` | 90-Day Foundation — fix site + Google profile |
@@ -80,9 +80,9 @@ If Cloudflare proxy (orange cloud) is enabled, SSL mode should be **Full (strict
 ## Offers
 
 1. **Visibility Snapshot** — free
-2. **Visibility Audit** — get the fix map
-3. **90-Day Foundation** — fix site + Google profile
-4. **Monthly retainer** — keep it moving
+2. **Visibility Audit** — quoted in proposal
+3. **90-Day Foundation** — scoped after Snapshot
+4. **Monthly retainer** — discussed on a call
 
 No ranking or AI-mention guarantees. No aggregate ratings in JSON-LD.
 

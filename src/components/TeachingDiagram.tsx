@@ -2,6 +2,7 @@ import Image from "next/image";
 
 type TeachingDiagramProps = {
   src: string;
+  /** Lesson in words. Empty only if the image is decorative. */
   alt: string;
   title: string;
   caption: string;

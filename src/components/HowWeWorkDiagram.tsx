@@ -3,14 +3,15 @@ import { howWeWorkCaption, howWeWorkSteps } from "@/lib/site";
 export function HowWeWorkDiagram() {
   return (
     <figure className="mt-10">
+      <p className="font-serif text-2xl text-navy">How we work</p>
       <svg
         viewBox="0 0 800 168"
-        className="hidden h-auto w-full text-navy md:block"
+        className="mt-4 hidden h-auto w-full text-navy md:block"
         role="img"
-        aria-labelledby="implement-measure-title"
+        aria-label="Audit, implement, and measure path on your website and Google Business Profile"
       >
-        <title id="implement-measure-title">
-          Audit, implement, and measure on your website and Google Business
+        <title>
+          Audit, implement, and measure path on your website and Google Business
           Profile
         </title>
         <path
@@ -43,7 +44,7 @@ export function HowWeWorkDiagram() {
           );
         })}
       </svg>
-      <ol className="grid gap-3 md:hidden">
+      <ol className="mt-4 grid gap-3 md:hidden">
         {howWeWorkSteps.map((step) => (
           <li key={step.name} className="card p-4">
             <p className="font-serif text-xl text-navy">{step.name}</p>

@@ -82,6 +82,7 @@ export function serviceJsonLd(input: {
       "@type": "AdministrativeArea",
       name: brand.areaServed,
     },
+    // Pricing lock A: omit price, lowPrice, highPrice, and priceCurrency.
     offers: {
       "@type": "Offer",
       url: absoluteUrl(input.path),

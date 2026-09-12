@@ -26,7 +26,7 @@ export function WhereJobsDecided() {
       <div
         className="grid gap-4 md:grid-cols-3"
         role="img"
-        aria-label="Where buyers look: Google Search versus Maps versus AI answers"
+        aria-label="Where jobs get decided: Google Search versus Google Maps versus AI answers"
       >
         {workSurfaces.map((surface, index) => (
           <div key={surface.title} className="card-hover p-6">

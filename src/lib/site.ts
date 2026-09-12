@@ -73,8 +73,8 @@ export const offers: Record<OfferId, Offer> = {
     href: routes.audit,
     eyebrow: "Diagnostic",
     priceLabel: "Get the fix map",
-    priceNote: "Priced in proposal",
-    summary: "Get the fix map — priced in proposal.",
+    priceNote: "Quoted in proposal",
+    summary: "Get the fix map — quoted in proposal.",
     outcome: "Full Google + AI baseline and a clear priority list.",
   },
   foundation: {
@@ -94,9 +94,9 @@ export const offers: Record<OfferId, Offer> = {
     href: routes.retainer,
     eyebrow: "Ongoing",
     priceLabel: "Keep it moving",
-    priceNote: "Scoped in proposal",
+    priceNote: "Discussed on a call",
     summary:
-      "Keep Google and AI visibility moving — scoped in proposal, with clear priorities and plain reporting.",
+      "Keep Google and AI visibility moving — discussed on a call and scoped in proposal, with clear priorities and plain reporting.",
     outcome: "Steady monthly work aimed at the jobs you want.",
   },
 };
@@ -147,14 +147,14 @@ export const homeDiagrams = {
     title: "Where jobs get decided",
     caption:
       "If you’re missing here, the enquiry often never hits your site.",
-    alt: "Where jobs get decided: Google Search versus Google Maps versus AI answers (ChatGPT, Gemini, Perplexity).",
+    alt: "Where jobs get decided: Google Search versus Google Maps versus AI answers (ChatGPT, Gemini, Perplexity, AI Overviews).",
   },
   howTakeoff: {
     src: "/images/owner-lens/offer-path-diagram.png",
     title: "How Takeoff helps",
     caption:
       "Start free. Paid work is quoted after your Snapshot — case by case.",
-    alt: "How Takeoff helps: free Visibility Snapshot first, then Audit, 90-Day Foundation, or Monthly Retainer quoted after Snapshot — case by case. Not a public buy-now ladder.",
+    alt: "Snapshot to Audit to Foundation path: free Visibility Snapshot first, then Audit, 90-Day Foundation, or Monthly Retainer quoted after Snapshot — case by case.",
   },
   snapshotDoor: {
     src: "/images/owner-lens/snapshot-door-diagram.png",
@@ -217,7 +217,7 @@ export const aboutCopy = {
   pageTitle: "About TakeoffSEO | Gold Coast, QLD",
   lede: `I’m ${brand.founder} — founder of TakeoffSEO, based on the Gold Coast. I help local businesses across South East Queensland get found for the work they want on Google and in AI search.`,
   howIWork:
-    "How I work: Clarity first. Takeoff next. Free Visibility Snapshot to see the gaps. Anything further — Audit, ninety-day fixes, monthly work — is discussed after, case by case, and priced in proposal. No public price list. No fake rankings.",
+    "How I work: Clarity first. Takeoff next. Free Visibility Snapshot to see the gaps. Anything further — Audit, ninety-day fixes, monthly work — is discussed after, case by case, and quoted in proposal. No public price list. No fake rankings.",
   whyThis:
     "Why this: Jobs get decided in search and AI before the phone rings. I keep the work practical: your pages, your Google profile, your buyer questions.",
   proof:
@@ -268,7 +268,7 @@ export const clarityPathSteps = [
   },
   {
     name: "Audit",
-    line: "Get the fix map — after Snapshot, priced in proposal",
+    line: "Get the fix map — after Snapshot, quoted in proposal",
   },
   {
     name: "90-Day Foundation",
@@ -276,12 +276,12 @@ export const clarityPathSteps = [
   },
   {
     name: "Monthly Retainer",
-    line: "Keep it moving",
+    line: "Keep it moving — discussed on a call",
   },
 ] as const;
 
 export const clarityPathCaption =
-  "Start free. Paid work is quoted after your Snapshot — case by case." as const;
+  "Snapshot to Audit to Foundation path: start free. Paid work is quoted after your Snapshot — case by case." as const;
 
 export const howWeWorkSteps = [
   {
@@ -299,10 +299,10 @@ export const howWeWorkSteps = [
 ] as const;
 
 export const howWeWorkCaption =
-  "Audit, implement, and measure on your website and Google Business Profile." as const;
+  "How we work: audit the baseline, implement on your website and Google Business Profile, then measure what moved. Further work is quoted after the Snapshot." as const;
 
 export const whereJobsCaption =
-  "If you’re missing in these, the enquiry often never hits your site." as const;
+  "Where jobs get decided: Google search, Google Maps, and AI answers. If you’re missing here, the enquiry often never hits your site." as const;
 
 export const sampleSnapshot = {
   label: "Example only · not a real client",
@@ -343,7 +343,7 @@ export const auditPage = {
 
 export const foundationPage = {
   title: "90-Day Foundation: find the gaps, fix them, show what changed",
-  lede: "Ninety days on your website and Google Business Profile. We find the gaps, fix the agreed work, and show what moved. Scoped after the Snapshot; priced in the proposal.",
+  lede: "Ninety days on your website and Google Business Profile. We find the gaps, fix the agreed work, and show what moved. Scoped after the Snapshot; quoted in the proposal.",
 } as const;
 
 export const retainerPage = {
@@ -351,18 +351,19 @@ export const retainerPage = {
   lede: "Keep it moving. Monthly Google and AI visibility work with clear priorities and plain reporting. Scoped in a proposal after the Snapshot — case by case.",
 } as const;
 
+/** FAQ hash IDs stay stable. Numbers in IDs are anchors only — answers never show paid dollars. */
 export const snapshotFaqs: FaqItem[] = [
   {
     id: "whats-in-snapshot",
     question: "What is in the free Visibility Snapshot?",
     answer:
-      "Free check: 5–8 AI prompts on your name plus a thin Maps note. Full baseline and fix map are the Audit — priced in proposal.",
+      "Free check: 5–8 AI prompts on your name plus a thin Maps note. Full baseline and fix map are the Audit — quoted in proposal.",
   },
   {
     id: "vs-paid-audit",
     question: "How is the Snapshot different from the paid audit?",
     answer:
-      "Snapshot is free and shows the gaps. Audit maps what to fix first — full baseline, prioritised plan, next step — priced in proposal.",
+      "Snapshot is free and shows the gaps. Audit maps what to fix first — full baseline, prioritised plan, next step — quoted in proposal.",
   },
   {
     id: "how-long",
@@ -382,7 +383,7 @@ export const auditFaqs: FaqItem[] = [
   {
     id: "audit-cost",
     question: "What does the audit cost?",
-    answer: "Priced in your proposal after we see scope.",
+    answer: "Quoted in your proposal after we see scope. Discussed on a call.",
   },
   {
     id: "in-out-1500",
@@ -418,7 +419,7 @@ export const foundationFaqs: FaqItem[] = [
     id: "whats-included-4500-6500",
     question: "What is included in the 90-Day Foundation?",
     answer:
-      "The work on your website and Google profile: technical and on-page fixes, a clearer page structure, name-address-phone consistency, and pages that answer hire questions. Measurement at the end. Scoped after the Snapshot; priced in the proposal.",
+      "The work on your website and Google profile: technical and on-page fixes, a clearer page structure, name-address-phone consistency, and pages that answer hire questions. Measurement at the end. Scoped after the Snapshot; quoted in the proposal.",
   },
   {
     id: "90-days-realistic",
@@ -443,7 +444,8 @@ export const retainerFaqs: FaqItem[] = [
   {
     id: "retainer-cost-au",
     question: "What does the retainer cost in Australia?",
-    answer: "Scoped to your site in the proposal. No public price list.",
+    answer:
+      "Scoped to your site in the proposal and discussed on a call. No public price list.",
   },
   {
     id: "google-and-ai",
