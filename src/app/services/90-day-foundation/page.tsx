@@ -22,9 +22,11 @@ export default function FoundationPage() {
             Fix site + Google profile
           </h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-ink-muted">
-            Tech and on-page work, information architecture, NAP and Google
-            Business Profile, answer-ready pages, and measurement. Scope is
-            confirmed when you enquire.
+            On the website: technical and on-page fixes, a clearer page
+            structure, and pages that answer hire questions. On Google Business
+            Profile: categories, services, and service-area clarity. At the end:
+            what changed versus the start. Scoped after the Snapshot and quoted
+            in the proposal.
           </p>
         </section>
       }

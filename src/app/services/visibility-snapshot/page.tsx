@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SampleSnapshot } from "@/components/SampleSnapshot";
 import { ServicePage } from "@/components/ServicePage";
 import { offers, snapshotFaqs, snapshotPage } from "@/lib/site";
 
@@ -36,6 +37,7 @@ export default function VisibilitySnapshotPage() {
           body: "Want the full baseline and fix map? That’s the Visibility Audit.",
         },
       ]}
+      extras={<SampleSnapshot />}
       faqs={snapshotFaqs}
     />
   );

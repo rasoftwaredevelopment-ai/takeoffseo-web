@@ -13,7 +13,7 @@ import {
   serviceJsonLd,
 } from "@/lib/schema";
 import type { FaqItem, Offer } from "@/lib/site";
-import { brand, offers, routes } from "@/lib/site";
+import { brand, homeCopy, routes } from "@/lib/site";
 
 type ServicePageProps = {
   offer: Offer;
@@ -61,10 +61,10 @@ export function ServicePage({
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <ButtonLink href="#enquire" variant="inverseSolid">
-                  Enquire for a Snapshot
+                  {homeCopy.primaryCta}
                 </ButtonLink>
                 <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
-                  Call {brand.phoneDisplay}
+                  {homeCopy.secondaryCta}
                 </a>
               </div>
             </PageHero>
@@ -82,11 +82,11 @@ export function ServicePage({
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
-                Get a free Snapshot
+                {homeCopy.primaryCta}
               </ButtonLink>
-              <ButtonLink href={routes.contactEnquire} variant="inverse">
-                Enquire
-              </ButtonLink>
+              <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+                {homeCopy.secondaryCta}
+              </a>
             </div>
           </PageHero>
         )}
@@ -115,12 +115,9 @@ export function ServicePage({
               How it runs
             </h2>
             <ol className="mt-6 space-y-5">
-              {process.map((step, index) => (
+              {process.map((step) => (
                 <li key={step.title}>
-                  <p className="font-serif text-2xl text-copper">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-1 font-medium text-navy">{step.title}</h3>
+                  <h3 className="font-medium text-navy">{step.title}</h3>
                   <p className="mt-1 leading-relaxed text-ink-muted">
                     {step.body}
                   </p>
@@ -135,25 +132,27 @@ export function ServicePage({
         <FaqList items={faqs} />
 
         <p className="mt-10 text-sm text-ink-soft">
-          Looking for another offer?{" "}
-          <Link href={routes.home} className="font-medium text-navy underline">
-            Back to the path
-          </Link>
-          {" · "}
+          Start with the free Snapshot.{" "}
           <Link
-            href={offers.audit.href}
+            href={routes.snapshotEnquire}
             className="font-medium text-navy underline"
           >
-            Visibility Audit
+            Enquire here
+          </Link>
+          {" · "}
+          <Link href={routes.home} className="font-medium text-navy underline">
+            Back home
           </Link>
           .
         </p>
 
         <CtaBand
-          title={`Enquire about the ${offer.name}`}
-          body="Send the website and Google Business Profile. We confirm scope and timing by appointment."
-          secondaryHref={isSnapshot ? offers.audit.href : routes.contactEnquire}
-          secondaryLabel={isSnapshot ? "See the Visibility Audit" : "Contact"}
+          title={isSnapshot ? "Ready for the Snapshot?" : homeCopy.closeTitle}
+          body={
+            isSnapshot
+              ? "Send the website and Google Business Profile. We confirm timing by appointment."
+              : homeCopy.closeBody
+          }
         />
       </div>
     </div>

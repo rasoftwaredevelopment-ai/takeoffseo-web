@@ -3,11 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components/ButtonLink";
-import { brand, nav, routes } from "@/lib/site";
+import { brand, homeCopy, nav, routes } from "@/lib/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -49,50 +48,10 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
           {nav.map((item) =>
-            "children" in item ? (
-              <div
-                key={item.label}
-                className="group relative"
-                onMouseEnter={() => setMenuOpen(item.label)}
-                onMouseLeave={() => setMenuOpen(null)}
-              >
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-1 py-2 text-sm font-medium text-navy"
-                  aria-expanded={menuOpen === item.label}
-                  aria-haspopup="true"
-                  onClick={() =>
-                    setMenuOpen((value) =>
-                      value === item.label ? null : item.label,
-                    )
-                  }
-                >
-                  {item.label}
-                  <span aria-hidden className="text-[10px] text-ink-soft">
-                    ▾
-                  </span>
-                </button>
-                <div
-                  className={`absolute left-0 top-full z-50 min-w-64 pt-2 ${
-                    menuOpen === item.label
-                      ? "block"
-                      : "hidden group-hover:block group-focus-within:block"
-                  }`}
-                >
-                  <div className="border border-line bg-paper-50 py-2 shadow-card">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-4 py-2.5 text-sm text-ink hover:bg-paper-200"
-                        onClick={() => setMenuOpen(null)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            item.href === routes.snapshot ? (
+              <ButtonLink key={item.href} href={item.href}>
+                {item.label}
+              </ButtonLink>
             ) : (
               <Link
                 key={item.href}
@@ -109,7 +68,6 @@ export function SiteHeader() {
           >
             {brand.phoneDisplay}
           </a>
-          <ButtonLink href={routes.snapshotEnquire}>Free Snapshot</ButtonLink>
         </nav>
 
         <button
@@ -130,34 +88,23 @@ export function SiteHeader() {
           aria-label="Mobile"
         >
           <div className="flex flex-col gap-3">
-            {nav.map((item) =>
-              "children" in item ? (
-                <div key={item.label} className="flex flex-col gap-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-soft">
-                    {item.label}
-                  </p>
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="text-base text-navy"
-                      onClick={() => setOpen(false)}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-base font-medium text-navy"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ),
-            )}
+            <Link
+              href={routes.home}
+              className="text-base font-medium text-navy"
+              onClick={() => setOpen(false)}
+            >
+              Home
+            </Link>
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-base font-medium text-navy"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
             <a href={`tel:${brand.phoneTel}`} className="pt-2 text-navy">
               {brand.phoneDisplay}
             </a>
@@ -166,7 +113,7 @@ export function SiteHeader() {
               className="mt-1"
               onClick={() => setOpen(false)}
             >
-              Get a free Visibility Snapshot
+              {homeCopy.primaryCta}
             </ButtonLink>
           </div>
         </nav>

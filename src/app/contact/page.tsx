@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { EnquiryForm } from "@/components/EnquiryForm";
+import { ButtonLink } from "@/components/ButtonLink";
 import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
 import { breadcrumbJsonLd } from "@/lib/schema";
-import { brand, contactCopy, routes } from "@/lib/site";
+import { brand, contactCopy, homeCopy, routes } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -29,54 +29,51 @@ export default function ContactPage() {
           tone="dark"
         >
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href={`tel:${brand.phoneTel}`} className="btn-inverse-solid">
-              Call {brand.phoneDisplay}
-            </a>
-            <a href={`mailto:${brand.email}`} className="btn-inverse">
-              {brand.email}
+            <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
+              {homeCopy.primaryCta}
+            </ButtonLink>
+            <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+              {homeCopy.secondaryCta}
             </a>
           </div>
         </PageHero>
       </PageBand>
 
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
-          <aside className="card h-fit p-6">
-            <h2 className="font-serif text-2xl text-navy">Direct</h2>
-            <dl className="mt-5 space-y-4 text-sm">
-              <div>
-                <dt className="text-ink-soft">Phone</dt>
-                <dd>
-                  <a
-                    className="text-lg font-medium text-navy"
-                    href={`tel:${brand.phoneTel}`}
-                  >
-                    {brand.phoneDisplay}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Email</dt>
-                <dd>
-                  <a
-                    className="text-lg font-medium text-navy"
-                    href={`mailto:${brand.email}`}
-                  >
-                    {brand.email}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Hours</dt>
-                <dd className="font-medium text-navy">{brand.hours}</dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Area served</dt>
-                <dd className="font-medium text-navy">{brand.areaServed}</dd>
-              </div>
-            </dl>
-          </aside>
-          <EnquiryForm intent="contact" id="enquire" />
+        <div className="card max-w-xl p-6 sm:p-8">
+          <h2 className="font-serif text-2xl text-navy">Direct</h2>
+          <dl className="mt-5 space-y-5 text-sm">
+            <div>
+              <dt className="text-ink-soft">Phone</dt>
+              <dd>
+                <a
+                  className="text-lg font-medium text-navy"
+                  href={`tel:${brand.phoneTel}`}
+                >
+                  {brand.phoneDisplay}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-ink-soft">Email</dt>
+              <dd>
+                <a
+                  className="text-lg font-medium text-navy"
+                  href={`mailto:${brand.email}`}
+                >
+                  {brand.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-ink-soft">Hours</dt>
+              <dd className="font-medium text-navy">{brand.hours}</dd>
+            </div>
+            <div>
+              <dt className="text-ink-soft">Area served</dt>
+              <dd className="font-medium text-navy">{brand.areaServed}</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </div>

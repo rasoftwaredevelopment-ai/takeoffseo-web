@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SampleAuditPriorities } from "@/components/SampleAuditPriorities";
 import { ServicePage } from "@/components/ServicePage";
 import { auditFaqs, auditPage, offers } from "@/lib/site";
 
@@ -36,6 +37,7 @@ export default function VisibilityAuditPage() {
           body: "You leave with the written plan — before Foundation or Retainer.",
         },
       ]}
+      extras={<SampleAuditPriorities />}
       faqs={auditFaqs}
     />
   );

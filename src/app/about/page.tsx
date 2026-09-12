@@ -4,8 +4,9 @@ import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
+import { SampleSnapshot } from "@/components/SampleSnapshot";
 import { breadcrumbJsonLd } from "@/lib/schema";
-import { aboutCopy, brand, homeCopy, offers, routes } from "@/lib/site";
+import { aboutCopy, brand, homeCopy, routes } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "About TakeoffSEO | Gold Coast, QLD" },
@@ -24,7 +25,7 @@ export default function AboutPage() {
       />
       <PageBand>
         <PageHero
-          eyebrow={`${brand.locationLabel} · ${brand.areaServed}`}
+          eyebrow={homeCopy.eyebrow}
           title={aboutCopy.title}
           lede={aboutCopy.lede}
           tone="dark"
@@ -34,7 +35,7 @@ export default function AboutPage() {
               {homeCopy.primaryCta}
             </ButtonLink>
             <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
-              Call {brand.phoneDisplay}
+              {homeCopy.secondaryCta}
             </a>
           </div>
         </PageHero>
@@ -44,7 +45,9 @@ export default function AboutPage() {
         <div className="grid gap-8 lg:grid-cols-3">
           <article className="space-y-6 leading-relaxed text-ink-muted lg:col-span-2">
             <p>{aboutCopy.founderLine}</p>
-            <p>{aboutCopy.path}</p>
+            <p>{aboutCopy.whyLocal}</p>
+            <p>{aboutCopy.howWeWork}</p>
+            <p>{aboutCopy.proof}</p>
             <p>{aboutCopy.marketing}</p>
             <p>{aboutCopy.websiteSeo}</p>
             <p>
@@ -66,6 +69,19 @@ export default function AboutPage() {
             </p>
           </article>
           <aside className="card h-fit p-6">
+            <div
+              className="mb-5 flex h-16 w-16 items-center justify-center rounded-sm bg-navy text-paper-50"
+              aria-hidden
+            >
+              <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none">
+                <path
+                  d="M4 16.5 12 5.5 20 16.5"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                />
+                <path d="M8 16.5h8" stroke="currentColor" strokeWidth="1.6" />
+              </svg>
+            </div>
             <h2 className="font-serif text-2xl text-navy">At a glance</h2>
             <dl className="mt-4 space-y-3 text-sm">
               <div>
@@ -88,23 +104,13 @@ export default function AboutPage() {
                 <dt className="text-ink-soft">Delivery</dt>
                 <dd className="font-medium text-navy">{aboutCopy.delivery}</dd>
               </div>
-              <div>
-                <dt className="text-ink-soft">Marketing</dt>
-                <dd className="font-medium text-navy">
-                  Industry pages, starting with pool & landscape
-                </dd>
-              </div>
             </dl>
           </aside>
         </div>
 
-        <CtaBand
-          title={homeCopy.closeTitle}
-          body={homeCopy.closeBody}
-          primaryLabel={homeCopy.primaryCta}
-          secondaryHref={offers.audit.href}
-          secondaryLabel={homeCopy.secondaryCta}
-        />
+        <SampleSnapshot />
+
+        <CtaBand />
       </div>
     </div>
   );

@@ -1,22 +1,18 @@
-import { brand, routes } from "@/lib/site";
+import { brand, homeCopy, routes } from "@/lib/site";
 import { ButtonLink } from "@/components/ButtonLink";
 
 type CtaBandProps = {
-  title: string;
-  body: string;
+  title?: string;
+  body?: string;
   primaryHref?: string;
   primaryLabel?: string;
-  secondaryHref?: string;
-  secondaryLabel?: string;
 };
 
 export function CtaBand({
-  title,
-  body,
-  primaryHref = routes.snapshotEnquire,
-  primaryLabel = "Get a free Visibility Snapshot",
-  secondaryHref,
-  secondaryLabel,
+  title = homeCopy.closeTitle,
+  body = homeCopy.closeBody,
+  primaryHref = routes.snapshot,
+  primaryLabel = homeCopy.primaryCta,
 }: CtaBandProps) {
   return (
     <section className="mt-20 rounded-sm bg-navy px-6 py-12 text-paper-50 sm:px-10">
@@ -27,15 +23,9 @@ export function CtaBand({
           <ButtonLink href={primaryHref} variant="inverseSolid">
             {primaryLabel}
           </ButtonLink>
-          {secondaryHref && secondaryLabel ? (
-            <ButtonLink href={secondaryHref} variant="inverse">
-              {secondaryLabel}
-            </ButtonLink>
-          ) : (
-            <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
-              Call {brand.phoneDisplay}
-            </a>
-          )}
+          <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+            {homeCopy.secondaryCta}
+          </a>
         </div>
       </div>
     </section>
