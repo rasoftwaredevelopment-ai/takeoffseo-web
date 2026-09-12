@@ -21,7 +21,7 @@ export const brand = {
   locationLabel: "Gold Coast, QLD",
   icpPrimary: "Local businesses",
   icpSecondary:
-    "Pool & landscape first. Other local businesses when it’s a fit.",
+    "Industry pages go deeper where we publish them — starting with pool builders and landscapers in South East Queensland.",
 } as const;
 
 export const routes = {
@@ -131,7 +131,7 @@ export const homeCopy = {
   h1: brand.h1,
   lede: [
     "Buyers already ask Google and AI who to hire.",
-    "If you’re not in those answers, the job goes elsewhere.",
+    "If you’re not in those answers, the next job goes to someone who is.",
     "TakeoffSEO gets local businesses found for the work they want — on Google and in AI search.",
     "Then we implement the fixes and show what moved.",
   ].join(" "),
@@ -157,7 +157,6 @@ export const howWeWork = [
   "Snapshot shows the gaps.",
   "Audit maps what to fix first.",
   "We diagnose, implement, and show what moved.",
-  "Pool & landscape first. Other local businesses when it’s a fit.",
 ] as const;
 
 export const processSteps = [
@@ -196,8 +195,8 @@ export const aboutCopy = {
   founderLine: `Founder: ${brand.founder}.`,
   path: "Path: free Snapshot → Audit → Foundation or Retainer.",
   marketing:
-    "Marketing leads with pool and landscape in SEQ. Delivery is local SEO and GEO where it’s a fit.",
-  delivery: "Local SEO and GEO where it’s a fit.",
+    "We publish industry pages where we go deeper — starting with pool and landscape in SEQ — so buyers in those trades see how the Clarity path applies to them.",
+  delivery: "Local SEO and GEO for local businesses.",
   websiteSeo:
     "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
 } as const;
@@ -210,16 +209,15 @@ export const contactCopy = {
 } as const;
 
 export const verticalTeaserCopy = {
-  heading: "Built for SEQ trades winning work through Google and AI answers",
-  line: "Starting with pool & landscape.",
+  heading: "See how we help pool builders and landscapers in SEQ",
   cta: "Pool & landscape",
 } as const;
 
 export const poolLandscapeCopy = {
-  eyebrow: "First vertical · South East Queensland",
+  eyebrow: "South East Queensland · Outdoor trades",
   h1: "Google + AI visibility for SEQ pool builders and landscapers",
   lede:
-    "Built for SEQ pool builders and landscapers winning work through Google and AI answers. Free Snapshot on your name. Audit for the fix map. Foundation or Retainer when ready to build. Gold Coast based · outdoor trades across SEQ. Pool & landscape first. Other local businesses when it’s a fit.",
+    "Pool builders and landscapers in SEQ win more of the right jobs when they show up in Google and AI answers. Here’s how TakeoffSEO’s Clarity path works for outdoor trades: free Visibility Snapshot on your name, Audit for the fix map, Foundation or Retainer when you’re ready to build. Based on the Gold Coast. We work across South East Queensland.",
 } as const;
 
 export const snapshotPage = {
@@ -389,7 +387,7 @@ export const poolLandscapeFaqs: FaqItem[] = [
     id: "who-helps-seq-pool",
     question: "Who helps SEQ pool builders with this work?",
     answer:
-      "You want a partner who knows outdoor trades and local findability — or solid in-house capacity. TakeoffSEO’s first vertical is SEQ pool and landscape. Other local businesses when it’s a fit. Start with a free Snapshot.",
+      "You want a partner who knows outdoor trades and local findability — or solid in-house capacity. TakeoffSEO runs the Clarity path for SEQ pool and landscape on this page. Start with a free Snapshot.",
   },
   {
     id: "seo-for-landscapers-seq",
@@ -413,7 +411,7 @@ export const poolLandscapeFaqs: FaqItem[] = [
     id: "only-pool-landscape",
     question: "Do you only work with pool and landscape companies?",
     answer:
-      "No. Pool and landscape is our first vertical — the depth lives on this page. Delivery is local SEO and GEO where it’s a fit. Other local businesses when it’s a fit.",
+      "No. TakeoffSEO helps local businesses get found on Google and in AI search. This page goes deep on pool and landscape in SEQ — the same Clarity path we use across local businesses.",
   },
 ];
 

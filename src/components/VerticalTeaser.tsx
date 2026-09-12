@@ -20,9 +20,6 @@ export function VerticalTeaser() {
           >
             {verticalTeaserCopy.heading}
           </h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-paper-200">
-            {verticalTeaserCopy.line}
-          </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
           <ButtonLink href={routes.poolLandscape} variant="inverseSolid">
