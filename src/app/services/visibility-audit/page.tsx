@@ -5,7 +5,7 @@ import { auditFaqs, brand, offers } from "@/lib/site";
 const offer = offers.audit;
 
 export const metadata: Metadata = {
-  title: "Visibility Audit",
+  title: "Visibility Audit for local businesses",
   description: offer.summary,
   alternates: { canonical: offer.href },
 };
@@ -14,14 +14,14 @@ export default function VisibilityAuditPage() {
   return (
     <ServicePage
       offer={offer}
-      title="Visibility Audit"
-      lede={`A$1,500 for a documented baseline of your Google and AI visibility, a prioritised fix pack, and one recommended next step. That is the whole deliverable. Implementation is separate. ${brand.name} does not sell ranking guarantees.`}
+      title="Visibility Audit for local businesses"
+      lede={`A$1,500 for a documented baseline of your Google and AI visibility, a prioritised fix pack, and one recommended next step. That is the whole deliverable. No implementation and no 90-day plan. ${brand.name} does not sell ranking guarantees.`}
       price="1500"
       includes={[
         "Baseline: where you stand in Google Search, Maps, and AI-style answers, written down.",
         "Prioritised fix pack: what to change first, and why those items sit above the rest.",
         "Next step: Foundation, retainer, or hold — one recommendation, not a menu of upsells.",
-        "Out of scope: making the changes, content production, ads, or ongoing monthly management.",
+        "Out of scope: making the changes, content production, ads, ongoing monthly management, or a 90-day implementation plan.",
       ]}
       process={[
         {

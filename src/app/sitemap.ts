@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     routes.retainer,
     routes.about,
     routes.contact,
+    routes.poolLandscape,
   ];
 
   return paths.map((path) => ({

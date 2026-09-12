@@ -1,6 +1,6 @@
 # TakeoffSEO
 
-Marketing site for [TakeoffSEO](https://takeoffseo.com) — Google and AI visibility for SEQ pool and landscape companies.
+Marketing site for TakeoffSEO — Google and AI visibility for local businesses. First published vertical: SEQ pool builders and landscapers.
 
 Stack: **Next.js App Router**, **TypeScript**, **Tailwind CSS**.
 
@@ -67,12 +67,13 @@ If Cloudflare proxy (orange cloud) is enabled, SSL mode should be **Full (strict
 
 | Path | Page |
 | --- | --- |
-| `/` | Home |
-| `/services/visibility-snapshot` | Free Visibility Snapshot |
-| `/services/visibility-audit` | Visibility Audit (A$1,500) |
-| `/services/90-day-foundation` | 90-Day Foundation (typical A$6,500, from A$4,500) |
+| `/` | Home — offer-led local businesses (Google + AI) |
+| `/services/visibility-snapshot` | Visibility Snapshot for local businesses (free) |
+| `/services/visibility-audit` | Visibility Audit for local businesses (A$1,500) |
+| `/services/90-day-foundation` | 90-Day Foundation for local businesses (typical A$6,500, from A$4,500) |
 | `/services/ninety-day-foundation` | 301 → `/services/90-day-foundation` |
-| `/services/monthly-retainer` | Monthly retainer (from A$2,000–2,500/mo) |
+| `/services/monthly-retainer` | Monthly retainer for local businesses (from A$2,000–2,500/mo) |
+| `/industries/pool-landscape` | First vertical: SEQ pool builders and landscapers |
 | `/about` | About TakeoffSEO \| Gold Coast, QLD |
 | `/contact` | Contact |
 

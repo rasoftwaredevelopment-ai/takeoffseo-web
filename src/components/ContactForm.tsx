@@ -169,14 +169,14 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center justify-center rounded-sm bg-forest px-5 py-3 text-sm font-semibold text-paper-50 hover:bg-forest-600 disabled:opacity-60"
+          className="btn-primary disabled:opacity-60"
         >
           {status === "sending" ? "Sending…" : "Send enquiry"}
         </button>
         {!usingFormspree ? (
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-sm border border-line px-5 py-3 text-sm font-semibold text-navy hover:bg-paper-200"
+            className="btn-secondary"
             onClick={(event) => {
               const form = event.currentTarget.form;
               if (form) void copyEnquiry(form);

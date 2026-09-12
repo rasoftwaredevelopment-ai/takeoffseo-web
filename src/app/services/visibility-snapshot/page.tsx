@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { ServicePage } from "@/components/ServicePage";
-import { brand, offers, snapshotFaqs } from "@/lib/site";
+import { offers, snapshotFaqs } from "@/lib/site";
 
 const offer = offers.snapshot;
 
 export const metadata: Metadata = {
-  title: "Free Visibility Snapshot",
+  title: "Visibility Snapshot for local businesses",
   description: offer.summary,
   alternates: { canonical: offer.href },
 };
@@ -14,8 +14,8 @@ export default function VisibilitySnapshotPage() {
   return (
     <ServicePage
       offer={offer}
-      title="Free Visibility Snapshot"
-      lede={`A short, no-obligation look at how a ${brand.areaServed} pool, landscape, or local service business appears in Google and AI-style answers. Enough to decide whether the A$1,500 audit is worth it — not a substitute for one.`}
+      title="Visibility Snapshot for local businesses"
+      lede="A short, no-obligation look at how a local business appears in Google and AI-style answers. Enough to decide whether the A$1,500 audit is worth it — not a substitute for one, and not a fake full audit."
       price="0"
       includes={[
         "A written snapshot of how you appear in Google Search and Maps today.",

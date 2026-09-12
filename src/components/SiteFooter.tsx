@@ -3,14 +3,14 @@ import { brand, offerOrder, offers, routes } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 border-t border-line bg-navy text-paper-200">
-      <div className="mx-auto grid max-w-site gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
+    <footer className="mt-0 border-t border-navy/20 bg-navy text-paper-200">
+      <div className="mx-auto grid max-w-site gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="font-serif text-2xl text-paper-50">{brand.name}</p>
-          <p className="mt-3 max-w-md text-sm leading-relaxed">
-            Google and AI visibility for pool builders and landscapers across{" "}
-            {brand.areaServed}. Other local service businesses considered case
-            by case.
+          <p className="font-serif text-3xl text-paper-50">{brand.name}</p>
+          <p className="mt-4 max-w-md text-sm leading-relaxed">
+            Google and AI visibility for local businesses. First vertical: pool
+            builders and landscapers across {brand.areaServed}. Other local
+            service businesses considered case by case.
           </p>
           <p className="mt-4 text-sm">
             Service area only — no street address published.
@@ -28,6 +28,11 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href={routes.poolLandscape} className="hover:text-paper-50">
+                Pool & landscape
+              </Link>
+            </li>
           </ul>
         </div>
         <div>

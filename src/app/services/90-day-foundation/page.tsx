@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { ServicePage } from "@/components/ServicePage";
-import { brand, foundationFaqs, offers } from "@/lib/site";
+import { foundationFaqs, offers } from "@/lib/site";
 
 const offer = offers.foundation;
 
 export const metadata: Metadata = {
-  title: "90-Day Foundation",
+  title: "90-Day Foundation for local businesses",
   description: offer.summary,
   alternates: { canonical: offer.href },
 };
@@ -14,11 +14,11 @@ export default function FoundationPage() {
   return (
     <ServicePage
       offer={offer}
-      title="90-Day Foundation"
-      lede={`Ninety days to implement the priority work from an audit (or an equivalent brief), then measure what changed. Typical fee A$6,500, from A$4,500, scoped to the starting point. For ${brand.icpPrimary.toLowerCase()}, and other local service businesses case by case.`}
+      title="90-Day Foundation for local businesses"
+      lede="Ninety days to implement the priority work from an audit (or an equivalent brief), then measure what changed — on your site and Google Business Profile. Typical fee A$6,500, from A$4,500, scoped to the starting point."
       extras={
-        <section className="mt-12 rounded-sm border border-line bg-paper-50 p-6">
-          <h2 className="font-serif text-2xl text-navy">
+        <section className="card mt-12 p-6 sm:p-8">
+          <h2 className="font-serif text-2xl text-navy sm:text-3xl">
             Typical A$6,500, from A$4,500
           </h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-ink-muted">
@@ -42,7 +42,7 @@ export default function FoundationPage() {
         },
         {
           title: "Implement",
-          body: "The agreed work only. Scope is written. Extra work is quoted, not assumed.",
+          body: "The agreed work only, on your site and Google Business Profile. Scope is written. Extra work is quoted, not assumed.",
         },
         {
           title: "Measure",

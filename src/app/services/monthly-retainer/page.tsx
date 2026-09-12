@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { ServicePage } from "@/components/ServicePage";
-import { brand, offers, retainerFaqs } from "@/lib/site";
+import { offers, retainerFaqs } from "@/lib/site";
 
 const offer = offers.retainer;
 
 export const metadata: Metadata = {
-  title: "Monthly retainer",
+  title: "Monthly retainer for local businesses",
   description: offer.summary,
   alternates: { canonical: offer.href },
 };
@@ -14,11 +14,13 @@ export default function MonthlyRetainerPage() {
   return (
     <ServicePage
       offer={offer}
-      title="Monthly retainer"
-      lede={`Ongoing Google and AI visibility work from A$2,000–2,500 per month. Built for ${brand.icpPrimary.toLowerCase()} who already have a foundation and want steady iteration — not a ranking promise.`}
+      title="Monthly retainer for local businesses"
+      lede="Ongoing Google and AI visibility work from A$2,000–2,500 per month. Built for local businesses that already have a foundation and want steady iteration — not a ranking promise."
       extras={
-        <section className="mt-12 rounded-sm border border-line bg-paper-50 p-6">
-          <h2 className="font-serif text-2xl text-navy">No guarantees</h2>
+        <section className="card mt-12 p-6 sm:p-8">
+          <h2 className="font-serif text-2xl text-navy sm:text-3xl">
+            No guarantees
+          </h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-ink-muted">
             A retainer buys a block of specialist work and a short monthly
             report. It does not buy a Maps pack position, a number-one ranking,
