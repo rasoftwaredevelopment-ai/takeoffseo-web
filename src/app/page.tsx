@@ -90,7 +90,7 @@ export default function HomePage() {
           </div>
           <p className="section-close">{homeCopy.whyClose}</p>
           <div className="mt-8">
-            <ButtonLink href={routes.snapshotEnquire}>
+            <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
               {homeCopy.primaryCta}
             </ButtonLink>
           </div>

@@ -5,6 +5,17 @@
 :root {
   color-scheme: light;
   --header-h: 3.5rem;
+  /* Measured craft targets — Takeoff tokens, not Bambrick/Uncode. */
+  --display-min: 2.1875rem; /* 35px */
+  --display-max: 4.375rem; /* 70px */
+  --h2-min: 2.0625rem; /* 33px */
+  --h2-max: 3.125rem; /* 50px */
+  --h3: 2.1875rem; /* 35px */
+  --body: 1.25rem; /* 20px */
+  --body-lh: 1.75;
+  --track-display: -0.05em;
+  --pad-side: 2.25rem; /* 36px */
+  --cta-min: 46px;
 }
 
 html {
@@ -43,7 +54,8 @@ body {
 
 @layer components {
   .btn {
-    @apply inline-flex min-h-[46px] items-center justify-center rounded-full px-8 py-3.5 text-[0.95rem] font-semibold tracking-tight transition-[color,background-color,box-shadow,transform] duration-200 ease-punch motion-safe:hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center rounded-full px-8 py-3.5 text-[0.95rem] font-semibold tracking-tight transition-[color,background-color,box-shadow,transform] duration-200 ease-punch motion-safe:hover:-translate-y-0.5;
+    min-height: var(--cta-min);
   }
 
   .btn-primary {
@@ -281,8 +293,8 @@ body {
 .hero-lede {
   margin-top: 1.25rem;
   max-width: 42rem;
-  font-size: 1.25rem;
-  line-height: 1.75;
+  font-size: var(--body);
+  line-height: var(--body-lh);
   color: #d2c4ae;
   text-wrap: pretty;
 }
@@ -350,7 +362,7 @@ body {
 }
 
 .section-band--paper {
-  background: #fffdf8;
+  background: #ffffff;
   color: #141210;
 }
 
@@ -367,7 +379,7 @@ body {
 .section-inner {
   margin: 0 auto;
   max-width: 100rem;
-  padding: 5.5rem 2.25rem;
+  padding: 5.5rem var(--pad-side);
 }
 
 .section-inner--tight {
@@ -377,7 +389,7 @@ body {
 
 @media (min-width: 640px) {
   .section-inner {
-    padding: 6.75rem 2.25rem;
+    padding: 6.75rem var(--pad-side);
   }
 
   .section-inner--tight {
@@ -398,10 +410,10 @@ body {
   margin-top: 0.7rem;
   max-width: 18ch;
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(2.0625rem, 4.6vw, 3.125rem);
+  font-size: clamp(var(--h2-min), 4.6vw, var(--h2-max));
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.05em;
+  letter-spacing: var(--track-display);
   color: #0b1a2b;
 }
 
@@ -427,16 +439,16 @@ body {
 .section-lede {
   margin-top: 1.25rem;
   max-width: 46rem;
-  font-size: 1.25rem;
-  line-height: 1.75;
+  font-size: var(--body);
+  line-height: var(--body-lh);
   color: #3d3830;
 }
 
 .section-close {
   margin-top: 1.75rem;
   max-width: 46rem;
-  font-size: 1.25rem;
-  line-height: 1.75;
+  font-size: var(--body);
+  line-height: var(--body-lh);
   color: #3d3830;
 }
 
@@ -461,7 +473,7 @@ body {
 
 .chapter-h3 {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(1.5rem, 2.6vw, 2.1875rem);
+  font-size: clamp(1.5rem, 2.6vw, var(--h3));
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.03em;
