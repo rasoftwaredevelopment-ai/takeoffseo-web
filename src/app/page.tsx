@@ -22,7 +22,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-site px-4 py-16 sm:px-6 sm:py-24">
           <div className="hero-stagger max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
-              {homeCopy.eyebrow}
+              {homeCopy.takeoffHook}
             </p>
             <h1
               id="visibility-heading"
@@ -35,7 +35,7 @@ export default function HomePage() {
             </p>
             <div className="mt-9">
               <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
-                {homeCopy.primaryCta}
+                {homeCopy.takeoffCta}
               </ButtonLink>
             </div>
           </div>
@@ -87,7 +87,14 @@ export default function HomePage() {
           <SampleSnapshot showCta={false} />
         </section>
 
-        <CtaBand showDoor showLocation />
+        <CtaBand
+          showDoor
+          showLocation
+          showTalk
+          title={homeCopy.homeCloseTitle}
+          body={homeCopy.homeCloseBody}
+          primaryLabel={homeCopy.takeoffCta}
+        />
       </div>
     </div>
   );

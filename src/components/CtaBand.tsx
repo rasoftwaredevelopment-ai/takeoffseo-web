@@ -9,6 +9,7 @@ type CtaBandProps = {
   primaryLabel?: string;
   showDoor?: boolean;
   showLocation?: boolean;
+  showTalk?: boolean;
 };
 
 export function CtaBand({
@@ -18,6 +19,7 @@ export function CtaBand({
   primaryLabel = homeCopy.primaryCta,
   showDoor = false,
   showLocation = false,
+  showTalk = false,
 }: CtaBandProps) {
   return (
     <section className="mt-20" aria-labelledby="snapshot-close-heading">
@@ -42,19 +44,32 @@ export function CtaBand({
             <ButtonLink href={primaryHref} variant="inverseSolid">
               {primaryLabel}
             </ButtonLink>
-            <p className="text-sm text-paper-200 sm:text-base">
-              <a href={`tel:${brand.phoneTel}`} className="hover:text-paper-50">
-                {brand.phoneDisplay}
+            {showTalk ? (
+              <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+                {homeCopy.secondaryCta}
               </a>
-              {" · "}
-              <a
-                href={`mailto:${brand.email}`}
-                className="hover:text-paper-50"
-              >
+            ) : (
+              <p className="text-sm text-paper-200 sm:text-base">
+                <a href={`tel:${brand.phoneTel}`} className="hover:text-paper-50">
+                  {brand.phoneDisplay}
+                </a>
+                {" · "}
+                <a
+                  href={`mailto:${brand.email}`}
+                  className="hover:text-paper-50"
+                >
+                  {brand.email}
+                </a>
+              </p>
+            )}
+          </div>
+          {showTalk ? (
+            <p className="mt-4 text-sm text-paper-300">
+              <a href={`mailto:${brand.email}`} className="hover:text-paper-50">
                 {brand.email}
               </a>
             </p>
-          </div>
+          ) : null}
           {showLocation ? (
             <p className="mt-5 text-sm text-paper-300">{homeCopy.locationLine}</p>
           ) : null}

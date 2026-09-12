@@ -132,13 +132,17 @@ export const homeCopy = {
   locationLine:
     "Based on the Gold Coast. Across South East Queensland.",
   primaryCta: "Free Visibility Snapshot",
+  takeoffCta: "Start your takeoff — free Snapshot",
   secondaryCta: `Talk to us · ${brand.phoneDisplay}`,
   contactAlt: `${brand.phoneDisplay} · ${brand.email}`,
-  takeoffHook: "Get found. Then take off.",
+  takeoffHook: "Get found — then take off",
   websiteSeoNote:
     "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
   closeTitle: "Clarity first. Takeoff next.",
   closeBody: "See if buyers can find you.",
+  homeCloseTitle: "Ready for takeoff?",
+  homeCloseBody:
+    "See if buyers can find you. Free Visibility Snapshot — then the Audit and ninety-day build when you want the map and the work (priced in proposal).",
 } as const;
 
 export const homeDiagrams = {
