@@ -20,7 +20,7 @@ export function HowTakeoffHelps() {
           photoAlt={step.imageAlt}
           video={"video" in step ? step.video : undefined}
           poster={"video" in step ? "/media/hero-poster.webp" : undefined}
-          overlay={"video" in step ? "default" : "heavy"}
+          overlay={step.id === "found" ? "heavy" : "default"}
         >
           {index === 0 ? (
             <div className="max-w-2xl border-t border-white/15 pt-8">

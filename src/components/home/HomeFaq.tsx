@@ -42,7 +42,7 @@ export function HomeFaq() {
             photo={chapter.photo}
             video={chapter.video}
             poster={chapter.video ? media.heroPoster : undefined}
-            overlay={chapter.video ? "default" : "heavy"}
+            overlay="default"
             size="full"
           >
             <div className="max-w-4xl divide-y divide-white/15 border-y border-white/15">

@@ -12,6 +12,7 @@ export function AboutTeaser() {
       photo={aboutTeaser.photo}
       photoAlt="Coastal house at last light — Gold Coast based, South East Queensland served"
       size="full"
+      overlay="default"
     >
       <dl className="mt-2 grid max-w-3xl gap-8 sm:grid-cols-2">
         {aboutTeaser.points.map((point) => (

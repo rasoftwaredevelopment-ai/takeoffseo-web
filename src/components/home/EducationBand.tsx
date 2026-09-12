@@ -11,6 +11,7 @@ export function EducationBand() {
         body={education.lede}
         photo="outdoor-living"
         photoAlt="Australian outdoor-living house at dusk — the ground local visibility is built on"
+        overlay="heavy"
       />
       {education.surfaces.map((surface) => (
         <CinematicBand
@@ -21,6 +22,7 @@ export function EducationBand() {
           body={surface.body}
           photo={surface.image as PhotoKey}
           photoAlt={surface.imageAlt}
+          overlay={surface.id === "maps" ? "default" : "heavy"}
         />
       ))}
     </div>

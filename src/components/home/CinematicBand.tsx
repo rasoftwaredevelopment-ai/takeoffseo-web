@@ -39,7 +39,7 @@ export function CinematicBand({
   size = "chapter",
   children,
   priority = false,
-  overlay = "heavy",
+  overlay = "default",
 }: CinematicBandProps) {
   const TitleTag = titleAs;
 
