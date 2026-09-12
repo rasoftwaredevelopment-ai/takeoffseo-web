@@ -63,14 +63,14 @@ export default function HomePage() {
                 <span className="mt-1 block font-semibold text-paper-50">
                   90-Day Foundation, typical A$6,500.
                 </span>
-                Fixed 90-day Clarity build. From A$4,500 for simpler sites.
+                {offers.foundation.summary} {offers.foundation.priceNote}.
               </li>
               <li>
                 <span className="font-serif text-xl text-paper-50">04</span>
                 <span className="mt-1 block font-semibold text-paper-50">
                   Retainer, from A$2,000–2,500/mo.
                 </span>
-                Keep Google and AI visibility moving.
+                {offers.retainer.summary}
               </li>
             </ol>
           </aside>

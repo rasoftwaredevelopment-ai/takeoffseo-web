@@ -8,9 +8,7 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <p className="font-serif text-3xl text-paper-50">{brand.name}</p>
           <p className="mt-4 max-w-md text-sm leading-relaxed">
-            Google and AI visibility for local businesses. Industry pages go
-            deeper where we publish them — starting with pool and landscape in
-            SEQ.
+            Google and AI visibility for local businesses. {brand.icpSecondary}
           </p>
           <p className="mt-4 text-sm">
             Gold Coast based · South East Queensland · By appointment

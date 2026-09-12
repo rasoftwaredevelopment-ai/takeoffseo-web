@@ -76,14 +76,12 @@ export default function AboutPage() {
               </div>
               <div>
                 <dt className="text-ink-soft">Delivery</dt>
-                <dd className="font-medium text-navy">
-                  Local SEO and GEO for local businesses
-                </dd>
+                <dd className="font-medium text-navy">{aboutCopy.delivery}</dd>
               </div>
               <div>
                 <dt className="text-ink-soft">Marketing</dt>
                 <dd className="font-medium text-navy">
-                  Industry pages, starting with pool & landscape
+                  Pool & landscape first
                 </dd>
               </div>
             </dl>

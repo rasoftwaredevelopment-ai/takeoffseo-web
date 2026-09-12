@@ -1,4 +1,4 @@
-import { routes } from "@/lib/site";
+import { routes, verticalTeaserCopy } from "@/lib/site";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Reveal } from "@/components/Reveal";
 
@@ -18,12 +18,15 @@ export function VerticalTeaser() {
             id="vertical-heading"
             className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
           >
-            See how we help pool builders and landscapers in SEQ
+            {verticalTeaserCopy.heading}
           </h2>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-paper-200">
+            {verticalTeaserCopy.line}
+          </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
           <ButtonLink href={routes.poolLandscape} variant="inverseSolid">
-            Pool & landscape
+            {verticalTeaserCopy.cta}
           </ButtonLink>
         </div>
       </div>
