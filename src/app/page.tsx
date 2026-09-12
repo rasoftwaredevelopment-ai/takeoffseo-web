@@ -23,6 +23,7 @@ export default function HomePage() {
         <HeroVideo />
         <div className="hero-scrim" aria-hidden />
         <div className="hero-copy">
+          <div className="hero-copy__main">
           <div className="hero-stagger max-w-4xl">
             <p className="hero-punch">{homeCopy.eyebrow}</p>
             <h1 id="visibility-heading" className="font-serif font-semibold text-display">
@@ -40,6 +41,7 @@ export default function HomePage() {
               </p>
             </div>
           </div>
+          </div>
           <div className="hero-platforms">
             <p className="hero-platforms__label">{homeCopy.platformsLabel}</p>
             <PlatformMarks />
@@ -49,7 +51,7 @@ export default function HomePage() {
 
       <section
         aria-labelledby="visibility-what-heading"
-        className="section-band section-band--paper"
+        className="section-band section-band--navy"
       >
         <div className="section-inner">
           <h2 id="visibility-what-heading" className="section-h2">
@@ -66,7 +68,7 @@ export default function HomePage() {
           </div>
           <p className="section-close">{homeCopy.visibilityClose}</p>
           <div className="mt-8">
-            <ButtonLink href={routes.snapshotEnquire}>
+            <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
               {homeCopy.primaryCta}
             </ButtonLink>
           </div>
@@ -133,7 +135,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-10">
-            <ButtonLink href={routes.snapshotEnquire}>
+            <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
               {homeCopy.primaryCta}
             </ButtonLink>
           </div>

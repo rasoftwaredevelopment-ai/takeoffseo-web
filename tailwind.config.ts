@@ -40,7 +40,7 @@ const config: Config = {
       fontSize: {
         display: [
           "clamp(2.1875rem, 6.4vw, 4.375rem)",
-          { lineHeight: "1.2", letterSpacing: "-0.05em", fontWeight: "600" },
+          { lineHeight: "1.2", letterSpacing: "-0.05em", fontWeight: "600" }, /* 70/84 · 35/42 */
         ],
       },
       maxWidth: {

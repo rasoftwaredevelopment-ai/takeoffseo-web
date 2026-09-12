@@ -8,14 +8,19 @@
   /* Measured craft targets — Takeoff tokens, not Bambrick/Uncode. */
   --display-min: 2.1875rem; /* 35px */
   --display-max: 4.375rem; /* 70px */
+  --display-lh: 1.2; /* 42 / 35 and 84 / 70 */
   --h2-min: 2.0625rem; /* 33px */
   --h2-max: 3.125rem; /* 50px */
+  --h2-lh: 1.2; /* 60 / 50 */
   --h3: 2.1875rem; /* 35px */
+  --h3-lh: 1.2; /* 42 / 35 */
   --body: 1.25rem; /* 20px */
-  --body-lh: 1.75;
+  --body-lh: 1.75; /* 35 / 20 */
   --track-display: -0.05em;
   --pad-side: 2.25rem; /* 36px */
+  --pad-hero-top: 6.75rem; /* 108px */
   --cta-min: 46px;
+  --rise: 0.55s;
 }
 
 html {
@@ -264,7 +269,7 @@ body {
   display: flex;
   min-height: max(43.75rem, min(100svh, 56rem));
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin: 0 auto;
   max-width: 100rem;
   padding: calc(var(--header-h) + 2.5rem) 1.25rem 2rem;
@@ -272,8 +277,40 @@ body {
 
 @media (min-width: 640px) {
   .hero-copy {
-    padding: 6.75rem 2.25rem 2.5rem;
+    padding: var(--pad-hero-top) var(--pad-side) 2.5rem;
   }
+}
+
+@media (max-width: 639px) {
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy__main {
+    justify-content: center;
+  }
+
+  .hero-lede {
+    margin-inline: auto;
+  }
+
+  .hero-actions {
+    align-items: center;
+  }
+
+  .hero-platforms {
+    text-align: center;
+  }
+
+  .platform-marks {
+    justify-content: center;
+  }
+}
+
+.hero-copy__main {
+  display: flex;
+  flex: 1;
+  align-items: center;
 }
 
 .hero-punch {
@@ -286,6 +323,10 @@ body {
 
 .hero-cinematic .text-display {
   margin-top: 0.85rem;
+  font-size: clamp(var(--display-min), 6.4vw, var(--display-max));
+  font-weight: 600;
+  line-height: var(--display-lh);
+  letter-spacing: var(--track-display);
   text-wrap: balance;
   text-shadow: 0 12px 40px rgba(7, 19, 32, 0.45);
 }
@@ -331,8 +372,8 @@ body {
 
 .hero-platforms__label {
   margin-bottom: 0.7rem;
-  font-size: 0.68rem;
-  font-weight: 700;
+  font-size: 1.125rem;
+  font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #d2c4ae;
@@ -367,7 +408,7 @@ body {
 }
 
 .section-band--ink {
-  background: #f3eee4;
+  background: #ffffff;
   color: #141210;
 }
 
@@ -412,7 +453,7 @@ body {
   font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(var(--h2-min), 4.6vw, var(--h2-max));
   font-weight: 600;
-  line-height: 1.2;
+  line-height: var(--h2-lh);
   letter-spacing: var(--track-display);
   color: #0b1a2b;
 }
@@ -475,7 +516,7 @@ body {
   font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(1.5rem, 2.6vw, var(--h3));
   font-weight: 600;
-  line-height: 1.2;
+  line-height: var(--h3-lh);
   letter-spacing: -0.03em;
   color: #0b1a2b;
 }
@@ -562,7 +603,23 @@ body {
 
 .media-split {
   display: grid;
-  background: #ffffff;
+  background: #0b1a2b;
+  color: #fffdf8;
+}
+
+.media-split .section-h2,
+.media-split .chapter-h3 {
+  color: #fffdf8;
+}
+
+.media-split .section-lede,
+.media-split .chapter-row p {
+  color: #d2c4ae;
+}
+
+.media-split .chapter-list,
+.media-split .chapter-row {
+  border-color: rgba(255, 253, 248, 0.12);
 }
 
 .media-split__visual {
@@ -640,7 +697,14 @@ body {
 }
 
 .hero-stagger > * {
-  animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise var(--rise) cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chapter-row,
+  .artefact {
+    animation: rise var(--rise) cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
 }
 
 .hero-stagger > *:nth-child(1) {
