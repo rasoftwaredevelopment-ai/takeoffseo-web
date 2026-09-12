@@ -39,8 +39,8 @@ const config: Config = {
       },
       fontSize: {
         display: [
-          "clamp(2.2rem, 6.4vw, 4.375rem)",
-          { lineHeight: "0.98", letterSpacing: "-0.05em", fontWeight: "600" },
+          "clamp(2.1875rem, 6.4vw, 4.375rem)",
+          { lineHeight: "1.2", letterSpacing: "-0.05em", fontWeight: "600" },
         ],
       },
       maxWidth: {

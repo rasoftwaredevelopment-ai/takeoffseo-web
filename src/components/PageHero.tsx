@@ -27,7 +27,7 @@ export function PageHero({
     <header className="max-w-4xl">
       {eyebrow ? (
         <p
-          className={`text-xs font-semibold uppercase tracking-[0.2em] ${eyeClass}`}
+          className={`text-lg font-semibold uppercase tracking-[0.18em] ${eyeClass}`}
         >
           {eyebrow}
         </p>
