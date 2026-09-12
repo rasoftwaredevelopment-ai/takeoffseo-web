@@ -78,7 +78,7 @@ export default function HomePage() {
             </p>
           </Reveal>
           <ClarityPathDiagram />
-          <SampleSnapshot showCta={false} />
+          <SampleSnapshot />
         </section>
 
         <CtaBand showDoor showLocation />

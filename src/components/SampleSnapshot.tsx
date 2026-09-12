@@ -1,11 +1,7 @@
 import { ButtonLink } from "@/components/ButtonLink";
-import { homeCopy, routes, sampleSnapshot } from "@/lib/site";
+import { routes, sampleSnapshot } from "@/lib/site";
 
-type SampleSnapshotProps = {
-  showCta?: boolean;
-};
-
-export function SampleSnapshot({ showCta = true }: SampleSnapshotProps) {
+export function SampleSnapshot() {
   return (
     <section className="card mt-12 overflow-hidden">
       <div className="border-b border-line bg-paper-200/60 px-5 py-3 sm:px-6">
@@ -45,13 +41,14 @@ export function SampleSnapshot({ showCta = true }: SampleSnapshotProps) {
         <p className="mt-4 font-serif text-xl text-navy">
           {sampleSnapshot.readout}
         </p>
-        {showCta ? (
-          <div className="mt-6">
-            <ButtonLink href={routes.snapshotEnquire}>
-              {homeCopy.primaryCta}
-            </ButtonLink>
-          </div>
-        ) : null}
+        <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+          {sampleSnapshot.next}
+        </p>
+        <div className="mt-6">
+          <ButtonLink href={routes.snapshotEnquire}>
+            {sampleSnapshot.nextCta}
+          </ButtonLink>
+        </div>
       </div>
     </section>
   );

@@ -314,6 +314,8 @@ export const sampleSnapshot = {
   note: "Illustrative only. Mention / cite / none — not a ranking score and not a testimonial.",
   readout: "Invisible where buyers decide.",
   maps: "None — listing exists, categories are thin, service area is unclear.",
+  next: "Next: enquire for your free Snapshot. A full Audit is what comes after, if you want the fix map.",
+  nextCta: "Enquire for your free Snapshot",
   prompts: [
     { prompt: "best pool builder Gold Coast", status: "None" },
     { prompt: "concrete pool company near me", status: "Mention" },
