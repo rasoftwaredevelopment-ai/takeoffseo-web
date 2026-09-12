@@ -4,6 +4,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { HeroVideo } from "@/components/HeroVideo";
 import { PlatformMarks } from "@/components/PlatformMarks";
 import { SampleSnapshot } from "@/components/SampleSnapshot";
+import { StockPicture } from "@/components/StockPicture";
 import { brand, homeCopy, routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -98,15 +99,7 @@ export default function HomePage() {
       </section>
 
       <figure className="photo-band">
-        <picture>
-          <source srcSet="/images/bands/night-city.webp" type="image/webp" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/bands/night-city.jpg"
-            alt=""
-            className="photo-band__image"
-          />
-        </picture>
+        <StockPicture name="night-city" className="photo-band__image" />
         <div className="photo-band__scrim" aria-hidden />
         <figcaption className="photo-band__copy">
           <p>{homeCopy.locationLine}</p>
@@ -115,15 +108,22 @@ export default function HomePage() {
 
       <section
         aria-labelledby="how-takeoff-heading"
-        className="section-band section-band--paper"
+        className="media-split"
       >
-        <div className="section-inner">
+        <div className="media-split__visual">
+          <StockPicture
+            name="office-desk"
+            className="media-split__image"
+            sizes="(min-width: 900px) 50vw, 100vw"
+          />
+        </div>
+        <div className="media-split__copy">
           <p className="section-eyebrow">{homeCopy.howEyebrow}</p>
           <h2 id="how-takeoff-heading" className="section-h2">
             {homeCopy.howTitle}
           </h2>
           <p className="section-lede">{homeCopy.takeoffHelp}</p>
-          <h3 className="chapter-h3 mt-12">{homeCopy.workTitle}</h3>
+          <h3 className="chapter-h3 mt-10">{homeCopy.workTitle}</h3>
           <div className="chapter-list">
             {homeCopy.workChapters.map((chapter) => (
               <article key={chapter.title} className="chapter-row">
@@ -137,6 +137,11 @@ export default function HomePage() {
               {homeCopy.primaryCta}
             </ButtonLink>
           </div>
+        </div>
+      </section>
+
+      <section className="section-band section-band--paper">
+        <div className="section-inner">
           <SampleSnapshot />
         </div>
       </section>
