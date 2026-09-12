@@ -8,6 +8,7 @@ export const brand = {
   name: "TakeoffSEO",
   legalName: "TakeoffSEO",
   domain: "takeoffseo.com",
+  /** Quinn lock: Home H1 only. Punch “Get found. Then take off.” never replaces this. */
   h1: "Google + AI visibility for local businesses",
   tagline:
     "Get found for the work you want on Google and AI search. Free Visibility Snapshot. Gold Coast · SEQ.",
@@ -117,7 +118,7 @@ export const nav = [
 
 export const homeCopy = {
   eyebrow: "Get found. Then take off.",
-  h1: brand.h1,
+  h1: brand.h1, // Home <h1> — punch stays in eyebrow only
   lede: [
     "Buyers already ask Google and AI who to hire.",
     "If you’re not in those answers, the next job goes to someone who is.",
