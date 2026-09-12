@@ -16,7 +16,7 @@ export default function FixUpPage() {
     <PackagePage
       offer={offer}
       title="Website Fix-Up"
-      lede="Your existing website and your Google profile, fixed together. For businesses whose site is basically sound but isn't bringing in work. You get a fixed list of work for a fixed price, and a before-and-after report when it's done."
+      lede="Your existing website and Google profile, fixed together so you can earn the top of Google instead of renting ads. For businesses whose site is basically sound but isn't bringing in work. Fixed list, fixed price, before-and-after report."
       includesHeading="What you get for $1,900"
       includesIntro={
         <>

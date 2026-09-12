@@ -20,12 +20,12 @@ export default function PricingPage() {
           tone="dark"
           eyebrow="Prices"
           title="Every price, on the page."
-          lede='No "from". No quote after a call. Each package is a fixed list of work for a fixed price. When the list is done, the job is done.'
+          lede='No "from". No quote after a call. Each package is a fixed list of work aimed at the top of Google — without ads. When the list is done, the job is done.'
         />
       </PageBand>
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
         <OfferPath
-          heading="The five things you can buy"
+          heading="Five priced ways to get there"
           lede="Prices in Australian dollars, plus GST. Work outside a package is $150 an hour, always quoted before I start. Paying is by bank transfer."
         />
 

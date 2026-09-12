@@ -7,7 +7,7 @@ import { brand, routes } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Alexander Nott",
   description:
-    "I'm Alexander Nott. TakeoffSEO is me. Gold Coast based, working with local businesses anywhere in Australia.",
+    "I'm Alexander Nott. TakeoffSEO is me. I help local businesses get to the top of Google without paying for ads.",
   alternates: { canonical: routes.about },
 };
 
@@ -19,7 +19,7 @@ export default function AboutPage() {
           tone="dark"
           eyebrow="About"
           title="I'm Alexander Nott. TakeoffSEO is me."
-          lede="Based on the Gold Coast. Working with local businesses anywhere in Australia, online. When you hire TakeoffSEO, I'm the one who answers the phone and the one who does the work."
+          lede="Based on the Gold Coast. Working with local businesses anywhere in Australia, online. I help you get to the top of Google without paying for ads. When you hire TakeoffSEO, I'm the one who answers the phone and the one who does the work."
         />
       </PageBand>
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
@@ -51,12 +51,12 @@ export default function AboutPage() {
             </p>
             <h2 className="mt-10 font-serif text-3xl text-navy">What I focus on</h2>
             <p className="mt-3 leading-relaxed text-ink-muted">
-              One thing: helping local businesses get found when someone nearby
-              searches, on Google, on Google Maps, and increasingly in AI tools
-              like ChatGPT. That means your Google profile, your website, and
-              your reviews. I don&apos;t do ads, social media, logos or
-              &quot;full-service marketing&quot;. When you need those, I&apos;ll
-              say so.
+              One thing: getting local businesses to the top of Google and
+              Google Maps — without paying for ads. That means your Google
+              profile, your website, and your reviews. AI answers are included
+              in the same work; they are not the headline. I don&apos;t do ads,
+              social media, logos or &quot;full-service marketing&quot;. When
+              you need those, I&apos;ll say so.
             </p>
             <h2 className="mt-10 font-serif text-3xl text-navy">Proof</h2>
             <p className="mt-3 leading-relaxed text-ink-muted">

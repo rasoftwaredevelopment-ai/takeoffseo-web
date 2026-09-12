@@ -18,7 +18,7 @@ export default function ContactPage() {
           tone="dark"
           eyebrow="Contact"
           title="Say hello."
-          lede="Most people start with the free check. If you'd rather just ask something, use the form or call."
+          lede="Most people start with the free check — the fastest way to see where you stand on Google. If you'd rather just ask something, use the form or call."
         />
       </PageBand>
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">

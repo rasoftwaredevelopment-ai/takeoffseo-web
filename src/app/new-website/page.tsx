@@ -16,7 +16,7 @@ export default function NewWebsitePage() {
     <PackagePage
       offer={offer}
       title="New Website"
-      lede="A new or rebuilt website, built from the start to be found on Google. Up to eight pages, written and built by me, with your Google profile done at the same time. For businesses with no site, or one too old or broken to be worth fixing."
+      lede="A new or rebuilt website, built from the start to be found at the top of Google — not just to look nice. Up to eight pages, written and built by me, with your Google profile done at the same time. For businesses with no site, or one too old or broken to be worth fixing."
       includesHeading="What you get for $3,900"
       includesIntro={
         <>

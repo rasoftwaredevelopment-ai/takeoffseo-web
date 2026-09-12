@@ -69,7 +69,7 @@ export default function TuneUpPage() {
           id: "maps-top",
           question: "Will this get me to the top of Google Maps?",
           answer:
-            "I can't promise where you'll appear. Nobody can. A complete, accurate profile with steady reviews is the biggest factor you control.",
+            "That's the aim. A complete, accurate profile with real reviews is the biggest thing you control for the Map pack. I can't lock a specific pin on a specific day — nobody honest can — but this is the work that gets local businesses into those top three spots.",
         },
         {
           id: "myself",

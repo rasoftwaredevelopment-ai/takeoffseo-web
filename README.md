@@ -1,6 +1,6 @@
 # TakeoffSEO
 
-Local SEO for service businesses anywhere in Australia. Gold Coast based. Solo: Alexander Nott.
+Local SEO for service businesses anywhere in Australia — aimed at the top of Google and Maps, without paying for ads. Gold Coast based. Solo: Alexander Nott.
 
 This repo is the public site plus the operating docs.
 

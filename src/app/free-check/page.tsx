@@ -20,7 +20,7 @@ export default function FreeCheckPage() {
           tone="dark"
           eyebrow="Free · two business days · no call needed"
           title="Free Local Search Check"
-          lede="I search for your business the way a customer would. Then I email you a page that says where you show up, what's missing, and the three things I'd fix first."
+          lede="I search Google the way a customer would. Then I email you a page that says where you stand — Maps, organic results, one AI tool — what's missing, and the three things I'd fix first to move you up."
         />
       </PageBand>
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
@@ -80,10 +80,10 @@ export default function FreeCheckPage() {
             </p>
             <h3 className="mt-8 font-serif text-2xl text-navy">What it isn&apos;t</h3>
             <p className="mt-3 text-ink-muted">
-              It isn&apos;t a full audit of your website, and it isn&apos;t a
-              ranking report. It&apos;s enough to know whether jobs are going
-              elsewhere and what to do about it. It takes me about half an hour,
-              which is why I can do it for free.
+              It isn&apos;t a full website audit. It is a clear read of where
+              you show up on Google now, and what it would take to move up —
+              without buying ads. It takes me about half an hour, which is why
+              I can do it for free.
             </p>
           </div>
           <EnquiryForm

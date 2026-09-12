@@ -15,8 +15,7 @@ export function ServiceCards() {
           Three places. Same three things behind them.
         </h2>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-          Most local jobs go to a business found in one of these places. All
-          three read the same things about you.
+          Most local jobs go to whoever is at the top of Google — the Map pack and the organic results, not the ads. Same work also helps AI answers.
         </p>
       </Reveal>
       <div className="mt-10 grid gap-4 md:grid-cols-3">

@@ -13,8 +13,9 @@ export function SiteFooter() {
             {brand.footerLine}
           </p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed">
-            Local SEO for service businesses anywhere in Australia. Fixed
-            prices. One person doing the work.
+          Local SEO for service businesses anywhere in Australia. Aimed at the
+          top of Google and Maps — without buying ads. Fixed prices. One person
+          doing the work.
           </p>
           <p className="mt-3 text-xs text-paper-300">
             Work is founder-led. Client names will be added with permission.

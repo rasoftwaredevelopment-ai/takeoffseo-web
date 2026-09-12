@@ -16,7 +16,7 @@ export default function MonthlyPage() {
     <PackagePage
       offer={offer}
       title="Monthly Plan"
-      lede="For businesses that have had a Fix-Up or New Website, or are already in good shape, and want to keep gaining ground. A set list of work each month, and a one-page report you can read in two minutes."
+      lede="For businesses that have had a Fix-Up or New Website, or are already in good shape, and want to keep climbing on Google. A set list of work each month, and a one-page report you can read in two minutes."
       priceDisplay="From $690"
       extras={
         <div className="mb-12 grid gap-5 md:grid-cols-2">

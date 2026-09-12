@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AdsVsSearch } from "@/components/AdsVsSearch";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CtaBand } from "@/components/CtaBand";
 import { FaqList } from "@/components/FaqList";
@@ -10,7 +11,7 @@ import { WhatYouGet } from "@/components/WhatYouGet";
 import { brand, homeCopy, packages, routes, trust } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: `${brand.name} | Local SEO, Gold Coast based, Australia-wide` },
+  title: { absolute: `${brand.name} | ${brand.h1} ${brand.h1Sub}` },
   description: brand.tagline,
   alternates: { canonical: routes.home },
 };
@@ -25,6 +26,9 @@ export default function HomePage() {
               {homeCopy.eyebrow}
             </p>
             <h1 className="mt-5 font-serif text-display">{homeCopy.h1}</h1>
+            <p className="mt-3 font-serif text-3xl leading-tight text-copper sm:text-4xl">
+              {homeCopy.h1Sub}
+            </p>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-paper-200 sm:text-xl">
               {homeCopy.lede}
             </p>
@@ -50,7 +54,7 @@ export default function HomePage() {
                 <span className="mt-1 block font-semibold text-paper-50">
                   Free check, $0.
                 </span>
-                Where you show up now, and which package fits.
+                Where you stand on Google now, and which package fits.
               </li>
               <li>
                 <span className="font-serif text-xl text-paper-50">02</span>
@@ -71,7 +75,7 @@ export default function HomePage() {
                 <span className="mt-1 block font-semibold text-paper-50">
                   Monthly, from {packages.monthly.priceLabel}/mo.
                 </span>
-                Keep gaining ground. Month to month.
+                Keep gaining ground on Google. Month to month.
               </li>
             </ol>
           </aside>
@@ -93,6 +97,7 @@ export default function HomePage() {
 
       <div className="mx-auto max-w-site px-4 py-16 sm:px-6 sm:py-20">
         <OfferPath />
+        <AdsVsSearch />
         <WhatYouGet />
         <ProcessFrame />
         <ServiceCards />
@@ -116,7 +121,13 @@ export default function HomePage() {
               id: "ads",
               question: "Do you do Google Ads or social media?",
               answer:
-                "No. I do one thing: helping you show up when people search. If you need ads, I'll say so and you can hire an ads person. I won't sell you something I don't do.",
+                "No. The whole point is to be at the top of Google without paying for the ads. If you need a burst of paid clicks, I'll say so and you can hire an ads person. I won't sell you something I don't do.",
+            },
+            {
+              id: "top-of-google",
+              question: "Can you get me to the top of Google?",
+              answer:
+                "That's the job. I work on the Google profile, website and reviews that put local businesses into the Map pack and the organic results. I won't sell you a fake '#1 guaranteed' badge — competition and Google still decide the exact order on a given day — but I don't do this work for any other outcome.",
             },
             {
               id: "areas",

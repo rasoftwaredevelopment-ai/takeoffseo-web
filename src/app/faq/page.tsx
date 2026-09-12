@@ -26,10 +26,11 @@ export default function FaqPage() {
       <FaqList
         title="The basics"
         items={[
-          { id: "what-is-seo", question: "What is SEO, in plain words?", answer: "SEO stands for search engine optimisation. It means making changes to your website and Google profile so you show up more often when people search for what you do." },
-          { id: "gbp", question: "What's a Google Business Profile?", answer: "The free listing Google gives every business. It's what people see on Google Maps and in the box on the right when they search your name." },
-          { id: "ai", question: "What does \"AI tools\" mean here?", answer: "ChatGPT, Google's Gemini, and the AI answers Google now shows at the top of some searches. I check them in the free check. I don't promise you will be named." },
-          { id: "ads", question: "How is this different from Google Ads?", answer: "Ads: you pay every time someone clicks, and the moment you stop paying you disappear. Search: it takes longer to build, but you don't pay per click and it keeps working." },
+          { id: "what-is-seo", question: "What is SEO, in plain words?", answer: "SEO stands for search engine optimisation. It means making changes to your website and Google profile so you show up at the top of Google when people search for what you do — without buying ads." },
+          { id: "gbp", question: "What's a Google Business Profile?", answer: "The free listing Google gives every business. It's what people see on Google Maps and in the box on the right when they search your name. For most local businesses it's the difference between being in the Map pack or not." },
+          { id: "top", question: "Can you get me to the top of Google?", answer: "That's the aim of every package. I work on the things that put local businesses into the Map pack and the organic results. I won't sell you a fake '#1 guaranteed' badge — Google still decides the exact order on a given day — but I don't do this work for any other outcome." },
+          { id: "ai", question: "What does \"AI tools\" mean here?", answer: "ChatGPT, Google's Gemini, and the AI answers Google now shows at the top of some searches. I check them in the free check. Same work that helps Google also helps there. Google and Maps are still where most local jobs are decided." },
+          { id: "ads", question: "How is this different from Google Ads?", answer: "Ads: you sit at the top because you paid, you pay every click, and the moment you stop you disappear. Search: it takes longer, you don't pay per click, and it keeps working. I only do the second one." },
         ]}
       />
       <FaqList

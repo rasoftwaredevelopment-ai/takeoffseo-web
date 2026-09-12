@@ -19,7 +19,7 @@ export default function WhoItsForPage() {
           tone="dark"
           eyebrow="Who it's for"
           title="Local businesses that win work by phone or booking."
-          lede="The test is simple. Does a customer search for what you do, compare two or three options, then call or book? If yes, this is for you."
+          lede="The test is simple. Does a customer search Google for what you do, compare the first few names, then call or book? If you'd rather be one of those names than pay for the ad above them, this is for you."
         />
       </PageBand>
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
@@ -37,9 +37,9 @@ export default function WhoItsForPage() {
             <ul className="mt-4 space-y-3 text-ink-muted">
               <li>× Online shops shipping Australia-wide. Different game.</li>
               <li>× National brands or franchises with head-office marketing.</li>
-              <li>× Anyone wanting ads, social media, or branding.</li>
+              <li>× Anyone wanting ads, social media, or branding. I don&apos;t sell those.</li>
               <li>× Businesses that need results this month. Ads can do that. Search takes longer and lasts longer.</li>
-              <li>× Anyone who wants a guarantee of rankings.</li>
+              <li>× Anyone who needs a guaranteed #1 by next week. That&apos;s ads. Search is aimed at the top; Google still decides the exact order.</li>
             </ul>
           </div>
           <div>

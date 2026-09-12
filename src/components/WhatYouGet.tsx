@@ -12,7 +12,7 @@ export function WhatYouGet() {
           id="what-you-get-heading"
           className="mt-3 font-serif text-4xl leading-tight text-navy sm:text-5xl"
         >
-          The work, not a promise of page one
+          Earn the top of Google. Don&apos;t rent it.
         </h2>
       </Reveal>
       <div className="mt-10 grid gap-4 lg:grid-cols-2">

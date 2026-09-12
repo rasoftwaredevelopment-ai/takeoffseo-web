@@ -7,7 +7,7 @@ import { routes } from "@/lib/site";
 export const metadata: Metadata = {
   title: "How it works",
   description:
-    "You'll always know what I'm doing and why. Free check, pick a package, I do the work, you see what changed.",
+    "You'll always know what I'm doing and why. The work is aimed at the top of Google without ads.",
   alternates: { canonical: routes.howItWorks },
 };
 
@@ -19,7 +19,7 @@ export default function HowItWorksPage() {
           tone="dark"
           eyebrow="How it works"
           title="You'll always know what I'm doing and why."
-          lede="Here's the whole process, what I measure, the tools I use, and the things I refuse to do."
+          lede="The aim is the top of Google and Maps — without buying ads. Here's the process, what I measure, and the things I refuse to do."
         />
       </PageBand>
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
@@ -65,21 +65,24 @@ export default function HowItWorksPage() {
               What I measure
             </h2>
             <p className="mt-3 text-ink-muted">
-              Rankings move around every day and don&apos;t pay the bills. I
-              track the things that do: calls from your Google profile and
-              website; enquiries; direction requests; how often you appear for
-              the 20 searches that bring you work; and reviews.
+              The job is to put you at the top of Google and Maps for the
+              searches that bring work — without buying the ads. I track those
+              searches, plus the things that pay the bills: calls from your
+              Google profile and website, enquiries, direction requests, and
+              reviews.
             </p>
             <p className="mt-3 text-ink-muted">
-              I set this up in the first week of any paid package, so we have a
-              &quot;before&quot; to compare against. The Friday email and the
-              monthly report use the same numbers.
+              Rankings move around a bit every day. That&apos;s why the report
+              isn&apos;t just a screenshot of position one. I set tracking up in
+              the first week of any paid package, so we have a &quot;before&quot;
+              to compare against. The Friday email and the monthly report use
+              the same numbers.
             </p>
           </div>
           <div className="rounded-sm border border-line bg-paper-50 p-7">
             <h2 className="font-serif text-3xl text-navy">What I won&apos;t do</h2>
             <ul className="mt-4 space-y-3 text-ink-muted">
-              <li>× Promise rankings, &quot;page one&quot; or an AI mention.</li>
+              <li>× Sell you Google Ads, or a fake &quot;#1 guaranteed&quot; badge. The work is aimed at the top. Google still decides the exact order on a given day.</li>
               <li>× Buy or fake reviews. Against Google&apos;s rules and against the law in Australia.</li>
               <li>× Buy links or use tricks that work for a month and then get you penalised.</li>
               <li>× Make dozens of near-identical suburb pages.</li>

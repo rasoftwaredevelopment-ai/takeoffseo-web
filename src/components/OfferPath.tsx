@@ -8,8 +8,8 @@ type OfferPathProps = {
 };
 
 export function OfferPath({
-  heading = "What you can buy",
-  lede = "Start free. Then pick the job you need done. Each package is a fixed list of work for a fixed price.",
+  heading = "The work that gets you there",
+  lede = "Start free. Then pick the job that moves you up on Google. Each package is a fixed list of work for a fixed price.",
 }: OfferPathProps) {
   return (
     <section aria-labelledby="offer-path-heading">

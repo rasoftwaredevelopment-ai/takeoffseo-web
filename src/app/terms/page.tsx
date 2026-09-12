@@ -45,9 +45,10 @@ export default function TermsPage() {
         </p>
         <h2 className="pt-4 font-serif text-2xl text-navy">4. What I can&apos;t promise</h2>
         <p>
-          I can&apos;t promise a position in Google, Google Maps, or any AI
-          tool, or a number of calls. I promise the agreed work, done with care
-          and on time, and an honest report.
+          I can&apos;t lock a specific position in Google, Google Maps, or any
+          AI tool, or a number of calls. The work is aimed at the top of Google
+          without ads. I promise the agreed checklist, done with care and on
+          time, and an honest report.
         </p>
         <h2 className="pt-4 font-serif text-2xl text-navy">5. Prices and paying</h2>
         <p>
