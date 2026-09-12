@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { HowWeWorkDiagram } from "@/components/HowWeWorkDiagram";
 import { SampleAuditPriorities } from "@/components/SampleAuditPriorities";
 import { ServicePage } from "@/components/ServicePage";
 import { auditFaqs, auditPage, offers } from "@/lib/site";
@@ -48,7 +47,23 @@ export default function VisibilityAuditPage() {
               The Audit is the map. Implementation happens on your site and
               Google profile.
             </p>
-            <HowWeWorkDiagram />
+            <div className="chapter-list">
+              <article className="chapter-row">
+                <h3 className="chapter-h3">Audit</h3>
+                <p>Map the baseline on your website and Google Business Profile.</p>
+              </article>
+              <article className="chapter-row">
+                <h3 className="chapter-h3">Implement</h3>
+                <p>
+                  Fix the agreed work on your site and listing — not a page we
+                  host.
+                </p>
+              </article>
+              <article className="chapter-row">
+                <h3 className="chapter-h3">Measure</h3>
+                <p>Show what moved versus the starting point.</p>
+              </article>
+            </div>
           </section>
           <SampleAuditPriorities />
         </>

@@ -52,20 +52,21 @@ export default function PoolLandscapePage() {
         </PageHero>
       </PageBand>
 
-      <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
+      <section className="section-band section-band--paper">
+      <div className="section-inner">
         <section>
-          <h2 className="font-serif text-4xl leading-tight text-navy sm:text-5xl">
+          <h2 className="section-h2">
             How SEQ buyers decide
           </h2>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-muted">
+          <p className="section-lede">
             Start with a free Snapshot on your name. Further work is quoted in a
             proposal if it is useful.
           </p>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="chapter-list">
             {seqSituations.map((item) => (
-              <article key={item.title} className="card p-6">
-                <h3 className="font-serif text-2xl text-navy">{item.title}</h3>
-                <p className="mt-3 leading-relaxed text-ink-muted">{item.body}</p>
+              <article key={item.title} className="chapter-row">
+                <h3 className="chapter-h3">{item.title}</h3>
+                <p>{item.body}</p>
               </article>
             ))}
           </div>
@@ -75,6 +76,7 @@ export default function PoolLandscapePage() {
 
         <CtaBand />
       </div>
+      </section>
     </div>
   );
 }

@@ -112,7 +112,7 @@ export function EnquiryForm({
     <form
       id={id}
       onSubmit={onSubmit}
-      className="scroll-mt-28 rounded-sm border border-line bg-paper-50 p-5 shadow-card sm:p-7"
+      className="scroll-mt-28 rounded-md border border-line bg-paper-50 p-5 shadow-card sm:p-7"
     >
       <h2 className="font-serif text-2xl text-navy">{title}</h2>
       <p className="mt-2 text-sm leading-relaxed text-ink-muted">

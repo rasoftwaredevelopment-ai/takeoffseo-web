@@ -119,53 +119,57 @@ export const nav = [
 export const homeCopy = {
   eyebrow: "Get found. Then take off.",
   h1: brand.h1, // Home <h1> — punch stays in eyebrow only
-  lede: [
-    "Buyers already ask Google and AI who to hire.",
-    "If you’re not in those answers, the next job goes to someone who is.",
-    "We get local businesses found — then you take off.",
-  ].join(" "),
-  whereJobsTitle: "Where jobs get decided",
-  whereJobsBody:
-    "Google search · Google Maps · AI answers (ChatGPT, Gemini, Perplexity, AI Overviews).",
+  lede:
+    "Your customers are already searching. They’re asking Google, checking Maps, and using AI tools to decide who to call. If you’re not showing up there, the next job goes to someone who is. Based on the Gold Coast. Across South East Queensland.",
+  visibilityTitle: "Your customers are searching. Are they finding you?",
+  visibilityBody:
+    "SEO still starts with Google — but it no longer ends there. Locals look you up across Google search (blue links), Google Maps (near me / local pack), and AI answers (AI Overviews, ChatGPT, Gemini, Perplexity). Useful SEO is the right pages, content that answers the job, technical foundations, and local signals. No guesswork checklist. No vanity rankings as proof. Clearer visibility so the right jobs find you.",
+  platformsLabel: "Where buyers search",
+  whyTitle: "Why search visibility still decides who gets the call",
+  whyChapters: [
+    {
+      title: "They search",
+      body: "Someone types the job, the suburb, or “near me” — or they ask an AI tool who to call. That search is the shortlist.",
+    },
+    {
+      title: "They compare",
+      body: "Competitors with a clear page and a matching Google profile win the click before your phone rings.",
+    },
+    {
+      title: "They ask AI",
+      body: "If ChatGPT, Gemini, Perplexity, or AI Overviews cannot find a clear answer about you, you stay missing.",
+    },
+    {
+      title: "They shortlist",
+      body: "A Google Business Profile that does not match the site drops trust. The next job goes elsewhere.",
+    },
+  ],
+  whyClose:
+    "This is not chasing every keyword. It is knowing which searches matter, matching pages to those jobs, and keeping Google and AI able to understand and trust you.",
   howEyebrow: "Clarity first. Takeoff next.",
   howTitle: "How Takeoff helps",
   takeoffHelp:
-    "We show you the gaps, then help you get found — so more of the right jobs find you. Start with a free Visibility Snapshot on your business name. Everything else is case by case after that.",
-  locationLine:
-    "Based on the Gold Coast. Across South East Queensland.",
+    "Invisible → found → takeoff. We start with a free Visibility Snapshot on your business name. Everything after is case by case, priced in a proposal. No public price list. No buy-ladder on this page.",
+  workTitle: "The work",
+  work: [
+    "Find the searches and asks buyers actually use.",
+    "Match the right pages to those jobs.",
+    "Align the site and Google Business Profile.",
+    "Make the business clear for Google and AI.",
+    "Measure what changed.",
+  ],
+  locationLine: "Based on the Gold Coast. Across South East Queensland.",
   primaryCta: "Free Visibility Snapshot",
   takeoffCta: "Start your takeoff — free Snapshot",
   foundCta: "Get found — free Snapshot",
-  secondaryCta: `Talk to us · ${brand.phoneDisplay}`,
+  secondaryCta: brand.phoneDisplay,
   contactAlt: `${brand.phoneDisplay} · ${brand.email}`,
   takeoffHook: "Get found. Then take off.",
   websiteSeoNote:
     "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
   closeTitle: "Clarity first. Takeoff next.",
   closeBody:
-    "Start with a free Visibility Snapshot. Audit and ninety-day work when you want the map and the build — priced in proposal.",
-} as const;
-
-export const homeDiagrams = {
-  whereJobs: {
-    src: "/images/owner-lens/where-buyers-look.png",
-    title: "Where jobs get decided",
-    caption:
-      "If you’re missing here, the enquiry often never hits your site.",
-    alt: "Where jobs get decided: Google Search versus Google Maps versus AI answers (ChatGPT, Gemini, Perplexity, AI Overviews).",
-  },
-  howTakeoff: {
-    src: "/images/owner-lens/offer-path-diagram.png",
-    title: "How we work",
-    caption: "Start free. Paid work quoted after Snapshot — case by case.",
-    alt: "How we work: Free Snapshot, then Audit after Snapshot priced in proposal, Foundation, and Retainer. Not a numbered buy ladder.",
-  },
-  snapshotDoor: {
-    src: "/images/owner-lens/snapshot-door-diagram.png",
-    title: "Free Visibility Snapshot",
-    caption: "See if buyers can find you. Everything else after, case by case.",
-    alt: "Free Visibility Snapshot door: business name checked against buyer prompts in AI search, a Google Maps note, and Visible, Weak, or Missing labels.",
-  },
+    "See where you stand — free Visibility Snapshot. We’ll show you if buyers can find you.",
 } as const;
 
 export const afterSnapshot = {

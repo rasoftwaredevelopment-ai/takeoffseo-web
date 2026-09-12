@@ -39,8 +39,9 @@ export default function ContactPage() {
         </PageHero>
       </PageBand>
 
-      <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
-        <div className="card max-w-xl p-6 sm:p-8">
+      <section className="section-band section-band--paper">
+      <div className="section-inner">
+        <div className="max-w-xl rounded-md border border-line bg-paper-50 p-6 sm:p-8">
           <h2 className="font-serif text-2xl text-navy">Direct</h2>
           <dl className="mt-5 space-y-5 text-sm">
             <div>
@@ -76,6 +77,7 @@ export default function ContactPage() {
           </dl>
         </div>
       </div>
+      </section>
     </div>
   );
 }

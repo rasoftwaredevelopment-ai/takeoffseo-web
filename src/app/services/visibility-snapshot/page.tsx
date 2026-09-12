@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ClarityPathDiagram } from "@/components/ClarityPathDiagram";
 import { SampleSnapshot } from "@/components/SampleSnapshot";
 import { ServicePage } from "@/components/ServicePage";
 import { offers, snapshotFaqs, snapshotPage } from "@/lib/site";
@@ -41,14 +40,25 @@ export default function VisibilitySnapshotPage() {
       extras={
         <>
           <section className="mt-12">
-            <h2 className="font-serif text-3xl text-navy sm:text-4xl">
-              How we work
-            </h2>
-            <p className="mt-3 max-w-3xl text-ink-muted">
+            <h2 className="section-h2">How we work</h2>
+            <p className="section-lede">
               The Snapshot is the start. Further work is quoted after, if you
-              want it.
+              want it — case by case, in a proposal. Not a public buy-now
+              ladder.
             </p>
-            <ClarityPathDiagram />
+            <div className="chapter-list">
+              <article className="chapter-row">
+                <h3 className="chapter-h3">Snapshot</h3>
+                <p>See if buyers can find you. Free, on your business name.</p>
+              </article>
+              <article className="chapter-row">
+                <h3 className="chapter-h3">Then, if useful</h3>
+                <p>
+                  Audit, Foundation, or retainer — scoped after the Snapshot and
+                  priced in the proposal.
+                </p>
+              </article>
+            </div>
           </section>
           <SampleSnapshot />
         </>

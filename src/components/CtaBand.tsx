@@ -1,15 +1,14 @@
-import { brand, homeCopy, homeDiagrams, routes } from "@/lib/site";
+import { brand, homeCopy, routes } from "@/lib/site";
 import { ButtonLink } from "@/components/ButtonLink";
-import { TeachingDiagram } from "@/components/TeachingDiagram";
 
 type CtaBandProps = {
   title?: string;
   body?: string;
   primaryHref?: string;
   primaryLabel?: string;
-  showDoor?: boolean;
   showLocation?: boolean;
   showTalk?: boolean;
+  flush?: boolean;
 };
 
 export function CtaBand({
@@ -17,25 +16,20 @@ export function CtaBand({
   body = homeCopy.closeBody,
   primaryHref = routes.snapshotEnquire,
   primaryLabel = homeCopy.primaryCta,
-  showDoor = false,
   showLocation = false,
   showTalk = false,
+  flush = false,
 }: CtaBandProps) {
   return (
-    <section className="mt-20" aria-labelledby="snapshot-close-heading">
-      {showDoor ? (
-        <TeachingDiagram
-          src={homeDiagrams.snapshotDoor.src}
-          alt={homeDiagrams.snapshotDoor.alt}
-          title={homeDiagrams.snapshotDoor.title}
-          caption={homeDiagrams.snapshotDoor.caption}
-        />
-      ) : null}
-      <div className="hero-grid overflow-hidden rounded-sm bg-navy px-6 py-12 text-paper-50 sm:px-10">
+    <section
+      className={flush ? "" : "mt-16"}
+      aria-labelledby="snapshot-close-heading"
+    >
+      <div className={flush ? "" : "cta-band"}>
         <div className="max-w-3xl">
           <h2
             id="snapshot-close-heading"
-            className="font-serif text-4xl leading-tight sm:text-5xl"
+            className="font-serif text-4xl leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
           >
             {title}
           </h2>

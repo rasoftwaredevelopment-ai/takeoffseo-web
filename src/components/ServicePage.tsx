@@ -92,10 +92,11 @@ export function ServicePage({
         )}
       </PageBand>
 
-      <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-2">
+      <section className="section-band section-band--paper">
+      <div className="section-inner">
+        <div className="grid gap-12 lg:grid-cols-2">
           <section>
-            <h2 className="font-serif text-3xl text-navy sm:text-4xl">
+            <h2 className="section-h2">
               What you get
             </h2>
             <ul className="mt-6 space-y-4 leading-relaxed text-ink-muted">
@@ -111,19 +112,17 @@ export function ServicePage({
             </ul>
           </section>
           <section>
-            <h2 className="font-serif text-3xl text-navy sm:text-4xl">
+            <h2 className="section-h2">
               How it runs
             </h2>
-            <ol className="mt-6 space-y-5">
+            <div className="chapter-list">
               {process.map((step) => (
-                <li key={step.title}>
-                  <h3 className="font-medium text-navy">{step.title}</h3>
-                  <p className="mt-1 leading-relaxed text-ink-muted">
-                    {step.body}
-                  </p>
-                </li>
+                <article key={step.title} className="chapter-row">
+                  <h3 className="chapter-h3">{step.title}</h3>
+                  <p>{step.body}</p>
+                </article>
               ))}
-            </ol>
+            </div>
           </section>
         </div>
 
@@ -155,6 +154,7 @@ export function ServicePage({
           }
         />
       </div>
+      </section>
     </div>
   );
 }
