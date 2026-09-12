@@ -9,7 +9,6 @@ import { PageHero } from "@/components/PageHero";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
 import {
   homeCopy,
-  offers,
   poolLandscapeCopy,
   poolLandscapeFaqs,
   routes,
@@ -42,12 +41,12 @@ export default function PoolLandscapePage() {
           tone="dark"
         >
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={routes.contact} variant="inverseSolid">
+            <ButtonLink href={routes.snapshot} variant="inverseSolid">
               {homeCopy.primaryCta}
             </ButtonLink>
-            <ButtonLink href={offers.audit.href} variant="inverse">
+            <a href="tel:+61497878930" className="btn-inverse">
               {homeCopy.secondaryCta}
-            </ButtonLink>
+            </a>
           </div>
         </PageHero>
       </PageBand>
@@ -75,9 +74,8 @@ export default function PoolLandscapePage() {
         <CtaBand
           title={homeCopy.closeTitle}
           body={homeCopy.closeBody}
+          primaryHref={routes.snapshot}
           primaryLabel={homeCopy.primaryCta}
-          secondaryHref={offers.audit.href}
-          secondaryLabel={homeCopy.secondaryCta}
         />
       </div>
     </div>
