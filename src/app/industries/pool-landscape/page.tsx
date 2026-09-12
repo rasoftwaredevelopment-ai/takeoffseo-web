@@ -3,16 +3,16 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { CtaBand } from "@/components/CtaBand";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
-import { OfferPath } from "@/components/OfferPath";
 import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
 import {
+  brand,
   homeCopy,
-  offers,
   poolLandscapeCopy,
   poolLandscapeFaqs,
   routes,
+  seqSituations,
 } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -42,44 +42,41 @@ export default function PoolLandscapePage() {
           tone="dark"
         >
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={routes.contact} variant="inverseSolid">
+            <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
               {homeCopy.primaryCta}
             </ButtonLink>
-            <ButtonLink href={offers.audit.href} variant="inverse">
+            <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
               {homeCopy.secondaryCta}
-            </ButtonLink>
+            </a>
           </div>
         </PageHero>
       </PageBand>
 
-      <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
-        <section className="max-w-3xl">
-          <h2 className="font-serif text-4xl leading-tight text-navy sm:text-5xl">
-            Same Clarity path, written for this trade
+      <section className="section-band section-band--paper">
+      <div className="section-inner">
+        <section>
+          <h2 className="section-h2">
+            How SEQ buyers decide
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-            Snapshot shows the gaps. Audit maps what to fix first. Then
-            Foundation or Retainer when you’re ready to build.
+          <p className="section-lede">
+            Start with a free Snapshot on your name. Further work is quoted in a
+            proposal if it is useful.
           </p>
+          <div className="chapter-list">
+            {seqSituations.map((item) => (
+              <article key={item.title} className="chapter-row">
+                <h3 className="chapter-h3">{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
         </section>
-
-        <div className="mt-12">
-          <OfferPath
-            heading="Snapshot to retainer"
-            lede="Snapshot shows the gaps. Audit maps what to fix first."
-          />
-        </div>
 
         <FaqList items={poolLandscapeFaqs} title="Pool and landscape questions" />
 
-        <CtaBand
-          title={homeCopy.closeTitle}
-          body={homeCopy.closeBody}
-          primaryLabel={homeCopy.primaryCta}
-          secondaryHref={offers.audit.href}
-          secondaryLabel={homeCopy.secondaryCta}
-        />
+        <CtaBand />
       </div>
+      </section>
     </div>
   );
 }

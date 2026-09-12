@@ -30,7 +30,7 @@ npm start
 | Name | Required | Notes |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Recommended in production | Production value: `https://takeoffseo.com`. Local default: `http://127.0.0.1:4477`. |
-| `NEXT_PUBLIC_FORMSPREE_ID` | Optional | Formspree form id (the segment after `/f/`). When unset, the contact form uses `mailto:hello@takeoffseo.com` and a clipboard copy fallback. |
+| `NEXT_PUBLIC_FORMSPREE_ID` | Optional | Formspree form id (the segment after `/f/`). When unset, Snapshot and Contact enquire forms open a prefilled mailto to `hello@takeoffseo.com`, with phone and email CTAs. |
 
 Copy `.env.example` to `.env.local` for development. Do not commit secrets.
 
@@ -67,12 +67,12 @@ If Cloudflare proxy (orange cloud) is enabled, SSL mode should be **Full (strict
 
 | Path | Page |
 | --- | --- |
-| `/` | Home — offer-led local businesses (Google + AI) |
+| `/` | Home — Google + AI visibility, then How Takeoff helps, then Free Snapshot |
 | `/services/visibility-snapshot` | Visibility Snapshot for local businesses (free) |
-| `/services/visibility-audit` | Visibility Audit for local businesses (A$1,500) |
-| `/services/90-day-foundation` | 90-Day Foundation for local businesses (typical A$6,500, from A$4,500) |
+| `/services/visibility-audit` | Visibility Audit for local businesses — get the fix map |
+| `/services/90-day-foundation` | 90-Day Foundation — fix site + Google profile |
 | `/services/ninety-day-foundation` | 301 → `/services/90-day-foundation` |
-| `/services/monthly-retainer` | Monthly retainer for local businesses (from A$2,000–2,500/mo) |
+| `/services/monthly-retainer` | Monthly retainer — keep it moving |
 | `/industries/pool-landscape` | Pool & landscape in SEQ — Clarity path for outdoor trades |
 | `/about` | About TakeoffSEO \| Gold Coast, QLD |
 | `/contact` | Contact |
@@ -80,9 +80,9 @@ If Cloudflare proxy (orange cloud) is enabled, SSL mode should be **Full (strict
 ## Offers
 
 1. **Visibility Snapshot** — free
-2. **Visibility Audit** — A$1,500 (baseline + prioritised fix pack + next step only)
-3. **90-Day Foundation** — typical A$6,500, from A$4,500
-4. **Monthly retainer** — from A$2,000–2,500/mo
+2. **Visibility Audit** — get the fix map (priced in proposal)
+3. **90-Day Foundation** — scoped after Snapshot — fix site + Google profile
+4. **Monthly retainer** — scoped in proposal — keep it moving
 
 No ranking or AI-mention guarantees. No aggregate ratings in JSON-LD.
 
@@ -91,4 +91,3 @@ No ranking or AI-mention guarantees. No aggregate ratings in JSON-LD.
 - Phone: 0497 878 930
 - Email: hello@takeoffseo.com
 - Hours: By appointment
-- ABN: placeholder `[ABN if any]` until set

@@ -6,14 +6,14 @@ const config: Config = {
     extend: {
       colors: {
         paper: {
-          DEFAULT: "#F4EDE2",
+          DEFAULT: "#F7F1E8",
           50: "#FFFDF8",
-          100: "#F4EDE2",
-          200: "#E7DCC9",
+          100: "#F7F1E8",
+          200: "#E8DCC8",
           300: "#D2C4AE",
         },
         ink: {
-          DEFAULT: "#12100C",
+          DEFAULT: "#141210",
           muted: "#3D3830",
           soft: "#6A6358",
         },
@@ -23,15 +23,15 @@ const config: Config = {
           800: "#071320",
         },
         forest: {
-          DEFAULT: "#165C3F",
-          600: "#1E7350",
+          DEFAULT: "#1A6A48",
+          600: "#228056",
           800: "#0E3A28",
         },
         copper: {
-          DEFAULT: "#C17A3A",
+          DEFAULT: "#C9843A",
           600: "#9A5F2C",
         },
-        line: "#C9BBA6",
+        line: "#D0C3AE",
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],
@@ -39,12 +39,12 @@ const config: Config = {
       },
       fontSize: {
         display: [
-          "clamp(2.6rem, 7vw, 5.4rem)",
-          { lineHeight: "1.02", letterSpacing: "-0.035em" },
+          "clamp(2.1875rem, 6.4vw, 4.375rem)",
+          { lineHeight: "1.2", letterSpacing: "-0.05em", fontWeight: "600" }, /* 70/84 · 35/42 */
         ],
       },
       maxWidth: {
-        site: "80rem",
+        site: "100rem",
       },
       boxShadow: {
         card: "0 1px 0 rgba(18,16,12,0.06), 0 18px 40px -20px rgba(11,26,43,0.28)",

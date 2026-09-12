@@ -8,15 +8,15 @@ export const brand = {
   name: "TakeoffSEO",
   legalName: "TakeoffSEO",
   domain: "takeoffseo.com",
-  h1: "Google + AI visibility for local businesses",
+  /** Sales-Pass lock: Home H1. Support line sits under it — punch never replaces this. */
+  h1: "Get found for the jobs you want — on Google and AI",
   tagline:
-    "Get found for the work you want on Google and AI search. Free Visibility Snapshot. Gold Coast · SEQ.",
+    "Get found for the jobs you want on Google and AI. Free Visibility Snapshot. Gold Coast · SEQ.",
   founder: "Alexander Nott",
   phoneDisplay: "0497 878 930",
   phoneTel: "+61497878930",
   email: "hello@takeoffseo.com",
   hours: "By appointment",
-  abn: "[ABN if any]",
   areaServed: "South East Queensland",
   locationLabel: "Gold Coast, QLD",
   icpPrimary: "Local businesses",
@@ -33,6 +33,8 @@ export const routes = {
   retainer: "/services/monthly-retainer",
   about: "/about",
   contact: "/contact",
+  snapshotEnquire: "/services/visibility-snapshot#enquire",
+  contactEnquire: "/contact#enquire",
   industries: "/industries/pool-landscape",
   poolLandscape: "/industries/pool-landscape",
 } as const;
@@ -63,16 +65,17 @@ export const offers: Record<OfferId, Offer> = {
     href: routes.snapshot,
     eyebrow: "Start here",
     priceLabel: "Free",
-    summary: "Snapshot shows the gaps.",
+    summary: "See if buyers can find you.",
     outcome: "A gap check before you spend on the Audit.",
   },
   audit: {
     id: "audit",
     name: "Visibility Audit",
     href: routes.audit,
-    eyebrow: "Paid diagnostic",
-    priceLabel: "A$1,500",
-    summary: "Audit maps what to fix first.",
+    eyebrow: "Diagnostic",
+    priceLabel: "Get the fix map",
+    priceNote: "Priced in proposal",
+    summary: "Get the fix map — priced in proposal.",
     outcome: "Full Google + AI baseline and a clear priority list.",
   },
   foundation: {
@@ -80,10 +83,10 @@ export const offers: Record<OfferId, Offer> = {
     name: "90-Day Foundation",
     href: routes.foundation,
     eyebrow: "Implementation",
-    priceLabel: "Typical A$6,500",
-    priceNote: "From A$4,500 for simpler sites",
+    priceLabel: "Fix site + Google profile",
+    priceNote: "Scoped after Snapshot",
     summary:
-      "Foundation: fixed 90-day Clarity build so the right local jobs find you.",
+      "Find the gaps, fix them on your site and Google profile, and show what changed.",
     outcome: "Diagnose, implement, and show what moved.",
   },
   retainer: {
@@ -91,9 +94,10 @@ export const offers: Record<OfferId, Offer> = {
     name: "Monthly retainer",
     href: routes.retainer,
     eyebrow: "Ongoing",
-    priceLabel: "From A$2,000–2,500/mo",
+    priceLabel: "Keep it moving",
+    priceNote: "Scoped in proposal",
     summary:
-      "Keep Google and AI visibility moving with clear priorities and plain reporting.",
+      "Keep it moving — scoped in proposal, with clear priorities and plain reporting.",
     outcome: "Steady monthly work aimed at the jobs you want.",
   },
 };
@@ -105,45 +109,59 @@ export const offerOrder: OfferId[] = [
   "retainer",
 ];
 
+/** Enquire form only — Snapshot + not sure. Paid offers stay in the footer. */
+export const enquiryOffers = [
+  offers.snapshot.name,
+  "Not sure yet",
+] as const;
+
 export const nav = [
-  {
-    label: "Services",
-    children: offerOrder.map((id) => ({
-      label: offers[id].name,
-      href: offers[id].href,
-    })),
-  },
-  {
-    label: "Industries",
-    children: [
-      {
-        label: "Pool & landscape",
-        href: routes.poolLandscape,
-      },
-    ],
-  },
+  { label: "Home", href: routes.home },
   { label: "About", href: routes.about },
+  { label: "Free Snapshot", href: routes.snapshot },
   { label: "Contact", href: routes.contact },
 ] as const;
 
 export const homeCopy = {
-  eyebrow: "Gold Coast · South East Queensland",
+  eyebrow: "Get found. Then take off.",
   h1: brand.h1,
-  lede: [
-    "Buyers already ask Google and AI who to hire.",
-    "If you’re not in those answers, the next job goes to someone who is.",
-    "TakeoffSEO gets local businesses found for the work they want — on Google and in AI search.",
-    "Then we implement the fixes and show what moved.",
-  ].join(" "),
-  locationLine:
-    "Based on the Gold Coast. We work with local businesses across South East Queensland.",
-  primaryCta: "Get a free Visibility Snapshot",
-  secondaryCta: "Book a Visibility Audit — A$1,500",
-  websiteSeoNote:
-    "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
-  closeTitle: "Want to see the gaps?",
-  closeBody:
-    "Get the free Snapshot. Ready for the fix map? Book the Audit.",
+  support: "Google + AI visibility for local businesses · Gold Coast / SEQ",
+  lede:
+    "Your customers are already searching. They’re on Google, on Maps, and in AI tools deciding who to call. If you’re not showing up, the next job goes to someone who is.",
+  visibilityTitle: "Where jobs get decided",
+  visibilityBody:
+    "Google search · Google Maps · AI answers (ChatGPT, Gemini, Perplexity, AI Overviews). Miss those, and your site never gets the chance.",
+  visibilityChapters: [
+    {
+      title: "Google search",
+      body: "The jobs people type — and whether your pages can be the answer.",
+    },
+    {
+      title: "Google Maps",
+      body: "Near me / local pack. A listing buyers can trust before they call.",
+    },
+    {
+      title: "AI answers",
+      body: "ChatGPT, Gemini, Perplexity, AI Overviews — whether those tools mention you for hire-intent questions.",
+    },
+  ],
+  visibilityClose: "Start free. Anything further is quoted after.",
+  platformsLabel: "Where buyers search",
+  howTitle: "How Takeoff helps",
+  takeoffHelp:
+    "We check whether buyers can find you. Then we show you the gaps. Start with a free Visibility Snapshot. Anything further is quoted after — case by case.",
+  sampleTitle: "What a Snapshot looks like",
+  locationLine: "Based on the Gold Coast. Across South East Queensland.",
+  primaryCta: "Free Visibility Snapshot",
+  secondaryCta: brand.phoneDisplay,
+  contactAlt: `${brand.phoneDisplay} · ${brand.email}`,
+  closeTitle: "Start free",
+  closeBody: "Start free. Anything further is quoted after.",
+} as const;
+
+export const afterSnapshot = {
+  heading: "What happens after the Snapshot",
+  body: "The Snapshot is free and tells you if buyers can find you. If a full fix map or ninety days of work on your site and Google profile would help, we quote that in a proposal — case by case. Not a public buy-now ladder.",
 } as const;
 
 export const whatYouGet = [
@@ -154,9 +172,9 @@ export const whatYouGet = [
 ] as const;
 
 export const howWeWork = [
-  "Snapshot shows the gaps.",
-  "Audit maps what to fix first.",
-  "We diagnose, implement, and show what moved.",
+  "Start with a free Snapshot on your name.",
+  "Work happens on your website and Google profile.",
+  "We show what moved versus the starting point.",
 ] as const;
 
 export const processSteps = [
@@ -176,34 +194,82 @@ export const processSteps = [
 
 export const workSurfaces = [
   {
-    title: "Google Search",
+    title: "Google search",
     body: "Pages that answer the jobs people actually type — so the site can be found and understood.",
   },
   {
-    title: "Maps and Business Profile",
+    title: "Google Maps",
     body: "A listing that matches the business: name, area, categories, and the details buyers check before they call.",
   },
   {
     title: "AI answers",
-    body: "Whether models mention you for hire-intent questions. We track mention, cite, or none.",
+    body: "ChatGPT, Gemini, Perplexity, AI Overviews — whether models mention you for hire-intent questions.",
   },
 ] as const;
 
 export const aboutCopy = {
   title: "About TakeoffSEO",
-  lede: "TakeoffSEO helps local businesses get found on Google and in AI answers. We’re based on the Gold Coast and work across South East Queensland.",
-  founderLine: `Founder: ${brand.founder}.`,
-  path: "Path: free Snapshot → Audit → Foundation or Retainer.",
-  marketing:
-    "We publish industry pages where we go deeper — starting with pool and landscape in SEQ — so buyers in those trades see how the Clarity path applies to them.",
-  delivery: "Local SEO and GEO for local businesses.",
-  websiteSeo:
-    "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
+  pageTitle: "About TakeoffSEO | Gold Coast, QLD",
+  h1: "You need a partner you can depend on for Google and AI visibility.",
+  sub: "How do you know if that’s TakeoffSEO?",
+  lede:
+    "Start with a free Visibility Snapshot. You won’t spend a cent. You’ll see whether buyers can find you — and whether we speak your language.",
+  locationLine:
+    "Based on the Gold Coast. Working with local businesses across South East Queensland.",
+  whoTitle: "Who I am",
+  whoLead: `I’m ${brand.founder} — founder of TakeoffSEO. Solo. Hands-on.`,
+  whoBody:
+    "I help local businesses get found for the jobs they want on Google and in AI search — then we decide what (if anything) comes next.",
+  whoClose:
+    "No 30-person theatre. No mystery monthly package. You deal with me.",
+  focusTitle: "What I focus on",
+  focusBody:
+    "I am not “full service.” I focus on one job: getting you found where buyers already look — Google search, Google Maps, and AI answers — so more of the right enquiries reach you.",
+  inScope: [
+    "Free Visibility Snapshot",
+    "Deeper visibility work after (quoted, case by case)",
+    "Practical site + GBP fixes when agreed",
+  ],
+  outOfScope: [
+    "Fake ranking promises",
+    "Suburb doorway farms",
+    "Brand workshops / logos / print / “do everything marketing”",
+  ],
+  punchOnce: "Clarity first. Then takeoff.",
+  workTitle: "How we’ll work together",
+  workSteps: [
+    {
+      title: "Free Visibility Snapshot",
+      body: "Site, Google Business Profile, trade, and suburb.",
+    },
+    {
+      title: "Plain readout",
+      body: "Visible / Weak / Missing.",
+    },
+    {
+      title: "If we continue",
+      body: "Quoted in proposal. No public price list. No buy-ladder on the website.",
+    },
+  ],
+  workClose: "You’ll always know what I’m doing and why.",
+  valuesTitle: "Lines I actually believe",
+  values: [
+    "There is always a clearer next step.",
+    "Do what’s useful, not what’s trendy.",
+    "Time is money — so we start with a free Snapshot, not a pitch deck.",
+    "Seek first to understand your buyers’ searches.",
+    "Visibility only matters if it helps win jobs.",
+  ],
+  sampleTitle: "What a Snapshot looks like",
+  closeTitle: "Start free. See if we’re a fit.",
+  delivery: "Google and AI search visibility for local businesses.",
 } as const;
 
 export const contactCopy = {
   title: "Contact",
-  lede: "Talk to TakeoffSEO about getting found for the work you want — on Google and in AI search. Most conversations start with a free Visibility Snapshot. The Visibility Audit (A$1,500) is next when you want the full fix map.",
+  eyebrow: "Usually reply same business day",
+  lede:
+    "Most conversations start with a free Visibility Snapshot. Leave your details below — or call if that’s easier.",
   locationLine:
     "Based on the Gold Coast. Service-area across South East Queensland. Hours by appointment.",
 } as const;
@@ -215,43 +281,137 @@ export const verticalTeaserCopy = {
 
 export const poolLandscapeCopy = {
   eyebrow: "Pool & landscape · SEQ",
-  h1: "Google + AI visibility for SEQ pool builders and landscapers",
+  h1: "Get found for the pool and landscape jobs buyers already ask for in SEQ",
   lede:
-    "Pool builders and landscapers in SEQ win more of the right jobs when they show up in Google and AI answers. Here’s how TakeoffSEO’s Clarity path works for outdoor trades: free Visibility Snapshot on your name, Audit for the fix map, Foundation or Retainer when you’re ready to build. Based on the Gold Coast. We work across South East Queensland.",
+    "Pool builders and landscapers in SEQ win more of the right jobs when they show up in Google and AI answers. Start with a free Visibility Snapshot on your name. Further work is quoted in a proposal, case by case. Based on the Gold Coast. We work across South East Queensland.",
+} as const;
+
+export const seqSituations = [
+  {
+    title: "Gold Coast pool brief",
+    body: "A buyer asks an AI tool who builds concrete pools on the Gold Coast. If your name is missing, the shortlist is already someone else’s.",
+  },
+  {
+    title: "Brisbane landscape Maps check",
+    body: "Someone types “landscaper near me” and scans Maps before they call. An incomplete listing or unclear service area means they never reach the site.",
+  },
+  {
+    title: "SEQ outdoor compare",
+    body: "A renovation customer compares two outdoor trades in Google and an AI overview. The trade with clearer pages and a matching profile gets the enquiry.",
+  },
+] as const;
+
+export const clarityPathSteps = [
+  {
+    name: "Free Snapshot",
+    line: "See if buyers can find you",
+  },
+  {
+    name: "Audit",
+    line: "After Snapshot, priced in proposal",
+  },
+  {
+    name: "Foundation",
+    line: "Fix site + Google profile",
+  },
+  {
+    name: "Retainer",
+    line: "Keep it moving",
+  },
+] as const;
+
+export const clarityPathCaption =
+  "Start free. Paid work quoted after Snapshot — case by case." as const;
+
+export const howWeWorkSteps = [
+  {
+    name: "Audit",
+    line: "Map the baseline on your website and Google Business Profile.",
+  },
+  {
+    name: "Implement",
+    line: "Fix the agreed work on your site and listing — not a page we host.",
+  },
+  {
+    name: "Measure",
+    line: "Show what moved versus the starting point.",
+  },
+] as const;
+
+export const howWeWorkCaption =
+  "How we work: audit the baseline, implement on your website and Google Business Profile, then measure what moved. Further work is quoted after the Snapshot." as const;
+
+export const whereJobsCaption =
+  "Where jobs get decided: Google search, Google Maps, and AI answers. If you’re missing here, the enquiry often never hits your site." as const;
+
+export const sampleSnapshot = {
+  label: "Example only · not a client case study",
+  business: "Coastal Pools SEQ",
+  note: "Illustrative only. Mention / cite / none — not a ranking score and not a testimonial.",
+  readout: "Invisible where buyers decide.",
+  maps: "None — listing exists; a Google Maps / Business Profile check shows unclear categories and service area.",
+  next: "A free Snapshot shows those gaps. Anything further is quoted after.",
+  nextCta: "Enquire for your free Snapshot",
+  poolNote:
+    "For a pool builder, hire-intent prompts are not returning the name. The free Snapshot is that gap check — not a ranking report.",
+  afterNote:
+    "What comes after a Snapshot is quoted case by case. Not a public buy-ladder.",
+  surfaces: ["ChatGPT", "Gemini", "Perplexity", "AI Overviews"],
+  statusLegend: ["Visible", "Mention", "Cite", "None"],
+  prompts: [
+    { prompt: "best pool builder Gold Coast", status: "None" },
+    { prompt: "concrete pool company near me", status: "Mention" },
+    { prompt: "who builds pools in SEQ", status: "None" },
+  ],
+} as const;
+
+export const sampleAudit = {
+  label: "Example / illustrative · fictional fix map · not a case study",
+  intro:
+    "A sample fix map so you can see the shape of an Audit. Not a real client, review, or testimonial.",
+  nextStep: "Recommended next step: 90-Day Foundation, or hold if the site is not ready.",
+  priorities: [
+    { band: "Do first", item: "Service-area pages that match how buyers search." },
+    { band: "Do first", item: "Google Business Profile categories and services list." },
+    { band: "Next", item: "Answer-ready hire questions on the money pages." },
+    { band: "Next", item: "Name, area, and phone consistency across the web." },
+    { band: "Later", item: "Extra content once the baseline is readable." },
+  ],
 } as const;
 
 export const snapshotPage = {
   title: "Free Visibility Snapshot for local businesses",
-  lede: "Snapshot shows the gaps. We check your business name across key buyer prompts in AI search and a quick Google Maps note — enough to know if jobs are going elsewhere. Want the full baseline and fix map? That’s the Visibility Audit.",
+  lede: "We check your business name across key buyer prompts in AI search and a quick Google Maps / Business Profile check — enough to know if jobs are going elsewhere. Start here. Further work is quoted in a proposal if you want it.",
 } as const;
 
 export const auditPage = {
   title: "Visibility Audit for local businesses",
-  lede: "Audit maps what to fix first. Fixed A$1,500. Full Google + AI baseline and prioritised plan — before Foundation or Retainer. Start with free Snapshot if you only need the gap check.",
+  lede: "A written fix map: full Google + AI baseline and a prioritised plan. Quoted in a proposal after the free Snapshot — case by case, not a public buy-now step.",
 } as const;
 
 export const foundationPage = {
-  title: "90-Day Foundation for local businesses",
-  lede: "Foundation: fixed 90-day Clarity build so the right local jobs find you. Diagnose, implement on site and GBP, show what moved. Typically A$6,500; from A$4,500 for simpler sites.",
+  title: "90-Day Foundation: find the gaps, fix them, show what changed",
+  lede: "Ninety days on your website and Google Business Profile. We find the gaps, fix the agreed work, and show what moved. Scoped after the Snapshot; quoted in the proposal.",
 } as const;
 
 export const retainerPage = {
   title: "Monthly retainer for local businesses",
-  lede: "Keep Google and AI visibility moving month to month. From A$2,000–2,500 — clear priorities, plain reporting, work aimed at the jobs you want.",
+  lede: "Keep it moving. Monthly Google and AI visibility work with clear priorities and plain reporting. Scoped in a proposal after the Snapshot — case by case.",
 } as const;
 
+/** FAQ hash IDs stay stable. Numbers in IDs are anchors only — answers never show paid dollars. */
 export const snapshotFaqs: FaqItem[] = [
   {
     id: "whats-in-snapshot",
     question: "What is in the free Visibility Snapshot?",
     answer:
-      "Snapshot shows the gaps: 5–8 AI prompts on your name plus a thin Maps note. Full baseline and fix map are the paid Audit.",
+      "Free check: 5–8 AI prompts on your name plus a quick Google Maps / Business Profile check. Full baseline and fix map are the paid Audit (priced in proposal).",
   },
   {
     id: "vs-paid-audit",
     question: "How is the Snapshot different from the paid audit?",
     answer:
-      "Snapshot shows the gaps. Audit maps what to fix first — full baseline, prioritised plan, next step (A$1,500).",
+      "Snapshot is free and shows the gaps. Audit maps what to fix first — full baseline, prioritised plan, next step (priced in proposal).",
   },
   {
     id: "how-long",
@@ -271,11 +431,11 @@ export const auditFaqs: FaqItem[] = [
   {
     id: "audit-cost",
     question: "What does the audit cost?",
-    answer: "A$1,500 fixed. Diagnosis and fix map.",
+    answer: "Priced in your proposal after we see scope.",
   },
   {
     id: "in-out-1500",
-    question: "What is in and out of the A$1,500?",
+    question: "What is in and out of the Audit?",
     answer:
       "In: baseline, priorities, and next step. Out: live rebuilds, ongoing content, and ads. Free gap check is the Snapshot.",
   },
@@ -295,7 +455,8 @@ export const foundationFaqs: FaqItem[] = [
   {
     id: "what-is-90-day",
     question: "What is the 90-Day Foundation?",
-    answer: "Fixed 90-day Clarity build for local business sites.",
+    answer:
+      "Ninety days to find the gaps, fix them on your site and Google profile, and show what changed. Not a ranking promise.",
   },
   {
     id: "audit-implement-measure",
@@ -304,9 +465,9 @@ export const foundationFaqs: FaqItem[] = [
   },
   {
     id: "whats-included-4500-6500",
-    question: "What is included between A$4,500 and A$6,500?",
+    question: "What is included in the 90-Day Foundation?",
     answer:
-      "Tech and on-page, IA, NAP and GBP, answer-ready pages, and measurement. Typically A$6,500; from A$4,500.",
+      "The work on your website and Google profile: technical and on-page fixes, a clearer page structure, name-address-phone consistency, and pages that answer hire questions. Measurement at the end. Scoped after the Snapshot / in proposal.",
   },
   {
     id: "90-days-realistic",
@@ -318,7 +479,7 @@ export const foundationFaqs: FaqItem[] = [
     id: "vs-retainer",
     question: "How is the Foundation different from a retainer?",
     answer:
-      "Foundation is a fixed sprint. Retainer is ongoing from A$2,000–2,500/mo.",
+      "Foundation is a fixed sprint. Retainer is ongoing monthly work, scoped in the proposal.",
   },
 ];
 
@@ -331,7 +492,7 @@ export const retainerFaqs: FaqItem[] = [
   {
     id: "retainer-cost-au",
     question: "What does the retainer cost in Australia?",
-    answer: "From A$2,000–2,500/mo scoped to the site.",
+    answer: "Scoped to your site in the proposal. No public price list.",
   },
   {
     id: "google-and-ai",
@@ -375,13 +536,13 @@ export const poolLandscapeFaqs: FaqItem[] = [
     id: "why-invisible-in-ai",
     question: "Why would a trade be invisible in AI answers?",
     answer:
-      "Most invisible trades have thin sites, unclear service-area signals, or pages that don’t answer hire questions. A free Snapshot on your name shows where you stand today. Audit maps the fix list.",
+      "Most invisible trades have sparse sites, unclear service-area signals, or pages that don’t answer hire questions. A free Snapshot on your name shows where you stand today. Audit maps the fix list.",
   },
   {
     id: "seo-vs-ads",
     question: "How is this different from ads?",
     answer:
-      "Ads buy attention while the campaign runs. SEO and GEO build lasting findability in Google and AI answers. Our path: Snapshot → Audit → Foundation or Retainer. Ads only if you want that scoped separately.",
+      "Ads buy attention while the campaign runs. SEO and AI search visibility build lasting findability in Google and AI answers. Our path: Snapshot → Audit → Foundation or Retainer. Ads only if you want that scoped separately.",
   },
   {
     id: "who-helps-seq-pool",
@@ -399,13 +560,13 @@ export const poolLandscapeFaqs: FaqItem[] = [
     id: "geo-outdoor-trades-qld",
     question: "What does GEO mean for outdoor trades in Queensland?",
     answer:
-      "GEO for outdoor trades means showing up in AI answers for hire-intent prompts, alongside Google SEO — clear services, local signals, and extractable answers on money pages so the right jobs can find you.",
+      "For outdoor trades, AI search visibility means showing up in AI answers for hire-intent prompts, alongside Google SEO — clear services, local signals, and extractable answers on money pages so the right jobs can find you.",
   },
   {
     id: "agency-vs-generalist",
     question: "When do I need a specialist instead of a generalist?",
     answer:
-      "A generalist fits broad brand and ads. Choose SEO/GEO when the gap is getting found in Google and AI. Unsure which you need? Run a free Snapshot, then decide on Audit or hold.",
+      "A generalist fits broad brand and ads. Choose SEO or AI search visibility when the gap is getting found in Google and AI. Unsure which you need? Run a free Snapshot, then decide on Audit or hold.",
   },
 ];
 

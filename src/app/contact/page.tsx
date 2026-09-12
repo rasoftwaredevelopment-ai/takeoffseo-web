@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ContactForm } from "@/components/ContactForm";
+import { EnquiryForm } from "@/components/EnquiryForm";
 import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
@@ -22,19 +22,22 @@ export default function ContactPage() {
         ])}
       />
       <PageBand>
-        <PageHero
-          eyebrow="By appointment"
-          title={contactCopy.title}
-          lede={`${contactCopy.lede} ${contactCopy.locationLine}`}
-          tone="dark"
-        />
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start">
+          <PageHero
+            eyebrow={contactCopy.eyebrow}
+            title={contactCopy.title}
+            lede={contactCopy.lede}
+            tone="dark"
+          />
+          <EnquiryForm intent="snapshot" id="enquire" />
+        </div>
       </PageBand>
 
-      <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
-          <aside className="card h-fit p-6">
+      <section className="section-band section-band--paper">
+        <div className="section-inner">
+          <div className="max-w-xl rounded-md border border-line bg-paper-50 p-6 sm:p-8">
             <h2 className="font-serif text-2xl text-navy">Direct</h2>
-            <dl className="mt-5 space-y-4 text-sm">
+            <dl className="mt-5 space-y-5 text-sm">
               <div>
                 <dt className="text-ink-soft">Phone</dt>
                 <dd>
@@ -65,15 +68,11 @@ export default function ContactPage() {
                 <dt className="text-ink-soft">Area served</dt>
                 <dd className="font-medium text-navy">{brand.areaServed}</dd>
               </div>
-              <div>
-                <dt className="text-ink-soft">ABN</dt>
-                <dd className="font-medium text-navy">{brand.abn}</dd>
-              </div>
             </dl>
-          </aside>
-          <ContactForm />
+            <p className="mt-6 text-sm text-ink-muted">{contactCopy.locationLine}</p>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

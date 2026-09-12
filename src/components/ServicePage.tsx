@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { ButtonLink } from "@/components/ButtonLink";
 import { CtaBand } from "@/components/CtaBand";
+import { EnquiryForm } from "@/components/EnquiryForm";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
@@ -11,7 +13,7 @@ import {
   serviceJsonLd,
 } from "@/lib/schema";
 import type { FaqItem, Offer } from "@/lib/site";
-import { offers, routes } from "@/lib/site";
+import { brand, homeCopy, routes } from "@/lib/site";
 
 type ServicePageProps = {
   offer: Offer;
@@ -20,7 +22,6 @@ type ServicePageProps = {
   includes: string[];
   process: { title: string; body: string }[];
   faqs: FaqItem[];
-  price?: string;
   extras?: ReactNode;
 };
 
@@ -31,9 +32,10 @@ export function ServicePage({
   includes,
   process,
   faqs,
-  price,
   extras,
 }: ServicePageProps) {
+  const isSnapshot = offer.id === "snapshot";
+
   return (
     <div>
       <JsonLd
@@ -46,28 +48,55 @@ export function ServicePage({
             name: offer.name,
             description: offer.summary,
             path: offer.href,
-            price,
           }),
           faqJsonLd(faqs),
         ]}
       />
       <PageBand>
-        <PageHero eyebrow={offer.eyebrow} title={title} lede={lede} tone="dark">
-          <p className="mt-6 text-2xl font-semibold text-copper">
-            {offer.priceLabel}
-            {offer.priceNote ? (
-              <span className="ml-2 text-base font-normal text-paper-200">
-                {offer.priceNote}
-              </span>
-            ) : null}
-          </p>
-        </PageHero>
+        {isSnapshot ? (
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start">
+            <PageHero eyebrow={offer.eyebrow} title={title} lede={lede} tone="dark">
+              <p className="mt-6 text-2xl font-semibold text-copper">
+                {offer.priceLabel}
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href="#enquire" variant="inverseSolid">
+                  {homeCopy.primaryCta}
+                </ButtonLink>
+                <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+                  {homeCopy.secondaryCta}
+                </a>
+              </div>
+            </PageHero>
+            <EnquiryForm intent="snapshot" id="enquire" />
+          </div>
+        ) : (
+          <PageHero eyebrow={offer.eyebrow} title={title} lede={lede} tone="dark">
+            <p className="mt-6 text-2xl font-semibold text-copper">
+              {offer.priceLabel}
+              {offer.priceNote ? (
+                <span className="ml-2 text-base font-normal text-paper-200">
+                  {offer.priceNote}
+                </span>
+              ) : null}
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
+                {homeCopy.primaryCta}
+              </ButtonLink>
+              <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
+                {homeCopy.secondaryCta}
+              </a>
+            </div>
+          </PageHero>
+        )}
       </PageBand>
 
-      <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-2">
+      <section className="section-band section-band--paper">
+      <div className="section-inner">
+        <div className="grid gap-12 lg:grid-cols-2">
           <section>
-            <h2 className="font-serif text-3xl text-navy sm:text-4xl">
+            <h2 className="section-h2">
               What you get
             </h2>
             <ul className="mt-6 space-y-4 leading-relaxed text-ink-muted">
@@ -83,22 +112,17 @@ export function ServicePage({
             </ul>
           </section>
           <section>
-            <h2 className="font-serif text-3xl text-navy sm:text-4xl">
+            <h2 className="section-h2">
               How it runs
             </h2>
-            <ol className="mt-6 space-y-5">
-              {process.map((step, index) => (
-                <li key={step.title}>
-                  <p className="font-serif text-2xl text-copper">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-1 font-medium text-navy">{step.title}</h3>
-                  <p className="mt-1 leading-relaxed text-ink-muted">
-                    {step.body}
-                  </p>
-                </li>
+            <div className="chapter-list">
+              {process.map((step) => (
+                <article key={step.title} className="chapter-row">
+                  <h3 className="chapter-h3">{step.title}</h3>
+                  <p>{step.body}</p>
+                </article>
               ))}
-            </ol>
+            </div>
           </section>
         </div>
 
@@ -107,31 +131,23 @@ export function ServicePage({
         <FaqList items={faqs} />
 
         <p className="mt-10 text-sm text-ink-soft">
-          Looking for another offer?{" "}
-          <Link href={routes.home} className="font-medium text-navy underline">
-            Back to the path
-          </Link>
-          {" · "}
+          Start with the free Snapshot.{" "}
           <Link
-            href={offers.audit.href}
+            href={routes.snapshotEnquire}
             className="font-medium text-navy underline"
           >
-            Visibility Audit
+            Enquire here
+          </Link>
+          {" · "}
+          <Link href={routes.home} className="font-medium text-navy underline">
+            Back home
           </Link>
           .
         </p>
 
-        <CtaBand
-          title={`Enquire about the ${offer.name}`}
-          body="Send the website and Google Business Profile. We confirm scope and timing by appointment."
-          secondaryHref={
-            offer.id === "snapshot" ? offers.audit.href : undefined
-          }
-          secondaryLabel={
-            offer.id === "snapshot" ? "See the A$1,500 audit" : undefined
-          }
-        />
+        <CtaBand title={homeCopy.closeTitle} body={homeCopy.closeBody} />
       </div>
+      </section>
     </div>
   );
 }

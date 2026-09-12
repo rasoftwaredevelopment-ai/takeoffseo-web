@@ -19,12 +19,14 @@ export default function FoundationPage() {
       extras={
         <section className="card mt-12 p-6 sm:p-8">
           <h2 className="font-serif text-2xl text-navy sm:text-3xl">
-            Typical A$6,500, from A$4,500
+            Fix site + Google profile
           </h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-ink-muted">
-            Tech and on-page work, information architecture, NAP and Google
-            Business Profile, answer-ready pages, and measurement. Leaner scopes
-            start from A$4,500 for simpler sites.
+            On the website: technical and on-page fixes, a clearer page
+            structure, and pages that answer hire questions. On Google Business
+            Profile: categories, services, and service-area clarity. At the end:
+            what changed versus the start. Scoped after the Snapshot and priced
+            in the proposal.
           </p>
         </section>
       }

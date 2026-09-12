@@ -33,10 +33,7 @@ export function FaqList({ items, title = "Questions" }: FaqListProps) {
 
   return (
     <section aria-labelledby="faq-heading" className="mt-16">
-      <h2
-        id="faq-heading"
-        className="font-serif text-4xl leading-tight text-navy sm:text-5xl"
-      >
+      <h2 id="faq-heading" className="section-h2">
         {title}
       </h2>
       <div className="mt-8 divide-y divide-line border-y border-line">

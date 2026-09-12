@@ -2,6 +2,7 @@ import { absoluteUrl, brand, siteUrl } from "@/lib/site";
 
 export const organizationId = `${siteUrl}#organization`;
 
+/** Organization JSON-LD omits ABN, taxID, and any identifier until a real number exists. */
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -69,9 +70,6 @@ export function serviceJsonLd(input: {
   name: string;
   description: string;
   path: string;
-  price?: string;
-  priceCurrency?: string;
-  priceSpecification?: Record<string, unknown>;
 }) {
   return {
     "@context": "https://schema.org",
@@ -84,14 +82,10 @@ export function serviceJsonLd(input: {
       "@type": "AdministrativeArea",
       name: brand.areaServed,
     },
+    // Pricing lock A: Offer has a URL only — no amount or currency fields.
     offers: {
       "@type": "Offer",
       url: absoluteUrl(input.path),
-      priceCurrency: input.priceCurrency ?? "AUD",
-      ...(input.price ? { price: input.price } : {}),
-      ...(input.priceSpecification
-        ? { priceSpecification: input.priceSpecification }
-        : {}),
     },
   };
 }
