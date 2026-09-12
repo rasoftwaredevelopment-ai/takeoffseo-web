@@ -246,7 +246,7 @@ body {
 }
 
 .hero-media__poster--still {
-  object-position: center 58%;
+  object-position: center 72%;
 }
 
 .hero-media__video[data-reduced-motion="true"] {
@@ -999,7 +999,7 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: center 62%;
+  object-position: center 72%;
 }
 
 .photo-band__scrim {
@@ -1076,7 +1076,7 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: center 58%;
+  object-position: center 42%;
 }
 
 .media-split__copy {
