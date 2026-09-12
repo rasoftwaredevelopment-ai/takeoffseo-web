@@ -80,9 +80,9 @@ If Cloudflare proxy (orange cloud) is enabled, SSL mode should be **Full (strict
 ## Offers
 
 1. **Visibility Snapshot** — free
-2. **Visibility Audit** — quoted in proposal
-3. **90-Day Foundation** — scoped after Snapshot
-4. **Monthly retainer** — discussed on a call
+2. **Visibility Audit** — get the fix map (priced in proposal)
+3. **90-Day Foundation** — scoped after Snapshot — fix site + Google profile
+4. **Monthly retainer** — scoped in proposal — keep it moving
 
 No ranking or AI-mention guarantees. No aggregate ratings in JSON-LD.
 

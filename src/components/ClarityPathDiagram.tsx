@@ -10,7 +10,7 @@ export function ClarityPathDiagram() {
       <div
         className="mt-4 grid gap-3 md:grid-cols-4"
         role="img"
-        aria-label="Snapshot to Audit to Foundation path: free Visibility Snapshot first, then Audit, Foundation, or Retainer quoted after Snapshot — case by case"
+        aria-label="Snapshot to Audit to Foundation path: Free Snapshot — see if buyers can find you; Audit — get the fix map (priced in proposal); 90-Day Foundation — fix site + Google profile; Monthly Retainer — keep it moving"
       >
         {clarityPathSteps.map((step, index) => (
           <div key={step.name} className="card relative p-5">

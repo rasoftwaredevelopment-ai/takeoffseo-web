@@ -25,7 +25,7 @@ export default function FoundationPage() {
             On the website: technical and on-page fixes, a clearer page
             structure, and pages that answer hire questions. On Google Business
             Profile: categories, services, and service-area clarity. At the end:
-            what changed versus the start. Scoped after the Snapshot and quoted
+            what changed versus the start. Scoped after the Snapshot and priced
             in the proposal.
           </p>
         </section>
