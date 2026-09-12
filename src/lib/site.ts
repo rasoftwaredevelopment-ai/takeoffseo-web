@@ -135,7 +135,7 @@ export const homeCopy = {
   takeoffCta: "Start your takeoff — free Snapshot",
   secondaryCta: `Talk to us · ${brand.phoneDisplay}`,
   contactAlt: `${brand.phoneDisplay} · ${brand.email}`,
-  takeoffHook: "Get found — then take off",
+  takeoffHook: "Get found. Then take off.",
   websiteSeoNote:
     "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
   closeTitle: "Clarity first. Takeoff next.",
@@ -220,7 +220,7 @@ export const aboutCopy = {
   pageTitle: "About TakeoffSEO | Gold Coast, QLD",
   lede: `I’m ${brand.founder} — founder of TakeoffSEO, based on the Gold Coast. I help local businesses across South East Queensland get found for the work they want on Google and in AI search.`,
   howIWork:
-    "How I work: Clarity first. Takeoff next. Free Visibility Snapshot to see the gaps. Anything further — Audit, ninety-day fixes, monthly work — is discussed after, case by case, and priced in proposal. No public price list. No fake rankings.",
+    "How I work: Clarity first. Takeoff next. Free Visibility Snapshot to see the gaps. Anything further — Audit, ninety-day fixes, monthly work — is discussed after, case by case, and quoted in proposal. No public price list. No fake rankings.",
   whyThis:
     "Why this: Jobs get decided in search and AI before the phone rings. I keep the work practical: your pages, your Google profile, your buyer questions.",
   proof:
@@ -308,20 +308,20 @@ export const whereJobsCaption =
   "Where jobs get decided: Google search, Google Maps, and AI answers. If you’re missing here, the enquiry often never hits your site." as const;
 
 export const sampleSnapshot = {
-  label: "Example only · not a real client",
+  label: "Example / illustrative · not a real client",
   business: "Coastal Pools SEQ",
   note: "Illustrative only. Mention / cite / none — not a ranking score and not a testimonial.",
   readout: "Invisible where buyers decide.",
-  maps: "Weak — listing exists, categories are thin, service area is unclear.",
+  maps: "None — listing exists, categories are thin, service area is unclear.",
   prompts: [
-    { prompt: "best pool builder Gold Coast", status: "Missing" },
-    { prompt: "concrete pool company near me", status: "Weak" },
-    { prompt: "who builds pools in SEQ", status: "Missing" },
+    { prompt: "best pool builder Gold Coast", status: "None" },
+    { prompt: "concrete pool company near me", status: "Mention" },
+    { prompt: "who builds pools in SEQ", status: "None" },
   ],
 } as const;
 
 export const sampleAudit = {
-  label: "Example / sample · fictional fix map · not a case study",
+  label: "Example / illustrative · fictional fix map · not a case study",
   intro:
     "A sample fix map so you can see the shape of an Audit. Not a real client, review, or testimonial.",
   nextStep: "Recommended next step: 90-Day Foundation, or hold if the site is not ready.",
@@ -341,12 +341,12 @@ export const snapshotPage = {
 
 export const auditPage = {
   title: "Visibility Audit for local businesses",
-  lede: "A written fix map: full Google + AI baseline and a prioritised plan. Priced in a proposal after the free Snapshot — case by case, not a public buy-now step.",
+  lede: "A written fix map: full Google + AI baseline and a prioritised plan. Quoted in a proposal after the free Snapshot — case by case, not a public buy-now step.",
 } as const;
 
 export const foundationPage = {
   title: "90-Day Foundation: find the gaps, fix them, show what changed",
-  lede: "Ninety days on your website and Google Business Profile. We find the gaps, fix the agreed work, and show what moved. Scoped after the Snapshot; priced in the proposal.",
+  lede: "Ninety days on your website and Google Business Profile. We find the gaps, fix the agreed work, and show what moved. Scoped after the Snapshot; quoted in the proposal.",
 } as const;
 
 export const retainerPage = {
@@ -360,13 +360,13 @@ export const snapshotFaqs: FaqItem[] = [
     id: "whats-in-snapshot",
     question: "What is in the free Visibility Snapshot?",
     answer:
-      "Free check: 5–8 AI prompts on your name plus a thin Maps note. Full baseline and fix map are the Audit — priced in proposal.",
+      "Free check: 5–8 AI prompts on your name plus a thin Maps note. Full baseline and fix map are the Audit — quoted after Snapshot / in proposal.",
   },
   {
     id: "vs-paid-audit",
     question: "How is the Snapshot different from the paid audit?",
     answer:
-      "Snapshot is free and shows the gaps. Audit maps what to fix first — full baseline, prioritised plan, next step — priced in proposal.",
+      "Snapshot is free and shows the gaps. Audit maps what to fix first — full baseline, prioritised plan, next step — quoted after Snapshot / in proposal.",
   },
   {
     id: "how-long",
@@ -386,7 +386,7 @@ export const auditFaqs: FaqItem[] = [
   {
     id: "audit-cost",
     question: "What does the audit cost?",
-    answer: "Priced in your proposal after we see scope.",
+    answer: "Quoted in your proposal after we see scope.",
   },
   {
     id: "in-out-1500",
@@ -422,7 +422,7 @@ export const foundationFaqs: FaqItem[] = [
     id: "whats-included-4500-6500",
     question: "What is included in the 90-Day Foundation?",
     answer:
-      "The work on your website and Google profile: technical and on-page fixes, a clearer page structure, name-address-phone consistency, and pages that answer hire questions. Measurement at the end. Scoped after the Snapshot; priced in the proposal.",
+      "The work on your website and Google profile: technical and on-page fixes, a clearer page structure, name-address-phone consistency, and pages that answer hire questions. Measurement at the end. Scoped after the Snapshot; quoted in the proposal.",
   },
   {
     id: "90-days-realistic",

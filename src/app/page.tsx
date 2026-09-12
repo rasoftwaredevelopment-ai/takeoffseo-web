@@ -22,7 +22,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-site px-4 py-16 sm:px-6 sm:py-24">
           <div className="hero-stagger max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
-              {homeCopy.takeoffHook}
+              {homeCopy.eyebrow}
             </p>
             <h1
               id="visibility-heading"
