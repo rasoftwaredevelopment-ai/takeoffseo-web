@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f6f1e8;
+  color: #1a1814;
+}
+
+::selection {
+  background: #1f4d3a;
+  color: #fffdf8;
+}
+
+:focus-visible {
+  outline: 2px solid #1f4d3a;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 80;
+  border-radius: 0.25rem;
+  background: #12263a;
+  padding: 0.5rem 0.75rem;
+  color: #fffdf8;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.hairline {
+  background: linear-gradient(90deg, transparent, #d4cbba, transparent);
+  height: 1px;
+}
