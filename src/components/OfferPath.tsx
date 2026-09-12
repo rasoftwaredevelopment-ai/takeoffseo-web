@@ -1,5 +1,6 @@
 import { offerOrder, offers } from "@/lib/site";
 import { ButtonLink } from "@/components/ButtonLink";
+import { Reveal } from "@/components/Reveal";
 
 type OfferPathProps = {
   heading?: string;
@@ -8,11 +9,11 @@ type OfferPathProps = {
 
 export function OfferPath({
   heading = "The offer path",
-  lede = "Start with the free Snapshot unless you already know you need a diagnostic. The audit does not include implementation.",
+  lede = "Snapshot shows the gaps. Audit maps what to fix first.",
 }: OfferPathProps) {
   return (
     <section aria-labelledby="offer-path-heading">
-      <div className="max-w-3xl">
+      <Reveal className="max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
           01–04
         </p>
@@ -23,12 +24,17 @@ export function OfferPath({
           {heading}
         </h2>
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">{lede}</p>
-      </div>
-      <ol className="stagger mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      </Reveal>
+      <ol className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {offerOrder.map((id, index) => {
           const offer = offers[id];
           return (
-            <li key={offer.id} className="card-hover flex flex-col p-6">
+            <Reveal
+              as="li"
+              key={offer.id}
+              delayMs={index * 80}
+              className="card-hover flex flex-col p-6"
+            >
               <p className="font-serif text-4xl leading-none text-copper">
                 {String(index + 1).padStart(2, "0")}
               </p>
@@ -54,7 +60,7 @@ export function OfferPath({
               >
                 {offer.name}
               </ButtonLink>
-            </li>
+            </Reveal>
           );
         })}
       </ol>

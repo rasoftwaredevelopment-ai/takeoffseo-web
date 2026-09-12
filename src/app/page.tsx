@@ -19,7 +19,7 @@ export default function HomePage() {
     <div>
       <section className="hero-grid bg-navy text-paper-50">
         <div className="mx-auto grid max-w-site gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.75fr)] lg:items-end">
-          <div>
+          <div className="hero-stagger">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
               {homeCopy.eyebrow}
             </p>

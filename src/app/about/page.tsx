@@ -83,7 +83,7 @@ export default function AboutPage() {
               <div>
                 <dt className="text-ink-soft">Marketing</dt>
                 <dd className="font-medium text-navy">
-                  Pool & landscape first
+                  Industry pages, starting with pool & landscape
                 </dd>
               </div>
             </dl>

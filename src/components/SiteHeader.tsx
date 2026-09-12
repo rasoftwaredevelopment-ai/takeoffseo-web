@@ -1,16 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components/ButtonLink";
 import { brand, nav, routes } from "@/lib/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/80 bg-paper-100/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-40 border-b bg-paper-100/95 backdrop-blur transition-shadow duration-300 ${
+        scrolled
+          ? "border-line shadow-[0_8px_24px_-16px_rgba(11,26,43,0.45)]"
+          : "border-line/80"
+      }`}
+    >
       <div className="mx-auto flex max-w-site items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link href={routes.home} className="flex items-center gap-2.5">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-sm bg-navy text-paper-50">
@@ -112,7 +126,7 @@ export function SiteHeader() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="border-t border-line bg-paper-50 px-4 py-4 lg:hidden"
+          className="border-t border-line bg-paper-50 px-4 py-4 motion-safe:animate-[rise_0.35s_ease] lg:hidden"
           aria-label="Mobile"
         >
           <div className="flex flex-col gap-3">

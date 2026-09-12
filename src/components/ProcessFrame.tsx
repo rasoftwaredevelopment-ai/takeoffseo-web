@@ -1,9 +1,10 @@
 import { processSteps } from "@/lib/site";
+import { Reveal } from "@/components/Reveal";
 
 export function ProcessFrame() {
   return (
     <section aria-labelledby="process-heading" className="mt-20">
-      <div className="max-w-3xl">
+      <Reveal className="max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">
           How the work runs
         </p>
@@ -16,19 +17,21 @@ export function ProcessFrame() {
         <p className="mt-4 text-lg leading-relaxed text-ink-muted">
           On your website and Google Business Profile.
         </p>
-      </div>
-      <ol className="stagger mt-10 grid gap-4 lg:grid-cols-3">
+      </Reveal>
+      <ol className="mt-10 grid gap-4 lg:grid-cols-3">
         {processSteps.map((step, index) => (
-          <li
+          <Reveal
+            as="li"
             key={step.title}
-            className="card-hover relative overflow-hidden p-7"
+            delayMs={index * 110}
+            className="process-step card-hover relative overflow-hidden p-7"
           >
             <p className="font-serif text-5xl leading-none text-copper/80">
               {String(index + 1).padStart(2, "0")}
             </p>
             <h3 className="mt-6 font-serif text-3xl text-navy">{step.title}</h3>
             <p className="mt-3 leading-relaxed text-ink-muted">{step.body}</p>
-          </li>
+          </Reveal>
         ))}
       </ol>
     </section>

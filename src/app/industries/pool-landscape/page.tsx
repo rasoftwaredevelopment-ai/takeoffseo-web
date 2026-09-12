@@ -55,10 +55,11 @@ export default function PoolLandscapePage() {
       <div className="mx-auto max-w-site px-4 py-14 sm:px-6 sm:py-16">
         <section className="max-w-3xl">
           <h2 className="font-serif text-4xl leading-tight text-navy sm:text-5xl">
-            Same path, written for this trade
+            Same Clarity path, written for this trade
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-            Pool and landscape first. Other local businesses when it’s a fit.
+            Snapshot shows the gaps. Audit maps what to fix first. Then
+            Foundation or Retainer when you’re ready to build.
           </p>
         </section>
 
