@@ -583,6 +583,76 @@ body {
   margin-top: 1.75rem;
 }
 
+.about-who {
+  display: grid;
+  gap: 3rem;
+}
+
+@media (min-width: 960px) {
+  .about-who {
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.75fr);
+    align-items: center;
+  }
+}
+
+.about-who__lead {
+  margin-top: 1.25rem;
+  max-width: 22ch;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.85rem, 3.6vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: #fffdf8;
+}
+
+.about-mark {
+  display: flex;
+  min-height: 22rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 2rem;
+  border: 1px solid rgba(255, 253, 248, 0.1);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(80% 70% at 20% 0%, rgba(201, 132, 58, 0.22), transparent 46%),
+    linear-gradient(180deg, #16324c, #071320);
+}
+
+.about-mark__disc {
+  display: inline-flex;
+  height: 4.5rem;
+  width: 4.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.08);
+  color: #fffdf8;
+}
+
+.about-mark__icon {
+  height: 2.25rem;
+  width: 2.25rem;
+}
+
+.about-mark__name {
+  margin-top: 1.5rem;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: #fffdf8;
+}
+
+.about-mark__line {
+  margin-top: 0.55rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #c9843a;
+}
+
 .about-facts {
   display: grid;
   gap: 1.25rem;
@@ -594,6 +664,10 @@ body {
 @media (min-width: 768px) {
   .about-facts {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .about-who .about-facts {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -618,9 +692,22 @@ body {
   margin-top: 2.5rem;
 }
 
+.scope-grid--on-dark li {
+  border-bottom-color: rgba(255, 253, 248, 0.12);
+  color: #d2c4ae;
+}
+
+.scope-grid--on-dark .chapter-h3 {
+  color: #fffdf8;
+}
+
 @media (min-width: 768px) {
   .scope-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .media-split .scope-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -646,6 +733,10 @@ body {
   line-height: 1.15;
   letter-spacing: -0.04em;
   color: #0b1a2b;
+}
+
+.about-punch--on-dark {
+  color: #fffdf8;
 }
 
 .about-steps {
