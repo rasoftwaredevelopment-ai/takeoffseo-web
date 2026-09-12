@@ -49,8 +49,8 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
           {nav.map((item) =>
             item.href === routes.snapshot ? (
-              <ButtonLink key={item.href} href={item.href}>
-                {item.label}
+              <ButtonLink key={item.href} href={routes.snapshotEnquire}>
+                {homeCopy.primaryCta}
               </ButtonLink>
             ) : (
               <Link

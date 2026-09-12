@@ -1,32 +1,28 @@
+import { ButtonLink } from "@/components/ButtonLink";
 import {
   clarityPathCaption,
   clarityPathSteps,
+  homeCopy,
+  routes,
 } from "@/lib/site";
 
-const liftOffset = ["md:mt-10", "md:mt-6", "md:mt-3", "md:mt-0"] as const;
+type ClarityPathDiagramProps = {
+  showCta?: boolean;
+};
 
-export function ClarityPathDiagram() {
+export function ClarityPathDiagram({
+  showCta = true,
+}: ClarityPathDiagramProps) {
   return (
     <figure className="mt-10">
-      <h3 className="font-serif text-2xl text-navy">How we work</h3>
+      <p className="font-serif text-2xl text-navy">How we work</p>
       <div
-        className="stagger mt-4 grid gap-3 md:grid-cols-4 md:items-end"
+        className="mt-4 grid gap-3 md:grid-cols-4"
         role="img"
-        aria-label="Snapshot to Audit to Foundation path: Free Snapshot — see if buyers can find you; Audit — get the fix map (priced in proposal); 90-Day Foundation — fix site + Google profile; Monthly Retainer — keep it moving (scoped in proposal)"
+        aria-label="How we work: Free Snapshot, then Audit after Snapshot priced in proposal, Foundation, and Retainer. Start free. Paid work quoted after Snapshot — case by case."
       >
-        {clarityPathSteps.map((step, index) => (
-          <div
-            key={step.name}
-            className={`card-hover relative p-5 ${liftOffset[index]}`}
-          >
-            {index > 0 ? (
-              <span
-                aria-hidden
-                className="absolute -left-2.5 top-6 hidden text-copper md:block"
-              >
-                ↗
-              </span>
-            ) : null}
+        {clarityPathSteps.map((step) => (
+          <div key={step.name} className="card p-5">
             <p className="font-serif text-xl text-navy">{step.name}</p>
             <p className="mt-2 text-sm leading-relaxed text-ink-muted">
               {step.line}
@@ -37,6 +33,13 @@ export function ClarityPathDiagram() {
       <figcaption className="mt-4 text-sm leading-relaxed text-ink-muted">
         {clarityPathCaption}
       </figcaption>
+      {showCta ? (
+        <div className="mt-6">
+          <ButtonLink href={routes.snapshotEnquire}>
+            {homeCopy.primaryCta}
+          </ButtonLink>
+        </div>
+      ) : null}
     </figure>
   );
 }

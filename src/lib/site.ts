@@ -157,8 +157,8 @@ export const homeDiagrams = {
   howTakeoff: {
     src: "/images/owner-lens/offer-path-diagram.png",
     title: "How we work",
-    caption: "Start free. Pay when you want the full map or the build.",
-    alt: "Snapshot to Audit to Foundation path: Free Snapshot, then Audit (get the fix map, priced in proposal), 90-Day Foundation (fix site + Google profile), Monthly Retainer (keep it moving, scoped in proposal).",
+    caption: "Start free. Paid work quoted after Snapshot — case by case.",
+    alt: "How we work: Free Snapshot, then Audit after Snapshot priced in proposal, Foundation, and Retainer. Not a numbered buy ladder.",
   },
   snapshotDoor: {
     src: "/images/owner-lens/snapshot-door-diagram.png",
@@ -272,20 +272,20 @@ export const clarityPathSteps = [
   },
   {
     name: "Audit",
-    line: "Get the fix map (priced in proposal)",
+    line: "After Snapshot, priced in proposal",
   },
   {
-    name: "90-Day Foundation",
+    name: "Foundation",
     line: "Fix site + Google profile",
   },
   {
-    name: "Monthly Retainer",
-    line: "Keep it moving (scoped in proposal)",
+    name: "Retainer",
+    line: "Keep it moving",
   },
 ] as const;
 
 export const clarityPathCaption =
-  "Start free. Pay when you want the full map or the build." as const;
+  "Start free. Paid work quoted after Snapshot — case by case." as const;
 
 export const howWeWorkSteps = [
   {

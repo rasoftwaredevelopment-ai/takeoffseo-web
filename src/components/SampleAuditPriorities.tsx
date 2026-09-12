@@ -13,10 +13,10 @@ export function SampleAuditPriorities() {
         <h3 className="font-serif text-2xl text-navy">Sample Audit fix map</h3>
         <p className="mt-2 text-sm text-ink-muted">{sampleAudit.intro}</p>
         <ol className="mt-5 space-y-3">
-          {sampleAudit.priorities.map((row, index) => (
+          {sampleAudit.priorities.map((row) => (
             <li key={row.item} className="flex gap-3">
-              <span className="font-serif text-xl text-copper">
-                {String(index + 1).padStart(2, "0")}
+              <span className="font-serif text-xl text-copper" aria-hidden>
+                ·
               </span>
               <span>
                 <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft">

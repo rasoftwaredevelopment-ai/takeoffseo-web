@@ -3,6 +3,7 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { CtaBand } from "@/components/CtaBand";
 import { Reveal } from "@/components/Reveal";
 import { SampleSnapshot } from "@/components/SampleSnapshot";
+import { ClarityPathDiagram } from "@/components/ClarityPathDiagram";
 import { TeachingDiagram } from "@/components/TeachingDiagram";
 import { brand, homeCopy, homeDiagrams, routes } from "@/lib/site";
 
@@ -76,27 +77,11 @@ export default function HomePage() {
               {homeCopy.takeoffHelp}
             </p>
           </Reveal>
-          <TeachingDiagram
-            src={homeDiagrams.howTakeoff.src}
-            alt={homeDiagrams.howTakeoff.alt}
-            title={homeDiagrams.howTakeoff.title}
-            caption={homeDiagrams.howTakeoff.caption}
-          />
-          <div className="mt-8">
-            <ButtonLink href={routes.snapshotEnquire}>
-              {homeCopy.primaryCta}
-            </ButtonLink>
-          </div>
+          <ClarityPathDiagram />
           <SampleSnapshot showCta={false} />
         </section>
 
-        <CtaBand
-          showDoor
-          showLocation
-          title={homeCopy.closeTitle}
-          body={homeCopy.closeBody}
-          primaryLabel={homeCopy.foundCta}
-        />
+        <CtaBand showDoor showLocation />
       </div>
     </div>
   );
