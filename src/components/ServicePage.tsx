@@ -145,14 +145,7 @@ export function ServicePage({
           .
         </p>
 
-        <CtaBand
-          title={isSnapshot ? "Ready for the Snapshot?" : homeCopy.closeTitle}
-          body={
-            isSnapshot
-              ? "Send the website and Google Business Profile. We confirm timing by appointment."
-              : homeCopy.closeBody
-          }
-        />
+        <CtaBand title={homeCopy.closeTitle} body={homeCopy.closeBody} />
       </div>
       </section>
     </div>

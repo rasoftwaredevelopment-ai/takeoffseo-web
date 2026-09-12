@@ -19,7 +19,7 @@ export default function VisibilitySnapshotPage() {
       lede={snapshotPage.lede}
       includes={[
         "5–8 AI prompts on your business name.",
-        "A thin Google Maps note.",
+        "A quick Google Maps / Business Profile check.",
         "A clear read on whether jobs are going elsewhere.",
         "What this is not: the full baseline or the fix map. That is the Audit.",
       ]}
@@ -42,9 +42,8 @@ export default function VisibilitySnapshotPage() {
           <section className="mt-12">
             <h2 className="section-h2">How we work</h2>
             <p className="section-lede">
-              The Snapshot is the start. Further work is quoted after, if you
-              want it — case by case, in a proposal. Not a public buy-now
-              ladder.
+              Start free. Anything further is quoted after — case by case, in a
+              proposal.
             </p>
             <div className="chapter-list">
               <article className="chapter-row">

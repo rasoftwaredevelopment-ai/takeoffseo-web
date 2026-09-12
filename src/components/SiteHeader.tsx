@@ -10,8 +10,8 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const onHome = pathname === "/";
-  const overHero = onHome && !scrolled && !open;
+  const overHero =
+    (pathname === "/" || pathname === "/about") && !scrolled && !open;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);

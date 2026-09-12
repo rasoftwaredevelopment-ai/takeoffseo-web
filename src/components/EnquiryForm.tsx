@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { brand, formspreeId, offerOrder, offers } from "@/lib/site";
+import { brand, enquiryOffers, formspreeId, offers } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "mailto" | "error";
 
@@ -192,12 +192,11 @@ export function EnquiryForm({
             defaultValue={offers.snapshot.name}
             className="rounded-sm border border-line bg-white px-3 py-2.5 text-ink"
           >
-            {offerOrder.map((offerId) => (
-              <option key={offerId} value={offers[offerId].name}>
-                {offers[offerId].name}
+            {enquiryOffers.map((offer) => (
+              <option key={offer} value={offer}>
+                {offer}
               </option>
             ))}
-            <option value="Not sure yet">Not sure yet</option>
           </select>
         </label>
         <label className="grid gap-1.5 text-sm sm:col-span-2">

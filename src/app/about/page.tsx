@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
-import { PageBand } from "@/components/PageBand";
-import { PageHero } from "@/components/PageHero";
-import { SampleAuditPriorities } from "@/components/SampleAuditPriorities";
 import { SampleSnapshot } from "@/components/SampleSnapshot";
+import { StockPicture } from "@/components/StockPicture";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import { aboutCopy, brand, homeCopy, routes } from "@/lib/site";
 
@@ -24,117 +22,160 @@ export default function AboutPage() {
           { name: "About", path: routes.about },
         ])}
       />
-      <PageBand>
-        <PageHero
-          eyebrow={homeCopy.eyebrow}
-          title={aboutCopy.title}
-          lede={aboutCopy.lede}
-          tone="dark"
-        >
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+
+      <section aria-labelledby="about-heading" className="hero-cinematic">
+        <div className="hero-media" aria-hidden>
+          <StockPicture name="night-city" className="hero-media__poster" />
+        </div>
+        <div className="hero-scrim" aria-hidden />
+        <div className="hero-copy">
+          <div className="hero-copy__main">
+            <div className="hero-stagger max-w-4xl">
+              <h1 id="about-heading" className="font-serif font-semibold text-display">
+                {aboutCopy.h1}
+              </h1>
+              <p className="hero-sub">{aboutCopy.sub}</p>
+              <p className="hero-lede">{aboutCopy.lede}</p>
+              <div className="hero-actions">
+                <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
+                  {homeCopy.primaryCta}
+                </ButtonLink>
+                <p className="hero-nap">
+                  <a href={`tel:${brand.phoneTel}`}>{brand.phoneDisplay}</a>
+                  <span aria-hidden> · </span>
+                  <a href={`mailto:${brand.email}`}>{brand.email}</a>
+                </p>
+              </div>
+              <p className="hero-support hero-support--late">
+                {aboutCopy.locationLine}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="who-i-am-heading"
+        className="section-band section-band--navy"
+      >
+        <div className="section-inner">
+          <h2 id="who-i-am-heading" className="section-h2">
+            {aboutCopy.whoTitle}
+          </h2>
+          <p className="section-lede">{aboutCopy.whoLead}</p>
+          <p className="section-close">{aboutCopy.whoBody}</p>
+          <p className="section-close">{aboutCopy.whoClose}</p>
+          <dl className="about-facts">
+            <div>
+              <dt>Founder</dt>
+              <dd>{brand.founder}</dd>
+            </div>
+            <div>
+              <dt>Based</dt>
+              <dd>{brand.locationLabel}</dd>
+            </div>
+            <div>
+              <dt>Area served</dt>
+              <dd>{brand.areaServed}</dd>
+            </div>
+            <div>
+              <dt>Delivery</dt>
+              <dd>{aboutCopy.delivery}</dd>
+            </div>
+          </dl>
+          <div className="mt-10">
             <ButtonLink href={routes.snapshotEnquire} variant="inverseSolid">
               {homeCopy.primaryCta}
             </ButtonLink>
-            <p className="text-sm text-paper-200 sm:text-base">
-              <a href={`tel:${brand.phoneTel}`} className="hover:text-paper-50">
-                {brand.phoneDisplay}
-              </a>
-              {" · "}
-              <a href={`mailto:${brand.email}`} className="hover:text-paper-50">
-                {brand.email}
-              </a>
-            </p>
           </div>
-        </PageHero>
-      </PageBand>
+        </div>
+      </section>
 
-      <section className="section-band section-band--paper">
+      <section
+        aria-labelledby="focus-heading"
+        className="section-band section-band--paper"
+      >
         <div className="section-inner">
-          <div className="grid gap-10 lg:grid-cols-3">
-            <div className="lg:col-span-2">
-              <h2 className="section-h2">Who Alexander is</h2>
-              <div className="chapter-list">
-                <article className="chapter-row">
-                  <h3 className="chapter-h3">How I work</h3>
-                  <p>{aboutCopy.howIWork}</p>
-                </article>
-                <article className="chapter-row">
-                  <h3 className="chapter-h3">Why this</h3>
-                  <p>{aboutCopy.whyThis}</p>
-                </article>
-                <article className="chapter-row">
-                  <h3 className="chapter-h3">Honest proof</h3>
-                  <p>{aboutCopy.proof}</p>
-                </article>
-              </div>
-              <p className="section-close">
-                Call{" "}
-                <a
-                  className="font-medium text-navy underline"
-                  href={`tel:${brand.phoneTel}`}
-                >
-                  {brand.phoneDisplay}
-                </a>{" "}
-                or email{" "}
-                <a
-                  className="font-medium text-navy underline"
-                  href={`mailto:${brand.email}`}
-                >
-                  {brand.email}
-                </a>
-                . Hours are {brand.hours.toLowerCase()}.
-              </p>
-              <div className="mt-8">
-                <ButtonLink href={routes.snapshotEnquire}>
-                  {homeCopy.primaryCta}
-                </ButtonLink>
-              </div>
-            </div>
-            <aside className="h-fit rounded-md bg-navy p-6 text-paper-50 lg:mt-16">
-              <div
-                className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-white/10"
-                aria-hidden
-              >
-                <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none">
-                  <path
-                    d="M4 16.5 12 5.5 20 16.5"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                  />
-                  <path d="M8 16.5h8" stroke="currentColor" strokeWidth="1.6" />
-                </svg>
-              </div>
-              <h2 className="font-serif text-3xl leading-tight">Who I am</h2>
-              <p className="mt-2 text-sm text-paper-200">{aboutCopy.photoNote}</p>
-              <dl className="mt-5 space-y-3 text-sm">
-                <div>
-                  <dt className="text-paper-300">Founder</dt>
-                  <dd className="font-medium">{brand.founder}</dd>
-                </div>
-                <div>
-                  <dt className="text-paper-300">Based</dt>
-                  <dd className="font-medium">{brand.locationLabel}</dd>
-                </div>
-                <div>
-                  <dt className="text-paper-300">Area served</dt>
-                  <dd className="font-medium">{brand.areaServed}</dd>
-                </div>
-                <div>
-                  <dt className="text-paper-300">Hours</dt>
-                  <dd className="font-medium">{brand.hours}</dd>
-                </div>
-                <div>
-                  <dt className="text-paper-300">Delivery</dt>
-                  <dd className="font-medium">{aboutCopy.delivery}</dd>
-                </div>
-              </dl>
-            </aside>
+          <h2 id="focus-heading" className="section-h2">
+            {aboutCopy.focusTitle}
+          </h2>
+          <p className="section-lede">{aboutCopy.focusBody}</p>
+          <div className="scope-grid">
+            <article>
+              <h3 className="chapter-h3">In scope</h3>
+              <ul>
+                {aboutCopy.inScope.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article>
+              <h3 className="chapter-h3">Out of scope</h3>
+              <ul>
+                {aboutCopy.outOfScope.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
           </div>
+          <p className="about-punch">{aboutCopy.punchOnce}</p>
+        </div>
+      </section>
 
+      <section
+        aria-labelledby="work-together-heading"
+        className="section-band section-band--navy"
+      >
+        <div className="section-inner">
+          <h2 id="work-together-heading" className="section-h2">
+            {aboutCopy.workTitle}
+          </h2>
+          <ol className="chapter-list about-steps">
+            {aboutCopy.workSteps.map((step, index) => (
+              <li key={step.title} className="chapter-row">
+                <h3 className="chapter-h3">
+                  <span className="about-step-num">{index + 1}</span>
+                  {step.title}
+                </h3>
+                <p>{step.body}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="section-close">{aboutCopy.workClose}</p>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="values-heading"
+        className="section-band section-band--ink-deep"
+      >
+        <div className="section-inner">
+          <h2 id="values-heading" className="section-h2">
+            {aboutCopy.valuesTitle}
+          </h2>
+          <ul className="value-stack">
+            {aboutCopy.values.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="about-snapshot-heading"
+        className="section-band section-band--navy"
+      >
+        <div className="section-inner">
+          <h2 id="about-snapshot-heading" className="section-h2">
+            {aboutCopy.sampleTitle}
+          </h2>
           <SampleSnapshot />
-          <SampleAuditPriorities />
-
-          <CtaBand />
+          <CtaBand
+            title={aboutCopy.closeTitle}
+            body={homeCopy.closeBody}
+            primaryLabel={homeCopy.primaryCta}
+            showLocation
+          />
         </div>
       </section>
     </div>
