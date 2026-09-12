@@ -25,7 +25,10 @@ export default function AboutPage() {
 
       <section aria-labelledby="about-heading" className="hero-cinematic">
         <div className="hero-media" aria-hidden>
-          <StockPicture name="night-city" className="hero-media__poster" />
+          <StockPicture
+            name="night-city"
+            className="hero-media__poster hero-media__poster--still"
+          />
         </div>
         <div className="hero-scrim" aria-hidden />
         <div className="hero-copy">

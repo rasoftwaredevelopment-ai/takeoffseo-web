@@ -245,6 +245,10 @@ body {
   z-index: 1;
 }
 
+.hero-media__poster--still {
+  object-position: center 58%;
+}
+
 .hero-media__video[data-reduced-motion="true"] {
   visibility: hidden;
 }
@@ -995,7 +999,7 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center 62%;
 }
 
 .photo-band__scrim {
@@ -1072,7 +1076,7 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 58%;
 }
 
 .media-split__copy {
