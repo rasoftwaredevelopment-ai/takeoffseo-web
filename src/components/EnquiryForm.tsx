@@ -5,7 +5,7 @@ import { brand, formspreeId, packages } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-type Field =
+export type Field =
   | "name"
   | "email"
   | "phone"
@@ -19,7 +19,7 @@ type Field =
   | "plan"
   | "history";
 
-type EnquiryFormProps = {
+export type EnquiryFormProps = {
   heading?: string;
   intro?: string;
   submitLabel: string;

@@ -7,6 +7,7 @@ import { brand, nav, routes } from "@/lib/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -18,53 +19,102 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-40 border-b bg-navy text-paper-50 ${
-        scrolled ? "shadow-[0_8px_24px_-16px_rgba(11,26,43,0.45)]" : ""
+      className={`sticky top-0 z-40 border-b bg-paper-100/95 backdrop-blur transition-shadow duration-300 ${
+        scrolled
+          ? "border-line shadow-[0_8px_24px_-16px_rgba(11,26,43,0.45)]"
+          : "border-line/80"
       }`}
     >
       <div className="mx-auto flex max-w-site items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href={routes.home} className="flex items-center gap-2.5 text-paper-50">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-sm bg-navy-700">
-            <svg viewBox="0 0 32 32" className="h-5 w-5" aria-hidden>
+        <Link href={routes.home} className="flex items-center gap-2.5">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-sm bg-navy text-paper-50">
+            <svg
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              aria-hidden
+            >
               <path
-                d="M8 22 L22 8 M14 8 h8 v8"
-                stroke="#c9843a"
-                strokeWidth="3"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                d="M4 16.5 12 5.5 20 16.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
               />
+              <path d="M8 16.5h8" stroke="currentColor" strokeWidth="1.6" />
             </svg>
           </span>
-          <span className="font-serif text-xl tracking-tight">
+          <span className="font-serif text-xl tracking-tight text-navy">
             Takeoff<span className="text-copper">SEO</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-sm px-3 py-2 text-sm font-medium text-paper-200 hover:bg-navy-700 hover:text-paper-50"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+          {nav.map((item) =>
+            "children" in item ? (
+              <div
+                key={item.label}
+                className="group relative"
+                onMouseEnter={() => setMenuOpen(item.label)}
+                onMouseLeave={() => setMenuOpen(null)}
+              >
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-1 py-2 text-sm font-medium text-navy"
+                  aria-expanded={menuOpen === item.label}
+                  aria-haspopup="true"
+                  onClick={() =>
+                    setMenuOpen((value) =>
+                      value === item.label ? null : item.label,
+                    )
+                  }
+                >
+                  {item.label}
+                  <span aria-hidden className="text-[10px] text-ink-soft">
+                    ▾
+                  </span>
+                </button>
+                <div
+                  className={`absolute left-0 top-full z-50 min-w-72 pt-2 ${
+                    menuOpen === item.label
+                      ? "block"
+                      : "hidden group-hover:block group-focus-within:block"
+                  }`}
+                >
+                  <div className="border border-line bg-paper-50 py-2 shadow-card">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className="block px-4 py-2.5 text-sm text-ink hover:bg-paper-200"
+                        onClick={() => setMenuOpen(null)}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-navy hover:text-forest"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
           <a
             href={`tel:${brand.phoneTel}`}
-            className="ml-2 hidden text-sm font-semibold text-paper-200 hover:text-paper-50 xl:inline"
+            className="text-sm font-medium text-ink-muted hover:text-navy"
           >
             {brand.phoneDisplay}
           </a>
-          <ButtonLink href={routes.freeCheck} className="ml-3">
-            Free check
-          </ButtonLink>
+          <ButtonLink href={routes.freeCheck}>Free check</ButtonLink>
         </nav>
 
         <button
           type="button"
-          className="inline-flex items-center rounded-sm border border-white/20 px-3 py-2 text-sm font-medium text-paper-50 lg:hidden"
+          className="inline-flex items-center rounded-sm border border-line px-3 py-2 text-sm font-medium text-navy lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((value) => !value)}
@@ -76,35 +126,48 @@ export function SiteHeader() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="border-t border-white/10 bg-navy px-4 py-4 lg:hidden"
+          className="border-t border-line bg-paper-50 px-4 py-4 motion-safe:animate-[rise_0.35s_ease] lg:hidden"
           aria-label="Mobile"
         >
-          <div className="flex flex-col">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="border-b border-white/10 py-3 text-base font-medium text-paper-50"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href={routes.faq}
-              className="border-b border-white/10 py-3 text-base font-medium text-paper-50"
+          <div className="flex flex-col gap-3">
+            {nav.map((item) =>
+              "children" in item ? (
+                <div key={item.label} className="flex flex-col gap-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-soft">
+                    {item.label}
+                  </p>
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      className="text-base text-navy"
+                      onClick={() => setOpen(false)}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-base font-medium text-navy"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
+            <a href={`tel:${brand.phoneTel}`} className="pt-2 text-navy">
+              {brand.phoneDisplay}
+            </a>
+            <ButtonLink
+              href={routes.freeCheck}
+              className="mt-1"
               onClick={() => setOpen(false)}
             >
-              Questions
-            </Link>
-            <div className="mt-4 grid gap-2">
-              <ButtonLink href={routes.freeCheck} onClick={() => setOpen(false)}>
-                Get your free check
-              </ButtonLink>
-              <a href={`tel:${brand.phoneTel}`} className="btn-inverse">
-                Call {brand.phoneDisplay}
-              </a>
-            </div>
+              Get your free check
+            </ButtonLink>
           </div>
         </nav>
       ) : null}

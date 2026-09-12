@@ -1,18 +1,20 @@
 import Link from "next/link";
-import { brand, packages, routes } from "@/lib/site";
+import { brand, packageOrder, packages, routes } from "@/lib/site";
 
 export function SiteFooter() {
   return (
     <footer className="mt-0 border-t border-navy/20 bg-navy text-paper-200">
       <div className="mx-auto grid max-w-site gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div>
-          <p className="font-serif text-2xl text-paper-50">
+          <p className="font-serif text-3xl text-paper-50">
             Takeoff<span className="text-copper">SEO</span>
           </p>
-          <p className="mt-3 font-serif text-lg text-paper-50">{brand.footerLine}</p>
+          <p className="mt-3 font-serif text-lg text-paper-50">
+            {brand.footerLine}
+          </p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed">
-            Local SEO for service businesses anywhere in Australia. Fixed prices.
-            One person doing the work.
+            Local SEO for service businesses anywhere in Australia. Fixed
+            prices. One person doing the work.
           </p>
           <p className="mt-3 text-xs text-paper-300">
             Work is founder-led. Client names will be added with permission.
@@ -20,34 +22,19 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-paper-300">
-            What you can buy
+            Offers
           </p>
           <ul className="mt-3 space-y-2 text-sm">
-            <li>
-              <Link href={packages.free.href} className="hover:text-paper-50">
-                Free check
-              </Link>
-            </li>
-            <li>
-              <Link href={packages.tune.href} className="hover:text-paper-50">
-                Profile Tune-Up, $490
-              </Link>
-            </li>
-            <li>
-              <Link href={packages.fix.href} className="hover:text-paper-50">
-                Website Fix-Up, $1,900
-              </Link>
-            </li>
-            <li>
-              <Link href={packages.site.href} className="hover:text-paper-50">
-                New Website, $3,900
-              </Link>
-            </li>
-            <li>
-              <Link href={packages.monthly.href} className="hover:text-paper-50">
-                Monthly Plan, from $690
-              </Link>
-            </li>
+            {packageOrder.map((id) => (
+              <li key={id}>
+                <Link href={packages[id].href} className="hover:text-paper-50">
+                  {packages[id].name}
+                  {id === "free"
+                    ? ""
+                    : `, ${packages[id].priceLabel}${id === "monthly" ? "/mo" : ""}`}
+                </Link>
+              </li>
+            ))}
             <li>
               <Link href={routes.pricing} className="hover:text-paper-50">
                 All prices
@@ -102,7 +89,7 @@ export function SiteFooter() {
                 {brand.email}
               </a>
             </li>
-            <li>Hours by appointment</li>
+            <li>Hours: {brand.hours}</li>
             <li>Gold Coast, Queensland</li>
             <li>Working Australia-wide, online</li>
           </ul>

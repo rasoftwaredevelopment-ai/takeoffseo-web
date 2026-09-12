@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBand } from "@/components/CtaBand";
 import { FaqList } from "@/components/FaqList";
+import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
 import { routes } from "@/lib/site";
 
@@ -12,12 +13,16 @@ export const metadata: Metadata = {
 
 export default function FaqPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
-      <PageHero
-        eyebrow="Questions"
-        title="Things people ask before they start."
-        lede="If yours isn't here, ask me."
-      />
+    <div>
+      <PageBand>
+        <PageHero
+          tone="dark"
+          eyebrow="Questions"
+          title="Things people ask before they start."
+          lede="If yours isn't here, ask me."
+        />
+      </PageBand>
+      <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-16">
       <FaqList
         title="The basics"
         items={[
@@ -42,6 +47,7 @@ export default function FaqPage() {
         primaryHref={routes.contact}
         primaryLabel="Ask me"
       />
+      </div>
     </div>
   );
 }

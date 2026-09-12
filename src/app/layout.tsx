@@ -63,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-AU" className={`${sans.variable} ${serif.variable}`}>
-      <body className="min-h-screen bg-paper-50 font-sans text-ink antialiased">
+      <body className="min-h-screen bg-paper-100 font-sans text-ink antialiased">
         <JsonLd data={organizationJsonLd()} />
         <a className="skip-link" href="#main">
           Skip to content

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
 import { brand, routes } from "@/lib/site";
 
@@ -10,12 +11,16 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
-      <PageHero
-        eyebrow="Privacy"
-        title="Privacy policy"
-        lede="Short version: I collect what I need to do the work, I don't sell it, and you can ask me to delete it."
-      />
+    <div>
+      <PageBand>
+        <PageHero
+          tone="dark"
+          eyebrow="Privacy"
+          title="Privacy policy"
+          lede="Short version: I collect what I need to do the work, I don't sell it, and you can ask me to delete it."
+        />
+      </PageBand>
+      <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-16">
       <div className="prose-site mt-10 space-y-4 text-ink-muted">
         <p className="text-sm text-ink-soft">
           {brand.legalName}, ABN {brand.abn}. Last updated [DATE].
@@ -45,6 +50,7 @@ export default function PrivacyPage() {
           handle personal information in line with the Australian Privacy
           Principles.
         </p>
+      </div>
       </div>
     </div>
   );

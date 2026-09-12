@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
 import { brand, routes } from "@/lib/site";
 
@@ -10,12 +11,16 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
-      <PageHero
-        eyebrow="Terms"
-        title="Terms of service"
-        lede="The plain-English rules for working with TakeoffSEO. Each paid package also comes with a one-page agreement that repeats the important bits."
-      />
+    <div>
+      <PageBand>
+        <PageHero
+          tone="dark"
+          eyebrow="Terms"
+          title="Terms of service"
+          lede="The plain-English rules for working with TakeoffSEO. Each paid package also comes with a one-page agreement that repeats the important bits."
+        />
+      </PageBand>
+      <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-16">
       <div className="mt-10 space-y-4 text-ink-muted">
         <p className="text-sm text-ink-soft">
           {brand.legalName}, ABN {brand.abn}. Last updated [DATE].
@@ -70,6 +75,7 @@ export default function TermsPage() {
           These terms are governed by the laws of Queensland, Australia. Nothing
           here removes your rights under the Australian Consumer Law.
         </p>
+      </div>
       </div>
     </div>
   );
