@@ -11,7 +11,7 @@ import {
   serviceJsonLd,
 } from "@/lib/schema";
 import type { FaqItem, Offer } from "@/lib/site";
-import { offers, routes } from "@/lib/site";
+import { routes } from "@/lib/site";
 
 type ServicePageProps = {
   offer: Offer;
@@ -107,16 +107,13 @@ export function ServicePage({
         <FaqList items={faqs} />
 
         <p className="mt-10 text-sm text-ink-soft">
-          Looking for another offer?{" "}
-          <Link href={routes.home} className="font-medium text-navy underline">
-            Back to the path
+          Start with the free door.{" "}
+          <Link href={routes.snapshot} className="font-medium text-navy underline">
+            Free Visibility Snapshot
           </Link>
           {" · "}
-          <Link
-            href={offers.audit.href}
-            className="font-medium text-navy underline"
-          >
-            Visibility Audit
+          <Link href={routes.home} className="font-medium text-navy underline">
+            Back home
           </Link>
           .
         </p>
@@ -124,12 +121,8 @@ export function ServicePage({
         <CtaBand
           title={`Enquire about the ${offer.name}`}
           body="Send the website and Google Business Profile. We confirm scope and timing by appointment."
-          secondaryHref={
-            offer.id === "snapshot" ? offers.audit.href : undefined
-          }
-          secondaryLabel={
-            offer.id === "snapshot" ? "See the A$1,500 audit" : undefined
-          }
+          primaryHref={routes.snapshot}
+          primaryLabel="Get a Free Visibility Snapshot"
         />
       </div>
     </div>

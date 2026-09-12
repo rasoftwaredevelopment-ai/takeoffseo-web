@@ -10,7 +10,7 @@ export const brand = {
   domain: "takeoffseo.com",
   h1: "Google + AI visibility for local businesses",
   tagline:
-    "Get found for the work you want on Google and AI search. Free Visibility Snapshot. Gold Coast · SEQ.",
+    "Google, Maps, and AI visibility for SEQ pool builders, landscapers, and other local businesses. Free Visibility Snapshot. Gold Coast · SEQ.",
   founder: "Alexander Nott",
   phoneDisplay: "0497 878 930",
   phoneTel: "+61497878930",
@@ -106,44 +106,25 @@ export const offerOrder: OfferId[] = [
 ];
 
 export const nav = [
-  {
-    label: "Services",
-    children: offerOrder.map((id) => ({
-      label: offers[id].name,
-      href: offers[id].href,
-    })),
-  },
-  {
-    label: "Industries",
-    children: [
-      {
-        label: "Pool & landscape",
-        href: routes.poolLandscape,
-      },
-    ],
-  },
+  { label: "Home", href: routes.home },
   { label: "About", href: routes.about },
+  { label: "Free Snapshot", href: routes.snapshot },
   { label: "Contact", href: routes.contact },
 ] as const;
 
 export const homeCopy = {
   eyebrow: "Gold Coast · South East Queensland",
-  h1: brand.h1,
-  lede: [
-    "Buyers already ask Google and AI who to hire.",
-    "If you’re not in those answers, the next job goes to someone who is.",
-    "TakeoffSEO gets local businesses found for the work they want — on Google and in AI search.",
-    "Then we implement the fixes and show what moved.",
-  ].join(" "),
+  h1: "If they can’t find you, they hire someone else.",
+  lede: "TakeoffSEO gets SEQ pool builders, landscapers, and other local businesses found — in Google Search, Maps, and AI answers.",
   locationLine:
-    "Based on the Gold Coast. We work with local businesses across South East Queensland.",
-  primaryCta: "Get a free Visibility Snapshot",
-  secondaryCta: "Book a Visibility Audit — A$1,500",
+    "Based on the Gold Coast. We work across South East Queensland.",
+  primaryCta: "Get a Free Visibility Snapshot",
+  secondaryCta: "Call 0497 878 930",
   websiteSeoNote:
     "Site’s the blocker? Website+SEO is a separate build — then Clarity on top.",
   closeTitle: "Want to see the gaps?",
   closeBody:
-    "Get the free Snapshot. Ready for the fix map? Book the Audit.",
+    "Get the free Visibility Snapshot. Phone or enquire — we confirm timing by appointment.",
 } as const;
 
 export const whatYouGet = [

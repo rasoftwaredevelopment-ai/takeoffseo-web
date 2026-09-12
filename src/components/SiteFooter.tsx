@@ -1,43 +1,39 @@
 import Link from "next/link";
-import { brand, offerOrder, offers, routes } from "@/lib/site";
+import { brand, nav, routes } from "@/lib/site";
 
 export function SiteFooter() {
   return (
     <footer className="mt-0 border-t border-navy/20 bg-navy text-paper-200">
-      <div className="mx-auto grid max-w-site gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
+      <div className="mx-auto grid max-w-site gap-12 px-4 py-24 sm:px-6 md:grid-cols-4 lg:py-32">
         <div className="md:col-span-2">
-          <p className="font-serif text-3xl text-paper-50">{brand.name}</p>
-          <p className="mt-4 max-w-md text-sm leading-relaxed">
-            Google and AI visibility for local businesses. {brand.icpSecondary}
+          <p className="font-serif text-display text-paper-50">{brand.name}</p>
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-paper-100">
+            Google, Maps, and AI visibility for SEQ pool builders and
+            landscapers. Other local service businesses considered case by case.
           </p>
-          <p className="mt-4 text-sm">
+          <p className="mt-5 text-base text-paper-200">
             Gold Coast based · South East Queensland · By appointment
           </p>
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-paper-300">
-            Offers
+            Site
           </p>
-          <ul className="mt-3 space-y-2 text-sm">
-            {offerOrder.map((id) => (
-              <li key={id}>
-                <Link href={offers[id].href} className="hover:text-paper-50">
-                  {offers[id].name}
+          <ul className="mt-4 space-y-3 text-base">
+            {nav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="hover:text-paper-50">
+                  {item.label}
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href={routes.poolLandscape} className="hover:text-paper-50">
-                Pool & landscape
-              </Link>
-            </li>
           </ul>
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-paper-300">
             Contact
           </p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <ul className="mt-4 space-y-3 text-base">
             <li>
               <a href={`tel:${brand.phoneTel}`} className="hover:text-paper-50">
                 {brand.phoneDisplay}
@@ -50,12 +46,8 @@ export function SiteFooter() {
             </li>
             <li>Hours: {brand.hours}</li>
             <li>
-              <Link href={routes.about} className="hover:text-paper-50">
-                About
-              </Link>
-              {" · "}
-              <Link href={routes.contact} className="hover:text-paper-50">
-                Contact
+              <Link href={routes.snapshot} className="hover:text-paper-50">
+                Free Visibility Snapshot
               </Link>
             </li>
           </ul>
@@ -67,7 +59,10 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {brand.name}. Gold Coast based.
           </p>
           <p>ABN {brand.abn}</p>
-          <p>South East Queensland · By appointment</p>
+          <p>
+            Google, Maps, and AI platform names used nominatively. No ranking
+            guarantees.
+          </p>
         </div>
       </div>
     </footer>

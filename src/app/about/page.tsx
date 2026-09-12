@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageBand } from "@/components/PageBand";
 import { PageHero } from "@/components/PageHero";
 import { breadcrumbJsonLd } from "@/lib/schema";
-import { aboutCopy, brand, homeCopy, offers, routes } from "@/lib/site";
+import { aboutCopy, brand, homeCopy, routes } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "About TakeoffSEO | Gold Coast, QLD" },
@@ -91,9 +91,8 @@ export default function AboutPage() {
         <CtaBand
           title={homeCopy.closeTitle}
           body={homeCopy.closeBody}
+          primaryHref={routes.snapshot}
           primaryLabel={homeCopy.primaryCta}
-          secondaryHref={offers.audit.href}
-          secondaryLabel={homeCopy.secondaryCta}
         />
       </div>
     </div>

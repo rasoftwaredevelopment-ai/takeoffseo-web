@@ -53,6 +53,48 @@ body {
   background-size: auto, 72px 72px, 72px 72px;
 }
 
+main {
+  padding-top: 4.35rem;
+}
+
+body:has(.home-page) {
+  background: #071320;
+}
+
+body:has(.home-page) main {
+  padding-top: 0;
+}
+
+.hero-scrim,
+.chapter-scrim {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 19, 32, 0.22) 0%,
+      rgba(7, 19, 32, 0.38) 38%,
+      rgba(7, 19, 32, 0.78) 100%
+    ),
+    linear-gradient(90deg, rgba(7, 19, 32, 0.48), transparent 62%);
+}
+
+.chapter-scrim-heavy {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 19, 32, 0.34) 0%,
+      rgba(7, 19, 32, 0.5) 38%,
+      rgba(7, 19, 32, 0.82) 100%
+    ),
+    linear-gradient(90deg, rgba(7, 19, 32, 0.48), transparent 68%);
+}
+
+.parallax-inner {
+  position: relative;
+  top: -12%;
+  height: 124%;
+  width: 100%;
+}
+
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center rounded-sm px-5 py-3 text-sm font-semibold transition-colors duration-200;
@@ -165,6 +207,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .parallax-inner {
+    top: 0;
+    height: 100%;
+    transform: none !important;
   }
 
   .stagger > *,
