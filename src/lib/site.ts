@@ -382,7 +382,7 @@ export const poolLandscapeFaqs: FaqItem[] = [
     id: "who-helps-seq-pool",
     question: "Who helps SEQ pool builders with this work?",
     answer:
-      "You want a partner who knows outdoor trades and local findability — or solid in-house capacity. TakeoffSEO runs the Clarity path for SEQ pool and landscape on this page. Start with a free Snapshot.",
+      "You want a partner who knows outdoor trades and local findability — or solid in-house capacity. TakeoffSEO’s Clarity path for SEQ pool builders and landscapers starts with a free Visibility Snapshot.",
   },
   {
     id: "seo-for-landscapers-seq",
